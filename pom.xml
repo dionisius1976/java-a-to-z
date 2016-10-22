@@ -12,4 +12,8 @@
 		<version>1.0</version>
 	</parent>
 	
+	<modules>
+		<module>chapter_001</module>
+	</modules>
+	
 </project>

@@ -1,0 +1,15 @@
+<project>
+
+	<version>1.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.dionisius</groupId>
+	<artifactId>chapter_001</artifactId>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>java-a-to-z</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+</project>

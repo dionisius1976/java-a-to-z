@@ -1,7 +1,5 @@
 package ru.dionisius;
 
-//import static java.lang.math.*;
-
 public class Triangle {
 	public Point a;
 	public Point b;

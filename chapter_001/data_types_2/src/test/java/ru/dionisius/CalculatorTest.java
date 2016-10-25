@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class CalculatorTest {
 	
 	@Test
-	public void addTest(){
+	public void whenTreePointTwentyFiveAddNinePOintTwentyFiveThenTwelvePOintTwentyFive(){
 		Calculator calc = new Calculator();
 		double first=3.25;
 		double second=9.25;
@@ -18,7 +18,7 @@ public class CalculatorTest {
 	}
 	
 	@Test
-	public void substructTest(){
+	public void whenThreePointSeventyFiveSubstructNinePOintTwentyFiveThenMinusFivePointFive(){
 		Calculator calc = new Calculator();
 		double first=3.75;
 		double second=9.25;
@@ -29,7 +29,7 @@ public class CalculatorTest {
 	}
 	
 	@Test
-	public void divTest(){
+	public void whenSixteenPointTwentyFiveDivideSixPointFiveThenTwoPointFive(){
 		Calculator calc = new Calculator();
 		double first=16.25;
 		double second=6.5;
@@ -40,7 +40,7 @@ public class CalculatorTest {
 	}
 	
 	@Test
-	public void multipleTest(){
+	public void whenSixPOintFiveMultipleMinusSevenPointFiveThenMinusFortyEightPOintSeventyFive(){
 		Calculator calc = new Calculator();
 		double first=6.5;
 		double second=-7.5;

@@ -13,6 +13,7 @@
 		<module>data_types_2</module>
 		<module>condition_operator_3</module>
 		<module>loops_4</module>
+		<module>arrays_5</module>
 	</modules>
 	
 </project>

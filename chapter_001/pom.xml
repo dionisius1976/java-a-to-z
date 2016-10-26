@@ -6,8 +6,6 @@
 	<artifactId>chapter_001</artifactId>
 	<packaging>pom</packaging>
 
-	
-	
 	<modules>
 		<module>jvm_1</module>
 		<module>data_types_2</module>

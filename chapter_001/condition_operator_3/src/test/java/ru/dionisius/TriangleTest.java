@@ -17,7 +17,7 @@ public class TriangleTest {
 		assertThat(expectedDistance, closeTo(area, 0.01));
 	}
 	@Test
-	public void WhenSidesAreThreeFiveSevenNenThenMaxSideIsTen(){
+	public void WhenSidesAreThreeFourFiveNenThenMaxSideIsTen(){
 		Point a=new Point(1, 1);
 		Point b=new Point(1, 5);
 		Point c=new Point(4, 1);

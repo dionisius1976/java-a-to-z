@@ -12,6 +12,7 @@
 		<module>jvm_1</module>
 		<module>data_types_2</module>
 		<module>condition_operator_3</module>
+		<module>loops_4</module>
 	</modules>
 	
 </project>

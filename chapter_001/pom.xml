@@ -12,6 +12,7 @@
 		<module>condition_operator_3</module>
 		<module>loops_4</module>
 		<module>arrays_5</module>
+		<module>test_task_6</module>
 	</modules>
 	
 </project>

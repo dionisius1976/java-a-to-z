@@ -29,7 +29,6 @@ public class Triangle {
 			maxSide = maxSide<currentSide?currentSide:maxSide;
 		}
 		return maxSide;
-		
 	}
 	
 	public static void main(String ... args){
@@ -49,7 +48,6 @@ public class Triangle {
 		System.out.println("Площадь данного треугольника равна: "+triangle.area());
 		
 		if(ab<0||bc<0||ca<0) System.out.println("Данная фигура не является тругольником! Длина одной из сторон равна нулю.");
-		
 	}
 
 }

@@ -7,7 +7,7 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 
 public class SquareTest {
 	@Test
-	public void WhenAIsTwoBIsThreeCIsFourExpressionValueIsOneHundredFiftySix(){
+	public void whenAIsTwoBIsThreeCIsFourExpressionValueIsOneHundredFiftySix(){
 		Square square=new Square(2, 3, 4);
 		double expectedValue=156;
 		double squareValue=square.calculate(8);

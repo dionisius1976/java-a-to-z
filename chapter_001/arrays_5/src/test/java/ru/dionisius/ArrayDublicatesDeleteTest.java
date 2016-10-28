@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class ArrayDublicatesDeleteTest {
 	@Test
-	public void WhenThen(){
+	public void whenInitialArrayHasDublicatesThenProcessedArrayHasNoDublicates(){
 		String[] initialArray={"voice","","i","i","","joy","joy","voice","","joy"};
 		String[] expectedArray={"voice","","i","","","joy","","","",""};
 		ArrayDublicatesDelete arr=new ArrayDublicatesDelete(initialArray);

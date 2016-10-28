@@ -13,12 +13,9 @@ public class SubstringCheck {
 	public boolean subStringCheck(){
 		char[] originArray=this.origin.toCharArray();
 		char[] subArray=this.sub.toCharArray();
-		int subLastIndex=subArray.length-1;
-		for(int i=0; i<=subLastIndex; i++){
-			int originLastIndex=originArray.length-1-subArray.length+1+i;
-			for(int j=i; j<=originLastIndex; j++){
-				if(subArray[i]==originArray[j]&&isArraysEqual(subArray, i+1, originArray, j+1)) return true;
-			}
+		int originLastIndex=originArray.length-subArray.length+1;
+		for(int j=0; j<=originLastIndex; j++){
+			if(subArray[0]==originArray[j]&&isArraysEqual(subArray, 1, originArray, j+1)) return true;
 		}
 		return false;
 	}
@@ -31,5 +28,5 @@ public class SubstringCheck {
 		}
 		return true;
 	}
-
+	
 }

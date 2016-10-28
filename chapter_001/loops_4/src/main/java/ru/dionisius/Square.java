@@ -18,7 +18,7 @@ public class Square {
 	
 	public void show(float start, float finish, float step){
 		for (float i=start; i<=finish; i+=step){
-			System.out.println("Значение выражения при х="+i+" равно: "+calculate(i));
+			System.out.printf("Значение выражения при х=%-d равно: %f", i, calculate(i));
 		}
 	} 
 }

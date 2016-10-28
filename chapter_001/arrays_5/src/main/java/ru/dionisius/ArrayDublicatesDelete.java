@@ -10,11 +10,25 @@ public class ArrayDublicatesDelete {
 	public void arrayDublicatesDelete(){
 		int lastIndex=arr.length-1;		
 		for(int i=0; i<lastIndex; i++){
-			if(arr[i]==null) continue;
+			if("".equals(arr[i])) continue;
 			String uniqString=arr[i];
-			for(int j=i; j<lastIndex; j++){
-				if(arr[j+1]=="") continue;
-				if(uniqString.equals(arr[j+1])) arr[j+1]="";
+			for(int j=i+1; j<=lastIndex; j++){
+				if("".equals(arr[j])) continue;
+				if(uniqString.equals(arr[j])) arr[j]="";
+			}
+		}
+		moveNullsToTheEndOfArray();
+	}
+	
+	public void moveNullsToTheEndOfArray(){
+		int lastIndex=arr.length-1;
+		String temp="";
+		for(int i=0; i<lastIndex; i++){
+			if("".equals(arr[i])){
+				arr[i]=arr[lastIndex];
+				arr[lastIndex]="";
+				lastIndex--;
+				i--;
 			}
 		}
 	}

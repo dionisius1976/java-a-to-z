@@ -22,11 +22,12 @@ public class SubstringCheck {
 	
 	public boolean isArraysEqual(char[] arr1, int arr1StartIndex, char[] arr2, int arr2StartIndex){
 		int arr1LastIndex=arr1.length-1;
+		boolean isArraysEqual=true;
 		for(int i=arr1StartIndex; i<=arr1LastIndex; i++){
-			if(arr1[i]!=arr2[arr2StartIndex]) return false;
+			if(arr1[i]!=arr2[arr2StartIndex]) isArraysEqual=false;;
 			arr2StartIndex++;
 		}
-		return true;
+		return isArraysEqual;
 	}
 	
 }

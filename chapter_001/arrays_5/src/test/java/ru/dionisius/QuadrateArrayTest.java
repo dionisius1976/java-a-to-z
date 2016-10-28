@@ -11,10 +11,7 @@ public class QuadrateArrayTest {
 		int[][] expectedArray={{1,1,1,1},{2,2,2,2},{3,3,3,3},{4,4,4,4}};
 		QuadrateArray quadrateArray=new QuadrateArray(initialArray);
 		quadrateArray.rotate();
-		for (int i=0; i<initialArray.length; i++){
-			for (int j=0; j<initialArray.length; j++){
-				assertThat(expectedArray[i][j], is(quadrateArray.quadrateArray[i][j]));
-			}
-		}
+		int[][] processedArray=quadrateArray.quadrateArray;
+		assertArrayEquals(expectedArray, processedArray);
 	}
 }

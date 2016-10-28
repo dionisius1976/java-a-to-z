@@ -37,7 +37,7 @@ public class TriangleTest {
 		Point c=new Point(-8.5,7.8);
 		Triangle triangle=new Triangle(a, b, c);
 		double area = triangle.area();
-		double expectedDistance=-1;
+		double expectedDistance=0;
 		assertThat(expectedDistance, is(area));
 	}
 	@Test
@@ -47,7 +47,7 @@ public class TriangleTest {
 		Point c=new Point(3.5,-17.3);
 		Triangle triangle=new Triangle(a, b, c);
 		double area = triangle.area();
-		double expectedDistance=-1;
+		double expectedDistance=0;
 		assertThat(expectedDistance, is(area));
 	}
 	@Test
@@ -57,7 +57,7 @@ public class TriangleTest {
 		Point c=new Point(13.5,-7.3);
 		Triangle triangle=new Triangle(a, b, c);
 		double area = triangle.area();
-		double expectedDistance=-1;
+		double expectedDistance=0;
 		assertThat(expectedDistance, is(area));
 	}
 	

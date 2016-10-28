@@ -20,7 +20,7 @@ public class Triangle {
 			double perimeter=(ab+bc+ca)/2;
 			return Math.sqrt(perimeter*(perimeter-ab)*(perimeter-bc)*(perimeter-ca));
 			}
-		else return -1;
+		else return 0;
 	}
 	
 	public static double maxSide(double ... sides){
@@ -47,7 +47,7 @@ public class Triangle {
 		
 		System.out.println("Площадь данного треугольника равна: "+triangle.area());
 		
-		if(ab<0||bc<0||ca<0) System.out.println("Данная фигура не является тругольником! Длина одной из сторон равна нулю.");
+		if(ab==0||bc==0||ca==0) System.out.println("Данная фигура не является тругольником! Длина одной из сторон равна нулю.");
 	}
 
 }

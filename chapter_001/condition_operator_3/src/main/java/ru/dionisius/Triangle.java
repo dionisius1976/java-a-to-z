@@ -15,12 +15,9 @@ public class Triangle {
 		double ab=this.a.distanceTo(this.b);
 		double bc=this.b.distanceTo(this.c);
 		double ca=this.c.distanceTo(this.a);
+		double perimeter=(ab+bc+ca)/2;
 		
-		if (ab>0&&bc>0&&ca>0) {
-			double perimeter=(ab+bc+ca)/2;
-			return Math.sqrt(perimeter*(perimeter-ab)*(perimeter-bc)*(perimeter-ca));
-			}
-		else return 0;
+		return Math.sqrt(perimeter*(perimeter-ab)*(perimeter-bc)*(perimeter-ca));
 	}
 	
 	public static double maxSide(double ... sides){

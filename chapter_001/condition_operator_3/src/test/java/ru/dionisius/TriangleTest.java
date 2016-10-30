@@ -30,35 +30,4 @@ public class TriangleTest {
 		assertThat(expectedSide, closeTo(maxSide, 0.01));
 	}
 	
-	@Test
-	public void whenFirstSideLengthIsNullThenTheAreaIsMinusOne() {
-		Point a=new Point(3.5,-17.3);
-		Point b=new Point(3.5,-17.3);
-		Point c=new Point(-8.5,7.8);
-		Triangle triangle=new Triangle(a, b, c);
-		double area = triangle.area();
-		double expectedDistance=0;
-		assertThat(expectedDistance, is(area));
-	}
-	@Test
-	public void whenSecondSideLengthIsNullThenTheAreaIsMinusOne() {
-		Point a=new Point(13.5,-7.3);
-		Point b=new Point(3.5,-17.3);
-		Point c=new Point(3.5,-17.3);
-		Triangle triangle=new Triangle(a, b, c);
-		double area = triangle.area();
-		double expectedDistance=0;
-		assertThat(expectedDistance, is(area));
-	}
-	@Test
-	public void whenThirdSideLengthIsNullThenTheAreaIsMinusOne() {
-		Point a=new Point(13.5,-7.3);
-		Point b=new Point(3.9,-1.3);
-		Point c=new Point(13.5,-7.3);
-		Triangle triangle=new Triangle(a, b, c);
-		double area = triangle.area();
-		double expectedDistance=0;
-		assertThat(expectedDistance, is(area));
-	}
-	
 }

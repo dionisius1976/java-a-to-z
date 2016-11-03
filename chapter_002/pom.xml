@@ -3,14 +3,11 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>java-a-to-z</artifactId>
+	<artifactId>chapter_001</artifactId>
 	<packaging>pom</packaging>
-
-	
 	
 	<modules>
-		<module>chapter_001</module>
-		<module>chapter_002</modul>
+		<module>tracker</module>
 	</modules>
 	
 </project>

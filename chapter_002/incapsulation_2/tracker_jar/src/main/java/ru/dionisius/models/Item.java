@@ -1,20 +1,21 @@
 package ru.dionisius.models;
 
+import java.util.*;
+
 public class Item {
+	
 	public String name;
 	public String desc;
-	public long create;
-	private String id;
+	public Date create;
+	public long id;
 	public Comment[] comments = new Comment[10];
-	private int commentPosition = 0;
-	
-	
+		
 	public Item(){}
 
-	public Item(String name, String desc, long create){
+	public Item(String name, String desc){
 		this.name = name;
 		this.desc = desc;
-		this.create = create;
+		this.create = new Date();
 	}
 	
 	public String getName(){
@@ -25,37 +26,69 @@ public class Item {
 		return this.desc;
 	}
 	
-	public long getCreate(){
+	public Date getCreate(){
 		return this.create;
 	}
 	
-	public String getId(){
+	public long getId(){
 		return this.id;
 	}
 	
-	public void setId(String id){
+	public void setId(long id){
 		this.id = id;
+	}
+	
+	public void setDate(Date date){
+		this.create = date;
 	}
 	
 	public void setName(String name){
 		this.name = name;
 	}
 	
+	public void setComments(Comment[] comments){
+		this.comments = comments;
+	}
+	
 	public void setDesc(String desc){
 		this.desc = desc;
 	}
 	
-	public Comment addComment(Comment comment){
-		this.comments[commentPosition++] = comment;
-		return comment;
+	public void addComment(Comment comment){
+		for (int index = 0; index < this.comments.length; index++){
+			if (comments[index] == null) this.comments[index] = comment;
+		}
 	}
 	
 	public Comment[] getComments(){
-		Comment[] result = new Comment[commentPosition];
-		for (int index = 0; index < this.commentPosition; index++){
+		Comment[] result = new Comment[this.comments.length];
+		for (int index = 0; index < this.comments.length; index++){
+			if (comments[index] == null) break;
 			result[index] = this.comments[index];
 		}
 		return result;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = new Random().nextInt(255);
+		return  hash * 255 + (int)id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj){
+			return true;
+		}
+		if (obj == null){
+			return false;
+		}
+		if (getClass() != obj.getClass()){
+			return false;
+		}
+		Item other = (Item) obj;
+		return (this.getId() == other.getId());
+		
 	}
 	
 }

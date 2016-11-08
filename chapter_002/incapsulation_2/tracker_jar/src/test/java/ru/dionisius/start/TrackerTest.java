@@ -22,82 +22,81 @@ public class TrackerTest {
 	
 	@Before
 	public void setup(){
-		create1 = new Date().getTime();
-		item1 = new Item("Заявка1", "Description1", create1);
-		item2 = new Item("Заявка2", "Description2", create1+50);
-		item3 = new Item("Заявка3", "Description3", create1+100);
-		item4 = new Item("Заявка4", "Description4", create1+200);
-		item5 = new Item("Заявка5", "Description5", create1+300);
+		item1 = new Item("Заявка1", "Description1");
+		item2 = new Item("Заявка2", "Description2");
+		item3 = new Item("Заявка3", "Description3");
+		item4 = new Item("Заявка4", "Description4");
+		item5 = new Item("Заявка5", "Description5");
 		tracker = new Tracker();
+	}
+	
+	@Test
+	public void whenAddThenExpectedArray(){
 		tracker.add(item1);
 		tracker.add(item2);
 		tracker.add(item3);
 		tracker.add(item4);
 		tracker.add(item5);
-	}
-	
-	@Test
-	public void whenAddAndGetAllThenExpectedArray(){
 		Item[] expectedArray = {item1, item2, item3, item4, item5};
 		assertArrayEquals(expectedArray, tracker.getAll());
 	}
 	
 	@Test
-	public void whenAddCommentThenExpectedComment(){
-		Comment comment = new Comment("Привет, мир!");
-		tracker.addComment(item3, comment);
-		String expectedCommentText = "Привет, мир!";
-		Comment[] comments = item3.getComments();
-		String resultText = comments[0].getText();
-		assertEquals(expectedCommentText, resultText);
+	public void whenGetAllThenExpectedArray(){
+		tracker.add(item1);
+		tracker.add(item2);
+		tracker.add(item3);
+		tracker.add(item4);
+		tracker.add(item5);
+		Item[] expectedArray = {item1, item2, item3, item4, item5};
+		assertArrayEquals(expectedArray, tracker.getAll());
 	}
 	
-	@Test
-		public void whenFindByIdThenExpectedItem(){
-		String expectedId = item2.getId();
-		String resultId = tracker.findById(item2.getId()).getId();
-		assertEquals(expectedId, resultId);
-	}
 	
 	@Test
-	public void whenFindByNameThenExpectedItem(){
-		String expectedName = "Заявка3";
-		String result = tracker.findByName("Заявка3").getName();
-		assertEquals(expectedName, result);
-	}
-	
-	@Test
-	public void whenFindByDescThenExpectedItem(){
-		String expectedDesc = "Description4";
-		String result = tracker.findByDesc("Description4").getDesc();
-		assertEquals(expectedDesc, result);
-	}
-	
-	@Test
-	public void whenFindByCreateThenExpectedItemCreate(){
-		long expectedItemCreate = item3.getCreate();
-		long result = tracker.findByCreate(item3.getCreate()).getCreate();
-		assertEquals(expectedItemCreate, result);
-	}
-	
-	@Test
-	public void whenEditItemNameThenExpectedName(){
-		String expectedName = "Zayavka";
-		tracker.editName(item1, expectedName);
-		assertEquals(expectedName, item1.getName());
-	}
-	
-	@Test
-	public void whenEditItemDescThenExpectedDesc(){
-		String expectedDesc = "New description";
-		tracker.editDesc(item1, expectedDesc);
-		assertEquals(expectedDesc, item1.getDesc());
+	public void whenFindByIdThenExpectedItem(){
+		tracker.add(item1);
+		tracker.add(item2);
+		tracker.add(item3);
+		tracker.add(item4);
+		tracker.add(item5);
+	long expectedId = item2.getId();
+	long resultId = tracker.findById(item2.getId()).getId();
+	assertEquals(expectedId, resultId);
 	}
 	
 	@Test
 	public void whenDeleteThenExpectedArray(){
+		tracker.add(item1);
+		tracker.add(item2);
+		tracker.add(item3);
+		tracker.add(item4);
+		tracker.add(item5);
 		tracker.delete(item2);
-		Item[] expectedArray = {item1, null, item3, item4, item5};
+		Item[] expectedArray = {item1, item3, item4, item5};
 		assertArrayEquals(expectedArray, tracker.getAll());
 	}
+	
+	@Test
+	public void whenUpdateThenExpectedItem(){
+		tracker.add(item1);
+		tracker.add(item2);
+		tracker.add(item3);
+		tracker.add(item4);
+		tracker.add(item5);
+		long item3Id = item3.getId();
+		String newName = "Заявка33";
+		String newDesc = "Описание33";
+		Date oldDate = item3.getCreate();
+		Comment[] oldComments = item3.getComments();
+		tracker.update(item3Id, newName, newDesc);
+		String expectedName = newName;
+		String expectedDesc = newDesc;
+		assertEquals(expectedName, tracker.findById(item3Id).getName());
+		assertEquals(expectedDesc, tracker.findById(item3Id).getDesc());
+		assertEquals(oldDate, tracker.findById(item3Id).getCreate());
+		assertArrayEquals(oldComments, tracker.findById(item3Id).getComments());
+	}
+	
+	
 }

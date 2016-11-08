@@ -1,99 +1,69 @@
 package ru.dionisius.start;
+
 import ru.dionisius.models.*;
 import java.util.*;
 
 public class Tracker {
 	
 	private Item[] items = new Item[10];
-	private int position = 0;
 	private static final Random RN = new Random();
+	
+	//add, update, delete, findById, get all, эти должны быть доступны и приватный метод сгенерить айди
+	//остальные методы будут в StartUi
 		
-	public Item add(Item item){
+	private long generateId(){
+		return Long.valueOf(System.currentTimeMillis() + RN.nextInt());
+	}
+	
+	public void add(Item item){
 		item.setId(this.generateId());
-		this.items[position++] = item;
-		return item;
+		for( int index = 0; index < this.items.length; index++){
+			if (this.items[index] == null) {
+				this.items[index] = item;
+				break;
+			}
+		}
 	}
 	
 	public Item[] getAll(){
-		Item[] result = new Item[this.position];
-		for( int index = 0; index < this.position; index++){
-			result[index] = this.items[index];
+		int getAllIndex = 0;
+		Item[] result = new Item[this.items.length];
+		for( int index = 0; index < this.items.length; index++){
+			if (this.items[index] == null) continue;
+			result[getAllIndex] = this.items[index];
+			getAllIndex++;
+		}
+		Item[] getAll = new Item [getAllIndex];
+		System.arraycopy(result, 0, getAll, 0, getAllIndex);
+		return getAll;
+	}
+	
+	public void delete(Item item){
+		for( int index = 0; index < this.items.length; index++){
+			if (this.items[index] == null) continue;
+			if (this.items[index].equals(item)) this.items[index] = null;
+		}
+	}
+	
+	public Item findById(long id){
+		Item result = null;
+		for( int index = 0; index < this.items.length; index++){
+			if (this.items[index] == null) continue;
+			if(this.items[index].getId() == id) result = this.items[index];
 		}
 		return result;
-	}
-	
-	public Item delete(Item item){
-		Item deletedItem = null;
-		for( int index = 0; index<=this.position; index++){
-			if (this.items[index] == null) continue;
-			if(this.items[index].equals(item)){
-				deletedItem = this.items[index];
-				this.items[index] = null;
-			}
-		}
-		return deletedItem;
-	}
-	
-	public Comment addComment(Item item, Comment comment){
-		Comment returningComment = comment;
-		if (comment != null) item.addComment(comment);
-		return comment;
 	}
 		
-	protected Item findById(String id){
-		Item result = null;
-		for (Item item: items){
-			if(item != null && item.getId().equals(id)){
-				result = item;
-				break;
-			}
-		}
-		return result;
-	}
-	
-	protected Item findByName(String name){
-		Item result = null;
-		for (Item item: items){
-			if(item != null && item.getName().equals(name)){
-				result = item;
-				break;
-			}
-		}
-		return result;
-	}
-	
-	protected Item findByDesc(String desc){
-		Item result = null;
-		for (Item item: items){
-			if(item != null && item.getDesc().equals(desc)){
-				result = item;
-				break;
-			}
-		}
-		return result;
-	}
-	
-	protected Item findByCreate(long create){
-		Item result = null;
-		for (Item item: items){
-			if(item != null && item.getCreate() == create){
-				result = item;
-				break;
-			}
-		}
-		return result;
-	}
-	
-	protected void editName(Item item, String name){
-		item.setName(name);
-	}
-	
-	protected void editDesc(Item item, String desc){
-		item.setDesc(desc);
-	}
-	
-	String generateId(){
-		return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+	public void update(long id, String newName, String newDesc){
+		Item oldItem = this.findById(id);
+		Date oldDate = oldItem.getCreate();
+		Comment[] oldComments = oldItem.getComments();
+		this.delete(oldItem);
+		Item newItem = new Item(newName, newDesc);
+		this.add(newItem);
+		newItem.setDate(oldDate);
+		newItem.setComments(oldComments);
+		newItem.setId(id);
 	}
 	
 }

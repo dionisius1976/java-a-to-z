@@ -1,13 +1,12 @@
 <project>
-
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>chapter_002</artifactId>
+	<artifactId>incapsulation_2_and_polymorphism_3</artifactId>
 	<packaging>pom</packaging>
 	
 	<modules>
-		<module>incapsulation_2_and_polymorphism_3</module>
+		<module>tracker_jar</module>
 	</modules>
-	
+
 </project>

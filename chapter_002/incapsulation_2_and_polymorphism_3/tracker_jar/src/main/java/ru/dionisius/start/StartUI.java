@@ -141,6 +141,7 @@ public class StartUI {
 			System.out.println(item);
 			System.out.println();
 		} else System.out.println ("Такого номера id не существует!");
+		System.out.println();
 	}
 	
 	private void findByName(){

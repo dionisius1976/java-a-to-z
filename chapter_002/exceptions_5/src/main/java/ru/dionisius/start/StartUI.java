@@ -4,7 +4,7 @@ import ru.dionisius.models.*;
 import java.util.*;
 
 public class StartUI {
-	
+	private int[] range;
 	private Tracker tracker = new Tracker();
 	private Input input;
 	  
@@ -15,16 +15,15 @@ public class StartUI {
 	public void init(){
 		Tracker tracker = new Tracker();
 		MenuTracker menu = new MenuTracker(this.input, tracker);
+		//this.range = menu.getRange();
 		menu.fillActions();
 		do {
 			menu.show();
-			int key = Integer.valueOf(input.ask("Выберете действие: "));
-			if (key < 0 || key > 8 || ) continue;
-			menu.select(key);
+			menu.select(input.ask("Выберете действие: ", menu.getRange()));
 		} while(!"y".equals(this.input.ask("Выход? (y/n)")));
 	}
 	
 	public static void main(String[] args){
-		new StartUI(new ConsoleInput()).init();
+		new StartUI(new ValidateInput()).init();
 	}
 }

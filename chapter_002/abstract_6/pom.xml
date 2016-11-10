@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>exceptions_5</artifactId>
+	<artifactId>abstract_6</artifactId>
 	<packaging>jar</packaging>
 	
 	<properties>

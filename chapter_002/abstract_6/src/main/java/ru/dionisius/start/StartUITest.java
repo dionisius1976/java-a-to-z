@@ -19,7 +19,7 @@ public class StartUITest {
 												  "8", "First desc",
 												  "n",
 												  "8", "Desc",
-												  "y"});
+												  "y"}, new int[9]);
 		new StartUI(input).init();
 	}
 } 

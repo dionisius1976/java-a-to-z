@@ -8,6 +8,10 @@
 	
 	<modules>
 		<module>incapsulation_2_and_polymorphism_3</module>
+		<module>innerClasses_4</module>
+		<module>exceptions_5</module>
+		<module>abstract_6</module>
+		<module>chess_7</module>
 	</modules>
 	
 </project>

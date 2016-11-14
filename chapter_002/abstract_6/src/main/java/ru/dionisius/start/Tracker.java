@@ -28,19 +28,6 @@ public class Tracker {
 	}
 	
 	public Item[] getAll(){
-		//int getAllIndex = 0;
-		//Item[] result = new Item[this.items.length];
-		//for( int index = 0; index < this.items.length; index++){
-		//	if (this.items[index] == null) continue;
-		//	result[getAllIndex] = this.items[index];
-		//	getAllIndex++;
-		//}
-		//if(getAllIndex < result.length){
-		//	Item[] temp = new Item [getAllIndex];
-		//	System.arraycopy(result, 0, temp, 0, getAllIndex);
-		//	result = temp;
-		//}
-		//return result;
 		return this.items;
 	}
 	

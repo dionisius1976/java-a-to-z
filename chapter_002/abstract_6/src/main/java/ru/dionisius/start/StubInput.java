@@ -6,7 +6,7 @@ public class StubInput implements Input {
 	private String[] answers;
 	private int position = 0;
 	
-	public StubInput(String[] answers){
+	public StubInput(String[] answers, int[] range){
 		this.answers = answers;
 	}
 
@@ -15,8 +15,6 @@ public class StubInput implements Input {
 	}
 	
 	public int ask(String quastion, int[] range){
-		//throw new ("Неподдерживаемая операция.");
 		return -1;
-		//turn this.answers[position++];
 	}
 }

@@ -1,0 +1,12 @@
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\abstracts\AbstractFigure.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\interfaces\Figure.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\models\Queen.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\exceptions\BoardSizeOutException.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\models\Knight.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\models\Pawn.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\models\Bishop.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\exceptions\IncorrectMoveException.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\models\Board.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\models\King.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\interfaces\Input.java
+C:\projects\java-a-to-z\chapter_002\chess_7\src\main\java\ru\dionisius\models\Rook.java

@@ -10,7 +10,7 @@ public class Board {
 	
 	public Board (int boardSize) {
 		this.boardSize = boardSize;
-		this.initialFill();
+		this.initialFill(this.field);
 	}
 	
 	public Figure[][] getField(){
@@ -96,17 +96,7 @@ public class Board {
 		}
 		return isUnderAttack;
 	}
-	
-	private void turnTheBoard(){
-		Figure[][] temp = new Figure [this.getSize()][this.getSize()];
-		for (int row = 0; row < this.getSize(); row++) {
-			for (int column = 0; column < this.getSize(); column++) {
-				temp[this.getSize() - 1 - row][this.getSize() - 1 - column] = this.getFigure(row, column);
-			}
-		}
-		this.field = temp;
-	}
-		
+			
 	public boolean isGameOver(){
 		return false;
 	}
@@ -120,7 +110,6 @@ public class Board {
 			this.setFigure(this.getFigure(startX, startY), finishX, finishY);
 		} else throw new IncorrectMoveException ("Невозможный ход для данной фигуры!");
 		this.removeFigure(startX, startY);
-		this.turnTheBoard();
 	}
 	
 	public void draw(){

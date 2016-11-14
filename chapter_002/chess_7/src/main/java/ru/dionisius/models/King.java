@@ -1,6 +1,5 @@
 package ru.dionisius.models;
 
-//import java.util.Math;
 import ru.dionisius.abstracts.*;
 import ru.dionisius.interfaces.*;
 

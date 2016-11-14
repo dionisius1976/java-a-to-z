@@ -71,6 +71,7 @@ public class BoardTest {
 	
 	@Test
 	public void whenCellIsEmptyThenCellOccupiedByOpponentIsFalse(){
+		board.removeFigure(testX, testY);
 		Boolean expectedResult = false;
 		Boolean result = board.isCellOccupiedByOpponent(false, testX, testY);
 		assertEquals(expectedResult, result);
@@ -100,12 +101,5 @@ public class BoardTest {
 		assertEquals(expectedResult, result);
 	}
 	
-	@Test
-	public void whenTurnTheBoardThenExpectedBoard(){
-		Figure[][] expectedField;
-		board = new Board(8);
-		board.initialFill(board.getField());
-		Figure[][] result = board.turnTheBoard();
-	}
 	
 }

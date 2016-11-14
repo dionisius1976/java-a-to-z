@@ -1,8 +1,8 @@
-ru.dionisius.models;
+package ru.dionisius.models;
 
-import util.Math;
-import ru.dionisius.abstracts;
-import ru.dionisius.interfaces;
+//import java.util.Math;
+import ru.dionisius.abstracts.*;
+import ru.dionisius.interfaces.*;
 
 public class King extends AbstractFigure implements  Figure {
 	
@@ -14,7 +14,7 @@ public class King extends AbstractFigure implements  Figure {
 		boolean isMovePossible = false;
 		int deltaY = Math.abs(finishX - startX);
 		int deltaX = Math.abs(finishY - startY);
-		if(deltaX <= 1 && deltaX <= 1 && !board.isCellUnderAttack(this.white, finishX, finishY)){
+		if(deltaX <= 1 && deltaX <= 1 && !board.isCellUnderAttack(this.isWhite(), finishX, finishY)){
 			isMovePossible = true;
 		}
 		return isMovePossible;

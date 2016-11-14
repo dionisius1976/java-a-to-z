@@ -1,8 +1,8 @@
-ru.dionisius.models;
+package ru.dionisius.models;
 
-import util.Math;
-import ru.dionisius.abstracts;
-import ru.dionisius.interfaces;
+//import java.util.Math;
+import ru.dionisius.abstracts.*;
+import ru.dionisius.interfaces.*;
 
 public class Knight extends AbstractFigure implements  Figure {
 			
@@ -14,8 +14,8 @@ public class Knight extends AbstractFigure implements  Figure {
 		boolean isMovePossible = false;
 		int deltaX = finishX - startX;
 		int deltaY = finishY - startY;
-		if (board.isCellFree(finishX, finishY) || board.isCellOccupiedByOpponent(this.white, finishX, finishY)){
-			if (Math.abs(deltaX == 2) && Math.abs(deltaY == 1) || Math.abs(deltaX == 1) && Math.abs(deltaY == 2)) isMovePossible = true;
+		if (board.isCellFree(finishX, finishY) || board.isCellOccupiedByOpponent(this.isWhite(), finishX, finishY)){
+			if (Math.abs(deltaX) == 2 && Math.abs(deltaY) == 1 || Math.abs(deltaX) == 1 && Math.abs(deltaY) == 2) isMovePossible = true;
 		}
 		return isMovePossible;
 	}

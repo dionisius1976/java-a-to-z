@@ -1,12 +1,12 @@
-ru.dionisius.models;
+package ru.dionisius.models;
 
-import util.Math;
-import ru.dionisius.abstracts;
-import ru.dionisius.interfaces;
+//import java.util.Math;
+import ru.dionisius.abstracts.*;
+import ru.dionisius.interfaces.*;
 
-private class Pawn extends AbstractFigure implements  Figure {
+public class Pawn extends AbstractFigure implements  Figure {
 		
-	public class Pawn (boolean white){
+	public Pawn (boolean white){
 		super(white);
 	}
 			
@@ -22,7 +22,7 @@ private class Pawn extends AbstractFigure implements  Figure {
 			}
 			if (deltaY == 0 && deltaX == 1) isMovePossible = true;
 		}
-		if (board.isCellOccupiedByOpponent(this.white, finishX, finishY){
+		if (board.isCellOccupiedByOpponent(this.isWhite(), finishX, finishY)) {
 			if (Math.abs(deltaY) == 1 && deltaX == 1) isMovePossible = true;
 		}
 		return isMovePossible;

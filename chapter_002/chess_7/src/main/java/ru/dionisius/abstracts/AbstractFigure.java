@@ -1,8 +1,8 @@
-package ru.dionisius.models;
+package ru.dionisius.abstracts;
 
-import java.util.*;
+import ru.dionisius.interfaces;
 
-public abstract class AbstractFigure {
+public abstract class AbstractFigure implements Figure{
 	private final boolean white;
 	
 	public AbstractFigure(boolean white){
@@ -16,25 +16,4 @@ public abstract class AbstractFigure {
 	abstract boolean isMovePossible(Board board, int startX, int startY, int finishX, int finishY);
 	
 	abstract char getSymbol();
-	
-	@Override
-	public int hashCode() {
-		int hash = new Random().nextInt(255);
-		return  hash * 255;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj){
-			return true;
-		}
-		if (obj == null){
-			return false;
-		}
-		if (getClass() != obj.getClass()){
-			return false;
-		}
-		Figure other = (Figure) obj;
-		return (this.getSymbol() == other.getSymbol() && this.isWhite() == other.isWhite());
-	}
 }

@@ -1,4 +1,4 @@
-package ru.dionisius.models;
+package ru.dionisius.interfaces;
 
 public interface Figure {
 

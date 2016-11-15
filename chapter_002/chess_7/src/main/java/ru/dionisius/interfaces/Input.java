@@ -1,4 +1,4 @@
-package ru.dionisius.models;
+package ru.dionisius.interfaces;
 
 import java.util.*;
 

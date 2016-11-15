@@ -2,6 +2,7 @@ package ru.dionisius.models;
 
 import ru.dionisius.abstracts.*;
 import ru.dionisius.interfaces.*;
+import java.util.*;
 
 public class King extends AbstractFigure implements  Figure {
 	
@@ -21,6 +22,27 @@ public class King extends AbstractFigure implements  Figure {
 		
 	public char getSymbol(){
 			return 'K';
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = new Random().nextInt(255);
+		return  hash * 255;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj){
+			return true;
+		}
+		if (obj == null){
+			return false;
+		}
+		if (getClass() != obj.getClass()){
+			return false;
+		}
+		Figure other = (Figure) obj;
+		return (this.getSymbol() == other.getSymbol() && this.isWhite() == other.isWhite());
 	}
 	
 }

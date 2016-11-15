@@ -48,8 +48,8 @@ public class Rook extends AbstractFigure implements  Figure {
 						}
 					}
 				}
-				
 			}
+			if (deltaX != 0 && deltaY != 0) isMovePossible = false;
 		} else isMovePossible = false;
 		return isMovePossible;
 	}

@@ -35,6 +35,6 @@ public abstract class AbstractFigure {
 			return false;
 		}
 		Figure other = (Figure) obj;
-		return (this.getSymbol() == other.getSymbol());
+		return (this.getSymbol() == other.getSymbol() && this.isWhite() == other.isWhite());
 	}
 }

@@ -13,7 +13,7 @@ public class Bishop extends AbstractFigure implements  Figure {
 		boolean isMovePossible = true;
 		int deltaX = finishX - startX;
 		int deltaY = finishY - startY;
-		if (deltaX == deltaY && (board.isCellFree(finishX, finishY) || board.isCellOccupiedByOpponent(this.isWhite(), finishX, finishY))) {
+		if (Math.abs(deltaX) == Math.abs(deltaY) && board.isCellFree(finishX, finishY) || board.isCellOccupiedByOpponent(this.isWhite(), finishX, finishY)) {
 			if (finishX > startX && finishY > startY){
 				int j = 1;
 				for (int i = finishX - 1; i != startX; i--){

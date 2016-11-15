@@ -13,7 +13,7 @@ public class King extends AbstractFigure implements  Figure {
 		boolean isMovePossible = false;
 		int deltaY = Math.abs(finishX - startX);
 		int deltaX = Math.abs(finishY - startY);
-		if(deltaX <= 1 && deltaX <= 1 && !board.isCellUnderAttack(this.isWhite(), finishX, finishY)){
+		if(deltaX <= 1 && deltaY <= 1 && (board.isCellFree(finishX, finishY) || board.isCellOccupiedByOpponent(this.isWhite(), finishX, finishY))){
 			isMovePossible = true;
 		}
 		return isMovePossible;

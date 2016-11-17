@@ -1,0 +1,13 @@
+<project>
+
+	<version>1.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.dionisius</groupId>
+	<artifactId>chapter_003</artifactId>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>inputOutput_1</module>
+	</modules>
+	
+</project>

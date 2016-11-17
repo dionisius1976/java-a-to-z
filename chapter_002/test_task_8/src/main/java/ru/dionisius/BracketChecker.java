@@ -3,14 +3,14 @@ package ru.dionisius;
 /**
  * BracketChecker.
  *
- * @author Denis Semikhatov (maslo111@rambler.ru)
+ * @author Dionisius
  * @version $Id$
  * @since 0.1
  */
 public class BracketChecker {
 
 	/**
-	 * check()
+	 * check().
 	 * This method checks string for brace pairs and first brace
 	 * @param - string to check
 	 */

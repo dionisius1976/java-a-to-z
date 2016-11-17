@@ -3,15 +3,10 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>chapter_002</artifactId>
+	<artifactId>chapter_003</artifactId>
 	<packaging>pom</packaging>
 	
 	<modules>
-		<module>incapsulation_2_and_polymorphism_3</module>
-		<module>innerClasses_4</module>
-		<module>exceptions_5</module>
-		<module>abstract_6</module>
-		<module>chess_7</module>
 		<module>test_task_8</module>
 	</modules>
 	

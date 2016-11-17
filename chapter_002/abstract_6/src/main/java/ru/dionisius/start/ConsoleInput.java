@@ -1,4 +1,5 @@
 package ru.dionisius.start;
+
 import java.util.*;
 
 public class ConsoleInput implements Input {

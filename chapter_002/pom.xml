@@ -12,6 +12,7 @@
 		<module>exceptions_5</module>
 		<module>abstract_6</module>
 		<module>chess_7</module>
+		<module>test_task_8</module>
 	</modules>
 	
 </project>

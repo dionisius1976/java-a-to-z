@@ -13,7 +13,7 @@ public abstract class BaseAction implements UserAction {
 	abstract public void execute(Input input, Tracker tracker);
 	
 	public String info() {
-				return String.format("%s. %s", this.key(), this.name);
-			}
+		return String.format("%s. %s", this.key(), this.name);
+	}
 
 }

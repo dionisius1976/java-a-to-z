@@ -1,7 +1,5 @@
 package ru.dionisius.start;
 
-//import java.util.*;
-
 public class StubInput implements Input {
 	private String[] answers;
 	private int position = 0;

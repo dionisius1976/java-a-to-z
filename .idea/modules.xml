@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/abstract_6/abstract_6.iml" filepath="$PROJECT_DIR$/chapter_002/abstract_6/abstract_6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/additional_test_task/additional_test_task.iml" filepath="$PROJECT_DIR$/chapter_001/additional_test_task/additional_test_task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/arrays_5/arrays_5.iml" filepath="$PROJECT_DIR$/chapter_001/arrays_5/arrays_5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/chapter_001.iml" filepath="$PROJECT_DIR$/chapter_001/chapter_001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/chapter_002.iml" filepath="$PROJECT_DIR$/chapter_002/chapter_002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/chess_7/chess_7.iml" filepath="$PROJECT_DIR$/chapter_002/chess_7/chess_7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/condition_operator_3/condition_operator_3.iml" filepath="$PROJECT_DIR$/chapter_001/condition_operator_3/condition_operator_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/data_types_2/data_types_2.iml" filepath="$PROJECT_DIR$/chapter_001/data_types_2/data_types_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/exceptions_5/exceptions_5.iml" filepath="$PROJECT_DIR$/chapter_002/exceptions_5/exceptions_5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/incapsulation_2_and_polymorphism_3/incapsulation_2_and_polymorphism_3.iml" filepath="$PROJECT_DIR$/chapter_002/incapsulation_2_and_polymorphism_3/incapsulation_2_and_polymorphism_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/innerClasses_4/innerClasses_4.iml" filepath="$PROJECT_DIR$/chapter_002/innerClasses_4/innerClasses_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-a-to-z.iml" filepath="$PROJECT_DIR$/java-a-to-z.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/jvm_1/jvm_1.iml" filepath="$PROJECT_DIR$/chapter_001/jvm_1/jvm_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/loops_4/loops_4.iml" filepath="$PROJECT_DIR$/chapter_001/loops_4/loops_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_001/test_task_6/test_task_6.iml" filepath="$PROJECT_DIR$/chapter_001/test_task_6/test_task_6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/test_task_8/test_task_8.iml" filepath="$PROJECT_DIR$/chapter_002/test_task_8/test_task_8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter_002/incapsulation_2_and_polymorphism_3/tracker_jar/tracker_jar.iml" filepath="$PROJECT_DIR$/chapter_002/incapsulation_2_and_polymorphism_3/tracker_jar/tracker_jar.iml" />
+    </modules>
+  </component>
+</project>

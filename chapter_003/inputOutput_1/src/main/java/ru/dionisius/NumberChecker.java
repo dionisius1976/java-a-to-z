@@ -30,7 +30,6 @@ public class NumberChecker {
      */
     public boolean isNumber() {
         BufferedInputStream bis = new BufferedInputStream(in);
-        boolean endOfFile = false;
         int val;
         int counter = 0;
         try {

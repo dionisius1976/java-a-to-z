@@ -16,9 +16,9 @@ public class NumberCheckerTest {
      */
     @Test
     public void whenBytesCountIsEvenThenTrue() {
-        String check = "2";
+        String check = "22";
         byte[] byteArray = check.getBytes();
-        main.java.ru.dionisius.NumberChecker nc = new NumberChecker(new ByteArrayInputStream(byteArray));
+        NumberChecker nc = new NumberChecker(new ByteArrayInputStream(byteArray));
         boolean expectedValue = true;
         boolean result = nc.isNumber();
         assertEquals(expectedValue, result);
@@ -30,10 +30,10 @@ public class NumberCheckerTest {
      */
     @Test
     public void whenBytesCountIsOddThenFalse() {
-        String check = "3";
+        String check = "333";
         byte[] byteArray = check.getBytes();
         NumberChecker nc = new NumberChecker(new ByteArrayInputStream(byteArray));
-        boolean expectedValue = true;
+        boolean expectedValue = false;
         boolean result = nc.isNumber();
         assertEquals(expectedValue, result);
     }

@@ -22,7 +22,7 @@ public class Abuse {
      */
     public void dropAbuses(InputStream in, OutputStream out, String[] abuse) {
         boolean isAbuse = false;
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(in));
              BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out))) {
             int streamChar;

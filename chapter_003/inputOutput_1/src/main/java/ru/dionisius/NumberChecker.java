@@ -10,35 +10,23 @@ import java.io.InputStream;
 public class NumberChecker {
 
     /**
-     *  private variable refer to InputStream object.
-     */
-    private  InputStream in;
-
-    /**
-     *  NumberChecker (InputStream in).
-     *  Constructor initialize private variable
-     *  @param i InputStream object
-     */
-    public NumberChecker(InputStream i) {
-        this.in = i;
-    }
-
-    /**
      * isNumber().
-     * This method checks inputStream for even or odd count of bytes
+     * This method checks inputStream for even or odd number in it
+     * @param i - specified InputStream object
      * @return true if count of bytes in InputStream is even or false if count of bytes in InputStream is odd
      */
-    public boolean isNumber() {
-        BufferedInputStream bis = new BufferedInputStream(in);
-        int val;
-        int counter = 0;
+    public boolean isNumber(InputStream i) {
+        BufferedInputStream bis = new BufferedInputStream(i);
+        StringBuilder sb = new StringBuilder();
+        int c;
         try {
-            while ((val = bis.read()) != -1) {
-                counter++;
+            while ((c = bis.read()) != -1) {
+                sb.append((char) c);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return counter % 2 == 0;
+        int number = Integer.valueOf(sb.toString());
+        return (number % 2 == 0);
     }
 }

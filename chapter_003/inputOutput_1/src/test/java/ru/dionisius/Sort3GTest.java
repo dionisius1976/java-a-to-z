@@ -44,11 +44,11 @@ public class Sort3GTest {
 //        }
 //    }
 
-//    @Test
+//    @Test // Works!
 //    public void merge() throws IOException {
 //        String currentstring;
-//        String[] test = {"aaa", "bb", "c", "wwwww", "zzzz"};
-//        String[] expected = {"c", "bb", "aaa", "zzzz", "wwwww"};
+//        String[] test = {"a", "bbb", "cccc"};
+//        String[] expected = {"zz", "wwwww"};
 //        File source = File.createTempFile("source", ".txt");
 //        File distance = File.createTempFile("distance", ".txt");
 //        source.deleteOnExit();
@@ -58,50 +58,80 @@ public class Sort3GTest {
 //        for (String line : test) {
 //            raSource.writeBytes(String.format("%s\r\n", line));
 //        }
-//        while ((currentstring = raSource.readLine()) != null) {
-//            System.out.println(currentstring);
-//        }
 //        for (String line : expected) {
 //            raDistance.writeBytes(String.format("%s\r\n", line));
 //        }
-//        while ((currentstring = raDistance.readLine()) != null) {
-//            System.out.println(currentstring);
-//        }
-//
 //        Sort3G sort3G = new Sort3G();
 //        raDistance = sort3G.merge(raSource, raDistance);
+//        raDistance.seek(0);
 //        while ((currentstring = raDistance.readLine()) != null) {
 //            System.out.println(currentstring);
 //        }
 //    }
 
-    @Test
-    public void testing() {
+
+    @Test // Works!
+    public void split() throws IOException {
         String currentstring;
-        String[] test = {"aaa", "bb", "c", "wwwww", "zzzz"};
-        File source = null;
-        try {
-            source = File.createTempFile("source", ".txt");
-
-            RandomAccessFile raSource = new RandomAccessFile(source, "rw");
-            for (String line : test) {
-                raSource.writeBytes(String.format("%s\r\n", line));
-            }
-            //while ((currentstring = raSource.readLine()) != null) {
-            //    System.out.println(currentstring);
-            //}
-            System.out.println(raSource.readLine());
-            source.deleteOnExit();
-            //Sort3G sort3G = new Sort3G();
-           // while ((currentstring = sort3G.testing(raSource).readLine()) != null) {
-           //     System.out.println(currentstring);
-            //}
-        } catch (IOException e) {
-            e.printStackTrace();
+        RandomAccessFile[] array;
+        String[] test = {"a", "bbb", "cccc", "zzz", "wwwww"};
+        File source = File.createTempFile("source", ".txt");
+        //File distance = File.createTempFile("distance", ".txt");
+        source.deleteOnExit();
+        //distance.deleteOnExit();
+        RandomAccessFile raSource = new RandomAccessFile(source, "rw");
+        //RandomAccessFile raDistance = new RandomAccessFile(distance, "rw");
+        for (String line : test) {
+            raSource.writeBytes(String.format("%s\r\n", line));
         }
-
-
-
-
+        Sort3G sort3G = new Sort3G();
+        raSource.seek(0);
+        array = sort3G.split(raSource, 3);
+        array[0].seek(0);
+        array[1].seek(0);
+        for (int i = 0; i < array.length; i++) {
+            while ((currentstring = array[i].readLine()) != null) {
+            System.out.println(currentstring);
+            }
+        }
+        array[0].seek(0);
+        array[1].seek(0);
+        raSource = sort3G.merge(array[0], array[1]);
+        raSource.seek(0);
+        while ((currentstring = raSource.readLine()) != null) {
+                System.out.println(currentstring);
+            }
     }
+
+//    @Test
+//    public void testing() {
+//        String currentstring;
+//        String[] test = {"aaa", "bb", "c", "wwwww", "zzzz"};
+//        File source = null;
+//        try {
+//            source = File.createTempFile("source", ".txt");
+//
+//            RandomAccessFile raSource = new RandomAccessFile(source, "rw");
+//            for (String line : test) {
+//                raSource.writeBytes(String.format("%s\r\n", line));
+//            }
+//
+////            while ((currentstring = raSource.readLine()) != null) {
+////                System.out.println(currentstring);
+////            }
+//            //System.out.println(raSource.readLine());
+//            //source.deleteOnExit();
+//            Sort3G sort3G = new Sort3G();
+//            raSource.seek(0);
+//            while ((currentstring = sort3G.testing(raSource).readLine()) != null) {
+//                System.out.println(currentstring);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//
+//
+//    }
 }

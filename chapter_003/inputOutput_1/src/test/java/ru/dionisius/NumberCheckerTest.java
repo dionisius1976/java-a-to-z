@@ -15,12 +15,12 @@ public class NumberCheckerTest {
      * This method checks array of bytes with odd count
      */
     @Test
-    public void whenBytesCountIsEvenThenTrue() {
+    public void whenNumberIsEvenThenTrue() {
+        NumberChecker nc = new NumberChecker();
         String check = "22";
         byte[] byteArray = check.getBytes();
-        NumberChecker nc = new NumberChecker(new ByteArrayInputStream(byteArray));
         boolean expectedValue = true;
-        boolean result = nc.isNumber();
+        boolean result = nc.isNumber(new ByteArrayInputStream(byteArray));
         assertEquals(expectedValue, result);
     }
 
@@ -29,12 +29,12 @@ public class NumberCheckerTest {
      * This method checks array of bytes with odd count
      */
     @Test
-    public void whenBytesCountIsOddThenFalse() {
-        String check = "333";
+    public void whenNumberIsOddThenFalse() {
+        NumberChecker nc = new NumberChecker();
+        String check = "221";
         byte[] byteArray = check.getBytes();
-        NumberChecker nc = new NumberChecker(new ByteArrayInputStream(byteArray));
         boolean expectedValue = false;
-        boolean result = nc.isNumber();
+        boolean result = nc.isNumber(new ByteArrayInputStream(byteArray));
         assertEquals(expectedValue, result);
     }
 }

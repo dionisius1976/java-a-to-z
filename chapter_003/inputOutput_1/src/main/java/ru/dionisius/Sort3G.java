@@ -10,96 +10,147 @@ import java.io.RandomAccessFile;
  */
 public class Sort3G {
 
-    public void sort(File source, File distance) throws IOException {
-        RandomAccessFile rafSource = new RandomAccessFile(source, "rw");
-        RandomAccessFile rafDistance = new RandomAccessFile(distance, "rw");
-        File temp = File.createTempFile("temp", ".tmp");
-        File temp2 = File.createTempFile("temp2", ".tmp");
-        File temp3 = File.createTempFile("temp3", ".tmp");
-        temp.deleteOnExit();
-        temp2.deleteOnExit();
-        temp3.deleteOnExit();
-        RandomAccessFile rafTemp = new RandomAccessFile(temp, "rw");
-        RandomAccessFile rafTemp2 = new RandomAccessFile(temp2, "rw");
-        RandomAccessFile rafTemp3 = new RandomAccessFile(temp3, "rw");
-        int linesNumberSource = getLinesNumber(rafSource);
-        String currentLine = "";
-        int base = 2;
-        int passValue = 0;
-        long pointer = 0;
-        int swither = 1;
-        int counter = 0;
-        while(Math.pow(base, passValue) < linesNumberSource) {
-            int serieLength = passValue + 1;
-            while ((currentLine = rafSource.readLine()) != null) {
-                if (swither > 0) {
-                    rafTemp2.writeBytes(String.format("%s\r\n", currentLine));
-                } else {
-                    rafTemp3.writeBytes(String.format("%s\r\n", currentLine));
-                }
-                counter++;
-                if (counter == serieLength) {
-                    swither = swither * (-1);
-                    counter = 1;
-                }
-                while((currentLine = merge(rafTemp2, rafTemp3).readLine()) != null) {
-                    rafTemp.seek(pointer);
-                    rafTemp.writeBytes(String.format("%s\r\n", currentLine));
-                    pointer = pointer + currentLine.length();
-                }
-            }
-            rafSource = rafTemp;
-            pointer = 0;
-            passValue++;
-        }
-        while ((currentLine = rafSource.readLine()) != null) {
-            rafDistance.writeBytes(String.format("%s\r\n", currentLine));
-        }
-    }
+//    public void sort(File source, File distance) throws IOException {
+//        RandomAccessFile rafSource = new RandomAccessFile(source, "rw");
+//        RandomAccessFile rafDistance = new RandomAccessFile(distance, "rw");
+//        File temp = File.createTempFile("temp", ".tmp");
+//        File temp2 = File.createTempFile("temp2", ".tmp");
+//        File temp3 = File.createTempFile("temp3", ".tmp");
+//        temp.deleteOnExit();
+//        temp2.deleteOnExit();
+//        temp3.deleteOnExit();
+//        RandomAccessFile rafTemp = new RandomAccessFile(temp, "rw");
+//        RandomAccessFile rafTemp2 = new RandomAccessFile(temp2, "rw");
+//        RandomAccessFile rafTemp3 = new RandomAccessFile(temp3, "rw");
+//        int linesNumberSource = getLinesNumber(rafSource);
+//        String currentLine = "";
+//        int base = 2;
+//        int pass = 0;
+//        int counter = 0;
+//        while(Math.pow(base, pass) < linesNumberSource) {
+//            int serieLength = pass + 1;
+//            int swither = 1;
+//            long pointer = 0;
+//
+//            while ((currentLine = rafSource.readLine()) != null) {
+//                if (swither > 0) {
+//                    rafTemp2.writeBytes(String.format("%s\r\n", currentLine));
+//                } else {
+//                    rafTemp3.writeBytes(String.format("%s\r\n", currentLine));
+//                }
+//                if (counter == serieLength) {
+//                    swither = swither * (-1);
+//                    counter = 0;
+//                }
+//                counter++;
+//                while((currentLine = merge(rafTemp2, rafTemp3).readLine()) != null) {
+//                    rafTemp.seek(pointer);
+//                    rafTemp.writeBytes(String.format("%s\r\n", currentLine));
+//                    pointer = pointer + currentLine.length();
+//                }
+//            }
+//            rafSource = rafTemp;
+//            pointer = 0;
+//            pass++;
+//        }
+//        while ((currentLine = rafSource.readLine()) != null) {
+//            rafDistance.writeBytes(String.format("%s\r\n", currentLine));
+//        }
+//    }
 
     public RandomAccessFile merge (RandomAccessFile first, RandomAccessFile second) throws IOException {
          File temp1 = File.createTempFile("temp1", ".tmp");
          temp1.deleteOnExit();
          RandomAccessFile rafTemp = new RandomAccessFile(temp1, "rw");
-         int linesNumberMerged = getLinesNumber(first) + getLinesNumber(second);
          String firstString = "";
          String secondString = "";
          boolean isFirstLines = true;
-         for (int line = 1; line != linesNumberMerged; line++) {
-             if (isFirstLines) {
-                 firstString = first.readLine();
-                 secondString = second.readLine();
-                 isFirstLines = false;
+         if(second != null) {
+             int linesNumberMerged = getLinesNumber(first) + getLinesNumber(second);
+             for (int line = 1; line != linesNumberMerged; line++) {
+                 if (isFirstLines) {
+                     firstString = first.readLine();
+                     secondString = second.readLine();
+                     isFirstLines = false;
+                 }
+                 if (firstString == null) {
+                     rafTemp.writeBytes(String.format("%s\r\n", secondString));
+                     secondString = second.readLine();
+                     continue;
+                 } else if (secondString == null) {
+                     rafTemp.writeBytes(String.format("%s\r\n", firstString));
+                     firstString = first.readLine();
+                     continue;
+                 } else if (firstString.length() < secondString.length()) {
+                     rafTemp.writeBytes(String.format("%s\r\n", firstString));
+                     firstString = first.readLine();
+                     continue;
+                 } else if (firstString.length() > secondString.length()){
+                     rafTemp.writeBytes(String.format("%s\r\n", secondString));
+                     secondString = second.readLine();
+                 }
+                 else {
+                     rafTemp.writeBytes(String.format("%s\r\n", secondString));
+                     rafTemp.writeBytes(String.format("%s\r\n", firstString));
+                     secondString = second.readLine();
+                     firstString = first.readLine();
+                 }
              }
-             if (firstString == null) {
-                 rafTemp.writeBytes(String.format("%s\r\n", secondString));
-                 secondString = second.readLine();
-                 continue;
-             }
-             else if (secondString == null) {
-                 rafTemp.writeBytes(String.format("%s\r\n", firstString));
-                 firstString = first.readLine();
-                 continue;
-             }
-             else if (firstString.length() < secondString.length()) {
-                 rafTemp.writeBytes(String.format("%s\r\n", firstString));
-                 firstString = first.readLine();
-                 continue;
-             }
-             else {
-                 rafTemp.writeBytes(String.format("%s\r\n", secondString));
-                 secondString = second.readLine();
-             }
+         } else {
+             rafTemp.writeBytes(String.format("%s\r\n", first.readLine()));
          }
          return rafTemp;
      }
 
      private int getLinesNumber (RandomAccessFile raf) throws IOException {
+
          int linesNumber = 0;
          while (raf.readLine() != null) {
              linesNumber++;
          }
          return linesNumber;
+     }
+
+
+
+
+     public RandomAccessFile testing (RandomAccessFile rafSource) throws IOException {
+         File temp = File.createTempFile("temp", ".tmp");
+         File temp2 = File.createTempFile("temp2", ".tmp");
+         File temp3 = File.createTempFile("temp3", ".tmp");
+         temp.deleteOnExit();
+         temp2.deleteOnExit();
+         temp3.deleteOnExit();
+         RandomAccessFile rafTemp = new RandomAccessFile(temp, "rw");
+         RandomAccessFile rafTemp2 = new RandomAccessFile(temp2, "rw");
+         RandomAccessFile rafTemp3 = new RandomAccessFile(temp3, "rw");
+         String currentLine;
+         //int swither = 0;
+         int counter = 0;
+         //int serieLength = 1;
+         int pointer = 0;
+
+         while ((currentLine = rafSource.readLine()) != null) {
+             if (counter % 2 == 0) {
+                 rafTemp2.writeBytes(String.format("%s\r\n", currentLine));
+             } else {
+                 rafTemp3.writeBytes(String.format("%s\r\n", currentLine));
+             }
+             if(counter > 0 && counter % 2 == 0) {
+                 while((currentLine = merge(rafTemp2, rafTemp3).readLine()) != null) {
+                     rafTemp.seek(pointer);
+                     rafTemp.writeBytes(String.format("%s\r\n", currentLine));
+                     pointer = pointer + currentLine.length();
+                 }
+             }
+             counter++;
+
+         }
+
+             //rafSource = rafTemp;
+            // pointer = 0;
+
+         return rafTemp;
      }
 
 //    public static void main(String[] args) throws IOException {

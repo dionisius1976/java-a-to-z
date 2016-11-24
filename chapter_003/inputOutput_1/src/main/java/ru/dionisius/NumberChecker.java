@@ -16,10 +16,11 @@ public class NumberChecker {
      * @return true if count of bytes in InputStream is even or false if count of bytes in InputStream is odd
      */
     public boolean isNumber(InputStream i) {
+        StringBuilder sb
         int c;
         try {
             BufferedInputStream bis = new BufferedInputStream(i);
-            StringBuilder sb = new StringBuilder();
+            sb = new StringBuilder();
             while ((c = bis.read()) != -1) {
                 sb.append((char) c);
             }

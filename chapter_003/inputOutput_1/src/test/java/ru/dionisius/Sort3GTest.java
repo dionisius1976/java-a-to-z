@@ -12,37 +12,29 @@ import static org.junit.Assert.assertEquals;
 public class Sort3GTest {
 
 
-//    @Test
-//    public void sort() throws IOException {
-//        String[] test = {"aaa", "bb", "c"};
-//        String[] expected = {"c", "bb", "aaa"};
-//        String currentstring;
-//        try{
-//            File source = File.createTempFile("source", ".txt");
-//            File distance = File.createTempFile("distance", ".txt");
-//            source.deleteOnExit();
-//            distance.deleteOnExit();
-//            RandomAccessFile raSource = new RandomAccessFile(source, "rw");
-//            Sort3G sort3G = new Sort3G();
-//            for (String line : test) {
-//                raSource.writeBytes(String.format("%s\r\n", line));
-//            }
-//            RandomAccessFile raDistance = new RandomAccessFile(distance, "rw");
-//            while ((currentstring = raDistance.readLine()) != null) {
-//                System.out.println("before.sort");
-//                System.out.print(currentstring + " ");
-//            }
-//            sort3G.sort(source, distance);
-//
-//            while ((currentstring = raDistance.readLine()) != null) {
-//                System.out.println("after.sort");
-//                System.out.println(currentstring);
-//            }
-//
-//        } catch (IOException ioe) {
-//            ioe.printStackTrace();
-//        }
-//    }
+    @Test
+    public void sort() throws IOException {
+        //String[] expected = {"c", "bb", "aaa"};
+        String currentString;
+        File source = File.createTempFile("source", ".txt");
+        File distance = File.createTempFile("distance", ".txt");
+        source.deleteOnExit();
+        distance.deleteOnExit();
+        RandomAccessFile raSource = new RandomAccessFile(source, "rw");
+
+        String[] test = {"55555", "1", "4444", "22", "333"};
+        for (String line: test) {
+            raSource.writeBytes(String.format("%s\r\n", line));
+        }
+        raSource.seek(0);
+        Sort3G sort3G = new Sort3G();
+        sort3G.sort(source, distance);
+        RandomAccessFile raDistance = new RandomAccessFile(distance, "r");
+
+        while ((currentString = raDistance.readLine()) != null) {
+                System.out.println(currentString);
+            }
+    }
 
 //    @Test // Works!
 //    public void merge() throws IOException {
@@ -70,38 +62,38 @@ public class Sort3GTest {
 //    }
 
 
-    @Test // Works!
-    public void split() throws IOException {
-        String currentstring;
-        RandomAccessFile[] array;
-        String[] test = {"a", "bbb", "cccc", "zzz", "wwwww"};
-        File source = File.createTempFile("source", ".txt");
-        //File distance = File.createTempFile("distance", ".txt");
-        source.deleteOnExit();
-        //distance.deleteOnExit();
-        RandomAccessFile raSource = new RandomAccessFile(source, "rw");
-        //RandomAccessFile raDistance = new RandomAccessFile(distance, "rw");
-        for (String line : test) {
-            raSource.writeBytes(String.format("%s\r\n", line));
-        }
-        Sort3G sort3G = new Sort3G();
-        raSource.seek(0);
-        array = sort3G.split(raSource, 3);
-        array[0].seek(0);
-        array[1].seek(0);
-        for (int i = 0; i < array.length; i++) {
-            while ((currentstring = array[i].readLine()) != null) {
-            System.out.println(currentstring);
-            }
-        }
-        array[0].seek(0);
-        array[1].seek(0);
-        raSource = sort3G.merge(array[0], array[1]);
-        raSource.seek(0);
-        while ((currentstring = raSource.readLine()) != null) {
-                System.out.println(currentstring);
-            }
-    }
+//    @Test // Works!
+//    public void split() throws IOException {
+//        String currentstring;
+//        RandomAccessFile[] array;
+//        String[] test = {"a", "bbb", "cccc", "zzz", "wwwww"};
+//        File source = File.createTempFile("source", ".txt");
+//        //File distance = File.createTempFile("distance", ".txt");
+//        source.deleteOnExit();
+//        //distance.deleteOnExit();
+//        RandomAccessFile raSource = new RandomAccessFile(source, "rw");
+//        //RandomAccessFile raDistance = new RandomAccessFile(distance, "rw");
+//        for (String line : test) {
+//            raSource.writeBytes(String.format("%s\r\n", line));
+//        }
+//        Sort3G sort3G = new Sort3G();
+//        raSource.seek(0);
+//        array = sort3G.split(raSource, 3);
+//        array[0].seek(0);
+//        array[1].seek(0);
+//        for (int i = 0; i < array.length; i++) {
+//            while ((currentstring = array[i].readLine()) != null) {
+//            System.out.println(currentstring);
+//            }
+//        }
+//        array[0].seek(0);
+//        array[1].seek(0);
+//        raSource = sort3G.merge(array[0], array[1]);
+//        raSource.seek(0);
+//        while ((currentstring = raSource.readLine()) != null) {
+//                System.out.println(currentstring);
+//            }
+//    }
 
 //    @Test
 //    public void testing() {

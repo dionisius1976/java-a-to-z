@@ -20,7 +20,7 @@ public class NumberChecker {
         int c;
         try {
             BufferedInputStream bis = new BufferedInputStream(i);
-            while ((int c = bis.read()) != -1) {
+            while ((c = bis.read()) != -1) {
                 sb.append((char) c);
             }
         } catch (IOException e) {

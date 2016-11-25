@@ -10,24 +10,81 @@ import java.util.Scanner;
  * Created by Dionisius on 24.11.2016.
  */
 public class Chat {
+
+    /**
+     * Stop command
+     */
     private final String STOP = "стоп";
+
+    /**
+     * Terminate command
+     */
     private final String FINISH = "закончить";
+
+    /**
+     * Continue command
+     */
     private final String CONTINUE = "продолжить";
+
+    /**
+     * Inputed user phrase
+     */
     private String userPhrase = "";
+
+    /**
+     * File object with answers
+     */
     private File answersFile;
+
+    /**
+     * File object for log
+     */
     private File logFile;
+
+    /**
+     * RandomAccessFile object for answers File
+     */
     RandomAccessFile rafAnswerFile;
+
+    /**
+     * RandomAccessFile object for log File
+     */
     RandomAccessFile rafLogFile;
+
+    /**
+     * Scanner object for input phrases by user
+     */
     private Scanner scanner;
+
+    /**
+     * Random answer string of command from answer file
+     */
     private String answer;
+
+    /**
+     * Random object to generate random choose of answer string sron answer file
+     */
     private Random rand;
+
+    /**
+     * Boolean swincher for mute mode for answers
+     */
     private boolean mute;
 
+    /**Chat(File answersFile, File logFile).
+     * Constructer
+     * @param answersFile - file with answers strings of programm
+     * @param logFile - file for logging dialog between user and program
+     */
     public Chat(File answersFile, File logFile) {
         this.answersFile = answersFile;
         this.logFile = logFile;
     }
 
+    /**start().
+     *  This method starts the chat between user and program
+     *  and writes this dialogue in log file
+     */
     public void start() {
         int answersNumber = 0;
         rand = new Random();
@@ -44,9 +101,9 @@ public class Chat {
                 System.out.print("Введите фразу: ");
                 userPhrase = scanner.nextLine();
                 rafLogFile.writeBytes(String.format("%s%s\r\n", "User: ", userPhrase));
-                if (userPhrase.equals(STOP.toLowerCase())) mute = true;
-                if (userPhrase.equals(CONTINUE.toLowerCase())) mute = false;
-                if (userPhrase.equals(FINISH.toLowerCase())) continue;
+                if ((userPhrase.toLowerCase()).equals(STOP)) mute = true;
+                if ((userPhrase.toLowerCase()).equals(CONTINUE)) mute = false;
+                if ((userPhrase.toLowerCase()).equals(FINISH)) continue;
                 if (!mute) {
                     int lineBorder = new Random(System.currentTimeMillis()).nextInt(answersNumber);
                     for (int i = 0; i != lineBorder; i++) {
@@ -62,11 +119,13 @@ public class Chat {
         }
     }
 
+    /** main method of program.
+     * @param args
+     */
     public static void main(String[] args) {
-        String filePathAnswers = String.format("%s%s%s", System.getProperty("user.dir"),
-                File.separator, "chapter_003\\inputOutput_1\\src\\main\\java\\ru\\dionisius\\chatFiles\\answers.txt");
-        String filePathLog = String.format("%s%s%s", System.getProperty("user.dir"),
-                File.separator, "chapter_003\\inputOutput_1\\src\\main\\java\\ru\\dionisius\\chatFiles\\log.txt");
-        new Chat(new File(filePathAnswers), new File(filePathLog)).start();
+        new Chat(new File(String.format("%s%s%s", System.getProperty("user.dir"),
+                File.separator, "chapter_003\\inputOutput_1\\src\\main\\java\\ru\\dionisius\\chatFiles\\answers.txt")),
+                new File(String.format("%s%s%s", System.getProperty("user.dir"),
+                        File.separator, "chapter_003\\inputOutput_1\\src\\main\\java\\ru\\dionisius\\chatFiles\\log.txt"))).start();
     }
 }

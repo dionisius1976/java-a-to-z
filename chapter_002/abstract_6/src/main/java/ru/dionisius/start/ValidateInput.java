@@ -1,4 +1,4 @@
-package ru.dionisius.controllers;
+package ru.dionisius.start;
 
 public class ValidateInput extends ConsoleInput {
 

@@ -91,19 +91,22 @@ public class Chat {
         mute = false;
         scanner = new Scanner(System.in);
         try {
+            //writer = new BufferedWriter(new FileWriter(this.logFile));
             rafAnswerFile = new RandomAccessFile(answersFile, "r");
             rafLogFile = new RandomAccessFile(logFile, "rw");
             while(rafAnswerFile.readLine() != null) {
                 answersNumber++;
             }
             rafAnswerFile.seek(0);
-            while (!userPhrase.equals(FINISH.toLowerCase())) {
-                System.out.print("Введите фразу: ");
+            //while ((!userPhrase.toLowerCase())equals(FINISH)) {
+            //System.out.print("Введите фразу: ");
+            while (scanner.hasNext()) {
+                //System.out.print("Введите фразу: ");
                 userPhrase = scanner.nextLine();
                 rafLogFile.writeBytes(String.format("%s%s\r\n", "User: ", userPhrase));
                 if ((userPhrase.toLowerCase()).equals(STOP)) mute = true;
                 if ((userPhrase.toLowerCase()).equals(CONTINUE)) mute = false;
-                if ((userPhrase.toLowerCase()).equals(FINISH)) continue;
+                if ((userPhrase.toLowerCase()).equals(FINISH)) break;
                 if (!mute) {
                     int lineBorder = new Random(System.currentTimeMillis()).nextInt(answersNumber);
                     for (int i = 0; i != lineBorder; i++) {

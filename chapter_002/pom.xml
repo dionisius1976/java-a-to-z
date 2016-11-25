@@ -7,7 +7,6 @@
 	<packaging>pom</packaging>
 	
 	<modules>
-		<module>incapsulation_2</module>
 		<module>incapsulation_2_and_polymorphism_3</module>
 		<module>innerClasses_4</module>
 		<module>exceptions_5</module>

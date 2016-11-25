@@ -2,10 +2,12 @@ package ru.dionisius;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import java.io.File;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.IOException;
 
 /**Class ChatTest for testing class Chat
  * Created by Dionisius on 24.11.2016.
@@ -55,7 +57,7 @@ public class ChatTest {
      */
     @Test
     public void whenEnterStopThenProgrammIsMute() throws IOException {
-        String input = "STOP\r\nhi!\r\nbye!";
+        String input = "стоп\r\nhi!\r\nbye!";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         new Chat(new File(this.filePathAnswers), new File(this.filePathLog)).start();
         assertEquals(this.out.toString().isEmpty(), true);
@@ -67,8 +69,8 @@ public class ChatTest {
      */
     @Test
     public void whenEnterContinueThenProgrammAnswers() throws IOException {
-        String stop = "STOP\r\nCONTINUE\r\nbye!";
-        System.setIn(new ByteArrayInputStream(stop.getBytes()));
+        String input = "стоп\r\nпродолжить\r\nbye!";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
         new Chat(new File(this.filePathAnswers), new File(this.filePathLog)).start();
         assertEquals(this.out.toString().isEmpty(), false);
     }
@@ -79,8 +81,8 @@ public class ChatTest {
      */
     @Test
     public void whenEnterWordsThenProgrammAnswersRandomPhrasesFromTextFile() throws IOException {
-        String stop = "hi!\r\nbye!\r\nnevermind!";
-        System.setIn(new ByteArrayInputStream(stop.getBytes()));
+        String input = "hi!\r\nbye!\r\nnevermind!";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
         new Chat(new File(this.filePathAnswers), new File(this.filePathLog)).start();
         assertEquals(this.out.toString().isEmpty(), false);
     }
@@ -91,10 +93,9 @@ public class ChatTest {
      */
     @Test
     public void whenEnterFinishThenProgrammTerminate() throws IOException {
-        String stop = "hi!\r\nbye!\r\nFINISH";
-        System.setIn(new ByteArrayInputStream(stop.getBytes()));
+        String input = "закончить\r\nbye!\r\nnevermind!";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
         new Chat(new File(this.filePathAnswers), new File(this.filePathLog)).start();
         assertEquals(this.out.toString().isEmpty(), true);
     }
-
 }

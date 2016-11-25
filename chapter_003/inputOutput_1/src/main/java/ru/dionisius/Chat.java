@@ -1,10 +1,13 @@
 package ru.dionisius;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
+import java.io.IOException;
 
 /**
  * Created by Dionisius on 24.11.2016.
@@ -40,16 +43,6 @@ public class Chat {
      * File object for log
      */
     private File logFile;
-
-    /**
-     * RandomAccessFile object for answers File
-     */
-    RandomAccessFile rafAnswerFile;
-
-    /**
-     * RandomAccessFile object for log File
-     */
-    RandomAccessFile rafLogFile;
 
     /**
      * Scanner object for input phrases by user
@@ -90,30 +83,26 @@ public class Chat {
         rand = new Random();
         mute = false;
         scanner = new Scanner(System.in);
-        try {
-            //writer = new BufferedWriter(new FileWriter(this.logFile));
-            rafAnswerFile = new RandomAccessFile(answersFile, "r");
-            rafLogFile = new RandomAccessFile(logFile, "rw");
-            while(rafAnswerFile.readLine() != null) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.logFile));
+             BufferedReader reader = new BufferedReader(new FileReader(this.answersFile))) {
+            reader.mark(200);
+            while (reader.readLine() != null) {
                 answersNumber++;
             }
-            rafAnswerFile.seek(0);
-            //while ((!userPhrase.toLowerCase())equals(FINISH)) {
-            //System.out.print("Введите фразу: ");
+            reader.reset();
             while (scanner.hasNext()) {
-                //System.out.print("Введите фразу: ");
                 userPhrase = scanner.nextLine();
-                rafLogFile.writeBytes(String.format("%s%s\r\n", "User: ", userPhrase));
+                writer.write(String.format("%s%s\r\n", "User: ", userPhrase));
                 if ((userPhrase.toLowerCase()).equals(STOP)) mute = true;
                 if ((userPhrase.toLowerCase()).equals(CONTINUE)) mute = false;
                 if ((userPhrase.toLowerCase()).equals(FINISH)) break;
                 if (!mute) {
                     int lineBorder = new Random(System.currentTimeMillis()).nextInt(answersNumber);
-                    for (int i = 0; i != lineBorder; i++) {
-                        answer = rafAnswerFile.readLine().toString();
+                    for (int i = 0; i != lineBorder + 1; i++) {
+                        answer = reader.readLine();
                     }
-                    rafAnswerFile.seek(0);
-                    rafLogFile.writeBytes(String.format("%s%s\r\n", "Programm: ", answer));
+                    reader.reset();
+                    writer.write(String.format("%s%s\r\n", "Programm: ", answer));
                     System.out.println(answer);
                 }
             }

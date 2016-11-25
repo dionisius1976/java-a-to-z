@@ -9,39 +9,39 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.IOException;
 
-/**Class ChatTest for testing class Chat
+/**Class ChatTest for testing class Chat.
  * Created by Dionisius on 24.11.2016.
  */
 public class ChatTest {
 
     /**
-     * File path for programm answers file
+     * File path for programm answers file.
      */
     private  final String filePathAnswers = String.format("%s%s%s", System.getProperty("user.dir"),
             File.separator, "src\\main\\java\\ru\\dionisius\\chatFiles\\answers.txt");
     /**
-     *File path for log file
+     *File path for log file.
      */
     private  final String filePathLog = String.format("%s%s%s", System.getProperty("user.dir"),
             File.separator, "src\\main\\java\\ru\\dionisius\\chatFiles\\log.txt");
     /**
-     *Output stream for tests
+     *Output stream for tests.
      */
     private ByteArrayOutputStream out;
     /**
-     * Stop command
+     * Stop command.
      */
     private final String STOP = "стоп";
     /**
-     * Terminate command
+     * Terminate command.
      */
     private final String FINISH = "закончить";
     /**
-     * Continue command
+     * Continue command.
      */
     private final String CONTINUE = "продолжить";
 
-    /** prepareOutputStream()
+    /** prepareOutputStream().
      * This method prepears output stream
      * for these tests
      */
@@ -53,7 +53,7 @@ public class ChatTest {
 
     /**whenEnterStopThenProgrammIsMute().
      * Tests STOP command
-     * @throws IOException
+     * @throws IOException if exception occurs
      */
     @Test
     public void whenEnterStopThenProgrammIsMute() throws IOException {
@@ -65,7 +65,7 @@ public class ChatTest {
 
     /**whenEnterContinueThenProgrammAnswers().
      * Tests CONTINUE command
-     * @throws IOException
+     * @throws IOException if exception occurs
      */
     @Test
     public void whenEnterContinueThenProgrammAnswers() throws IOException {
@@ -77,7 +77,7 @@ public class ChatTest {
 
     /** whenEnterWordsThenProgrammAnswersRandomPhrasesFromTextFile().
      * Tests normal working mode of program
-     * @throws IOException
+     * @throws IOException if exception occurs
      */
     @Test
     public void whenEnterWordsThenProgrammAnswersRandomPhrasesFromTextFile() throws IOException {
@@ -89,7 +89,7 @@ public class ChatTest {
 
     /**whenEnterFinishThenProgrammTerminate().
      * Tests FINISH command
-     * @throws IOException
+     * @throws IOException if exception occurs
      */
     @Test
     public void whenEnterFinishThenProgrammTerminate() throws IOException {

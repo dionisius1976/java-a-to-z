@@ -15,52 +15,52 @@ import java.io.IOException;
 public class Chat {
 
     /**
-     * Stop command
+     * Stop command.
      */
     private final String STOP = "стоп";
 
     /**
-     * Terminate command
+     * Terminate command.
      */
     private final String FINISH = "закончить";
 
     /**
-     * Continue command
+     * Continue command.
      */
     private final String CONTINUE = "продолжить";
 
     /**
-     * Inputed user phrase
+     * Inputed user phrase.
      */
     private String userPhrase = "";
 
     /**
-     * File object with answers
+     * File object with answers.
      */
     private File answersFile;
 
     /**
-     * File object for log
+     * File object for log.
      */
     private File logFile;
 
     /**
-     * Scanner object for input phrases by user
+     * Scanner object for input phrases by user.
      */
     private Scanner scanner;
 
     /**
-     * Random answer string of command from answer file
+     * Random answer string of command from answer file.
      */
     private String answer;
 
     /**
-     * Random object to generate random choose of answer string sron answer file
+     * Random object to generate random choose of answer string sron answer file.
      */
     private Random rand;
 
     /**
-     * Boolean swincher for mute mode for answers
+     * Boolean swincher for mute mode for answers.
      */
     private boolean mute;
 
@@ -93,9 +93,15 @@ public class Chat {
             while (scanner.hasNext()) {
                 userPhrase = scanner.nextLine();
                 writer.write(String.format("%s%s\r\n", "User: ", userPhrase));
-                if ((userPhrase.toLowerCase()).equals(STOP)) mute = true;
-                if ((userPhrase.toLowerCase()).equals(CONTINUE)) mute = false;
-                if ((userPhrase.toLowerCase()).equals(FINISH)) break;
+                if ((userPhrase.toLowerCase()).equals(STOP)) {
+                    mute = true;
+                }
+                if ((userPhrase.toLowerCase()).equals(CONTINUE)) {
+                    mute = false;
+                }
+                if ((userPhrase.toLowerCase()).equals(FINISH)) {
+                    break;
+                }
                 if (!mute) {
                     int lineBorder = new Random(System.currentTimeMillis()).nextInt(answersNumber);
                     for (int i = 0; i != lineBorder + 1; i++) {
@@ -112,7 +118,7 @@ public class Chat {
     }
 
     /** main method of program.
-     * @param args
+     * @param args params from console
      */
     public static void main(String[] args) {
         new Chat(new File(String.format("%s%s%s", System.getProperty("user.dir"),

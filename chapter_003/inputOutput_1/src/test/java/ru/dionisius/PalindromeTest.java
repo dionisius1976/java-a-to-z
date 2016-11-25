@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class PalindromeTest {
 
     /**
-     * @throws Exception
+     * @throws Exception if exception occurs.
      */
     @Test
     public void ifWordIsPalindromeThenTrue() throws Exception {
@@ -21,7 +21,7 @@ public class PalindromeTest {
     }
 
     /**
-     * @throws Exception
+     * @throws Exception if exception occurs.
      */
     @Test
     public void ifWordIsNotPalindromeThenFalse() throws Exception {

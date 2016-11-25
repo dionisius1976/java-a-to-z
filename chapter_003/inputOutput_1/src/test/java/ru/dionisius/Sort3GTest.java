@@ -4,14 +4,15 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Dionisius on 21.11.2016.
  */
 public class Sort3GTest {
 
-
+    /**
+     * @throws IOException if exception occurs.
+     */
     @Test
     public void sort() throws IOException {
         String currentString;

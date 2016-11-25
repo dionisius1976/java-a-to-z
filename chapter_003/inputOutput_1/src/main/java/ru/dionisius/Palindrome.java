@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 /**
  * Created by Dionisius on 23.11.2016.
+ * This class for checking if specified word
+ * is palindrome.
  */
 public class Palindrome {
 
     /**
      * method isPalinrome(), checks if the word is palindrome.
-     *
      * @param string - checking word
      * @return true if word is palindrome, false if not
      */
@@ -34,12 +35,13 @@ public class Palindrome {
      * @param args inputed in console word
      */
     public static void main(String[] args) {
+        final int PALINDROME_LENGTH = 5;
         Scanner scanner = new Scanner(System.in);
         ru.dionisius.Palindrome palindrome = new ru.dionisius.Palindrome();
         while (true) {
             System.out.print("Input five characters testing word: ");
             String string = scanner.nextLine();
-            if (string.length() != 5) {
+            if (string.length() != PALINDROME_LENGTH) {
                 System.out.println("It's not five characters word!");
                 continue;
             }

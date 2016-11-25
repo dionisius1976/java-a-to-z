@@ -58,7 +58,9 @@ public class Sort3G {
                     rafTemp2 = merge(rafSplit1, rafSplit2);
                     rafTemp2.seek(0);
                     while ((currentLine = rafTemp2.readLine()) != null) {
-                        if (currentLine.isEmpty() || currentLine == null) continue;
+                        if (currentLine.isEmpty() || currentLine == null) {
+                            continue;
+                        }
                         rafTemp.writeBytes(String.format("%s\r\n", currentLine));
                     }
                     seriePass += serieLength * 2;
@@ -73,7 +75,9 @@ public class Sort3G {
             rafDistance.seek(0);
             rafSource.seek(0);
             while ((currentLine = rafSource.readLine()) != null) {
-                if (currentLine.isEmpty() || currentLine == null) continue;
+                if (currentLine.isEmpty() || currentLine == null) {
+                    continue;
+                }
                 rafDistance.writeBytes(String.format("%s\r\n", currentLine));
             }
         } catch (FileNotFoundException fnf) {
@@ -90,9 +94,9 @@ public class Sort3G {
      * @param first - first object to merge
      * @param second - second object to merge
      * @return merged RandomAccessFile object with stored sorted by length size character lines
-     * @throws IOException
+     * @throws IOException if exception occurs
      */
-    private RandomAccessFile merge (RandomAccessFile first, RandomAccessFile second) throws IOException {
+    private RandomAccessFile merge(RandomAccessFile first, RandomAccessFile second) throws IOException {
          File temp1 = File.createTempFile("temp1", ".tmp");
          temp1.deleteOnExit();
          RandomAccessFile rafTemp = new RandomAccessFile(temp1, "rw");
@@ -122,11 +126,10 @@ public class Sort3G {
                 rafTemp.writeBytes(String.format("%s\r\n", firstString));
                 firstString = first.readLine();
                 continue;
-            } else if (firstString.length() > secondString.length()){
+            } else if (firstString.length() > secondString.length()) {
                 rafTemp.writeBytes(String.format("%s\r\n", secondString));
                 secondString = second.readLine();
-            }
-            else {
+            } else {
                 rafTemp.writeBytes(String.format("%s\r\n", secondString));
                 rafTemp.writeBytes(String.format("%s\r\n", firstString));
                 secondString = second.readLine();
@@ -141,14 +144,16 @@ public class Sort3G {
      * stored in specified RandomAccessFile object
      * @param raf specified RandomAccessFile object
      * @return number of character lines in specified object
-     * @throws IOException
+     * @throws IOException if exception occurs
      */
-     private int getLinesNumber (RandomAccessFile raf) throws IOException {
+     private int getLinesNumber(RandomAccessFile raf) throws IOException {
          String currentLine;
          int linesNumber = 0;
          raf.seek(0);
          while ((currentLine = raf.readLine()) != null) {
-             if (currentLine.isEmpty()) continue;
+             if (currentLine.isEmpty()) {
+                 continue;
+             }
              linesNumber++;
          }
          return linesNumber;

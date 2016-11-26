@@ -6,6 +6,12 @@
 	<artifactId>chapter_001</artifactId>
 	<packaging>pom</packaging>
 
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>java-a-to-z</artifactId>
+	</parent>
+
 	<modules>
 		<module>jvm_1</module>
 		<module>data_types_2</module>

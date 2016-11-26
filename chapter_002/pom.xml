@@ -5,6 +5,12 @@
 	<groupId>ru.dionisius</groupId>
 	<artifactId>chapter_002</artifactId>
 	<packaging>pom</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>java-a-to-z</artifactId>
+	</parent>
 	
 	<modules>
 		<module>incapsulation_2_and_polymorphism_3</module>

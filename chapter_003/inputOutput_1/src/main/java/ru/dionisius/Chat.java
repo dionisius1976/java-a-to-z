@@ -5,9 +5,10 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.Scanner;
-import java.io.IOException;
 
 /**
  * Created by Dionisius on 24.11.2016.
@@ -28,6 +29,12 @@ public class Chat {
      * Continue command.
      */
     private final String CONTINUE = "продолжить";
+
+    /**
+     * Limit on the number of characters.
+     * That may be read while still preserving the mark.
+     */
+    private final int READ_AHEAD_LIMIT = 200;
 
     /**
      * Inputed user phrase.
@@ -59,6 +66,8 @@ public class Chat {
      */
     private boolean mute;
 
+
+
     /**Chat(File answersFile, File logFile).
      * Constructor
      * @param answersFile - file with answers strings of programm
@@ -80,7 +89,7 @@ public class Chat {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.logFile));
              Scanner scanner = new Scanner(System.in);
              BufferedReader reader = new BufferedReader(new FileReader(this.answersFile))) {
-            reader.mark(200);
+            reader.mark(READ_AHEAD_LIMIT);
             while (reader.readLine() != null) {
                 answersNumber++;
             }
@@ -107,6 +116,8 @@ public class Chat {
                     System.out.println(answer);
                 }
             }
+        } catch (FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }

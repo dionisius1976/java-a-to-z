@@ -3,11 +3,8 @@ package ru.dionisius;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import java.io.File;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.io.IOException;
+
+import java.io.*;
 
 /**Class ChatTest for testing class Chat.
  * Created by Dionisius on 24.11.2016.

@@ -1,5 +1,5 @@
 User: стоп
 User: продолжить
-Programm: Привет!
+Programm: Пора валить.
 User: bye!
-Programm: Привет!
+Programm: Именно это я и хотел от Вас узнать.

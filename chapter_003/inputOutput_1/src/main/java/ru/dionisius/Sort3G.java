@@ -21,9 +21,8 @@ public class Sort3G {
      * @param distance - sorted distance file
      */
     public void sort(File source, File distance)  {
-        try {
-            RandomAccessFile rafSource = new RandomAccessFile(source, "rw");
-            RandomAccessFile rafDistance = new RandomAccessFile(distance, "rw");
+        try (RandomAccessFile rafSource = new RandomAccessFile(source, "rw");
+             RandomAccessFile rafDistance = new RandomAccessFile(distance, "rw");){
             File temp = File.createTempFile("temp", ".tmp");
             File split1 = File.createTempFile("split1", ".tmp");
             File split2 = File.createTempFile("split2", ".tmp");
@@ -80,6 +79,12 @@ public class Sort3G {
                 }
                 rafDistance.writeBytes(String.format("%s\r\n", currentLine));
             }
+        } catch (NullPointerException npe) {
+            npe.printStackTrace();
+        } catch (IllegalArgumentException iae) {
+            iae.printStackTrace();
+        } catch (SecurityException se) {
+            se.printStackTrace();
         } catch (FileNotFoundException fnf) {
             fnf.printStackTrace();
         } catch (IOException ioe) {

@@ -45,8 +45,8 @@ public class Abuse {
                 }
             }
         }
-        catch (IOException ex) {
-            ex.printStackTrace();
+        catch (IOException ioe) {
+            ioe.printStackTrace();
         }
     }
 }

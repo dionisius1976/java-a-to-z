@@ -18,8 +18,7 @@ public class NumberChecker {
     public boolean isNumber(InputStream i) {
         StringBuilder sb = new StringBuilder();
         int c;
-        try {
-            BufferedInputStream bis = new BufferedInputStream(i);
+        try (BufferedInputStream bis = new BufferedInputStream(i)){
             while ((c = bis.read()) != -1) {
                 sb.append((char) c);
             }

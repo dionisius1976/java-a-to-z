@@ -1,9 +1,8 @@
 package ru.dionisius;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -18,15 +17,18 @@ public class AbuseTest {
          */
         @Test
         public void whenSpacesAreAbsentThenExpectedArray() {
-            String[] abuseWords = {"ol", "oz"};
             String inputString = "kolozola";
-            InputStream in = new ByteArrayInputStream(inputString.getBytes());
-            OutputStream out = new ByteArrayOutputStream();
+            String[] abuseWords = {"ol", "oz"};
             Abuse abuse = new Abuse();
-            abuse.dropAbuses(in, out, abuseWords);
-            String result = out.toString();
-            String expectedValue = "ka";
-            assertEquals(expectedValue, result);
+            try (InputStream in = new ByteArrayInputStream(inputString.getBytes());
+                 OutputStream out = new ByteArrayOutputStream();){
+                abuse.dropAbuses(in, out, abuseWords);
+                String result = out.toString();
+                String expectedValue = "ka";
+                assertEquals(expectedValue, result);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
         }
 
         /**
@@ -37,13 +39,16 @@ public class AbuseTest {
         public void whenSpacesArePresentThenExpectedArray() {
         String[] abuseWords = {"one", "three", "five"};
         String inputString = "one two three four five";
-        InputStream in = new ByteArrayInputStream(inputString.getBytes());
-        OutputStream out = new ByteArrayOutputStream();
         Abuse abuse = new Abuse();
-        abuse.dropAbuses(in, out, abuseWords);
-        String result = out.toString();
-        String expectedValue = " two  four ";
-        assertEquals(expectedValue, result);
+        try (InputStream in = new ByteArrayInputStream(inputString.getBytes());
+            OutputStream out = new ByteArrayOutputStream()) {
+            abuse.dropAbuses(in, out, abuseWords);
+            String result = out.toString();
+            String expectedValue = " two  four ";
+            assertEquals(expectedValue, result);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 }
 

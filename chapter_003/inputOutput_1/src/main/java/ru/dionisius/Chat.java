@@ -45,12 +45,7 @@ public class Chat {
     private File logFile;
 
     /**
-     * Scanner object for input phrases by user.
-     */
-    private Scanner scanner;
-
-    /**
-     * Random answer string of command from answer file.
+     * Random answer phrase from answer file.
      */
     private String answer;
 
@@ -65,7 +60,7 @@ public class Chat {
     private boolean mute;
 
     /**Chat(File answersFile, File logFile).
-     * Constructer
+     * Constructor
      * @param answersFile - file with answers strings of programm
      * @param logFile - file for logging dialog between user and program
      */
@@ -76,14 +71,14 @@ public class Chat {
 
     /**start().
      *  This method starts the chat between user and program
-     *  and writes this dialogue in log file
+     *  and writes their dialogue in log file
      */
     public void start() {
         int answersNumber = 0;
         rand = new Random();
         mute = false;
-        scanner = new Scanner(System.in);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.logFile));
+             Scanner scanner = new Scanner(System.in);
              BufferedReader reader = new BufferedReader(new FileReader(this.answersFile))) {
             reader.mark(200);
             while (reader.readLine() != null) {

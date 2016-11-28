@@ -37,7 +37,7 @@ public class Chat {
     private final int READ_AHEAD_LIMIT = 200;
 
     /**
-     * Inputed user phrase.
+     * Inputed from console user phrase.
      */
     private String userPhrase = "";
 
@@ -97,17 +97,17 @@ public class Chat {
             while (scanner.hasNext()) {
                 userPhrase = scanner.nextLine();
                 writer.write(String.format("%s%s\r\n", "User: ", userPhrase));
-                if ((userPhrase.toLowerCase()).equals(STOP)) {
+                if (STOP.equalsIgnoreCase(userPhrase)) {
                     mute = true;
                 }
-                if ((userPhrase.toLowerCase()).equals(CONTINUE)) {
+                if (CONTINUE.equalsIgnoreCase(userPhrase)) {
                     mute = false;
                 }
-                if ((userPhrase.toLowerCase()).equals(FINISH)) {
+                if (FINISH.equalsIgnoreCase(userPhrase)) {
                     break;
                 }
+                int lineBorder = new Random(System.currentTimeMillis()).nextInt(answersNumber);
                 if (!mute) {
-                    int lineBorder = new Random(System.currentTimeMillis()).nextInt(answersNumber);
                     for (int i = 0; i != lineBorder + 1; i++) {
                         answer = reader.readLine();
                     }

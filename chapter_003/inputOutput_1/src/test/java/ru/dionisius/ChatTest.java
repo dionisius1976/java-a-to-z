@@ -25,18 +25,6 @@ public class ChatTest {
      *Output stream for tests.
      */
     private ByteArrayOutputStream out;
-    /**
-     * Stop command.
-     */
-    private final String STOP = "стоп";
-    /**
-     * Terminate command.
-     */
-    private final String FINISH = "закончить";
-    /**
-     * Continue command.
-     */
-    private final String CONTINUE = "продолжить";
 
     /** prepareOutputStream().
      * This method prepears output stream

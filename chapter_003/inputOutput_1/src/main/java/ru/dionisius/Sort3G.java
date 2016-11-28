@@ -79,12 +79,6 @@ public class Sort3G {
                 }
                 rafDistance.writeBytes(String.format("%s\r\n", currentLine));
             }
-        } catch (NullPointerException npe) {
-            npe.printStackTrace();
-        } catch (IllegalArgumentException iae) {
-            iae.printStackTrace();
-        } catch (SecurityException se) {
-            se.printStackTrace();
         } catch (FileNotFoundException fnf) {
             fnf.printStackTrace();
         } catch (IOException ioe) {

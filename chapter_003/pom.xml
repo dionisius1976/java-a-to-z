@@ -14,6 +14,8 @@
 
 	<modules>
 		<module>inputOutput_1</module>
+		<module>socket_2</module>
+		<module>testTask_3</module>
 	</modules>
 
 </project>

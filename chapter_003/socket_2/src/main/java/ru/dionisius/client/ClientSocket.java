@@ -3,25 +3,58 @@ package ru.dionisius.client;
 import ru.dionisius.PropertiesSetter;
 
 import java.util.Properties;
-import java.io.*;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.OutputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 
-/**
+/**ClientSocket.
+ * This class creates client that connects with server
+ * using properties file with specified settings
  * Created by Dionisius on 28.11.2016.
  */
 public class ClientSocket {
+    /**
+     *Object with properties with specified settings
+     */
     private  final File properties;
+    /**
+     *Input stream
+     */
     private DataInputStream dis;
+    /**
+     *Output stream
+     */
     private DataOutputStream dos;
+    /**
+     *Object to work with file properties
+     */
     private Properties prop = new Properties();
+    /**
+     *Path to current client directory
+     */
     private final String path = String.format("%s%s%s", System.getProperty("user.dir"),
             File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\client");
 
+    /**ClientSocket(File properties).
+     * Cunstructor
+     * @param properties file with properties
+     */
     public ClientSocket(File properties) {
         this.properties = properties;
     }
 
+    /**init().
+     * This method starts client
+     */
     public void init() {
         try(InputStream input = new FileInputStream (properties)) {
             prop.load(input);
@@ -94,6 +127,12 @@ public class ClientSocket {
         }
     }
 
+    /**fileTransfer().
+     * This method transfers the file
+     * @param in - stream source file
+     * @param out - stream transfer destination
+     * @throws IOException
+     */
     private void fileTransfer(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[1024];
         int length;
@@ -102,6 +141,11 @@ public class ClientSocket {
         }
     }
 
+    /**getFilesList().
+     * This method return all files in specified directory
+     * @param dir specified directory
+     * @return list of all files in specified directory
+     */
     private String getFilesList (File dir) {
         StringBuilder sb = new StringBuilder();
         for(File item : dir.listFiles()) {
@@ -112,6 +156,10 @@ public class ClientSocket {
         return sb.toString();
     }
 
+    /**main().
+     * This method starts this programm
+     * @param args arguments from console
+     */
     public static void main(String[] args) {
         File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
                 File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));

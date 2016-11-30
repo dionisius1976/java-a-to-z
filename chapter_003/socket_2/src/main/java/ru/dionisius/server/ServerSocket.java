@@ -1,6 +1,7 @@
 package ru.dionisius.server;
 
 import ru.dionisius.PropertiesSetter;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Properties;
@@ -12,6 +13,12 @@ public class ServerSocket {
     private  final File properties;
     private final String path = String.format("%s%s%s", System.getProperty("user.dir"),
             File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\server");
+    private final String menu = "Выберете действие:\r\n" +
+                                "1 - получить список текущего каталога\r\n"+
+                                "2 - перейти в подкаталог\r\n"+
+                                "3 - перейти в родительский каталог\r\n"+
+                                "4 - скачать файл\r\n"+
+                                "5 - отправить файл";
     private File dir;
     private Properties prop = new Properties();
 
@@ -27,26 +34,26 @@ public class ServerSocket {
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
-        System.out.println("Ждём подключения клиента...");
+        System.out.println("Ожидание подключения клиента...");
         try (java.net.ServerSocket servSocket = new java.net.ServerSocket(Integer.parseInt(this.prop.getProperty("server_port")));
              Socket socket = servSocket.accept()){
-            System.out.println("Клиент подключился.");
+            System.out.println("Подключение клиента установлено.");
 
-
-            InputStream is = socket.getInputStream();
-            OutputStream os = socket.getOutputStream();
-
-            DataInputStream dis = new DataInputStream(is);
-            DataOutputStream dos = new DataOutputStream(os);
+            DataInputStream dis = new DataInputStream(socket.getInputStream());
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
             String currentLine;
             File currentDir = this.dir;
 
             while (true) {
+                currentLine = this.menu;
+                dos.writeUTF(currentLine);
+                dos.flush();
                 currentLine = dis.readUTF();
                 if ("1".equals(currentLine)) {
                     dos.writeUTF(this.getRootsList(currentDir));
                     dos.flush();
+
                 }
                 if ("2".equals(currentLine)) {
                     dos.writeUTF(String.format("Выберете директорию:\r\n%s", this.getSubDirectoriesList(currentDir)));
@@ -65,12 +72,21 @@ public class ServerSocket {
                     dos.writeUTF(String.format("Выберете файл для копирования:\r\n%s", this.getFilesList(currentDir)));
                     dos.flush();
                     currentLine = dis.readUTF();
-                    this.sendFile(os, String.format("%s\\%s", currentDir.getAbsolutePath(), currentLine));
+                    File file = new File(String.format("%s\\%s", currentDir.getAbsolutePath(), currentLine));
+                    FileInputStream fin = new FileInputStream(file);
+                    this.fileTransfer(fin, dos);
+                    fin.close();
+                    continue;
                 }
                 if ("5".equals(currentLine)) {
-                    System.out.printf("Принимаем файл в: %s", currentDir.getAbsolutePath());
-                    this.receiveFile(is, currentDir.getAbsolutePath());
+                    System.out.printf("Принимается файл в: %s", currentDir.getAbsolutePath());
+                    File file = new File(String.format("%s\\%s", currentDir.getAbsolutePath(), currentLine));
+                    FileOutputStream fout = new FileOutputStream(file);
+                    this.fileTransfer(dis, fout);
+                    fout.close();
+                    continue;
                 }
+                else continue;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -101,30 +117,12 @@ public class ServerSocket {
         return sb.toString();
     }
 
-    public void sendFile(OutputStream out, String filePath) throws IOException {
-        InputStream in = new FileInputStream(filePath);
-        byte[] buf = new byte[1024];
-        int r;
-        do {
-            r = in.read(buf, 0, buf.length);
-            if (r > 0) out.write(buf, 0, r);
-            out.flush();
-        } while (r > 0);
-        in.close();
-        out.close();
-    }
-
-    private void receiveFile (InputStream in, String filePath) throws IOException {
-        FileOutputStream out = new FileOutputStream(filePath);
-        byte[] buf = new byte[1024];
-        int r;
-        do {
-            r = in.read(buf, 0, buf.length);
-            if (r > 0) out.write(buf, 0, r);
-            out.flush();
-        } while (r > 0);
-        in.close();
-        out.close();
+    private void fileTransfer(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = in.read(buffer)) > 0) {
+            out.write(buffer, 0, length);
+        }
     }
 
     public static void main(String[] args) {

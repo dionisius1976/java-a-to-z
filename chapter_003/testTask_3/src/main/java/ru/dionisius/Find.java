@@ -1,6 +1,9 @@
 package ru.dionisius;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Created by Dionisius on 30.11.2016.
@@ -11,12 +14,12 @@ public class Find {
     private final String helpInfo = "Данная программа для поиска файлов заданном каталоге и подкаталогах.\r\n"+
                                     "Имя файла может задаваться, целиком, по маске, по регулярному выражени.\r\n"+
                                     "Возможные ключи: \n" +
-                                    "-d - директория в которая начинать поиск.\n" +
-                                    "-n - имя файл, маска, либо регулярное выражение.\n" +
-                                    "-m - искать по макс, либо " +
-                                    "-f - искать по полное совпадение имени. " +
+                                    "-d - директория в которой начинается поиск.\n" +
+                                    "-n - имя искомого файла, маски, либо регулярного выражения.\n" +
+                                    "-m - искать по максимальному совпадению имени.\n" +
+                                    "-f - искать по полному совпадению имени.\n" +
                                     "-r - регулярное выражение.\n" +
-                                    "-o - результат записать в файл.\r\n";
+                                    "-o - имя файла, в который будет записан результат поиска.\r\n";
 
 
     public Find(String[] args) {
@@ -45,6 +48,16 @@ public class Find {
             }
         }
         return subDirectories;
+    }
+
+    private void writeLog(String pathName, String[] foundedFiles) {
+        File file = new File(pathName);
+        try {
+            file.createNewFile();
+            FileInputStream in = new FileInputStream(file);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package ru.dionisius.client;
 
 import ru.dionisius.PropertiesSetter;
+
 import java.util.Properties;
 import java.io.*;
 import java.net.InetAddress;
@@ -11,15 +12,11 @@ import java.net.Socket;
  */
 public class ClientSocket {
     private  final File properties;
+    private DataInputStream dis;
+    private DataOutputStream dos;
     private Properties prop = new Properties();
     private final String path = String.format("%s%s%s", System.getProperty("user.dir"),
             File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\client");
-    private final String menu = "Выберете действие:\r\n" +
-                                "1 - получить список текущего каталога\r\n"+
-                                "2 - перейти в подкаталог\r\n"+
-                                "3 - перейти в родительский каталог\r\n"+
-                                "4 - скачать файл\r\n"+
-                                "5 - загрузить файл";
 
     public ClientSocket(File properties) {
         this.properties = properties;
@@ -33,20 +30,23 @@ public class ClientSocket {
         }
         try (BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in))) {
             InetAddress ipAdressObj = InetAddress.getByName(this.prop.getProperty("ip_address"));
-            System.out.printf("Подключаемся к порту: %s\r\n", this.prop.getProperty("server_port"));
+            System.out.printf("Подключение к порту: %s\r\n", this.prop.getProperty("server_port"));
             Socket socket = new Socket(ipAdressObj, Integer.valueOf(this.prop.getProperty("server_port")));
-
-            InputStream is = socket.getInputStream();
-            OutputStream os = socket.getOutputStream();
-
-            DataInputStream dis = new DataInputStream(is);
-            DataOutputStream dos = new DataOutputStream(os);
-
+            System.out.println("Подключение установлено.");
+            dis = new DataInputStream(socket.getInputStream());
+            dos = new DataOutputStream(socket.getOutputStream());
             String currentLine;
-            System.out.println("Подключение прошло успешно.\r\n");
             while (true) {
-                this.showMenu();
+                currentLine = dis.readUTF();
+                System.out.println(currentLine);
                 currentLine = keyboard.readLine();
+                if("1".equals(currentLine) || "3".equals(currentLine)) {
+                    dos.writeUTF(currentLine);
+                    dos.flush();
+                    currentLine = dis.readUTF();
+                    System.out.println(currentLine);
+                    continue;
+                }
                 if("2".equals(currentLine)) {
                     dos.writeUTF(currentLine);
                     dos.flush();
@@ -67,8 +67,11 @@ public class ClientSocket {
                     currentLine = keyboard.readLine();
                     dos.writeUTF(currentLine);
                     dos.flush();
-                    this.receiveFile(is, String.format("%s\\%s", this.path, currentLine));
-                    System.out.println("Файл скопирован.");
+                    File file = new File(String.format("%s\\%s", this.path, currentLine));
+                    FileOutputStream fout = new FileOutputStream(file);
+                    this.fileTransfer(this.dis, fout);
+                    fout.close();
+                    System.out.println("Файл получен.");
                     continue;
                 }
                 if("5".equals(currentLine)) {
@@ -77,63 +80,27 @@ public class ClientSocket {
                     File currentDir = new File(this.path);
                     System.out.printf("Выберете файл: \r\n%s", this.getFilesList(currentDir));
                     currentLine = keyboard.readLine();
-                    this.sendFile(os, String.format("%s\\%s", currentDir, currentLine));
+                    File file = new File(String.format("%s\\%s", currentDir, currentLine));
+                    FileInputStream fin = new FileInputStream(file);
+                    this.fileTransfer(fin, this.dos);
+                    fin.close();
+                    System.out.println("Файл отправлен.");
                     continue;
                 }
-                else {
-                    dos.writeUTF(currentLine);
-                    dos.flush();
-                    currentLine = dis.readUTF();
-                    System.out.println(currentLine);
-                }
+                else System.out.println("Некорректный ввод.");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void showMenu() {
-        System.out.println(this.menu);
-    }
-
-    private void receiveFile (InputStream in, String filePath) throws IOException {
-        FileOutputStream out = new FileOutputStream(filePath);
-        byte[] buf = new byte[1024];
-        int r;
-        do {
-            r = in.read(buf, 0, buf.length);
-            if (r > 0) out.write(buf, 0, r);
-        } while (r > 0);
-        in.close();
-        out.close();
-    }
-
-    public void sendFile(OutputStream out, String filePath) throws IOException {
-        InputStream in = new FileInputStream(filePath);
-        File file = new File(filePath);
-        byte[] buf = new byte[1024];
-        long fileSize = file.length();
-        while (fileSize > 0) {
-            int count = in.read(buf);
-            out.write(buf, 0, count);
-            out.flush();
-            fileSize -= count;
+    private void fileTransfer(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = in.read(buffer)) > 0) {
+            out.write(buffer, 0, length);
         }
-        in.close();
-        out.close();
     }
-//    }public void sendFile(OutputStream out, String filePath) throws IOException {
-//        InputStream in = new FileInputStream(filePath);
-//        byte[] buf = new byte[1024];
-//        int r;
-//        do {
-//            r = in.read(buf, 0, buf.length);
-//            if (r > 0) out.write(buf, 0, r);
- //               out.flush();
-//        } while (r > 0);
-//        in.close();
-//        out.close();
-//    }
 
     private String getFilesList (File dir) {
         StringBuilder sb = new StringBuilder();

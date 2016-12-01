@@ -164,6 +164,7 @@ public class ServerSocket {
         int length;
         while ((length = in.read(buffer)) > 0) {
             out.write(buffer, 0, length);
+            out.flush();
         }
     }
 
@@ -172,6 +173,7 @@ public class ServerSocket {
      * @param args arguments from console
      */
     public static void main(String[] args) {
+
         File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
                 File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
         if (!file.exists()) {

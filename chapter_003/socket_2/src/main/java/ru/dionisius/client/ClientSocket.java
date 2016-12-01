@@ -138,6 +138,7 @@ public class ClientSocket {
         int length;
         while ((length = in.read(buffer)) > 0) {
             out.write(buffer, 0, length);
+            out.flush();
         }
     }
 

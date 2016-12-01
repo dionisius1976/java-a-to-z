@@ -19,6 +19,10 @@ import java.net.Socket;
  */
 public class ServerSocket {
     /**
+     * Buffer size to write in log file.
+     */
+    private static final int BUFFER_SIZE = 1024;
+    /**
      * Object with properties with specified settings
      */
     private  final File properties;
@@ -160,7 +164,7 @@ public class ServerSocket {
      * @throws IOException
      */
     private void fileTransfer(InputStream in, OutputStream out) throws IOException {
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[BUFFER_SIZE];
         int length;
         while ((length = in.read(buffer)) > 0) {
             out.write(buffer, 0, length);

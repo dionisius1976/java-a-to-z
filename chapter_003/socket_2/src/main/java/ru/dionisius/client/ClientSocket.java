@@ -43,6 +43,10 @@ public class ClientSocket {
      */
     private Properties prop = new Properties();
     /**
+     * Current operating system line separator.
+     */
+    private final String sep = System.getProperty("line.separator");
+    /**
      *Path to current client directory
      */
     private final String path = String.format("%s%s%s", System.getProperty("user.dir"),
@@ -65,9 +69,10 @@ public class ClientSocket {
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+
         try (BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in))) {
             InetAddress ipAdressObj = InetAddress.getByName(this.prop.getProperty("ip_address"));
-            System.out.printf("Подключение к порту: %s\r\n", this.prop.getProperty("server_port"));
+            System.out.printf("Подключение к порту: %s%s", this.prop.getProperty("server_port"), this.sep );
             Socket socket = new Socket(ipAdressObj, Integer.valueOf(this.prop.getProperty("server_port")));
             System.out.println("Подключение установлено.");
             dis = new DataInputStream(socket.getInputStream());
@@ -115,7 +120,7 @@ public class ClientSocket {
                     dos.writeUTF(currentLine);
                     dos.flush();
                     File currentDir = new File(this.path);
-                    System.out.printf("Выберете файл: \r\n%s", this.getFilesList(currentDir));
+                    System.out.printf("Выберете файл: %s%s", this.sep, this.getFilesList(currentDir));
                     currentLine = keyboard.readLine();
                     File file = new File(String.format("%s\\%s", currentDir, currentLine));
                     FileInputStream fin = new FileInputStream(file);
@@ -155,7 +160,7 @@ public class ClientSocket {
         StringBuilder sb = new StringBuilder();
         for(File item : dir.listFiles()) {
             if (!item.isDirectory()) {
-                sb.append(String.format("%s\tфайл\r\n", item.getName()));
+                sb.append(String.format("%s\tфайл%s", item.getName(), this.sep));
             }
         }
         return sb.toString();

@@ -27,14 +27,19 @@ public class ServerSocket {
      */
     private  final File properties;
     /**
+     * Current operating system line separator.
+     */
+    private final String sep = System.getProperty("line.separator");
+    /**
      * menu list
      */
-    private final String menu = "Выберете действие:\r\n" +
-                                "1 - получить список текущего каталога\r\n"+
-                                "2 - перейти в подкаталог\r\n"+
-                                "3 - перейти в родительский каталог\r\n"+
-                                "4 - скачать файл\r\n"+
-                                "5 - отправить файл";
+    private final String menu = String.format("Выберете действие:%s"
+                                + "1 - получить список текущего каталога%s"
+                                + "2 - перейти в подкаталог%s"
+                                + "3 - перейти в родительский каталог %s"
+                                + "4 - скачать файл%s"
+                                + "5 - отправить файл%s", this.sep, this.sep, this.sep,
+                                this.sep, this.sep, this.sep);
     /**
      * Current directory
      */
@@ -64,13 +69,13 @@ public class ServerSocket {
             ioe.printStackTrace();
         }
         System.out.println("Ожидание подключения клиента...");
-        try (java.net.ServerSocket servSocket = new java.net.ServerSocket(Integer.parseInt(this.prop.getProperty("server_port")));
-             Socket socket = servSocket.accept()){
+        try (java.net.ServerSocket servSocket =
+             new java.net.ServerSocket(Integer.parseInt(this.prop.getProperty("server_port")));
+             Socket socket = servSocket.accept();
+             DataInputStream dis = new DataInputStream(socket.getInputStream());
+             DataOutputStream dos = new DataOutputStream(socket.getOutputStream())) {
+
             System.out.println("Подключение клиента установлено.");
-
-            DataInputStream dis = new DataInputStream(socket.getInputStream());
-            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-
             String currentLine;
             File currentDir = this.dir;
 
@@ -84,11 +89,12 @@ public class ServerSocket {
                     dos.flush();
                 }
                 if ("2".equals(currentLine)) {
-                    dos.writeUTF(String.format("Выберете директорию:\r\n%s", this.getSubDirectoriesList(currentDir)));
+                    dos.writeUTF(String.format("Выберете директорию:%s%s",
+                            this.sep, this.getSubDirectoriesList(currentDir)));
                     dos.flush();
                     currentLine = dis.readUTF();
                     currentDir = new File(String.format("%s\\%s",this.dir.getAbsolutePath(), currentLine));
-                    dos.writeUTF(String.format("В поддиректории: %s\n", currentDir.getAbsolutePath()));
+                    dos.writeUTF(String.format("В поддиректории: %s", currentDir.getAbsolutePath()));
                     dos.flush();
                 }
                 if ("3".equals(currentLine)) {
@@ -97,7 +103,8 @@ public class ServerSocket {
                     dos.flush();
                 }
                 if ("4".equals(currentLine)) {
-                    dos.writeUTF(String.format("Выберете файл для копирования:\r\n%s", this.getFilesList(currentDir)));
+                    dos.writeUTF(String.format("Выберете файл для копирования:%s%s",
+                            this.sep, this.getFilesList(currentDir)));
                     dos.flush();
                     currentLine = dis.readUTF();
                     File file = new File(String.format("%s\\%s", currentDir.getAbsolutePath(), currentLine));
@@ -137,7 +144,7 @@ public class ServerSocket {
         StringBuilder sb = new StringBuilder();
         for(File item : dir.listFiles()) {
             if (!item.isDirectory()) {
-                sb.append(String.format("%s\tфайл\r\n", item.getName()));
+                sb.append(String.format("%s\tфайл%s", item.getName(), this.sep));
             }
         }
         return sb.toString();
@@ -151,7 +158,7 @@ public class ServerSocket {
         StringBuilder sb = new StringBuilder();
         for(File item : dir.listFiles()) {
             if (item.isDirectory()) {
-                sb.append(String.format("%s\tкаталог\r\n", item.getName()));
+                sb.append(String.format("%s\tкаталог%s", item.getName(), this.sep));
             }
         }
         return sb.toString();

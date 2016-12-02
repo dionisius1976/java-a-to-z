@@ -34,6 +34,12 @@ public class Find {
      * Path to file to write log information.
      */
     private String logFile;
+
+    /**
+     * Current operating system line separator.
+     */
+    private final String sep = System.getProperty("line.separator");
+
     /**
      * Available keys list.
      */
@@ -41,16 +47,17 @@ public class Find {
     /**
      * Help menu list.
      */
-    private final String helpInfo = "\nДанная программа производит поиск файлов заданном каталоге и подкаталогах.\n"
-                                    + "Имя файла может задаваться, целиком или  по маске.\n"
-                                    + "Возможные ключи:\n"
-                                    + "-d - директория в которой начинается поиск.\n"
-                                    + "-n - имя искомого файла или маски\n"
-                                    + "-m - искать по максимальному совпадению имени.\n"
-                                    + "-f - искать по полному совпадению имени.\n"
-                                    + "-r - регулярное выражение.\n"
-                                    + "-o - путь и имя файла, в который будет записан результат поиска.\n"
-                                    + "-help - помощь.\n";
+    private final String helpInfo = String.format("%sДанная программа производит поиск файлов в заданном " +
+            "каталоге и подкаталогах.%sИмя файла может задаваться, целиком или  по маске.%s"
+            + "Возможные ключи:%s"
+            + "-d - директория в которой начинается поиск.%s"
+            + "-n - имя искомого файла или маски%s"
+            + "-m - искать по максимальному совпадению имени.%s"
+            + "-f - искать по полному совпадению имени.%s"
+            + "-r - регулярное выражение.%s"
+            + "-o - путь и имя файла, в который будет записан результат поиска.%s"
+            + "-help - помощь.%s", this.sep, this.sep, this.sep, this.sep, this.sep, this.sep,
+            this.sep, this.sep, this.sep, this.sep, this.sep);
 
     /**Find().
      * Constructor
@@ -77,7 +84,7 @@ public class Find {
                     e.printStackTrace();
                 }
             } else {
-                System.out.printf("Задан неверный ключ или параметр!\nИсользуйте ключ -help для получения подсказки.");
+                System.out.printf("Задан неверный ключ или параметр!%sИсользуйте ключ -help для получения подсказки.", this.sep);
             }
         } else {
             System.out.printf(this.helpInfo);
@@ -155,8 +162,8 @@ public class Find {
         }
         if (logFile == null) {
             File file = new File(String.format("%s%s%s", System.getProperty("user.dir"), File.separator, "log.txt"));
-            System.out.printf("Имя файла для записи результата поиска не задано.\nПо умолчанию результаты поиска будут "
-                            + "записаны в файл: %s\\%s\n", file.getAbsolutePath(), file.getName());
+            System.out.printf("Имя файла для записи результата поиска не задано.%sПо умолчанию результаты поиска будут "
+                            + "записаны в файл: %s\\%s%s", this.sep, file.getAbsolutePath(), file.getName(), this.sep);
             logFile = String.format("%s\\%s", file.getAbsolutePath(), file.getName());
         }
         this.logFile = logFile;
@@ -175,7 +182,8 @@ public class Find {
         }
         if (workingDiretory == null) {
             workingDiretory = System.getProperty("user.dir");
-            System.out.printf("Директория не задана. По умолчанию используется текущая директория %s\n", workingDiretory);
+            System.out.printf("Директория не задана. По умолчанию используется текущая директория %s%s",
+                    workingDiretory, this.sep);
         }
         this.workingDirectory = workingDiretory;
     }
@@ -238,8 +246,8 @@ public class Find {
         File[] listFiles = new File(currentDir).listFiles();
         for (int i = 0; i < listFiles.length; i++) {
             if (!listFiles[i].isDirectory() && this.filesToFind.equals(listFiles[i])) {
-                InputStream in = new ByteArrayInputStream(String.format("%s\\%s\r\n", listFiles[i].getAbsolutePath(),
-                        listFiles[i].getName()).getBytes());
+                InputStream in = new ByteArrayInputStream(String.format("%s\\%s%s", listFiles[i].getAbsolutePath(),
+                        listFiles[i].getName(), this.sep).getBytes());
                 byte[] buffer = new byte[BUFFER_SIZE];
                 int length;
                 while ((length = in.read(buffer)) > 0) {

@@ -92,7 +92,9 @@ public class ServerSocket {
                     dos.writeUTF(String.format("Выберете директорию:%s%s",
                             this.sep, this.getSubDirectoriesList(currentDir)));
                     dos.flush();
+
                     currentLine = dis.readUTF();
+
                     currentDir = new File(String.format("%s\\%s",this.dir.getAbsolutePath(), currentLine));
                     dos.writeUTF(String.format("В поддиректории: %s", currentDir.getAbsolutePath()));
                     dos.flush();
@@ -106,7 +108,9 @@ public class ServerSocket {
                     dos.writeUTF(String.format("Выберете файл для копирования:%s%s",
                             this.sep, this.getFilesList(currentDir)));
                     dos.flush();
+
                     currentLine = dis.readUTF();
+
                     File file = new File(String.format("%s\\%s", currentDir.getAbsolutePath(), currentLine));
                     FileInputStream fin = new FileInputStream(file);
                     this.fileTransfer(fin, dos);
@@ -133,7 +137,7 @@ public class ServerSocket {
      * @return
      */
     private String getRootsList(File dir) {
-        return this.getSubDirectoriesList(dir)+this.getFilesList(dir);
+        return this.getSubDirectoriesList(dir) + this.getFilesList(dir);
     }
 
     /**

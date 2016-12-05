@@ -92,11 +92,14 @@ public class ClientSocket {
                 if("2".equals(currentLine)) {
                     dos.writeUTF(currentLine);
                     dos.flush();
+
                     currentLine = dis.readUTF();
                     System.out.println(currentLine);
+
                     currentLine = keyboard.readLine();
                     dos.writeUTF(currentLine);
                     dos.flush();
+
                     currentLine = dis.readUTF();
                     System.out.println(currentLine);
                     continue;
@@ -104,11 +107,14 @@ public class ClientSocket {
                 if("4".equals(currentLine)) {
                     dos.writeUTF(currentLine);
                     dos.flush();
+
                     currentLine = dis.readUTF();
                     System.out.println(currentLine);
+
                     currentLine = keyboard.readLine();
                     dos.writeUTF(currentLine);
                     dos.flush();
+
                     File file = new File(String.format("%s\\%s", this.path, currentLine));
                     FileOutputStream fout = new FileOutputStream(file);
                     this.fileTransfer(this.dis, fout);
@@ -119,9 +125,11 @@ public class ClientSocket {
                 if("5".equals(currentLine)) {
                     dos.writeUTF(currentLine);
                     dos.flush();
+
                     File currentDir = new File(this.path);
                     System.out.printf("Выберете файл: %s%s", this.sep, this.getFilesList(currentDir));
                     currentLine = keyboard.readLine();
+
                     File file = new File(String.format("%s\\%s", currentDir, currentLine));
                     FileInputStream fin = new FileInputStream(file);
                     this.fileTransfer(fin, this.dos);

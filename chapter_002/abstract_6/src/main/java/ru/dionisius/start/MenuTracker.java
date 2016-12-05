@@ -30,7 +30,7 @@ public class MenuTracker {
 		this.actions[position++] = action;
 	}
 		
-	public int[] getRange(){
+	public int[] getRange() {
 		int[] result = new int[this.actions.length];
 		for(int index = 0; index < this.actions.length; index++){
 			result[index] = index;
@@ -38,11 +38,11 @@ public class MenuTracker {
 		return result;
 	}
 		
-	public void select (int key){
+	public void select (int key) {
 		this.actions[key].execute(this.input, this.tracker);
 	}
 		
-	public void show(){
+	public void show() {
 		for(UserAction action: this.actions){
 			if(action != null){
 				System.out.println(action.info());

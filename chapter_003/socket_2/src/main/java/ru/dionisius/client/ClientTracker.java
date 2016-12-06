@@ -2,8 +2,9 @@ package ru.dionisius.client;
 
 import ru.dionisius.action.AClientAction;
 import ru.dionisius.action.IAction;
+import ru.dionisius.input.ConsoleInput;
+import ru.dionisius.input.ValidateInput;
 import ru.dionisius.trackers.AClientTracker;
-import ru.dionisius.trackers.ATracker;
 import ru.dionisius.input.Input;
 
 import java.io.*;
@@ -29,10 +30,12 @@ public class ClientTracker extends AClientTracker{
     /**
      * @param input
      */
-    public ClientTracker(Input input, File properties) {
-        super(input, properties);
+    public ClientTracker(Input input) {
+        super(input);
     }
-
+//    public ClientTracker(Input input, File properties) {
+//        super(input, properties);
+//    }
     /**
      *
      */
@@ -44,7 +47,8 @@ public class ClientTracker extends AClientTracker{
             do {
                 this.showMenu();
                 this.select(input.ask("Выберете действие: ", this.getRange()));
-            } while(!"y".equals(this.input.ask("Выход? (y)")));
+//            } while(!"y".equals(this.input.ask("Выход? (y)")));
+            } while(true);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -65,9 +69,11 @@ public class ClientTracker extends AClientTracker{
      * @throws IOException
      */
     public void setConnection() throws IOException {
+        this.actions = new  AClientAction[this.NUMBER_OF_USER_ACTIONS];
         this.fillActions();
         this.loadProperties();
         this.keyboard = new BufferedReader(new InputStreamReader(System.in));
+        System.out.printf("Подключение к порту: %s%s", this.prop.getProperty("server_port"), this.sep );
         this.socket = new Socket(InetAddress.getByName(this.prop.getProperty("ip_address")),
                 Integer.valueOf(this.prop.getProperty("server_port")));
     }
@@ -78,18 +84,20 @@ public class ClientTracker extends AClientTracker{
      * @throws IOException
      */
      public void fillActions() throws IOException {
+         ConsoleInput ci = new ConsoleInput();
         int counter = 0;
-        this.actions[counter++] = this.new GetCurrentDirFilesList("Получить список текущего каталога.", counter);
-        this.actions[counter++] = this.new GoToSubDir("Перейти в подкаталог.", counter);
-        this.actions[counter++] = this.new GoToParentsDir("Перейти в родительский каталог.", counter);
-        this.actions[counter++] = this.new DownloadFile("Скачать файл.", counter);
-        this.actions[counter++] = this.new SendFile("Отправить файл.", counter);
+        this.actions[counter++] = this.new GetCurrentDirFilesList("Получить список текущего каталога.", ci, counter);
+        this.actions[counter++] = this.new GoToSubDir("Перейти в подкаталог.", ci, counter);
+        this.actions[counter++] = this.new GoToParentsDir("Перейти в родительский каталог.", ci, counter);
+        this.actions[counter++] = this.new DownloadFile("Скачать файл.", ci, counter);
+        this.actions[counter++] = this.new SendFile("Отправить файл.", ci, counter);
     }
 
     /**
      *
      */
     private void showMenu() {
+        System.out.println();
         System.out.println("Выберете действие:");
         for(IAction action: this.actions){
                 System.out.println(action.info());
@@ -101,8 +109,8 @@ public class ClientTracker extends AClientTracker{
      */
     private class GetCurrentDirFilesList extends AClientAction implements IAction{
 
-        public GetCurrentDirFilesList(String name, int key) throws IOException {
-            super(name, key);
+        public GetCurrentDirFilesList(String name, Input input, int key) throws IOException {
+            super(name, input, key);
         }
 
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
@@ -116,15 +124,16 @@ public class ClientTracker extends AClientTracker{
      */
     private class GoToSubDir extends AClientAction {
 
-        public GoToSubDir(String name, int key) throws IOException {
-            super(name, key);
+        public GoToSubDir(String name, Input input, int key) throws IOException {
+            super(name, input, key);
+            System.out.println(key);
         }
 
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
             this.sendKey(out);
             String currentLine = this.getResponse(in);
-            System.out.println(currentLine);
-            this.sendMessage(input, out, input.ask(currentLine));
+            currentLine = this.input.ask(currentLine);
+            this.sendMessage(this.input, out, currentLine);
             System.out.println(this.getResponse(in));
         }
     }
@@ -134,8 +143,8 @@ public class ClientTracker extends AClientTracker{
      */
     private class GoToParentsDir extends AClientAction {
 
-        public GoToParentsDir(String name, int key) throws IOException {
-            super(name, key);
+        public GoToParentsDir(String name, Input input, int key) throws IOException {
+            super(name, input, key);
         }
 
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
@@ -149,20 +158,21 @@ public class ClientTracker extends AClientTracker{
      */
     private class DownloadFile extends AClientAction {
 
-        public DownloadFile(String name, int key) throws IOException {
-            super(name, key);
+        public DownloadFile(String name, Input input, int key) throws IOException {
+            super(name, input, key);
         }
 
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
             this.sendKey(out);
             String currentLine = this.getResponse(in);
-            currentLine = input.ask(currentLine);
-            this.sendMessage(input, out, currentLine);
+            currentLine = this.input.ask(currentLine);
+            this.sendMessage(this.input, out, currentLine);
             File file = new File(String.format("%s\\%s", ClientTracker.this.path, currentLine));
             FileOutputStream fout = new FileOutputStream(file);
             ClientTracker.this.fileTransfer(in, fout);
             fout.close();
-            System.out.printf("Файл %s получен.%s", file.getName(), ClientTracker.this.sep);
+            System.out.printf("Файл %s получен в директорию: %s%s", file.getName(),
+                    ClientTracker.this.path, ClientTracker.this.sep);
         }
     }
 
@@ -171,21 +181,33 @@ public class ClientTracker extends AClientTracker{
      */
     private class SendFile extends AClientAction {
 
-        public SendFile(String name, int key) throws IOException {
-            super(name, key);
+        public SendFile(String name, Input input, int key) throws IOException {
+            super(name, input, key);
         }
 
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
             this.sendKey(out);
             File currentDir = new File(ClientTracker.this.path);
-            String currentFile = input.ask(String.format("Выберете файл: %s%s", ClientTracker.this.sep,
+            String currentFile = this.input.ask(String.format("Выберете файл: %s%s", ClientTracker.this.sep,
                     ClientTracker.this.getFilesList(currentDir)));
-            File file = new File(String.format("%s\\%s", currentDir, currentFile));
+            this.sendMessage(this.input, out, currentFile);
+            File file = new File(String.format("%s\\%s", ClientTracker.this.path, currentFile));
             FileInputStream fin = new FileInputStream(file);
             ClientTracker.this.fileTransfer(fin, out);
             fin.close();
             System.out.printf("Файл %s отправлен.%s", file.getName(), ClientTracker.this.sep);
         }
+    }
+
+    /**main().
+     * This method starts this programm
+     * @param args arguments from console
+     */
+    public static void main(String[] args) {
+        File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
+                File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
+        new ClientTracker(new ValidateInput()).init();
+//        new ClientTracker(new ValidateInput(), file).init();
     }
 
 }

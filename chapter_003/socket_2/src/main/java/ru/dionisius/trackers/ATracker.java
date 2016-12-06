@@ -1,8 +1,6 @@
 package ru.dionisius.trackers;
 
-import ru.dionisius.action.AClientAction;
 import ru.dionisius.action.IAction;
-import ru.dionisius.input.Input;
 
 import java.io.*;
 import java.net.Socket;
@@ -16,12 +14,12 @@ public abstract class ATracker implements ITracker {
     /**
      *
      */
-    private final int NUMBER_OF_USER_ACTIONS = 5;
+    public final int NUMBER_OF_USER_ACTIONS = 5;
 
     /**
      *
      */
-    protected IAction[] actions = new AClientAction[NUMBER_OF_USER_ACTIONS];
+    protected IAction[] actions;
 
     /**
      * Buffer size to read shecified file.
@@ -48,6 +46,7 @@ public abstract class ATracker implements ITracker {
      * Current operating system line separator.
      */
     protected final String sep = System.getProperty("line.separator");
+    protected final String fSep = File.separator;
     /**
      *
      */
@@ -56,9 +55,9 @@ public abstract class ATracker implements ITracker {
     /**
      *
      */
-    public ATracker(File properties) {
-        this.properties = properties;
-    }
+//    public ATracker(File properties) {
+//        this.properties = properties;
+//    }
 
     abstract public void init();
 
@@ -70,20 +69,20 @@ public abstract class ATracker implements ITracker {
     public int[] getRange() {
         int[] result = new int[this.actions.length];
         for(int index = 0; index < this.actions.length; index++){
-            result[index] = index;
+            result[index] = index + 1;
         }
         return result;
     }
 
-
     @Override
     public void select(int key) throws IOException {
-        this.actions[key].execute(this.dis, this.dos);
+        this.actions[key - 1].execute(this.dis, this.dos);
     }
 
     @Override
     public void loadProperties() throws IOException {
-        InputStream in = new FileInputStream (properties);
+//        InputStream in = getClass().getResourceAsStream("config.properties");
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("config.properties");
         this.prop.load(in);
         in.close();
     }
@@ -103,7 +102,7 @@ public abstract class ATracker implements ITracker {
         StringBuilder sb = new StringBuilder();
         for(File item : dir.listFiles()) {
             if (!item.isDirectory()) {
-                sb.append(String.format("%s\tфайл%s", item.getName(), this.sep));
+                sb.append(String.format("%-30s%s%s", item.getName(), "файл", this.sep));
             }
         }
         return sb.toString();
@@ -114,7 +113,7 @@ public abstract class ATracker implements ITracker {
         StringBuilder sb = new StringBuilder();
         for(File item : dir.listFiles()) {
             if (item.isDirectory()) {
-                sb.append(String.format("%s\tкаталог%s", item.getName(), this.sep));
+                sb.append(String.format("%-30s%s%s", item.getName(), "каталог", this.sep));
             }
         }
         return sb.toString();

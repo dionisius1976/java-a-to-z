@@ -16,10 +16,13 @@ public abstract class AClientTracker extends ATracker {
 
     /**
      * @param input
-     * @param properties
+//     * @param properties
      */
-    public AClientTracker(Input input, File properties) {
-        super(properties);
+    public AClientTracker(Input input) {
         this.input = input;
     }
+//    public AClientTracker(Input input, File properties) {
+//        super(properties);
+//        this.input = input;
+//    }
 }

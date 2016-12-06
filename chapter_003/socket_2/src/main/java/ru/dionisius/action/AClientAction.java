@@ -12,10 +12,12 @@ import java.io.IOException;
 public abstract class AClientAction implements IAction{
 
     private String name;
+    public Input input;
     private int key;
 
-    public AClientAction(String name, int key) throws IOException {
+    public AClientAction(String name, Input input, int key) throws IOException {
         this.name = name;
+        this.input = input;
         this.key = key;
     }
 
@@ -30,12 +32,18 @@ public abstract class AClientAction implements IAction{
     }
 
     public void sendKey(DataOutputStream out) throws IOException {
-        out.writeUTF(key() + "");
+        out.writeUTF(this.key() + "");
         out.flush();
     }
 
+//    public void sendMessage(Input input, DataOutputStream out, String quastion) throws IOException {
+//        String currentLine = input.ask(quastion);
+//        out.writeUTF(currentLine);
+//        out.flush();
+//    }
     public void sendMessage(Input input, DataOutputStream out, String quastion) throws IOException {
-        out.writeUTF(input.ask(quastion));
+//        String currentLine = input.ask(quastion);
+        out.writeUTF(quastion);
         out.flush();
     }
 

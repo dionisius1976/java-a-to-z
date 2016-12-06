@@ -19,14 +19,17 @@ public class ServerTracker extends ATracker{
             File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\client");
 
     private final File rootDir = new File (String.format("%s%s%s", System.getProperty("user.dir"),
-            File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius"));;
+            File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius"));
+
+    //private final File rootDir =
+    InputStream in  = this.getClass().getResourceAsStream("config.properties");
 
     private File currentDir;
 
 
-    public ServerTracker(File properties) {
-        super(properties);
-    }
+//    public ServerTracker(File properties) {
+//        super(properties);
+//    }
 
     @Override
     public void init() {
@@ -40,7 +43,8 @@ public class ServerTracker extends ATracker{
             } while(true);
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
+        }
+        finally {
             try {
                 this.socket.close();
                 dis.close();
@@ -60,24 +64,25 @@ public class ServerTracker extends ATracker{
         this.actions[counter++] = this.new GoToParentsDir();
         this.actions[counter++] = this.new SendFile();
         this.actions[counter++] = this.new GetFile();
-
     }
 
     @Override
     public void setConnection() throws IOException {
+        this.actions = new AServerAction[this.NUMBER_OF_USER_ACTIONS];
         this.fillActions();
         this.loadProperties();
         System.out.println("Ожидание подключения клиента...");
-        ServerSocket servSocket =
-                new ServerSocket(Integer.parseInt(this.prop.getProperty("server_port")));
-        socket = servSocket.accept();
+        ServerSocket serverSocket = new ServerSocket(5000);
+        socket = serverSocket.accept();
         System.out.println("Подключение клиента установлено.");
         dis = new DataInputStream(socket.getInputStream());
         dos = new DataOutputStream(socket.getOutputStream());
     }
 
     private int getKey(DataInputStream in) throws IOException{
-        return Integer.parseInt(in.readUTF());
+        int inkey = Integer.parseInt(in.readUTF());
+        System.out.println(inkey);
+        return inkey;
     }
 
     /**
@@ -87,7 +92,9 @@ public class ServerTracker extends ATracker{
 
         @Override
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
-            this.sendMessage(out, ServerTracker.this.getCurrentDirList(ServerTracker.this.rootDir));
+            this.sendMessage(out, String.format("В директории: %s%s%s",
+                    ServerTracker.this.currentDir.getAbsolutePath(), ServerTracker.this.sep,
+                    ServerTracker.this.getCurrentDirList(ServerTracker.this.currentDir)));
         }
     }
 
@@ -95,13 +102,19 @@ public class ServerTracker extends ATracker{
 
         @Override
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
-            this.sendMessage(out, String.format("Выберете директорию:%s%s",
+            this.sendMessage(out, String.format("Выберете поддиректорию:%s%s",
                     ServerTracker.this.sep, ServerTracker.this.getSubDirectoriesList(currentDir)));
-            String currentMesssage = this.getResponse(in);
+            String currentSubDir = this.getResponse(in);
             ServerTracker.this.currentDir = new File(String.format("%s\\%s",
-                    ServerTracker.this.currentDir.getAbsolutePath(), currentMesssage));
-            this.sendMessage(out, String.format("В поддиректории: %s",
-                    ServerTracker.this.currentDir.getAbsolutePath()));
+                    ServerTracker.this.currentDir.getAbsolutePath(), currentSubDir));
+            if (ServerTracker.this.currentDir.isDirectory()) {
+                this.sendMessage(out, String.format("В директории: %s",
+                        ServerTracker.this.currentDir.getAbsolutePath()));
+            } else {
+                this.sendMessage(out, String.format("%s не является директорией. %s",
+                        currentSubDir, ServerTracker.this.sep));
+                ServerTracker.this.currentDir = new File(ServerTracker.this.currentDir.getParent());
+            }
         }
     }
 
@@ -110,7 +123,7 @@ public class ServerTracker extends ATracker{
         @Override
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
             ServerTracker.this.currentDir = new File(ServerTracker.this.currentDir.getParent());
-            this.sendMessage(out, String.format("В родительской директории: %s",
+            this.sendMessage(out, String.format("В директории: %s",
                     ServerTracker.this.currentDir.getAbsolutePath()));
         }
     }
@@ -136,8 +149,6 @@ public class ServerTracker extends ATracker{
         @Override
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
             String currentMesssage = this.getResponse(in);
-            this.sendMessage(out, String.format("Принимается файл в: %s",
-                    ServerTracker.this.currentDir.getAbsolutePath()));
             File file = new File(String.format("%s\\%s",
                     ServerTracker.this.currentDir.getAbsolutePath(), currentMesssage));
             FileOutputStream fout = new FileOutputStream(file);
@@ -152,12 +163,20 @@ public class ServerTracker extends ATracker{
      */
     public static void main(String[] args) {
 
+//        InputStream in = getClass().getResourceAsStream("/file.txt");
+//        File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
+//                File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
         File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
                 File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
         if (!file.exists()) {
             PropertiesSetter.setProperties();
         }
-        new ServerTracker(file).init();
+        System.out.println(System.getProperty("user.dir"));
+        System.out.println(System.getProperty("user.home"));
+        System.out.println(System.getProperty("path.separator"));
+        System.out.println(System.getProperty("java.class.path"));
+        new ServerTracker().init();
+//        new ServerTracker(file).init();
     }
 
 }

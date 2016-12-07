@@ -11,10 +11,6 @@ import java.io.IOException;
  */
 public class Find {
     /**
-     * Maximum count of file mask parts separated by '*'.
-     */
-    private static final int MAX_MASK_PARTS_COUNT = 50;
-    /**
      * Buffer size to write in log file.
      */
     private static final int BUFFER_SIZE = 1024;
@@ -23,45 +19,43 @@ public class Find {
      */
     private final String[] args;
     /**
-     * Name of superior start directory to seek files.
+     * Name of starting directory to seek file.
      */
     private String workingDirectory;
     /**
-     * File name or mask of files to find.
+     * File name  to find.
      */
-    private String filesToFind;
+    private String fileToFind;
     /**
-     * Path to file to write log information.
+     * Path to log file to write log information.
      */
     private String logFile;
-
     /**
      * Current operating system line separator.
      */
-    private final String sep = System.getProperty("line.separator");
-
+    private final String lsep = System.getProperty("line.separator");
+    /**
+     * Current operating system file separator in path name.
+     */
+    private final String fsep = System.getProperty("file.separator");
     /**
      * Available keys list.
      */
-    private final String[] availableKeys = {"-d", "-n", "-m", "-f", "-r", "-o", "-help"};
+    private final String[] availableKeys = {"-d", "-n", "-o", "-help"};
     /**
-     * Help menu list.
+     * Help information.
      */
-    private final String helpInfo = String.format("%sДанная программа производит поиск файлов в заданном " +
-            "каталоге и подкаталогах.%sИмя файла может задаваться, целиком или  по маске.%s"
-            + "Возможные ключи:%s"
-            + "-d - директория в которой начинается поиск.%s"
-            + "-n - имя искомого файла или маски%s"
-            + "-m - искать по максимальному совпадению имени.%s"
-            + "-f - искать по полному совпадению имени.%s"
-            + "-r - регулярное выражение.%s"
-            + "-o - путь и имя файла, в который будет записан результат поиска.%s"
-            + "-help - помощь.%s", this.sep, this.sep, this.sep, this.sep, this.sep, this.sep,
-            this.sep, this.sep, this.sep, this.sep, this.sep);
+    private final String[] helpInfo = {"Данная программа производит поиск файлов с заданным именем в заданном каталоге и подкаталогах.",
+            "Возможные ключи:",
+            "-d - директория в которой начинается поиск в формате <диск>:\\<директория1>\\<директория2>...",
+            "-n - имя искомого файла",
+            "-o - путь и имя файла, в который будет записан результат поиска в формате " +
+                    "<диск>:\\<директория1>\\<директория2>...\\<директорияN>\\<имя_файла>",
+            "-help - помощь."};
 
-    /**Find().
-     * Constructor
-     * @param args arguments from console
+    /**
+     * Constructor.
+     * @param args array of arguments from console
      */
     public Find(String[] args) {
         this.args = args;
@@ -71,23 +65,31 @@ public class Find {
      * Initial method to start searching
      */
     public void init() {
-        if (!this.isKeyHelp()) {
-            if (this.areKeysValidate() && this.filesToFind != null) {
-                this.initiateFields();
-                try (FileOutputStream fout = new FileOutputStream(this.workingDirectory)) {
-                    if (!this.isLogFileMask()) {
-                        this.findFilesAndWriteLog(fout, this.workingDirectory, this.filesToFind);
-                    } else {
-
-                    }
+        if (!this.hasKeyHelp()) {
+            this.setFileToFind();
+            if (this.areKeysValidate() && this.fileToFind != null) {
+                this.setWorkingDirectory();
+                this.setLogFile();
+                try (FileOutputStream fout = new FileOutputStream(this.logFile)) {
+                        this.findFilesAndWriteLog(fout, this.workingDirectory);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
-                System.out.printf("Задан неверный ключ или параметр!%sИсользуйте ключ -help для получения подсказки.", this.sep);
+                System.out.printf("Задан неверный ключ или параметр!%sИсользуйте ключ -help для получения подсказки.%s",
+                        this.lsep, this.lsep);
             }
         } else {
-            System.out.printf(this.helpInfo);
+            this.showInfo();
+        }
+    }
+
+    /**
+     * Shows info about this program and using keys.
+     */
+    private void showInfo() {
+        for (String line: this.helpInfo) {
+            System.out.println(line);
         }
     }
 
@@ -97,187 +99,142 @@ public class Find {
      */
     private boolean areKeysValidate() {
         boolean areValidate =  false;
-        if (this.args != null && this.args.length != 0) {
-            String[] argsKeys = new String[this.availableKeys.length];
-            int count = 0;
-            for (int i = 0; i < this.args.length; i++) {
+        for (int i = 0; i < this.args.length; i++) {
+            for (int j = 0; j < this.availableKeys.length; j++) {
                 if (this.args[i].startsWith("-")) {
-                    argsKeys[count] = this.args[i];
-                    count++;
+                    if (this.args[i].equals(this.availableKeys[j])) {
+                        areValidate = true;
+                        break;
+                    } else {
+                        areValidate = false;
+                    }
                 }
             }
-            for (int i = 0; i < this.args.length; i++) {
-                for (int j = 0; j < this.availableKeys.length; j++) {
-                    if (argsKeys[i] == null) {
-                        continue;
-                    }
-                    if (argsKeys[i].equals(this.availableKeys[j])) {
-                        areValidate = true;
-                    }
-                }
-                if (!areValidate) {
-                    break;
-                } else  {
-                    areValidate = false;
-                }
+            if (!areValidate) {
+                break;
             }
         }
         return  areValidate;
     }
 
-    /**initiateFields().
-     * This metod initiates fields filesToFind, logFile
-     * and workingDirectory using keys specified in console input
-     */
-    private void initiateFields() {
-        this.setFilesToFind();
-        this.setLogFile();
-        this.setWorkingDirectory();
-    }
-
-    /** setFilesToFind().
+       /** setFilesToFind().
      * Sets specified file name to find
-     * using parsing argument from console
      */
-    private void setFilesToFind() {
-        String filesToFind = null;
+    private void setFileToFind() {
+        String file = null;
         for (int i = 0; i < this.args.length; i++) {
-            if ("-n".equals(args[i]) && !this.args[i + 1].startsWith("-")) {
-                filesToFind = args[i + 1];
+            if ("-n".equals(args[i]) && !(this.args[i + 1].startsWith("-"))) {
+                file = args[i + 1];
             }
         }
-        this.filesToFind = filesToFind;
+        this.fileToFind = file;
     }
 
     /** setLogFile().
      * Sets specified log file path
-     * using parsing argument from console
      */
     private void setLogFile() {
         String logFile = null;
         for (int i = 0; i < this.args.length; i++) {
-            if ("-o".equals(args[i]) && !this.args[i + 1].startsWith("-")) {
+            if ("-o".equals(args[i]) && !(this.args[i + 1].startsWith("-"))) {
                 logFile = args[i + 1];
             }
         }
         if (logFile == null) {
-            File file = new File(String.format("%s%s%s", System.getProperty("user.dir"), File.separator, "log.txt"));
+            File file = new File(String.format("%s%s%s", System.getProperty("user.dir"), this.fsep, "log.txt"));
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             System.out.printf("Имя файла для записи результата поиска не задано.%sПо умолчанию результаты поиска будут "
-                            + "записаны в файл: %s\\%s%s", this.sep, file.getAbsolutePath(), file.getName(), this.sep);
-            logFile = String.format("%s\\%s", file.getAbsolutePath(), file.getName());
+                            + "записаны в файл: %%s%s", this.lsep, file.getAbsolutePath(), this.lsep);
+            logFile = file.getAbsolutePath();
         }
         this.logFile = logFile;
     }
 
     /** setWorkingDirectory ().
-     * Sets specified working superior start directory to
-     * seek files using parsing argument from console
+     * Sets specified working superior start directory to seek
      */
     private void setWorkingDirectory() {
         String workingDiretory = null;
         for (int i = 0; i < this.args.length; i++) {
-            if ("-d".equals(this.args[i]) && !this.args[i + 1].startsWith("-")) {
+            if ("-d".equals(this.args[i]) && !(this.args[i + 1].startsWith("-"))) {
                 workingDiretory = this.args[i + 1];
             }
         }
         if (workingDiretory == null) {
             workingDiretory = System.getProperty("user.dir");
             System.out.printf("Директория не задана. По умолчанию используется текущая директория %s%s",
-                    workingDiretory, this.sep);
+                    workingDiretory, this.lsep);
         }
         this.workingDirectory = workingDiretory;
     }
 
     /**isHelp().
-     * This method checks if key "-help" presents in
-     * console input
+     * Checks if key "-help" presents in console input
      * @return true if presents, false if not
      */
-    private boolean isKeyHelp() {
+    private boolean hasKeyHelp() {
         boolean isHelp = false;
         for (String key: this.args) {
             if ("-help".equals(key)) {
                 isHelp = true;
+                break;
             }
         }
         return isHelp;
     }
 
-    private String[] splitMask(String mask) {
-        String[] maskParts = new String[MAX_MASK_PARTS_COUNT];
-        int count = 0;
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.logFile.length(); i++) {
-            if((this.logFile.charAt(i) != '*' && count == 0) ||  this.logFile.charAt(i) != '.') {
-                continue;
-            }
-            if (this.logFile.charAt(i) != '*') {
-                sb.append(this.logFile.charAt(i));
-            } else {
-                maskParts[count] = sb.toString();
-                count++;
-                sb = new StringBuilder();
-            }
-        }
-        String[] maskPartsWithoutNulls = null;
-        System.arraycopy(maskParts, 0, maskPartsWithoutNulls, 0, count);
-        return maskPartsWithoutNulls;
-    }
-
-    private boolean isLogFileMask() {
-        boolean isMask = false;
-        for (int i = 0; i < this.logFile.length(); i++) {
-            if (this.logFile.charAt(i) == '*') {
-                isMask = true;
-            }
-        }
-        return isMask;
-    }
-
-    /** findFilesAndWriteLog().
-     * This method find all files that match the specified
+    /**
+     * findFilesAndWriteLog().
+     * Seek for all files that match the specified
      * file name in specified directory and all subdirectiries
-     * @param fout outputstream to write seek results
+     * @param out outputstream to write seek results
      * @param currentDir name of superior start directory to seek files
-     * @param filesToFind file name or mask of files to find
      * @throws IOException when exception while writing log file
      */
-    private void findFilesAndWriteLog(FileOutputStream fout, String currentDir, String filesToFind) throws IOException {
+    private void findFilesAndWriteLog(FileOutputStream out, String currentDir) throws IOException {
+        StringBuilder sb = new StringBuilder();
         File[] listFiles = new File(currentDir).listFiles();
-        for (int i = 0; i < listFiles.length; i++) {
-            if (!listFiles[i].isDirectory() && this.filesToFind.equals(listFiles[i])) {
-                InputStream in = new ByteArrayInputStream(String.format("%s\\%s%s", listFiles[i].getAbsolutePath(),
-                        listFiles[i].getName(), this.sep).getBytes());
-                byte[] buffer = new byte[BUFFER_SIZE];
-                int length;
-                while ((length = in.read(buffer)) > 0) {
-                    fout.write(buffer, 0, length);
-                    fout.flush();
+        if (listFiles != null) {
+            for (int i = 0; i < listFiles.length; i++) {
+                if (listFiles != null && listFiles[i] != null && !(listFiles[i].isDirectory()) && this.fileToFind.equals(listFiles[i].getName())) {
+                    sb.append(String.format("%s%s%s%s", listFiles[i].getAbsolutePath(), this.fsep, listFiles[i].getName(),
+                            this.lsep));
+                } else {
+                    this.findFilesAndWriteLog(out, listFiles[i].getAbsolutePath());
                 }
-                in.close();
-            } else {
-                this.findFilesAndWriteLog(fout, listFiles[i].getAbsolutePath(), filesToFind);
+            }
+            if (sb.toString().trim() != "") {
+                this.writeToLog(out, sb.toString());
             }
         }
     }
 
-    /**main().
-     * This method starts this programm
+    /**
+     * Writes the absolute paths for found files in the log file.
+     * @param out stream to write log file.
+     * @param filesList list of the files that should be written in log file
+     * @throws IOException if error while writing the file
+     */
+    private void writeToLog(FileOutputStream out, String filesList) throws IOException {
+        InputStream in = new ByteArrayInputStream(filesList.getBytes());
+        byte[] buffer = new byte[BUFFER_SIZE];
+        int length;
+        while ((length = in.read(buffer)) > 0) {
+            out.write(buffer, 0, length);
+            out.flush();
+        }
+        in.close();
+    }
+
+     /**
+     * Starts this programm.
      * @param args arguments from console
      */
     public static void main(String[] args) {
         new Find(args).init();
     }
 }
-
-//1. Создать программу для поиска файла.
-//        2. Программа должна искать данные в заданном каталоге и подкаталогах.
-//        3. Имя файла может задаваться, целиком, по маске, по регулярному выражение(не обязательно).
-//        4. Программа должна собираться в jar и запускаться через java -jar find.jar -d c:/ -n *.txt -m -o log.txt
-//        Ключи
-//        -d - директория в которая начинать поиск.
-//        -n - имя файл, маска, либо регулярное выражение.
-//        -m - искать по макс, либо -f - полное совпадение имени. -r регулярное выражение.
-//        -o - результат записать в файл.
-//        5. Программа должна записывать результат в файл.
-//        6. В программе должна быть валидация ключей и подсказка.

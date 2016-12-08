@@ -19,7 +19,6 @@ public class StartUI {
 		do {
 			menu.show();
 			int key = Integer.valueOf(input.ask("Выберете действие: "));
-			if (key < 0 || key > 8 || ) continue;
 			menu.select(key);
 		} while(!"y".equals(this.input.ask("Выход? (y/n)")));
 	}

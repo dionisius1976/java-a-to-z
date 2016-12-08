@@ -1,1 +1,1 @@
-# java-a-to-z course by Piotr Arsentjev
+# Chapter_001 "Base syntax"

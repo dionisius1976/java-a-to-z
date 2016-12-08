@@ -9,18 +9,39 @@ import java.io.IOException;
  */
 public abstract class AServerAction implements IAction {
 
-    abstract public void execute(DataInputStream in, DataOutputStream out) throws IOException;
+    /**
+     * @param in in input stream
+     * @param out stream to send data out
+     * @throws IOException if IO error occurs
+     */
+    public abstract void execute(DataInputStream in, DataOutputStream out) throws IOException;
 
+    /**
+     * Sends specified message to server.
+     * @param out stream to out
+     * @param message quastion
+     * @throws IOException if IO error occurs
+     */
     public void sendMessage(DataOutputStream out, String message) throws IOException {
         out.writeUTF(message);
         out.flush();
     }
 
+    /**
+     * Gets and returns response from server.
+     * @param in input stream
+     * @return response from server
+     * @throws IOException if IO error occurs
+     */
     public String getResponse(DataInputStream in) throws IOException {
         return in.readUTF();
     }
 
-    public String info(){
+    /**
+     * Returns information about this instance.
+     * @return information about this instance
+     */
+    public String info() {
         return "";
     }
 }

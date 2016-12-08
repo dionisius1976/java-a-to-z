@@ -6,7 +6,11 @@ import java.util.Scanner;
  * Created by Dionisius on 02.12.2016.
  */
 public class ConsoleInput implements Input {
-    Scanner scanner = new Scanner(System.in);
+
+    /**
+     * Scanner for reding user's console input.
+     */
+    private final Scanner scanner = new Scanner(System.in);
 
     @Override
     public String ask(String quastion) {
@@ -18,18 +22,17 @@ public class ConsoleInput implements Input {
     public int ask(String quastion, int[] range) {
         int key = Integer.valueOf(this.ask(quastion));
         boolean exist = false;
-        for (int value: range){
-            if(value == key){
+        for (int value: range) {
+            if (value == key) {
                 exist = true;
                 break;
             }
         }
-        if(exist){
+        if (exist) {
             return key;
         } else {
             throw new MenuOutException("Выход из диапазона возможных значений!");
         }
-
     }
 }
 

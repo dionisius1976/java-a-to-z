@@ -2,9 +2,12 @@ package ru.dionisius.trackers;
 
 import ru.dionisius.action.IAction;
 
-import java.io.*;
-import java.net.Socket;
-import java.util.Properties;
+import java.io.DataInputStream;
+import java.io.InputStream;
+import java.io.DataOutputStream;
+import java.io.OutputStream;
+import java.io.IOException;
+import java.io.File;
 
 /**
  * Created by Dionisius on 05.12.2016.
@@ -12,63 +15,63 @@ import java.util.Properties;
 public abstract class ATracker implements ITracker {
 
     /**
-     *
+     * Store of available actions.
      */
-    public final int NUMBER_OF_USER_ACTIONS = 5;
-
-    /**
-     *
-     */
-    protected IAction[] actions;
+    private IAction[] actions;
 
     /**
      * Buffer size to read shecified file.
      */
-    protected final int BUFFER_SIZE = 1024;
+    private static final int BUFFER_SIZE = 1024;
 
     /**
-     *
+     *Path to file with settings.
      */
-    protected String propertiesFile;
+    private String propertiesFile;
     /**
      *Input stream.
      */
-    protected DataInputStream dis;
+    private DataInputStream dis;
     /**
      *Output stream.
      */
-    protected DataOutputStream dos;
-    /**
-     *Object to work with file properties.
-     */
-    protected Properties prop = new Properties();
+    private DataOutputStream dos;
+
     /**
      * Current operating system line separator.
      */
-    protected final String sep = System.getProperty("line.separator");
-    protected final String fSep = File.separator;
-    /**
-     *
-     */
-    protected Socket socket;
+    private final String sep = System.getProperty("line.separator");
+
 
     /**
-     *
+     * Constructor.
+     * @param propertiesFile path to file with properties
      */
     public ATracker(String propertiesFile) {
         this.propertiesFile = propertiesFile;
     }
 
-    abstract public void init();
+    /**
+     * Initial method to start.
+     */
+    public abstract void init();
 
-    abstract public void fillActions() throws IOException;
+    /**
+     * Fills the store of available actions.
+     * @throws IOException if IO error occurs
+     */
+    public abstract void fillActions() throws IOException;
 
-    abstract public void setConnection() throws IOException;
+    /**
+     * Sets conection with spesified socket.
+     * @throws IOException if IO error occurs
+     */
+    public abstract void setConnection() throws IOException;
 
     @Override
     public int[] getRange() {
         int[] result = new int[this.actions.length];
-        for(int index = 0; index < this.actions.length; index++){
+        for (int index = 0; index < this.actions.length; index++) {
             result[index] = index + 1;
         }
         return result;
@@ -80,14 +83,7 @@ public abstract class ATracker implements ITracker {
     }
 
     @Override
-    public void loadProperties() throws IOException {
-        File file = new File(String.format("%s%s%s", System.getProperty("user.dir"), this.fSep, this.propertiesFile));
-        InputStream in = this.getClass().getResourceAsStream("/main/properties");
-//        InputStream in = this.getClass().getResourceAsStream(String.format("%s%s%s", System.getProperty("user.dir"),
-//                this.fSep, this.propertiesFile));
-        this.prop.load(in);
-        in.close();
-    }
+    public abstract void loadProperties() throws IOException;
 
     @Override
     public void fileTransfer(InputStream in, OutputStream out) throws IOException {
@@ -102,7 +98,7 @@ public abstract class ATracker implements ITracker {
     @Override
     public String getFilesList(File dir) {
         StringBuilder sb = new StringBuilder();
-        for(File item : dir.listFiles()) {
+        for (File item : dir.listFiles()) {
             if (!item.isDirectory()) {
                 sb.append(String.format("%-30s%s%s", item.getName(), "файл", this.sep));
             }
@@ -113,7 +109,7 @@ public abstract class ATracker implements ITracker {
     @Override
     public String getSubDirectoriesList(File dir) {
         StringBuilder sb = new StringBuilder();
-        for(File item : dir.listFiles()) {
+        for (File item : dir.listFiles()) {
             if (item.isDirectory()) {
                 sb.append(String.format("%-30s%s%s", item.getName(), "каталог", this.sep));
             }

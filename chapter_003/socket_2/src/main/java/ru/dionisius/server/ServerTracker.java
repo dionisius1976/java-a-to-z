@@ -134,8 +134,6 @@ public class ServerTracker extends ATracker {
     @Override
     public void loadProperties() throws IOException {
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("config.properties");
-//        InputStream in = ServerTracker.class.getResourceAsStream("config.properties");
-//        File file = ServerTracker.class.getResource("config.properties");
         this.prop.load(in);
         in.close();
     }

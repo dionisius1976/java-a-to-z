@@ -13,6 +13,7 @@ public interface Input {
     String ask(String question);
 
     /**
+     * Asks the quastion and returns chosen by user menu's number of available action.
      * @param quastion  receiving question
      * @param range range of available
      * @return number

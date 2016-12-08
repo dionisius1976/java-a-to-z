@@ -4,6 +4,7 @@ import ru.dionisius.action.AClientAction;
 import ru.dionisius.action.IAction;
 import ru.dionisius.input.ConsoleInput;
 import ru.dionisius.input.Input;
+import ru.dionisius.input.ValidateInput;
 import ru.dionisius.trackers.ATracker;
 
 import java.io.DataInputStream;
@@ -130,7 +131,7 @@ public class ClientTracker extends ATracker {
      */
     @Override
     public void loadProperties() throws IOException {
-        InputStream in = this.getClass().getResourceAsStream("config.properties");
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("config.properties");
         this.prop.load(in);
         in.close();
     }
@@ -318,10 +319,10 @@ public class ClientTracker extends ATracker {
      * @param args arguments from console
      */
     public static void main(String[] args) {
-        File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
-                File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
+//        File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
+//                File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
 //        new ClientTracker(new ValidateInput()).init();
-//        new ClientTracker(new ValidateInput(), file).init();
+        new ClientTracker("config.properties", new ValidateInput()).init();
     }
 
 }

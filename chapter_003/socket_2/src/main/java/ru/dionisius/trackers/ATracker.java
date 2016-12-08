@@ -13,17 +13,18 @@ import java.io.File;
  * Created by Dionisius on 05.12.2016.
  */
 public abstract class ATracker implements ITracker {
-
     /**
-     * Store of available actions.
+     * Number of available actions for this program.
      */
-    private IAction[] actions;
-
+    static final int NUMBER_OF_USER_ACTIONS = 5;
     /**
      * Buffer size to read shecified file.
      */
     private static final int BUFFER_SIZE = 1024;
-
+    /**
+     * Store of available actions.
+     */
+    private IAction[] actions = new IAction[NUMBER_OF_USER_ACTIONS];
     /**
      *Path to file with settings.
      */

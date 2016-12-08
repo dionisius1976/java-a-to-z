@@ -1,6 +1,6 @@
 package ru.dionisius.server;
 
-import ru.dionisius.PropertiesSetter;
+//import ru.dionisius.PropertiesSetter;
 import ru.dionisius.action.AServerAction;
 import ru.dionisius.trackers.ATracker;
 
@@ -22,14 +22,14 @@ public class ServerTracker extends ATracker{
             File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius"));
 
     //private final File rootDir =
-    InputStream in  = this.getClass().getResourceAsStream("config.properties");
+//    InputStream in  = this.getClass().getResourceAsStream("config.properties");
 
     private File currentDir;
 
 
-//    public ServerTracker(File properties) {
-//        super(properties);
-//    }
+    public ServerTracker(String propertiesFile) {
+        super(propertiesFile);
+    }
 
     @Override
     public void init() {
@@ -166,16 +166,9 @@ public class ServerTracker extends ATracker{
 //        InputStream in = getClass().getResourceAsStream("/file.txt");
 //        File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
 //                File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
-        File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
-                File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
-        if (!file.exists()) {
-            PropertiesSetter.setProperties();
-        }
-        System.out.println(System.getProperty("user.dir"));
-        System.out.println(System.getProperty("user.home"));
-        System.out.println(System.getProperty("path.separator"));
-        System.out.println(System.getProperty("java.class.path"));
-        new ServerTracker().init();
+//        System.out.println(String.format("%s%s%s", System.getProperty("user.dir"),
+//                File.separator, "config.properties"));
+        new ServerTracker("config.properties").init();
 //        new ServerTracker(file).init();
     }
 

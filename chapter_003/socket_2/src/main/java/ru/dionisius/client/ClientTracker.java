@@ -30,8 +30,8 @@ public class ClientTracker extends AClientTracker{
     /**
      * @param input
      */
-    public ClientTracker(Input input) {
-        super(input);
+    public ClientTracker(String propertiesFile, Input input) {
+        super(propertiesFile, input);
     }
 //    public ClientTracker(Input input, File properties) {
 //        super(input, properties);
@@ -206,7 +206,7 @@ public class ClientTracker extends AClientTracker{
     public static void main(String[] args) {
         File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
                 File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
-        new ClientTracker(new ValidateInput()).init();
+//        new ClientTracker(new ValidateInput()).init();
 //        new ClientTracker(new ValidateInput(), file).init();
     }
 

@@ -29,7 +29,7 @@ public abstract class ATracker implements ITracker {
     /**
      *
      */
-    protected File properties = null;
+    protected String propertiesFile;
     /**
      *Input stream.
      */
@@ -55,9 +55,9 @@ public abstract class ATracker implements ITracker {
     /**
      *
      */
-//    public ATracker(File properties) {
-//        this.properties = properties;
-//    }
+    public ATracker(String propertiesFile) {
+        this.propertiesFile = propertiesFile;
+    }
 
     abstract public void init();
 
@@ -81,8 +81,10 @@ public abstract class ATracker implements ITracker {
 
     @Override
     public void loadProperties() throws IOException {
-//        InputStream in = getClass().getResourceAsStream("config.properties");
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("config.properties");
+        File file = new File(String.format("%s%s%s", System.getProperty("user.dir"), this.fSep, this.propertiesFile));
+        InputStream in = this.getClass().getResourceAsStream("/main/properties");
+//        InputStream in = this.getClass().getResourceAsStream(String.format("%s%s%s", System.getProperty("user.dir"),
+//                this.fSep, this.propertiesFile));
         this.prop.load(in);
         in.close();
     }

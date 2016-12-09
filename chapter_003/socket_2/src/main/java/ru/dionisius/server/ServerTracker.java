@@ -36,9 +36,6 @@ public class ServerTracker extends ATracker {
     private final File rootDir = new File(String.format("%s%s%s", System.getProperty("user.dir"),
             File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius"));
 
-    //private final File rootDir =
-//    InputStream in  = this.getClass().getResourceAsStream("config.properties");
-
     /**
      * Current directory.
      */
@@ -138,6 +135,11 @@ public class ServerTracker extends ATracker {
         in.close();
     }
 
+    @Override
+    public void select(int key) throws IOException {
+        this.actions[key - 1].execute(this.dis, this.dos);
+    }
+
     /**
      * Returns inputted by user key for specified action.
      * @param in data input stream
@@ -158,7 +160,7 @@ public class ServerTracker extends ATracker {
         @Override
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
             this.sendMessage(out, String.format("В директории: %s%s%s",
-                    ServerTracker.this.currentDir.getAbsolutePath(), ServerTracker.this.fSep,
+                    ServerTracker.this.currentDir.getAbsolutePath(), ServerTracker.this.sep,
                     ServerTracker.this.getCurrentDirList(ServerTracker.this.currentDir)));
         }
     }
@@ -173,8 +175,8 @@ public class ServerTracker extends ATracker {
             this.sendMessage(out, String.format("Выберете поддиректорию:%s%s",
                     ServerTracker.this.sep, ServerTracker.this.getSubDirectoriesList(currentDir)));
             String currentSubDir = this.getResponse(in);
-            ServerTracker.this.currentDir = new File(String.format("%s\\%s",
-                    ServerTracker.this.currentDir.getAbsolutePath(), currentSubDir));
+            ServerTracker.this.currentDir = new File(String.format("%s%s%s",
+                    ServerTracker.this.currentDir.getAbsolutePath(), ServerTracker.this.fSep, currentSubDir));
             if (ServerTracker.this.currentDir.isDirectory()) {
                 this.sendMessage(out, String.format("В директории: %s",
                         ServerTracker.this.currentDir.getAbsolutePath()));
@@ -194,8 +196,8 @@ public class ServerTracker extends ATracker {
         @Override
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
             ServerTracker.this.currentDir = new File(ServerTracker.this.currentDir.getParent());
-            this.sendMessage(out, String.format("В директории: %s",
-                    ServerTracker.this.currentDir.getAbsolutePath()));
+            this.sendMessage(out, String.format("В директории: %s%s",
+                    ServerTracker.this.currentDir.getAbsolutePath(), ServerTracker.this.sep));
         }
     }
 
@@ -209,8 +211,8 @@ public class ServerTracker extends ATracker {
             this.sendMessage(out, String.format("Выберете файл для копирования:%s%s",
                     ServerTracker.this.sep, ServerTracker.this.getFilesList(ServerTracker.this.currentDir)));
             String currentMesssage = this.getResponse(in);
-            File file = new File(String.format("%s\\%s",
-                    ServerTracker.this.currentDir.getAbsolutePath(), currentMesssage));
+            File file = new File(String.format("%s%s%s",
+                    ServerTracker.this.currentDir.getAbsolutePath(), ServerTracker.this.fSep, currentMesssage));
             FileInputStream fin = new FileInputStream(file);
             ServerTracker.this.fileTransfer(fin, ServerTracker.this.dos);
             fin.close();
@@ -226,8 +228,8 @@ public class ServerTracker extends ATracker {
         @Override
         public void execute(DataInputStream in, DataOutputStream out) throws IOException {
             String currentMesssage = this.getResponse(in);
-            File file = new File(String.format("%s\\%s",
-                    ServerTracker.this.currentDir.getAbsolutePath(), currentMesssage));
+            File file = new File(String.format("%s%s%s",
+                    ServerTracker.this.currentDir.getAbsolutePath(), ServerTracker.this.fSep, currentMesssage));
             FileOutputStream fout = new FileOutputStream(file);
             ServerTracker.this.fileTransfer(ServerTracker.this.dis, fout);
             fout.close();
@@ -239,14 +241,6 @@ public class ServerTracker extends ATracker {
      * @param args arguments from console
      */
     public static void main(String[] args) {
-
-//        InputStream in = getClass().getResourceAsStream("/file.txt");
-//        File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
-//                File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
-//        System.out.println(String.format("%s%s%s", System.getProperty("user.dir"),
-//                File.separator, "config.properties"));
         new ServerTracker("config.properties").init();
-//        new ServerTracker(file).init();
     }
-
 }

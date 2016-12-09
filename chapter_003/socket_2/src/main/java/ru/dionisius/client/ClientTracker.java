@@ -50,7 +50,7 @@ public class ClientTracker extends ATracker {
     /**
      * Store of available actions.
      */
-    private IAction[] actions;
+    private IAction[] actions = new  AClientAction[this.NUMBER_OF_USER_ACTIONS];
     /**
      *Object to work with file properties.
      */
@@ -89,6 +89,7 @@ public class ClientTracker extends ATracker {
     public void init() {
         try {
             this.setConnection();
+            this.fillActions();
             dis = new DataInputStream(socket.getInputStream());
             dos = new DataOutputStream(socket.getOutputStream());
             do {
@@ -116,8 +117,6 @@ public class ClientTracker extends ATracker {
      * @throws IOException if IO error occurs
      */
     public void setConnection() throws IOException {
-        this.actions = new  AClientAction[this.NUMBER_OF_USER_ACTIONS];
-        this.fillActions();
         this.loadProperties();
         this.keyboard = new BufferedReader(new InputStreamReader(System.in));
         System.out.printf("Подключение к порту: %s%s", this.prop.getProperty("server_port"), this.sep);
@@ -134,6 +133,11 @@ public class ClientTracker extends ATracker {
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("config.properties");
         this.prop.load(in);
         in.close();
+    }
+
+    @Override
+    public void select(int key) throws IOException {
+        this.actions[key - 1].execute(this.dis, this.dos);
     }
 
     /**

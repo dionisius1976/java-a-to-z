@@ -79,9 +79,7 @@ public abstract class ATracker implements ITracker {
     }
 
     @Override
-    public void select(int key) throws IOException {
-        this.actions[key - 1].execute(this.dis, this.dos);
-    }
+    public abstract void select(int key) throws IOException;
 
     @Override
     public abstract void loadProperties() throws IOException;

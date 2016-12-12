@@ -13,9 +13,11 @@
     </parent>
 
 	<modules>
-		<module>inputOutput_1</module>
-		<module>socket_2</module>
-		<module>testTask_3</module>
+		<module>1_inputOutput</module>
+		<module>2_socket</module>
+		<module>3_testTask</module>
+		<module>4_additionalTask</module>
+
 	</modules>
 
 </project>

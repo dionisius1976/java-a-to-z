@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>jvm_1</artifactId>
+	<artifactId>1_jvmS</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>

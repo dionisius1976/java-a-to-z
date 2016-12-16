@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>data_types_2</artifactId>
+	<artifactId>2_data_types</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>

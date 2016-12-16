@@ -18,23 +18,23 @@ public class Chat {
     /**
      * Stop command.
      */
-    private final String STOP = "стоп";
+    static final String STOP = "стоп";
 
     /**
      * Terminate command.
      */
-    private final String FINISH = "закончить";
+    static final String FINISH = "закончить";
 
     /**
      * Continue command.
      */
-    private final String CONTINUE = "продолжить";
+    static final String CONTINUE = "продолжить";
 
     /**
      * Limit on the number of characters.
      * That may be read while still preserving the mark.
      */
-    private final int READ_AHEAD_LIMIT = 200;
+    static final int READ_AHEAD_LIMIT = 200;
 
     /**
      * Inputed from console user phrase.
@@ -65,9 +65,6 @@ public class Chat {
      * Boolean swincher for mute mode for answers.
      */
     private boolean mute;
-
-
-
     /**Chat(File answersFile, File logFile).
      * Constructor
      * @param answersFile - file with answers strings of programm
@@ -77,9 +74,8 @@ public class Chat {
         this.answersFile = answersFile;
         this.logFile = logFile;
     }
-
     /**start().
-     *  This method starts the chat between user and program
+     *  Starts the chat between user and program
      *  and writes their dialogue in log file
      */
     public void start() {
@@ -122,7 +118,6 @@ public class Chat {
             ioe.printStackTrace();
         }
     }
-
     /** main method of program.
      * @param args params from console
      */

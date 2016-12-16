@@ -13,12 +13,12 @@
 	</parent>
 	
 	<modules>
-		<module>incapsulation_2_and_polymorphism_3</module>
-		<module>innerClasses_4</module>
-		<module>exceptions_5</module>
-		<module>abstract_6</module>
-		<module>chess_7</module>
-		<module>test_task_8</module>
+		<module>2_incapsulation_and_3_polymorphism</module>
+		<module>4_innerClasses</module>
+		<module>5_exceptions</module>
+		<module>6_abstract</module>
+		<module>7_chess</module>
+		<module>8_test_task</module>
 	</modules>
 	
 </project>

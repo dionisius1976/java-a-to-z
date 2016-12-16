@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>additional_test_task</artifactId>
+	<artifactId>7_additional_test_task</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>

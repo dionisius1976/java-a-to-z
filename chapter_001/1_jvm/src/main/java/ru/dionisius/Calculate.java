@@ -17,7 +17,7 @@ public class Calculate {
 	}
 
 	/**
-	 * Stsrts the program.
+	 * Starts the program.
 	 * @param args arguments from console
 	 */
 	public static void main(String[] args) {

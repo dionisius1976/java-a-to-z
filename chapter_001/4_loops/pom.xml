@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>loops_4</artifactId>
+	<artifactId>4_loops</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>

@@ -13,13 +13,13 @@
 	</parent>
 
 	<modules>
-		<module>jvm_1</module>
-		<module>data_types_2</module>
-		<module>condition_operator_3</module>
-		<module>loops_4</module>
-		<module>arrays_5</module>
-		<module>test_task_6</module>
-		<module>additional_test_task</module>
+		<module>1_jvm</module>
+		<module>2_data_types</module>
+		<module>3_condition_operator</module>
+		<module>4_loops</module>
+		<module>5_arrays</module>
+		<module>6_test_task</module>
+		<module>7_additional_test_task</module>
 		
 	</modules>
 	

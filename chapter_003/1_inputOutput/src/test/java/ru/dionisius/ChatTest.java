@@ -2,9 +2,15 @@ package ru.dionisius;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+
 import static org.junit.Assert.assertEquals;
 
-import java.io.*;
 
 /**Class ChatTest for testing class Chat.
  * Created by Dionisius on 24.11.2016.
@@ -12,7 +18,7 @@ import java.io.*;
 public class ChatTest {
 
     /**
-     * File path for programm answers file.
+     * File path for program answers file.
      */
     private  final String filePathAnswers = String.format("%s%s%s", System.getProperty("user.dir"),
             File.separator, "src\\main\\java\\ru\\dionisius\\chatFiles\\answers.txt");

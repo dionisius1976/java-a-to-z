@@ -21,7 +21,7 @@ public class Sort3G {
      */
     public void sort(File source, File distance)  {
         try (RandomAccessFile rafSource = new RandomAccessFile(source, "rw");
-             RandomAccessFile rafDistance = new RandomAccessFile(distance, "rw");){
+             RandomAccessFile rafDistance = new RandomAccessFile(distance, "rw")) {
             File temp = File.createTempFile("temp", ".tmp");
             File split1 = File.createTempFile("split1", ".tmp");
             File split2 = File.createTempFile("split2", ".tmp");

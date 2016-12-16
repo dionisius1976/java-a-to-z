@@ -1,68 +1,79 @@
 package ru.dionisius;
-
+/**
+ *  This class unites two sorted arrays of integers in one sorted array of integers.
+ */
 public class UnitedSortedArray {
-
-	public int[] sortedArray(int[] sortedArr1, int[] sortedArr2){
-		
-		int[] unitedArray;
-		int index1=sortedArr1[sortedArr1.length-1];
-		int index2=sortedArr2[sortedArr2.length-1];
-		
-		if(index1>=index2) {
-			unitedArray=getUnitedArray(sortedArr1,sortedArr2);
-		}else unitedArray=getUnitedArray(sortedArr2,sortedArr1);
-		
-		return unitedArray;
+	/**
+	 * First specified array.
+	 */
+	private final int[] first;
+	/**
+	 *  Second specified array.
+	 */
+	private final int[] second;
+	/**
+	 * United sorted array.
+	 */
+	private int[] unitedArr;
+	/**
+	 * Defaul constructor.
+	 * @param first specified array.
+	 * @param second second specified array.
+	 */
+	public UnitedSortedArray(final int[] first, final int[] second) {
+		this.first = first;
+		this.second = second;
 	}
-	
-	private int[] getUnitedArray(int[] arr1, int[] arr2){
-		
-		int[] arr3=new int[(arr1.length+arr2.length)];
-		int arr1Index=0;
-		int arr2Index=0;
-		int arr3Index=0;
-				
-		for (arr1Index=0; arr1Index<arr1.length; arr1Index++){
-			for (arr2Index=arr2Index; arr2Index<arr2.length; arr2Index++){
-				if (arr1[arr1Index]==arr2[arr2Index]) {
-					arr3[arr3Index]=arr2[arr2Index];
-					arr3Index++;
-					arr2Index++;
-					if (arr2Index==arr2.length-1&&arr1Index==arr1.length-1) {
-						arr3=concatinateArrays(arr3, arr3Index, arr1, arr1Index);
-						break;
-					}
-					if (arr2Index==arr2.length-1) {
-						arr3=concatinateArrays(arr3, arr3Index+1, arr1, arr1Index+1);
-						break;
-					}
-					break;
-				}
-				if (arr1[arr1Index]<arr2[arr2Index]) {
-					arr3[arr3Index]=arr1[arr1Index];
-					arr3Index++;
-					break;
-				}
-				if (arr1[arr1Index]>arr2[arr2Index]) {
-					arr3[arr3Index]=arr2[arr2Index];
-					arr3Index++;
-				}
+	/**
+	 * Getter for united array.
+	 * @return united array.
+	 */
+	public int[] getUnitedArr() {
+		return unitedArr;
+	}
+	/**
+	 * Unites two sorted arrays of integers.
+	 */
+	public void unite() {
+		this.unitedArr = new int[first.length + second.length];
+		int index1 = 0;
+		int index2 = 0;
+		int index3 = 0;
+		while (true) {
+			if ((index1 == this.first.length) || (index2 == this.second.length)) {
+				break;
 			}
-			if (arr2Index==arr2.length-1) break;
+			if (this.first[index1] < this.second[index2]) {
+				this.unitedArr[index3] = this.first[index1];
+				index1++;
+				index3++;
+				continue;
+			}
+			if (this.first[index1] > this.second[index2]) {
+				this.unitedArr[index3] = this.second[index2];
+				index2++;
+				index3++;
+				continue;
+			} else {
+				this.unitedArr[index3] = this.second[index2];
+				index3++;
+				this.unitedArr[index3] = this.second[index2];
+				index1++;
+				index2++;
+				index3++;
+				continue;
+			}
 		}
-		return arr3;
+		if (index1 == this.first.length) {
+			for (int i = index2; i < this.second.length; i++) {
+				this.unitedArr[index3] = this.second[i];
+				index3++;
+			}
+		} else {
+			for (int i = index1; i < this.first.length; i++) {
+				this.unitedArr[index3] = this.first[i];
+				index3++;
+			}
+		}
 	}
-	
-	private int[] concatinateArrays(int[] arr1, int arr1Index, int[] arr2, int arr2Index){
-		int[] concatinatedArray=new int[(arr1Index-1+arr2.length-arr2Index)];
-		for (int i=0; i<arr1Index-1; i++){
-			concatinatedArray[i]=arr1[i];
-		}
-		for (int i=arr1Index-1; i<concatinatedArray.length; i++){
-			concatinatedArray[i]=arr2[arr2Index];
-			arr2Index++;
-		}
-		return concatinatedArray;
-	}
-	
 }

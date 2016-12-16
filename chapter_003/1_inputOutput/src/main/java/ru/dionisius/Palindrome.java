@@ -36,7 +36,7 @@ public class Palindrome {
      */
     public static void main(String[] args) {
         final int PALINDROME_LENGTH = 5;
-        try (Scanner scanner = new Scanner(System.in)){
+        try (Scanner scanner = new Scanner(System.in)) {
             ru.dionisius.Palindrome palindrome = new ru.dionisius.Palindrome();
             while (true) {
                 System.out.print("Input five characters testing word: ");

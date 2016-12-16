@@ -1,18 +1,22 @@
 package ru.dionisius;
 
-import java.io.*;
 
 import org.junit.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.IOException;
+
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Dionisius on 19.11.2016.
  */
 public class AbuseTest {
-
         /**
-         * check().
-         * This method checks deleting abused words from string
+         * Checks deleting abused words from string.
          */
         @Test
         public void whenSpacesAreAbsentThenExpectedArray() {
@@ -20,7 +24,7 @@ public class AbuseTest {
             String[] abuseWords = {"ol", "oz"};
             Abuse abuse = new Abuse();
             try (InputStream in = new ByteArrayInputStream(inputString.getBytes());
-                 OutputStream out = new ByteArrayOutputStream();){
+                 OutputStream out = new ByteArrayOutputStream()) {
                 abuse.dropAbuses(in, out, abuseWords);
                 String result = out.toString();
                 String expectedValue = "ka";

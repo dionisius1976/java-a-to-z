@@ -39,7 +39,7 @@ public class Palindrome {
         try (Scanner scanner = new Scanner(System.in)) {
             ru.dionisius.Palindrome palindrome = new ru.dionisius.Palindrome();
             while (true) {
-                System.out.print("Input five characters testing word: ");
+                System.out.print("inputs five characters testing word: ");
                 String string = scanner.nextLine();
                 if (string.length() != PALINDROME_LENGTH) {
                     System.out.println("It's not five characters word!");

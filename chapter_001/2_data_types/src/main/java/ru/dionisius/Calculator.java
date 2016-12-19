@@ -30,7 +30,7 @@ public class Calculator {
 	}
 
 	/**
-	 * subtructs specified integer values and saves result in variable "result".
+	 * subtracts specified integer values and saves result in variable "result".
 	 * @param first first integer parameter
 	 * @param second second integer parameter
 	 */

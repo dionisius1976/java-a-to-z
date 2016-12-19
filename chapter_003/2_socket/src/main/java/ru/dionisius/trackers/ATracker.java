@@ -30,7 +30,7 @@ public abstract class ATracker implements ITracker {
      */
     private String propertiesFile;
     /**
-     *Input stream.
+     *inputs stream.
      */
     private DataInputStream dis;
     /**

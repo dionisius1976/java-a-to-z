@@ -38,7 +38,7 @@ public class ClientTracker extends ATracker {
      */
     private BufferedReader keyboard;
     /**
-     *Input stream for transfer data.
+     *inputs stream for transfer data.
      */
     private DataInputStream dis;
     /**

@@ -54,7 +54,7 @@ public class ServerTracker extends ATracker {
      */
     private final String sep = System.getProperty("line.separator");
     /**
-     *Input stream.
+     *inputs stream.
      */
     private DataInputStream dis;
     /**

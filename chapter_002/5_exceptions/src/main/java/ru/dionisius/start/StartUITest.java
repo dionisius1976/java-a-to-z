@@ -5,6 +5,7 @@ package ru.dionisius.start;
  * Emulates user's console input.
  */
 public class StartUITest {
+
 	/**
 	 * Starts user's console input emulator.
 	 * @param args console inputted arguments.

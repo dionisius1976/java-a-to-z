@@ -1,0 +1,19 @@
+<project>
+
+	<version>1.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.dionisius</groupId>
+	<artifactId>chapter_004</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>java-a-to-z</artifactId>
+	</parent>
+
+	<modules>
+		<module>1_SRP</module>
+	</modules>
+	
+</project>

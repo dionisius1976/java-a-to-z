@@ -4,7 +4,6 @@ package ru.dionisius;
  * Created by Dionisius on 10.12.2016.
  */
 public class BanknoteChanger {
-
     /**
      * Decomposes integer to sums of summands and prints them.
      * @param banknote to change.
@@ -27,12 +26,9 @@ public class BanknoteChanger {
                         }
                     }
                 }
-
             }
         }
-
     }
-
     /**
      * Decomposes integer n to sum of summands.
      * @param n integer n to decompose.
@@ -64,7 +60,6 @@ public class BanknoteChanger {
         }
         return returningArray;
     }
-
     /**
      * Prints specified array as sum of summands.
      * @param array specified array.
@@ -75,7 +70,6 @@ public class BanknoteChanger {
         }
         System.out.printf("%d%s", array[array.length - 1], System.lineSeparator());
     }
-
     /**
      * Starts the program.
      * @param args arguments from console.

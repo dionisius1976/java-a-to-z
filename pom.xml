@@ -6,8 +6,6 @@
     <artifactId>java-a-to-z</artifactId>
     <packaging>pom</packaging>
 
-
-
     <modules>
         <module>chapter_001</module>
         <module>chapter_002</module>

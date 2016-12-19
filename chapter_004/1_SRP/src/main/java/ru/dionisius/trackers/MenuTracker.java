@@ -8,8 +8,17 @@ import ru.dionisius.inputs.Input;
  * Selects specified action depending of chosen by user key and starts this action.
  */
 public class MenuTracker {
+	/**
+	 * Result of previous operation.
+	 */
 	private double result;
+	/**
+	 * Flag to check if the operation is the first or program has a previous operation result.
+	 */
 	private boolean isFirst = true;
+	/**
+	 * Current operating system line separator.
+	 */
 	private final String lineSep = System.lineSeparator();
 	/**
 	 * Specified type of input.
@@ -48,14 +57,21 @@ public class MenuTracker {
 		this.input = input;
 	}
 
+	/**
+	 * Getter for result of previous operation.
+	 * @return result of previous operation.
+	 */
 	public double getResult() {
 		return result;
 	}
 
+	/**
+	 * Getter for the flag to check if the operation is the first.
+	 * @return the flag to check if the operation is the first.
+	 */
 	public boolean getIsFirst() {
 		return isFirst;
 	}
-
 	/**
 	 * Fills action array by available actions.
 	 */
@@ -84,7 +100,6 @@ public class MenuTracker {
 		this.actions[key].execute(this.input);
 		this.isFirst = false;
 	}
-
 	/**
 	 * Shows menu with available actions.
 	 */
@@ -95,7 +110,6 @@ public class MenuTracker {
 			}
 		}
 	}
-
 	/**
 	 * Calculates addition of two specified double values.
 	 */

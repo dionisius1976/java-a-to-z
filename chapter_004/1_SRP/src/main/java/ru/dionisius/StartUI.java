@@ -3,15 +3,17 @@ package ru.dionisius;
 import ru.dionisius.inputs.Input;
 import ru.dionisius.inputs.ValidateInput;
 import ru.dionisius.trackers.MenuTracker;
-
 /**
- *
+ * Class starts the program.
  */
 public class StartUI {
 	/**
 	 * Type of input.
 	 */
 	private Input input;
+	/**
+	 * Current operating system line separator.
+	 */
 	private final String lineSep = System.lineSeparator();
 	/**
 	 * Default constructor.

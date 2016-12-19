@@ -1,86 +1,73 @@
 package ru.dionisius;
 
 import java.io.File;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.util.Random;
 import java.util.Scanner;
-
 /**
  * Created by Dionisius on 24.11.2016.
  */
 public class Chat {
-
+    /**
+     * File separator for paths supporting by current operation system.
+     */
+    private final String fSep = File.separator;
+    /**
+     * Current operating system line separator.
+     */
+    private final String lSep = System.getProperty("line.separator");
     /**
      * Stop command.
      */
     static final String STOP = "стоп";
-
     /**
      * Terminate command.
      */
     static final String FINISH = "закончить";
-
     /**
      * Continue command.
      */
     static final String CONTINUE = "продолжить";
-
     /**
      * Limit on the number of characters.
      * That may be read while still preserving the mark.
      */
     static final int READ_AHEAD_LIMIT = 200;
-
     /**
      * Inputed from console user phrase.
      */
     private String userPhrase = "";
-
     /**
      * File object with answers.
      */
-    private File answersFile;
-
+    private File answersFile = new File(this.getClass().getResource("/answers.txt").getPath());
     /**
      * File object for log.
      */
-    private File logFile;
-
+    private File logFile = new File(this.getClass().getResource("/log.txt").getPath());
     /**
      * Random answer phrase from answer file.
      */
     private String answer;
-
     /**
-     * Random object to generate random choose of answer string sron answer file.
-     */
-    private Random rand;
-
-    /**
-     * Boolean swincher for mute mode for answers.
+     * Boolean switcher for mute mode for answers.
      */
     private boolean mute;
-    /**Chat(File answersFile, File logFile).
-     * Constructor
-     * @param answersFile - file with answers strings of programm
-     * @param logFile - file for logging dialog between user and program
+    /**
+     * Constructor.
      */
-    public Chat(File answersFile, File logFile) {
-        this.answersFile = answersFile;
-        this.logFile = logFile;
-    }
-    /**start().
-     *  Starts the chat between user and program
+    public Chat() { }
+    /**
+     *  Starts the chat between user and program.
      *  and writes their dialogue in log file
      */
     public void start() {
         int answersNumber = 0;
-        rand = new Random();
         mute = false;
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.logFile));
              Scanner scanner = new Scanner(System.in);
@@ -92,7 +79,7 @@ public class Chat {
             reader.reset();
             while (scanner.hasNext()) {
                 userPhrase = scanner.nextLine();
-                writer.write(String.format("%s%s\r\n", "User: ", userPhrase));
+                writer.write(String.format("User: %s%s", userPhrase, this.lSep));
                 if (STOP.equalsIgnoreCase(userPhrase)) {
                     mute = true;
                 }
@@ -108,7 +95,7 @@ public class Chat {
                         answer = reader.readLine();
                     }
                     reader.reset();
-                    writer.write(String.format("%s%s\r\n", "Programm: ", answer));
+                    writer.write(String.format("Program: %s%s", answer, this.lSep));
                     System.out.println(answer);
                 }
             }
@@ -118,13 +105,11 @@ public class Chat {
             ioe.printStackTrace();
         }
     }
-    /** main method of program.
+    /**
+     * Main method of program.
      * @param args params from console
      */
     public static void main(String[] args) {
-        new Chat(new File(String.format("%s%s%s", System.getProperty("user.dir"),
-                File.separator, "chapter_003\\inputOutput_1\\src\\main\\java\\ru\\dionisius\\chatFiles\\answers.txt")),
-                new File(String.format("%s%s%s", System.getProperty("user.dir"),
-                        File.separator, "chapter_003\\inputOutput_1\\src\\main\\java\\ru\\dionisius\\chatFiles\\log.txt"))).start();
+        new Chat().start();
     }
 }

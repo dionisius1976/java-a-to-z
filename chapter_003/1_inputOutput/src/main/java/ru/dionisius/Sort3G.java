@@ -19,7 +19,7 @@ public class Sort3G {
      * @param source - unsorted source file
      * @param distance - sorted distance file
      */
-    public void sort(File source, File distance)  {
+    public void sort(File source, File distance) {
         try (RandomAccessFile rafSource = new RandomAccessFile(source, "rw");
              RandomAccessFile rafDistance = new RandomAccessFile(distance, "rw")) {
             File temp = File.createTempFile("temp", ".tmp");

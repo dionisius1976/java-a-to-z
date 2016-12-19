@@ -1,15 +1,12 @@
 package ru.dionisius;
-
 /**
  * This class provides bubble sorting of specified array of integers.
  */
 public class Values {
-
 	/**
 	 * Specified array of integers.
 	 */
 	private int[] arr;
-
 	/**
 	 * Default constructor.
 	 * @param arr specified array of integers.
@@ -17,7 +14,6 @@ public class Values {
 	public Values(final int[] arr) {
 		this.arr = arr;
 	}
-
 	/**
 	 * Getter for this array.
 	 * @return this array.
@@ -25,7 +21,6 @@ public class Values {
 	public int[] getArr() {
 		return arr;
 	}
-
 	/**
 	 * Provides bubble sorting of specified array of integers.
 	 */
@@ -34,7 +29,6 @@ public class Values {
 			maxToEnd(i);
 		}
 	}
-
 	/**
 	 * Moves the biggest value of specified area of this array to the end of this specified area.
 	 * @param lastIndex last index of specified area of this array.

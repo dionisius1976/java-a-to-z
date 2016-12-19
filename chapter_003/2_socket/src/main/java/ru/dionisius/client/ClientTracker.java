@@ -28,23 +28,21 @@ public class ClientTracker extends ATracker {
      * Number of available actions for this program.
      */
     static final int NUMBER_OF_USER_ACTIONS = 5;
-
     /**
      *The current client directory path.
      */
     private final String path = String.format("%s%s%s", System.getProperty("user.dir"),
             File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\client");
-
     /**
-     * Buffered reder for console input.
+     * Buffered reader for console input.
      */
     private BufferedReader keyboard;
     /**
-     *Input stream.
+     *Input stream for transfer data.
      */
     private DataInputStream dis;
     /**
-     *Output stream.
+     *Output stream for transfer data.
      */
     private DataOutputStream dos;
     /**
@@ -67,22 +65,19 @@ public class ClientTracker extends ATracker {
      * Socket for binding with server.
      */
     private Socket socket;
-
     /**
      * Type for data input.
      */
     private final Input input;
-
     /**
      * Constructor.
      * @param input type for data input
      * @param propertiesFile path to properties file
      */
-    public ClientTracker(String propertiesFile, Input input) {
+    public ClientTracker(final String propertiesFile, final Input input) {
         super(propertiesFile);
         this.input = input;
     }
-
     /**
      * Starts executing.
      */
@@ -90,8 +85,8 @@ public class ClientTracker extends ATracker {
         try {
             this.setConnection();
             this.fillActions();
-            dis = new DataInputStream(socket.getInputStream());
-            dos = new DataOutputStream(socket.getOutputStream());
+            this.dis = new DataInputStream(this.socket.getInputStream());
+            this.dos = new DataOutputStream(this.socket.getOutputStream());
             do {
                 this.showMenu();
                 this.select(input.ask("Выберете действие: ", this.getRange()));
@@ -102,14 +97,13 @@ public class ClientTracker extends ATracker {
             try {
                 this.keyboard.close();
                 this.socket.close();
-                dis.close();
-                dos.close();
+                this.dis.close();
+                this.dos.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
-
     /**
      * Sets connection with server via socket.
      * And fills array of actions
@@ -123,7 +117,6 @@ public class ClientTracker extends ATracker {
         this.socket = new Socket(InetAddress.getByName(this.prop.getProperty("ip_address")),
                 Integer.valueOf(this.prop.getProperty("server_port")));
     }
-
     /**
      * Loads properties for this client.
      * @throws IOException if IO error occurs
@@ -134,12 +127,10 @@ public class ClientTracker extends ATracker {
         this.prop.load(in);
         in.close();
     }
-
     @Override
-    public void select(int key) throws IOException {
+    public void select(final int key) throws IOException {
         this.actions[key - 1].execute(this.dis, this.dos);
     }
-
     /**
      * Fills array of available actions.
      * @throws IOException if IO error occurs
@@ -153,7 +144,6 @@ public class ClientTracker extends ATracker {
         this.actions[counter++] = this.new DownloadFile("Скачать файл.", ci, counter);
         this.actions[counter++] = this.new SendFile("Отправить файл.", ci, counter);
     }
-
     /**
      * Shows menu of available actions.
      */
@@ -164,12 +154,10 @@ public class ClientTracker extends ATracker {
                 System.out.println(action.info());
         }
     }
-
     /**
      * Gets and prints files and subdirectories of current directory.
      */
     private class GetCurrentDirFilesList extends AClientAction implements IAction {
-
         /**
          * Constructor.
          * @param name info about this class action
@@ -177,7 +165,7 @@ public class ClientTracker extends ATracker {
          * @param key dentifying key of this instance
          * @throws IOException if IO error occurs
          */
-        GetCurrentDirFilesList(String name, Input input, int key) throws IOException {
+        GetCurrentDirFilesList(final String name, final Input input, final int key) throws IOException {
             super(name, input, key);
         }
         /**
@@ -186,12 +174,11 @@ public class ClientTracker extends ATracker {
          * @param out stream to out
          * @throws IOException if IO error occurs
          */
-        public void execute(DataInputStream in, DataOutputStream out) throws IOException {
+        public void execute(final DataInputStream in, final DataOutputStream out) throws IOException {
             this.sendKey(out);
             System.out.println(this.getResponse(in));
         }
     }
-
     /**
      * Changes current directory to subdirectory specified by user.
      */
@@ -203,7 +190,7 @@ public class ClientTracker extends ATracker {
          * @param key dentifying key of this instance
          * @throws IOException if IO error occurs
          */
-        GoToSubDir(String name, Input input, int key) throws IOException {
+        GoToSubDir(final String name, final Input input, final int key) throws IOException {
             super(name, input, key);
             System.out.println(key);
         }
@@ -213,7 +200,7 @@ public class ClientTracker extends ATracker {
          * @param out stream to out
          * @throws IOException if IO error occurs
          */
-        public void execute(DataInputStream in, DataOutputStream out) throws IOException {
+        public void execute(final DataInputStream in, final DataOutputStream out) throws IOException {
             this.sendKey(out);
             String currentLine = this.getResponse(in);
             currentLine = ClientTracker.this.input.ask(currentLine);
@@ -221,7 +208,6 @@ public class ClientTracker extends ATracker {
             System.out.println(this.getResponse(in));
         }
     }
-
     /**
      * Changes current directory to parent directory.
      */
@@ -233,7 +219,7 @@ public class ClientTracker extends ATracker {
          * @param key dentifying key of this instance
          * @throws IOException if IO error occurs
          */
-        GoToParentsDir(String name, Input input, int key) throws IOException {
+        GoToParentsDir(final String name, final Input input, final int key) throws IOException {
             super(name, input, key);
         }
         /**
@@ -242,12 +228,11 @@ public class ClientTracker extends ATracker {
          * @param out stream to out
          * @throws IOException if IO error occurs
          */
-        public void execute(DataInputStream in, DataOutputStream out) throws IOException {
+        public void execute(final DataInputStream in, final DataOutputStream out) throws IOException {
             this.sendKey(out);
             System.out.println(this.getResponse(in));
         }
     }
-
     /**
      * Downloads file specified by user.
      */
@@ -259,7 +244,7 @@ public class ClientTracker extends ATracker {
          * @param key dentifying key of this instance
          * @throws IOException if IO error occurs
          */
-        DownloadFile(String name, Input input, int key) throws IOException {
+        DownloadFile(final String name, final Input input, final int key) throws IOException {
             super(name, input, key);
         }
         /**
@@ -268,7 +253,7 @@ public class ClientTracker extends ATracker {
          * @param out stream to out
          * @throws IOException if IO error occurs
          */
-        public void execute(DataInputStream in, DataOutputStream out) throws IOException {
+        public void execute(final DataInputStream in, final DataOutputStream out) throws IOException {
             this.sendKey(out);
             String currentLine = this.getResponse(in);
             currentLine = ClientTracker.this.input.ask(currentLine);
@@ -282,7 +267,6 @@ public class ClientTracker extends ATracker {
                     ClientTracker.this.path, ClientTracker.this.sep);
         }
     }
-
     /**
      * Sends the file specified by user.
      */
@@ -294,7 +278,7 @@ public class ClientTracker extends ATracker {
          * @param key dentifying key of this instance
          * @throws IOException if IO error occurs
          */
-        SendFile(String name, Input input, int key) throws IOException {
+        SendFile(final String name, final Input input, final int key) throws IOException {
             super(name, input, key);
         }
         /**
@@ -303,7 +287,7 @@ public class ClientTracker extends ATracker {
          * @param out stream to out
          * @throws IOException if IO error occurs
          */
-        public void execute(DataInputStream in, DataOutputStream out) throws IOException {
+        public void execute(final DataInputStream in, final DataOutputStream out) throws IOException {
             this.sendKey(out);
             File currentDir = new File(ClientTracker.this.path);
             String currentFile = ClientTracker.this.input.ask(String.format("Выберете файл: %s%s", ClientTracker.this.sep,
@@ -323,10 +307,6 @@ public class ClientTracker extends ATracker {
      * @param args arguments from console
      */
     public static void main(String[] args) {
-//        File file = new File((String.format("%s%s%s", System.getProperty("user.dir"),
-//                File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\config.properties")));
-//        new ClientTracker(new ValidateInput()).init();
         new ClientTracker("config.properties", new ValidateInput()).init();
     }
-
 }

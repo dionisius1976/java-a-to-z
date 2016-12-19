@@ -1,5 +1,4 @@
 package ru.dionisius;
-
 /**
  * Removes all duplicated strings from specified array of strings.
  * All empty strings instead of duplicated are moving to the end of array.
@@ -9,15 +8,13 @@ public class ArrayDublicatesDelete {
 	 * Specified array of strings.
 	 */
 	private String[] arr;
-
 	/**
-	 * Defoult constructor.
+	 * Default constructor.
 	 * @param arr specified array of strings.
 	 */
 	public ArrayDublicatesDelete(final String[] arr) {
 		this.arr = arr;
 	}
-
 	/**
 	 * Getter for this array.
 	 * @return this araay of strings.
@@ -25,7 +22,6 @@ public class ArrayDublicatesDelete {
 	public String[] getArr() {
 		return arr;
 	}
-
 	/**
 	 * Deletes all duplicated strings from this array.
 	 * Ans then moves all empty strings to the end of this array.
@@ -48,7 +44,6 @@ public class ArrayDublicatesDelete {
 		}
 		moveNullsToTheEndOfArray();
 	}
-
 	/**
 	 * Moves all empty strings to the end of this array.
 	 */

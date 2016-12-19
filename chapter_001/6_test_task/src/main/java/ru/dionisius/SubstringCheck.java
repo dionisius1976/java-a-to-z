@@ -1,10 +1,8 @@
 package ru.dionisius;
-
 /**
  * This class verifies if specified substring is a part of specified array of strings.
  */
 public class SubstringCheck {
-
 	/**
 	 * Specified array of strings.
 	 */
@@ -13,7 +11,6 @@ public class SubstringCheck {
 	 * Specified substring.
 	 */
 	private String sub;
-
 	/**
 	 * Default constructor.
 	 * @param origin specified array of strings.

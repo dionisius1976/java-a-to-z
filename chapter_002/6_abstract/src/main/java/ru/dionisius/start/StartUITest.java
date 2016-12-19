@@ -14,8 +14,7 @@ public class StartUITest {
 				"Second desc", "n", "5", "n", "7", "First", "n", "7", "Third", "n", "8", "First desc",
 				"n", "8", "Desc", "y"});
 		Tracker tracker = new Tracker();
-		ConsoleInput consoleInput = new ConsoleInput();
-		MenuTracker menu = new MenuTracker(consoleInput, tracker);
+		MenuTracker menu = new MenuTracker(new ConsoleInput(), tracker);
 		menu.fillActions();
 		new StartUI(input, tracker).init(menu);
 	}

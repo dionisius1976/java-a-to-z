@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-
 /**
  * Created by Dionisius on 30.11.2016.
  */
@@ -83,7 +82,6 @@ public class Find {
             this.showInfo();
         }
     }
-
     /**
      * Shows info about this program and using keys.
      */
@@ -92,7 +90,6 @@ public class Find {
             System.out.println(line);
         }
     }
-
     /**areKeysValidate().
      * This method checks if keys specified in console input are validate
      * @return true if keys specified in console input is validate and false if not
@@ -116,7 +113,6 @@ public class Find {
         }
         return  areValidate;
     }
-
        /** setFilesToFind().
      * Sets specified file name to find
      */
@@ -129,7 +125,6 @@ public class Find {
         }
         this.fileToFind = file;
     }
-
     /** setLogFile().
      * Sets specified log file path
      */
@@ -153,7 +148,6 @@ public class Find {
         }
         this.logFile = logFile;
     }
-
     /** setWorkingDirectory ().
      * Sets specified working superior start directory to seek
      */
@@ -171,7 +165,6 @@ public class Find {
         }
         this.workingDirectory = workingDiretory;
     }
-
     /**isHelp().
      * Checks if key "-help" presents in console input
      * @return true if presents, false if not
@@ -186,7 +179,6 @@ public class Find {
         }
         return isHelp;
     }
-
     /**
      * findFilesAndWriteLog().
      * Seek for all files that match the specified
@@ -212,7 +204,6 @@ public class Find {
             }
         }
     }
-
     /**
      * Writes the absolute paths for found files in the log file.
      * @param out stream to write log file.
@@ -229,7 +220,6 @@ public class Find {
         }
         in.close();
     }
-
      /**
      * Starts this programm.
      * @param args arguments from console

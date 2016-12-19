@@ -1,0 +1,3 @@
+User: dd
+Program: Привет!
+User: закончить

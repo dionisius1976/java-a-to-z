@@ -28,12 +28,11 @@ public class StartUI {
 	 */
 	public void init(MenuTracker menu) {
 		do {
-
 			menu.show();
 			if (!menu.getIsFirst()) {
 				System.out.printf("Результат предыдущей операции: %f%s", menu.getResult(), this.lineSep);
 			}
-			int key = Integer.valueOf(input.ask("Выберете действие: ",  menu.getRange()));
+			int key = Integer.valueOf(this.input.ask("Выберете действие: ",  menu.getRange()));
 			menu.select(key);
 		} while (!"y".equals(this.input.ask("Выход? (y/n)")));
 	}
@@ -42,7 +41,7 @@ public class StartUI {
 	 * @param args console inputted arguments.
 	 */
 	public static void main(String[] args) {
-		ValidateInput input = new ValidateInput();
+		Input input = new ValidateInput();
 		MenuTracker menu = new MenuTracker(input);
 		menu.fillActions();
 		new StartUI(input).init(menu);

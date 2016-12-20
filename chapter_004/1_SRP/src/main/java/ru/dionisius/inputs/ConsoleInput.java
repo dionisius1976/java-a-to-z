@@ -3,7 +3,6 @@ package ru.dionisius.inputs;
 import ru.dionisius.exceptions.MenuOutException;
 
 import java.util.Scanner;
-
 /**
  * Class ConsoleInput.
  * Gets string 'question', prints it and
@@ -26,7 +25,6 @@ public class ConsoleInput implements Input {
 		System.out.print(question);
 		return scanner.nextLine();
 	}
-
 	/**
 	 * Validate user's input.
 	 * Gets string 'question', validate if user's answer
@@ -50,6 +48,5 @@ public class ConsoleInput implements Input {
 		} else {
 			throw new MenuOutException("Выход из диапазона возможных значений!");
 		}
-
 	}
 }

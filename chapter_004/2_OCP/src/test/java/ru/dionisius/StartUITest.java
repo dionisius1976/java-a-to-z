@@ -2,6 +2,7 @@ package ru.dionisius;
 
 import org.junit.Test;
 import ru.dionisius.inputs.ConsoleInput;
+import ru.dionisius.trackers.ExtTracker;
 import ru.dionisius.trackers.MenuTracker;
 
 import java.io.ByteArrayInputStream;
@@ -69,7 +70,7 @@ public class StartUITest {
             System.setOut(new PrintStream(output));
             System.setIn(input);
             this.consoleInput = new ConsoleInput();
-            this.menuTracker = new MenuTracker(consoleInput);
+            this.menuTracker = new ExtTracker(consoleInput);
             this.menuTracker.fillActions();
             new StartUI(this.consoleInput).init(this.menuTracker);
             this.expectedValue = "15,0";
@@ -95,7 +96,7 @@ public class StartUITest {
             System.setOut(new PrintStream(output));
             System.setIn(input);
             this.consoleInput = new ConsoleInput();
-            this.menuTracker = new MenuTracker(consoleInput);
+            this.menuTracker = new ExtTracker(consoleInput);
             this.menuTracker.fillActions();
             new StartUI(this.consoleInput).init(this.menuTracker);
             assertThat(output.toString().contains(this.expectedValue), is(true));
@@ -120,7 +121,7 @@ public class StartUITest {
             System.setOut(new PrintStream(output));
             System.setIn(input);
             this.consoleInput = new ConsoleInput();
-            this.menuTracker = new MenuTracker(consoleInput);
+            this.menuTracker = new ExtTracker(consoleInput);
             this.menuTracker.fillActions();
             new StartUI(this.consoleInput).init(this.menuTracker);
             assertThat(output.toString().contains(this.expectedValue), is(true));
@@ -145,7 +146,78 @@ public class StartUITest {
             System.setOut(new PrintStream(output));
             System.setIn(input);
             this.consoleInput = new ConsoleInput();
-            this.menuTracker = new MenuTracker(consoleInput);
+            this.menuTracker = new ExtTracker(consoleInput);
+            this.menuTracker.fillActions();
+            new StartUI(this.consoleInput).init(this.menuTracker);
+            assertThat(output.toString().contains(this.expectedValue), is(true));
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void whenSquareRootOfNineThenThree() {
+        try (ByteArrayOutputStream output = new ByteArrayOutputStream()) {
+            this.menuItem = "4";
+            this.firstValue = "9";
+            this.expectedValue = "3,0";
+            this.quit = "y";
+            this.userInput = String.format("%s%s%s%s%s%s", this.menuItem, this.lineSep, this.firstValue,
+                    this.lineSep, quit, this.lineSep);
+            ByteArrayInputStream input = new ByteArrayInputStream(this.userInput.getBytes());
+            System.setOut(new PrintStream(output));
+            System.setIn(input);
+            this.consoleInput = new ConsoleInput();
+            this.menuTracker = new ExtTracker(consoleInput);
+            this.menuTracker.fillActions();
+            new StartUI(this.consoleInput).init(this.menuTracker);
+            assertThat(output.toString().contains(this.expectedValue), is(true));
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+    @Test
+    public void  whenInDegreeTwoThenNine() {
+        try (ByteArrayOutputStream output = new ByteArrayOutputStream()) {
+            this.menuItem = "5";
+            this.firstValue = "3";
+            this.secondValue = "2";
+            this.expectedValue = "9,0";
+            this.quit = "y";
+            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep, this.firstValue,
+                    this.lineSep, this.secondValue, this.lineSep, this.lineSep);
+            ByteArrayInputStream input = new ByteArrayInputStream(this.userInput.getBytes());
+            System.setOut(new PrintStream(output));
+            System.setIn(input);
+            this.consoleInput = new ConsoleInput();
+            this.menuTracker = new ExtTracker(consoleInput);
+            this.menuTracker.fillActions();
+            new StartUI(this.consoleInput).init(this.menuTracker);
+            assertThat(output.toString().contains(this.expectedValue), is(true));
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+    /**
+     *
+     */
+    @Test
+    public void whenOneHundredThenDecimalLogarithmIsTwo() {
+        try (ByteArrayOutputStream output = new ByteArrayOutputStream()) {
+            this.menuItem = "6";
+            this.firstValue = "100";
+            this.expectedValue = "2,0";
+            this.quit = "y";
+            this.userInput = String.format("%s%s%s%s%s%s", this.menuItem, this.lineSep, this.firstValue,
+                    this.lineSep, quit, this.lineSep);
+            ByteArrayInputStream input = new ByteArrayInputStream(this.userInput.getBytes());
+            System.setOut(new PrintStream(output));
+            System.setIn(input);
+            this.consoleInput = new ConsoleInput();
+            this.menuTracker = new ExtTracker(consoleInput);
             this.menuTracker.fillActions();
             new StartUI(this.consoleInput).init(this.menuTracker);
             assertThat(output.toString().contains(this.expectedValue), is(true));

@@ -63,7 +63,8 @@ public class StartUITest {
             this.firstValue = "7";
             this.secondValue = "8";
             this.quit = "y";
-            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep, this.firstValue, this.lineSep, this.secondValue, this.lineSep, this.lineSep);
+            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep,
+                    this.firstValue, this.lineSep, this.secondValue, this.lineSep, this.lineSep);
             ByteArrayInputStream input = new ByteArrayInputStream(this.userInput.getBytes());
             System.setOut(new PrintStream(output));
             System.setIn(input);
@@ -88,7 +89,8 @@ public class StartUITest {
             this.secondValue = "8";
             this.expectedValue = "2,0";
             this.quit = "y";
-            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep, this.firstValue, this.lineSep, this.secondValue, this.lineSep, this.lineSep);
+            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep,
+                    this.firstValue, this.lineSep, this.secondValue, this.lineSep, this.lineSep);
             ByteArrayInputStream input = new ByteArrayInputStream(this.userInput.getBytes());
             System.setOut(new PrintStream(output));
             System.setIn(input);
@@ -112,7 +114,8 @@ public class StartUITest {
             this.secondValue = "5";
             this.expectedValue = "15,0";
             this.quit = "y";
-            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep, this.firstValue, this.lineSep, this.secondValue, this.lineSep, this.lineSep);
+            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep,
+                    this.firstValue, this.lineSep, this.secondValue, this.lineSep, this.lineSep);
             ByteArrayInputStream input = new ByteArrayInputStream(this.userInput.getBytes());
             System.setOut(new PrintStream(output));
             System.setIn(input);
@@ -136,7 +139,8 @@ public class StartUITest {
             this.secondValue = "4";
             this.expectedValue = "2,0";
             this.quit = "y";
-            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep, this.firstValue, this.lineSep, this.secondValue, this.lineSep, this.lineSep);
+            this.userInput = String.format("%s%s%s%s%s%sy%s", this.menuItem, this.lineSep, this.firstValue,
+                    this.lineSep, this.secondValue, this.lineSep, this.lineSep);
             ByteArrayInputStream input = new ByteArrayInputStream(this.userInput.getBytes());
             System.setOut(new PrintStream(output));
             System.setIn(input);

@@ -1,21 +1,17 @@
 <project>
-
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>chapter_004</artifactId>
+	<artifactId>3_LSP</artifactId>
 	<packaging>pom</packaging>
 
 	<parent>
 		<version>1.0</version>
 		<groupId>ru.dionisius</groupId>
-		<artifactId>java-a-to-z</artifactId>
+		<artifactId>chapter_004</artifactId>
 	</parent>
-
 	<modules>
-		<module>1_SRP</module>
-		<module>2_OCP</module>
-		<module>3_LSP</module>
+		<module>1_FoodStore</module>
 	</modules>
-	
+
 </project>

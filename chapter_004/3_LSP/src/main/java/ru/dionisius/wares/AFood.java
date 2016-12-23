@@ -47,29 +47,43 @@ public abstract class AFood implements IFood {
         this.price = price;
         this.discount = discount;
     }
+
     @Override
     public String getName() {
         return this.name;
     }
+
     @Override
     public LocalDate getCreateDate() {
         return this.createDate;
     }
+
     @Override
     public LocalDate getExpiryDate() {
         return this.expiryDate;
     }
+
     @Override
     public double getPrice() {
         return this.price;
     }
+
     @Override
     public int getDiscount() {
         return this.discount;
     }
+
     @Override
     public void applyDiscount() {
         this.price = this.price - this.price * this.discount / 100;
+    }
+
+    @Override
+    public int getPercentOfLifeTime() {
+        LocalDate today = LocalDate.now();
+        long daysAfterCreateDate = java.time.temporal.ChronoUnit.DAYS.between(this.createDate, today);
+        long daysStorageLife = java.time.temporal.ChronoUnit.DAYS.between(this.createDate, this.expiryDate);
+        return (int) (100 * daysAfterCreateDate / daysStorageLife);
     }
 
 }

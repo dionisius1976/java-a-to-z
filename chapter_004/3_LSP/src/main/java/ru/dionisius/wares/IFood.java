@@ -42,4 +42,10 @@ public interface IFood {
      * Applies discount to this item's price and decrease this item's price.
      */
     void applyDiscount();
+
+    /**
+     * Calculates percent of life time of this product.
+     * @return calculated life time of this product.
+     */
+    int getPercentOfLifeTime();
 }

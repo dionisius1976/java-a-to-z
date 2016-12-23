@@ -3,15 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
 	<artifactId>3_LSP</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<parent>
 		<version>1.0</version>
 		<groupId>ru.dionisius</groupId>
 		<artifactId>chapter_004</artifactId>
 	</parent>
-	<modules>
-		<module>1_FoodStore</module>
-	</modules>
 
 </project>

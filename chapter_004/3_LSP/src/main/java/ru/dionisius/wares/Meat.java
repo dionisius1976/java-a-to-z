@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * Created by Dionisius on 21.12.2016.
  * Class Meat.
  */
-public class Meat extends AFood {
+public class Meat extends AFood implements IFood {
     /**
      * Is this fish frozen.
      */

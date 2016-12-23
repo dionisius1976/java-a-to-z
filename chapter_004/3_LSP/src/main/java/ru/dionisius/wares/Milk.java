@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * Created by Dionisius on 21.12.2016.
  * Class Milk.
  */
-public class Milk extends AFood {
+public class Milk extends AFood implements IFood {
 
     /**
      * Percent of fat in this milk instance.

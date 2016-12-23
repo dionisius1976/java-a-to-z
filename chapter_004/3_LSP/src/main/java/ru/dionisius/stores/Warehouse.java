@@ -4,15 +4,19 @@ import ru.dionisius.wares.IFood;
 
 /**
  * Created by Dionisius on 21.12.2016.
- * Abstract for all stores of food items.
+ * Class Warehouse to store food products.
  */
-public abstract class AStore implements IStore {
+public class Warehouse implements IStore {
     /**
      * Array of food items.
      * It uses as store of food items.
      */
     private final IFood[] store = new IFood[50];
 
+    @Override
+    public IFood[] getStore() {
+        return this.store;
+    }
     @Override
     public void add(IFood food) {
         for (int index = 0; index < this.store.length; index++) {
@@ -34,28 +38,21 @@ public abstract class AStore implements IStore {
 
     @Override
     public IFood getByName(final String name) {
-        IFood findetFood = null;
+        IFood foundFood = null;
         if (name != null) {
-            for (int index = 0; index < this.store.length; index++) {
-                if (this.store[index] != null) {
-                    if (name.equals(this.store[index].getName())) {
-                        findetFood = this.store[index];
+            for (IFood food: this.store) {
+                if (food != null) {
+                    if (name.equals(food.getName())) {
+                        foundFood = food;
+                        break;
                     }
                 }
             }
         }
-        return findetFood;
+        return foundFood;
     }
-
     @Override
-    public boolean hasFreeSpace() {
-        boolean hasFreeSpace = false;
-        for (int index = 0; index < this.store.length; index++) {
-            if (this.store[index] == null) {
-                hasFreeSpace = true;
-                break;
-            }
-        }
-        return hasFreeSpace;
+    public boolean mayBeAdded(IFood food) {
+        return food.getPercentOfLifeTime() < 25;
     }
 }

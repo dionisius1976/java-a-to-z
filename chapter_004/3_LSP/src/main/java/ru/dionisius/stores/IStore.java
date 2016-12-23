@@ -9,6 +9,12 @@ import ru.dionisius.wares.IFood;
 public interface IStore {
 
     /**
+     * Returnes this instance's store of food items.
+     * @return this instance's store of food items.
+     */
+    IFood[] getStore();
+
+    /**
      * Adds a new item to this store.
      * @param food food item.
      */
@@ -28,8 +34,9 @@ public interface IStore {
     IFood getByName(String name);
 
     /**
-     * Verifies is there free space to add a new item.
+     * Verifies if specified food item may be added to this storage.
+     * @param food specified food item.
      * @return true if there is free space and false if there is no free space.
      */
-    boolean hasFreeSpace();
+    boolean mayBeAdded(IFood food);
 }

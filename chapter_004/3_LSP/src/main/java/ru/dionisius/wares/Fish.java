@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * Created by Dionisius on 21.12.2016.
  * Class Fish.
  */
-public class Fish extends AFood {
+public class Fish extends AFood implements IFood {
 
     /**
      * Is it sea fish.

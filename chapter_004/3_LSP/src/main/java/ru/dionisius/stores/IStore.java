@@ -36,7 +36,7 @@ public interface IStore {
     /**
      * Verifies if specified food item may be added to this storage.
      * @param food specified food item.
-     * @return true if there is free space and false if there is no free space.
+     * @return true if item can be added and false if not.
      */
     boolean mayBeAdded(IFood food);
 }

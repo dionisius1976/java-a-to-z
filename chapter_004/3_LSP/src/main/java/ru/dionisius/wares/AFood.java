@@ -27,6 +27,10 @@ public abstract class AFood implements IFood {
      * This item discount in percent.
      */
     private final int discount;
+    /**
+     * This item discount in percent.
+     */
+    private boolean isDiscounted = false;
 
     /**
      * Constructor.
@@ -75,7 +79,10 @@ public abstract class AFood implements IFood {
 
     @Override
     public void applyDiscount() {
-        this.price = this.price - this.price * this.discount / 100;
+        if (!this.isDiscounted) {
+            this.price = this.price - this.price * this.discount / 100;
+            this.isDiscounted = true;
+        }
     }
 
     @Override
@@ -85,5 +92,4 @@ public abstract class AFood implements IFood {
         long daysStorageLife = java.time.temporal.ChronoUnit.DAYS.between(this.createDate, this.expiryDate);
         return (int) (100 * daysAfterCreateDate / daysStorageLife);
     }
-
 }

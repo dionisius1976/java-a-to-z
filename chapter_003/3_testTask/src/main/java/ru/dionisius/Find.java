@@ -192,9 +192,10 @@ public class Find {
         File[] listFiles = new File(currentDir).listFiles();
         if (listFiles != null) {
             for (int i = 0; i < listFiles.length; i++) {
-                if (listFiles != null && listFiles[i] != null && !(listFiles[i].isDirectory()) && this.fileToFind.equals(listFiles[i].getName())) {
-                    sb.append(String.format("%s%s%s%s", listFiles[i].getAbsolutePath(), this.fsep, listFiles[i].getName(),
-                            this.lsep));
+                if (listFiles != null && listFiles[i] != null && !(listFiles[i].isDirectory())
+                        && this.fileToFind.equals(listFiles[i].getName())) {
+                    sb.append(String.format("%s%s%s%s", listFiles[i].getAbsolutePath(),
+                            this.fsep, listFiles[i].getName(), this.lsep));
                 } else {
                     this.findFilesAndWriteLog(out, listFiles[i].getAbsolutePath());
                 }

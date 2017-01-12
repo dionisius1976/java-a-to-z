@@ -5,8 +5,13 @@ import ru.dionisius.stores.Item;
 
 /**
  * Created by Dionisius on 12.01.2017.
+ * Class for demonstration of program work.
  */
 public class Run {
+    /**
+     * Main class.
+     * @param args console arguments.
+     */
     public static void main(String[] args) {
         Item table = new Item("Table");
         Item first = new Item("First");

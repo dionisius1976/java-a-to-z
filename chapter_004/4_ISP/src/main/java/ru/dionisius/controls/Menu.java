@@ -7,6 +7,9 @@ import ru.dionisius.stores.Item;
  * Created by Dionisius on 12.01.2017.
  */
 public class Menu implements IMenu {
+    /**
+     * The printing indent for current menu item.
+     */
     private int indent = -1;
 
     @Override
@@ -24,6 +27,11 @@ public class Menu implements IMenu {
         }
     }
 
+    /**
+     * Checks if specified menu item has subitems.
+     * @param item specified menu item.
+     * @return true if specified menu item has subitems and false if not.
+     */
     private boolean isStoreEmpty(Item item) {
         boolean isStoreEmpty = true;
         if (item != null) {
@@ -36,6 +44,10 @@ public class Menu implements IMenu {
         return isStoreEmpty;
     }
 
+    /**
+     * Prints indent.
+     * @param indent indent length.
+     */
     private void printIndent(int indent) {
         for (int i = 0; i <= indent ; i++) {
             System.out.print("--");

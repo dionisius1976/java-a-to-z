@@ -24,35 +24,31 @@ public class ControlQualityTest {
     /**
      * Store of stores.
      */
-    private final IStore[] stores = new IStore[10];
+    protected final IStore[] stores = new IStore[10];
     /**
      * Store of food items.
      */
-    private final IFood[] foods = new IFood[10];
+    protected final IFood[] foods = new IFood[10];
     /**
      * Warehouse instance.
      */
-    private final Warehouse warehouse = new Warehouse();
+    protected final Warehouse warehouse = new Warehouse();
     /**
      * Shop instance.
      */
-    private final Shop shop = new Shop();
+    protected final Shop shop = new Shop();
     /**
      * Trash instance.
      */
-    private final Trash trash = new Trash();
+    protected final Trash trash = new Trash();
     /**
      * ControlQuality instance.
      */
     private ControlQuality cq;
     /**
-     * Date of today.
-     */
-    private LocalDate today;
-    /**
      * Fish instance.
      */
-    private final IFood fish = new Fish("Beluga",
+    protected final IFood fish = new Fish("Beluga",
                                         LocalDate.now().minusMonths(2),
                                         LocalDate.now().plusMonths(10),
                                         3200,
@@ -62,7 +58,7 @@ public class ControlQualityTest {
     /**
      * Meat instance.
      */
-    private final IFood meat = new Meat("Beef",
+    protected final IFood meat = new Meat("Beef",
                                         LocalDate.now().minusDays(7),
                                         LocalDate.now().plusDays(7),
                                         550,
@@ -73,7 +69,7 @@ public class ControlQualityTest {
     /**
      * Milk instance.
      */
-    private final IFood milk = new Milk("Prostokvashino",
+    protected final IFood milk = new Milk("Prostokvashino",
                                         LocalDate.now().minusDays(20),
                                         LocalDate.now().plusDays(2),
                                         50,
@@ -82,25 +78,25 @@ public class ControlQualityTest {
     /**
      * Fish spoiled instance.
      */
-    private final IFood spoiledFish = new Fish("Herring",
-            LocalDate.now().minusMonths(2),
-            LocalDate.now().minusMonths(1),
-            200,
-            30,
-            true,
-            false);
+    protected final IFood spoiledFish = new Fish("Herring",
+                                        LocalDate.now().minusMonths(2),
+                                        LocalDate.now().minusMonths(1),
+                                        200,
+                                        30,
+                                        true,
+                                        false);
     /**
      * Initial price of this fish without discount.
      */
-    private final double fishInitialPrice = this.fish.getPrice();
+    protected final double fishInitialPrice = this.fish.getPrice();
     /**
      * Initial price of this meat without discount.
      */
-    private final double meatInitialPrice = this.meat.getPrice();
+    protected final double meatInitialPrice = this.meat.getPrice();
     /**
      * Initial price of this milk without discount.
      */
-    private final double milkInitialPrice = this.milk.getPrice();
+    protected final double milkInitialPrice = this.milk.getPrice();
 
     /**
      * Initiates initial values for tests.
@@ -119,14 +115,13 @@ public class ControlQualityTest {
 
         this.cq = new ControlQuality();
         this.cq.sort(this.stores, this.foods);
-
     }
 
     /**
      * Tests if percent of Life time is less than 25% then food instance stores in Warehouse.
      */
     @Test
-    public void whenPersentOfLifeTimeIsLessThenTwentyFiveThenFoodIsInWarehouseAndShopAndTrashAreEmpty() {
+    public void whenPercentOfLifeTimeIsLessThenTwentyFiveThenFoodIsInWarehouseAndShopAndTrashAreEmpty() {
         IFood expectedFood = this.fish;
         IFood resultFood = this.warehouse.getByName(this.fish.getName());
         assertThat(expectedFood, is(resultFood));
@@ -154,7 +149,6 @@ public class ControlQualityTest {
         assertThat(expectedFood, is(resultFood));
         assertThat(null, is(this.warehouse.getByName(this.meat.getName())));
         assertThat(null, is(this.trash.getByName(this.meat.getName())));
-
     }
 
     /**

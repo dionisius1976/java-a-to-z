@@ -16,6 +16,7 @@
 		<module>1_SRP</module>
 		<module>2_OCP</module>
 		<module>3_LSP</module>
+		<module>4_ISP</module>
 	</modules>
 	
 </project>

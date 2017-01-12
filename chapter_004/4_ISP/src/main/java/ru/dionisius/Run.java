@@ -1,7 +1,7 @@
 package ru.dionisius;
 
 import ru.dionisius.controls.Menu;
-import ru.dionisius.items.Item;
+import ru.dionisius.stores.Item;
 
 /**
  * Created by Dionisius on 12.01.2017.

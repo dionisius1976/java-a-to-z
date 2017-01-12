@@ -1,18 +1,19 @@
 package ru.dionisius.controls;
 
-import ru.dionisius.items.Item;
+
+import ru.dionisius.stores.Item;
 
 /**
  * Created by Dionisius on 12.01.2017.
  */
 public class Menu implements IMenu {
-    private int indent = 0;
+    private int indent = -1;
 
     @Override
     public void show(Item item) {
         for (int i = 0; i < item.getStore().length; i++) {
             if (item.getStore()[i] != null) {
-                this.printIndent(indent);
+                this.printIndent(this.indent);
                 System.out.println(item.getStore()[i].getName());
                 if (!this.isStoreEmpty(item.getStore()[i])) {
                     this.indent++;

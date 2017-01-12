@@ -1,4 +1,4 @@
-package ru.dionisius.items;
+package ru.dionisius.stores;
 
 /**
  * Created by Dionisius on 12.01.2017.
@@ -16,6 +16,6 @@ public class Item extends AStore implements IItemAction {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 }

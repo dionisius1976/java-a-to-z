@@ -1,51 +1,44 @@
 package ru.dionisius.models;
 
 import java.util.Random;
-
 /**
- *
+ * Class describes comments to items.
  */
 public class Comment {
 	/**
-	 *
+	 * Text of this comment.
 	 */
 	private String text;
-
 	/**
-	 * @param text
+	 * Default constructor.
+	 * @param text text of this comment.
 	 */
-	public Comment(String text){
+	public Comment(String text) {
 		this.text = text;
 	}
-
 	/**
-	 * @return
+	 * Getter of text of this comment.
+	 * @return text of this comment.
 	 */
-	public String getText(){
+	public String getText() {
 		return this.text;
 	}
-
-	/**
-	 * @return
-	 */
 	@Override
 	public int hashCode() {
 		int hash = new Random().nextInt(255);
 		return  hash * 37;
 	}
-
-	/**
-	 * @param obj
-	 * @return
-	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Comment other = (Comment) obj;
 		return (this.getText().equals(other.getText()));
 	}

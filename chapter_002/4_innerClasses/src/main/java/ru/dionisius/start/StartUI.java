@@ -8,7 +8,7 @@ public class StartUI {
 	 */
 	private Input input;
 	/**
-	 *
+	 * Traxker instance.
 	 */
 	private Tracker tracker;
 	/**

@@ -14,8 +14,9 @@ public class ConsoleInput implements Input {
 	 */
 	private Scanner scanner = new Scanner(System.in);
 	/**
-	 * Gets string 'question', prints it and
-	 * Uses scanner for reading console input
+	 * Gets string 'question'.
+	 * Prints it and returns by using scanner
+	 * for reading console input
 	 * string 'answer'.
 	 * @param question string 'quastion'.
 	 * @return string 'answer'.

@@ -18,7 +18,7 @@ public class BanknoteChanger {
                 for (int k = 0; k < coins.length; k++) {
                     if (currentArray[j] > coins[k]) {
                         for (int l = 0; l < j; l++) {
-                            System.out.printf("%d+",currentArray[l]);
+                            System.out.printf("%d+", currentArray[l]);
                         }
                         printArray(decompose(currentArray[j], coins[k]));
                         for (int l = j + 1; l < currentArray.length; l++) {
@@ -55,7 +55,7 @@ public class BanknoteChanger {
             }
         }
         if (n == summand) {
-            returningArray = new int [1];
+            returningArray = new int[1];
             returningArray[0] = summand;
         }
         return returningArray;

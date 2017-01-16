@@ -38,7 +38,8 @@ public class StartUI {
 		} while (!"y".equals(this.input.ask("Выход? (y/n)")));
 	}
 	/**
-	 * Starts the program in operating system.
+	 * Starts the program in ope2
+	 * rating system.
 	 * @param args console inputted arguments.
 	 */
 	public static void main(String[] args) {

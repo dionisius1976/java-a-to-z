@@ -28,7 +28,7 @@ public class ExtTracker extends MenuTracker {
     /**
      * Array of available actions.
      */
-    protected final UserAction[] actions = new UserAction[super.NUMBER_OF_ACTIONS + this.NUMBER_OF_ACTIONS];
+    private final UserAction[] actions = new UserAction[super.NUMBER_OF_ACTIONS + this.NUMBER_OF_ACTIONS];
     /**
      * Default constructor.
      * @param input type of input.

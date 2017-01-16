@@ -1,6 +1,4 @@
 package ru.dionisius.start;
-
-
 /**
  * Class StubInput.
  * This class using for emulate

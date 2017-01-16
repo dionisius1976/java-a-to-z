@@ -18,6 +18,7 @@
 		<module>3_LSP</module>
 		<module>4_ISP</module>
 		<module>5_DIP</module>
+		<module>6_TDD</module>
 	</modules>
 	
 </project>

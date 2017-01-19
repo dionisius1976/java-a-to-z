@@ -67,7 +67,7 @@ public class TemplateTest {
          * @throws ExcessKeysException
          */
         @Test (expected = ExcessKeysException.class)
-        public void whenKeymapHasExtraTemplatesThenThrowsExcessKeysException() throws ExcessKeysException {
+        public void whenKeymapHasExtraTemplatesThenThrowsExcessKeysException() {
                 this.keyMap.put("${name}", "Denis");
                 this.keyMap.put("${someone}", "you");
                 this.keyMap.put("${surname}", "Ivanov");

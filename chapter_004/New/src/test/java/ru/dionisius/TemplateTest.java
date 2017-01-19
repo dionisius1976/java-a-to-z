@@ -1,6 +1,7 @@
 package ru.dionisius;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import ru.dionisius.exceptions.ExcessKeysException;
 import ru.dionisius.exceptions.NoKeyException;
@@ -26,7 +27,11 @@ public class TemplateTest {
         /**
          *Source test text.
          */
-        private String sourceText = "Hello, ${name}. How do ${someone} do?";
+        private String sourceText;
+        /**
+         *Source test text with extra template.
+         */
+        private String sourceTextWithExtraTemplate;
         /**
          * Result test string.
          */
@@ -35,18 +40,23 @@ public class TemplateTest {
          * Expected test string.
          */
         private String expected;
+
         /**
-         *Source test text with extra template.
+         * Initiates variables and makes initial acts.
          */
-        private String sourceTextWithExtraTemplate = "Hello, ${name}. How do ${someone} do? I hope ${person} is fine";
+        @Before
+        public void init() {
+                this.sourceText = "Hello, ${name}. How do ${someone} do?";
+                this.sourceTextWithExtraTemplate = "Hello, ${name}. How do ${someone} do? I hope ${person} is fine";
+                this.keyMap.put("${name}", "Denis");
+                this.keyMap.put("${someone}", "you");
+        }
         /**
          * Checks if templates in specified source string are
          * changed to according values from keymap.
          */
         @Test
         public void whenTemplatesInSourceStringThenTemplatesAreChanged() {
-                this.keyMap.put("${name}", "Denis");
-                this.keyMap.put("${someone}", "you");
                 this.result = template.generate(this.sourceText, this.keyMap);
                 this.expected = "Hello, Denis. How do you do?";
                 Assert.assertThat(this.result,is(this.expected));
@@ -60,7 +70,6 @@ public class TemplateTest {
         public void whenSourceStringHasExtraTemplatesThenThrowsNoKeyException() {
                 this.template.generate(this.sourceTextWithExtraTemplate, this.keyMap);
         }
-
         /**
          * Checks if ExcessKeysException is thrown when there is
          * excess keys in keymap.
@@ -68,8 +77,6 @@ public class TemplateTest {
          */
         @Test (expected = ExcessKeysException.class)
         public void whenKeymapHasExtraTemplatesThenThrowsExcessKeysException() {
-                this.keyMap.put("${name}", "Denis");
-                this.keyMap.put("${someone}", "you");
                 this.keyMap.put("${surname}", "Ivanov");
                 this.template.generate(this.sourceText, this.keyMap);
         }

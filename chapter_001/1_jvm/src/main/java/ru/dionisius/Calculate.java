@@ -12,16 +12,6 @@ public class Calculate {
 	 * @return total string
 	 */
 	public String echo(String value) {
-
 		return String.format("%s %s %s", value, value, value);
-	}
-
-	/**
-	 * Starts the program.
-	 * @param args arguments from console
-	 */
-	public static void main(String[] args) {
-		Calculate calc = new Calculate();
-		System.out.println(calc.echo("aah!"));
 	}
 }

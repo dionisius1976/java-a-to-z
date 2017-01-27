@@ -6,7 +6,7 @@ import ru.dionisius.interfaces.Figure;
 
 /**
  * Chess board class.
- * It stores game field with figures, provides initial setting
+ * It models game field with figures, provides initial setting
  * of all figures on their start positions, sets and remove figures.
  * X coordinate vertical, Y coordinate horizontal.
  * Coordinates range is 0..7.

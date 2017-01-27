@@ -319,7 +319,7 @@ public class MenuTracker {
 		}
 
 	/**
-	 * Prints all items of specified tracker in console.
+	 * Prints all models of specified tracker in console.
 	 */
 		private class PrintItems implements UserAction {
 			/**
@@ -334,7 +334,7 @@ public class MenuTracker {
 				return KEY;
 			}
 			/**
-			 * Executes method printing all items in console.
+			 * Executes method printing all models in console.
 			 * @param input type of input.
 			 * @param tracker type of tracker.
 			 */

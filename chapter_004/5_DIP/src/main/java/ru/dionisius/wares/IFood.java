@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 /**
  * Created by Dionisius on 21.12.2016.
- * Interface for all food items.
+ * Interface for all food models.
  */
 public interface IFood {
 

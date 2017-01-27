@@ -19,6 +19,7 @@
 		<module>4_ISP</module>
 		<module>5_DIP</module>
 		<module>New</module>
+		<module>7_TestTask</module>
 	</modules>
 	
 </project>

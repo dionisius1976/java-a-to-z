@@ -47,11 +47,11 @@ public class TrackerTest {
 	 */
 	private Tracker tracker = new Tracker();
 	/**
-	 * Array of specified items.
+	 * Array of specified models.
 	 */
 	private Item[] items = {item1, item2, item3, item4, item5};
 	/**
-	 * Expected array of items.
+	 * Expected array of models.
 	 */
 	private final Item[] expectedArray = {item1, item2, item3, item4, item5};
 	/**
@@ -59,7 +59,7 @@ public class TrackerTest {
 	 */
 	private Item[] resultArray;
 	/**
-	 * Adds items in tracker.
+	 * Adds models in tracker.
 	 */
 	private void init() {
 		for (Item item: items) {

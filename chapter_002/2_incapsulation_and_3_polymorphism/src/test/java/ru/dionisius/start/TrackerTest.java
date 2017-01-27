@@ -53,7 +53,7 @@ public class TrackerTest {
 		tracker = new Tracker();
 	}
 	/**
-	 * Tests if items was added.
+	 * Tests if models was added.
 	 */
 	@Test
 	public void whenAddThenExpectedArray() {

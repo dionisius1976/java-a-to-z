@@ -3,7 +3,7 @@ package ru.dionisius.models;
 import java.util.Random;
 
 /**
- * Class describes comments to items.
+ * Class describes comments to models.
  */
 public class Comment {
 	/**

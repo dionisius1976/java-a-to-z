@@ -6,13 +6,13 @@ import ru.dionisius.models.Item;
 import java.util.Date;
 import java.util.Random;
 /**
- * Data base fot items.
+ * Data base fot models.
  * It has methods for adding, deleting,
- * finding by id, updates and get all items.
+ * finding by id, updates and get all models.
  */
 public class Tracker {
 	/**
-	 * Array of items.
+	 * Array of models.
 	 */
 	private Item[] items = new Item[10];
 	/**
@@ -45,8 +45,8 @@ public class Tracker {
 		}
 	}
 	/**
-	 * Returns array of all items of this tracker.
-	 * @return array of all items of this tracker.
+	 * Returns array of all models of this tracker.
+	 * @return array of all models of this tracker.
 	 */
 	public Item[] getAll() {
 		int getAllIndex = 0;
@@ -114,7 +114,7 @@ public class Tracker {
 		newItem.setId(id);
 	}
 	/**
-	 * Verifies if the array of items is empty.
+	 * Verifies if the array of models is empty.
 	 * @return true if it is empty and false if not.
 	 */
 	private boolean isItemsFree() {

@@ -3,10 +3,10 @@ package ru.dionisius;
 import org.junit.Before;
 import org.junit.Test;
 import ru.dionisius.controls.ControlQuality;
-import ru.dionisius.stores.IStore;
-import ru.dionisius.stores.Shop;
-import ru.dionisius.stores.Trash;
-import ru.dionisius.stores.Warehouse;
+import ru.dionisius.models.IStore;
+import ru.dionisius.models.Shop;
+import ru.dionisius.models.Trash;
+import ru.dionisius.models.Warehouse;
 import ru.dionisius.wares.Fish;
 import ru.dionisius.wares.IFood;
 import ru.dionisius.wares.Meat;
@@ -22,11 +22,11 @@ import static org.junit.Assert.assertThat;
  */
 public class ControlQualityTest {
     /**
-     * Store of stores.
+     * Store of models.
      */
     protected final IStore[] stores = new IStore[10];
     /**
-     * Store of food items.
+     * Store of food models.
      */
     protected final IFood[] foods = new IFood[10];
     /**
@@ -118,7 +118,7 @@ public class ControlQualityTest {
     }
 
     /**
-     * Tests if percent of Life time is less than 25% then food instance stores in Warehouse.
+     * Tests if percent of Life time is less than 25% then food instance models in Warehouse.
      */
     @Test
     public void whenPercentOfLifeTimeIsLessThenTwentyFiveThenFoodIsInWarehouseAndShopAndTrashAreEmpty() {
@@ -140,7 +140,7 @@ public class ControlQualityTest {
     }
 
     /**
-     * Tests if percent of Life time is in range 25..75% then food instance stores in shop.
+     * Tests if percent of Life time is in range 25..75% then food instance models in shop.
      */
     @Test
     public void whenPersentOfLifeTimeIsInRangeTwentyFiveSeventyFiveThenFoodIsInShopAndWarehouseAndTrashAreEmpty() {
@@ -162,7 +162,7 @@ public class ControlQualityTest {
     }
 
     /**
-     * Tests if percent of Life time is in range 75..100%  then food instance stores in shop.
+     * Tests if percent of Life time is in range 75..100%  then food instance models in shop.
      */
     @Test
     public void whenPercentOfLifeTimeIsMoreThenSeventyFiveThenFoodIsInShopAndWarehouseAndTrashAreEmpty() {
@@ -183,7 +183,7 @@ public class ControlQualityTest {
         assertThat(expectedPrice, is(resultPrice));
     }
     /**
-     * Tests if percent of Life time is more than 100% then food instance stores in trash.
+     * Tests if percent of Life time is more than 100% then food instance models in trash.
      */
     @Test
     public void whenPercentOfLifeTimeIsMoreThenOneHundredThenFoodIsInTrashAndWarehouseAndShopAreEmpty() {

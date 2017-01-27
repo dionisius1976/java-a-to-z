@@ -40,7 +40,6 @@ public class TemplateTest {
          * Expected test string.
          */
         private String expected;
-
         /**
          * Initiates variables and makes initial acts.
          */

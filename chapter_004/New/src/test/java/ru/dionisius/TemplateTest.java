@@ -23,7 +23,8 @@ public class TemplateTest {
         /**
          *SimpleGenerator test instance.
          */
-        private final Template template = new SimpleGenerator();
+        private final Template template = new SimpleGeneratorRegex();
+//        private final Template template = new SimpleGenerator();
         /**
          *Source test text.
          */

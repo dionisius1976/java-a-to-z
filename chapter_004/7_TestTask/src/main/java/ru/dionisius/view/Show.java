@@ -31,7 +31,7 @@ public class Show implements IShow {
             System.out.print(" ");
         }
         for (int i = 0; i <= maxY ; i++) {
-            System.out.print(i + "   ");
+            System.out.printf("%d%s%s", i, " ", " ");
         }
         System.out.println();
     }

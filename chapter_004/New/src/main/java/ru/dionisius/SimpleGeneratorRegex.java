@@ -13,6 +13,11 @@ import java.util.regex.Pattern;
  * Created by Dionisius on 30.01.2017.
  */
 public class SimpleGeneratorRegex implements Template {
+    /**
+     *  Pattern instance.
+     */
+    private final Pattern pattern = Pattern.compile("\\$\\{[a-z]+\\}");
+
     @Override
     public String generate(String template, Map<String, String> pairs) {
         String result = template;
@@ -20,8 +25,7 @@ public class SimpleGeneratorRegex implements Template {
         String subject;
         Set keys = pairs.keySet();
         Set <String> stringPatterns = new HashSet<>();
-        Pattern pattern = Pattern.compile("\\$\\{[a-z]+\\}");
-        Matcher matcher = pattern.matcher(template);
+        Matcher matcher = this.pattern.matcher(template);
         while (matcher.find()) {
             stringPatterns.add(template.substring(matcher.start(), matcher.end()));
         }

@@ -69,7 +69,7 @@ public class CommonIterator implements IIterator{
 
         @Override
         public Object next() {
-            Object returnValue = null;
+            Object returnValue = new Object();
             if (this.it.get(this.iteratorsIndex) != null) {
                 returnValue = this.it.get(this.iteratorsIndex).next();
             } else {

@@ -10,7 +10,7 @@ import java.util.List;
 public class CommonIterator implements IIterator{
 
     @Override
-    public Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
+    public Iterator<Integer> convert(final Iterator<Iterator<Integer>> it) {
         return new ConvertingIterator(it);
     }
 
@@ -18,7 +18,7 @@ public class CommonIterator implements IIterator{
         private final List<Iterator<Integer>> it;
         private int iteratorsIndex = 0;
 
-        private ConvertingIterator(Iterator<Iterator<Integer>> it) {
+        private ConvertingIterator(final Iterator<Iterator<Integer>> it) {
             this.it = this.initItArray(it);
         }
 

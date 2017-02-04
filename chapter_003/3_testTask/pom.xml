@@ -2,7 +2,7 @@
     <version>1.0</version>
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.dionisius</groupId>
-    <artifactId>testTask_3</artifactId>
+    <artifactId>3_testTask</artifactId>
     <packaging>jar</packaging>
 
     <parent>

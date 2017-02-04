@@ -75,7 +75,7 @@ public class PrimeIterator implements Iterator {
      * @param value specified value.
      * @return true if specified value is prime and false if not.
      */
-    private boolean isPrime (int value) {
+    private boolean isPrime (final int value) {
         boolean isPrime = true;
         int temp;
         if (value < 2) {

@@ -111,7 +111,7 @@ public class CommonIteratorTest {
          * Constructor.
          * @param array specified array of integers.
          */
-        private testIterator(int[] array) {
+        private testIterator(final int[] array) {
             this.array = array;
         }
 
@@ -151,7 +151,7 @@ public class CommonIteratorTest {
          * Constructor.
          * @param it specified array of iterators of integers.
          */
-        private testSuperIterator(Iterator<Integer>[] it) {
+        private testSuperIterator(final Iterator<Integer>[] it) {
             this.it = it;
         }
 

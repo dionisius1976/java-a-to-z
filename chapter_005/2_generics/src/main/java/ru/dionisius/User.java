@@ -2,10 +2,17 @@ package ru.dionisius;
 
 /**
  * Created by Dionisius on 04.02.2017.
+ *
  */
 public class User extends ABase {
+    /**
+     * Identification number for this instance.
+     */
     private String id;
-
+    /**
+     * Constructor.
+     * @param id Identification number for this instance.
+     */
     public User(String id) {
         super();
         this.id = id;

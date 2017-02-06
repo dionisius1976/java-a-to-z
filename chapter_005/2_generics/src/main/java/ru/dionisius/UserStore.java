@@ -4,8 +4,13 @@ package ru.dionisius;
  * Created by Dionisius on 04.02.2017.
  */
 public class UserStore extends ABase implements IStore {
-
+    /**
+     * The size of this store's array.
+     */
     final int size = 100;
+    /**
+     * This store's array.
+     */
     private final SimpleArray array = new SimpleArray(this.size);
 
     @Override
@@ -23,6 +28,11 @@ public class UserStore extends ABase implements IStore {
         this.array.delete(object);
     }
 
+    /**
+     * Verifies if specified object exists in the store.
+     * @param object specified object that is verified.
+     * @return true if the specified object exists in the store and false if not.
+     */
     public boolean exist(final ABase object) {
         boolean result = false;
         if (object == null) {

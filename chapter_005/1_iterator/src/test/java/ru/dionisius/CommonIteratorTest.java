@@ -200,17 +200,4 @@ public class CommonIteratorTest {
         Integer[] resultArray = resultList.toArray(new Integer[resultList.size()]);
         assertThat(expectedArray, is(resultArray));
     }
-    /**
-     * Tests if iterator of iterators with empty iterator returns expected iterator of integers.
-     */
-    @Test
-    public void whenIteratorOfIteratorsWithEmptyIteratorConvertedThenExpectedIteratorOfIntegers() {
-        Integer[] expectedArray = {1, 2, 3, 7, 8, 9, 10};
-        List <Integer> resultList = new ArrayList();
-        while (this.resultIteratorWithEmpty.hasNext()) {
-            resultList.add((int) this.resultIteratorWithEmpty.next());
-        }
-        Integer[] resultArray = resultList.toArray(new Integer[resultList.size()]);
-        assertThat(expectedArray, is(resultArray));
-    }
 }

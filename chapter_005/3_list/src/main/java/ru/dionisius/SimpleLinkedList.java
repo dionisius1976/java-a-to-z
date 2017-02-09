@@ -1,161 +1,97 @@
 package ru.dionisius;
 
-import java.util.Iterator;
-import java.util.ListIterator;
 
 /**
  * Created by Dionisius on 09.02.2017.
  */
-public class SimpleLinkedList<E> implements ILinkedContainer<E>, IListContainer<E> {
+public class SimpleLinkedList<E> {
     private int size = 0;
+    private Node<E> first;
+    private Node<E> last;
 
-    @Override
+    /**
+     * Constructs an empty list.
+     */
+    public SimpleLinkedList() {
+    }
+
     public void add(E e) {
-
+        Node<E> l = this.last;
+        Node<E> newNode = new Node<>(l, e, null);
+        this.last = newNode;
+        if (this.last == null)
+            this.last = newNode;
+        else
+            this.last.prev = newNode;
+        this.size++;
     }
 
-    @Override
-    public void add(int index, E element) {
-
+    public boolean remove(E e) {
+        if (e == null) {
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (x.item == null) {
+                    unlink(x);
+                    return true;
+                }
+            }
+        } else {
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (e.equals(x.item)) {
+                    unlink(x);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
-    @Override
-    public void remove(E e) {
-
-    }
-
-    @Override
-    public E remove(int index) {
-        return null;
-    }
-
-    @Override
     public E get(int index) {
-        return null;
+        return this.node(index).item;
     }
 
-    @Override
-    public int indexOf(Object o) {
-        return 0;
+    public int getSize() {
+        return this.size;
     }
 
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
+    private static class Node<E> {
+        E item;
+        Node<E> next;
+        Node<E> prev;
+
+        Node(Node<E> prev, E element, Node<E> next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
     }
-
-    @Override
-    public E set(int index, E element) {
-        return null;
+    private Node<E> node(int index) {
+        Node<E> x = first;
+        for (int i = 0; i < index; i++) {
+            x = x.next;
+        }
+        return x;
     }
+    E unlink(Node<E> x) {
+        E element = x.item;
+        Node<E> next = x.next;
+        Node<E> prev = x.prev;
 
-    @Override
-    public int size() {
-        return 0;
-    }
+        if (prev == null) {
+            first = next;
+        } else {
+            prev.next = next;
+            x.prev = null;
+        }
 
-    @Override
-    public boolean contains(E e) {
-        return false;
-    }
+        if (next == null) {
+            last = prev;
+        } else {
+            next.prev = prev;
+            x.next = null;
+        }
 
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
-    public void addFirst(E e) {
-
-    }
-
-    @Override
-    public void addLast(E e) {
-
-    }
-
-    @Override
-    public E element() {
-        return null;
-    }
-
-    @Override
-    public E getFirst() {
-        return null;
-    }
-
-    @Override
-    public E getLast() {
-        return null;
-    }
-
-    @Override
-    public ListIterator<E> listIterator(int index) {
-        return null;
-    }
-
-    @Override
-    public boolean offer(E e) {
-        return false;
-    }
-
-    @Override
-    public boolean offerFirst(E e) {
-        return false;
-    }
-
-    @Override
-    public boolean offerLast(E e) {
-        return false;
-    }
-
-    @Override
-    public E peek() {
-        return null;
-    }
-
-    @Override
-    public E peekFirst() {
-        return null;
-    }
-
-    @Override
-    public E peekLast() {
-        return null;
-    }
-
-    @Override
-    public E poll() {
-        return null;
-    }
-
-    @Override
-    public E pollFirst() {
-        return null;
-    }
-
-    @Override
-    public E pollLast() {
-        return null;
-    }
-
-    @Override
-    public E pop() {
-        return null;
-    }
-
-    @Override
-    public void push(E e) {
-
-    }
-
-    @Override
-    public E remove() {
-        return null;
-    }
-
-    @Override
-    public Iterator<E> iterator() {
-        return null;
+        x.item = null;
+        size--;
+        return element;
     }
 }

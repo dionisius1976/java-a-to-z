@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Dionisius on 07.02.2017.
  */
-public class SimpleArrayList<E> implements IArrayContainer<E>, IListContainer<E> {
+public class SimpleArrayList<E> implements IArrayContainer<E>, ILinkedContainer<E> {
     /**
      * Default capacity for default constructor.
      */
@@ -73,11 +73,13 @@ public class SimpleArrayList<E> implements IArrayContainer<E>, IListContainer<E>
         this.size++;
     }
     @Override
-    public void remove(E e) {
+    public E remove(E e) {
         int index = this.indexOf(e);
+        E returnElement = (E) this.elements[index];
         if (index != -1) {
             this.remove(index);
         }
+        return  returnElement;
     }
     @Override
     public E remove(int index) {

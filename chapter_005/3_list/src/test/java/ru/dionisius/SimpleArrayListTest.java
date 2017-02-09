@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -53,7 +54,6 @@ public class SimpleArrayListTest {
      */
     @Test (expected = IllegalArgumentException.class)
     public void addMinus() {
-
         this.simpleArrayList = new SimpleArrayList();
         this.simpleArrayList.add(-1, this.teststring);
     }

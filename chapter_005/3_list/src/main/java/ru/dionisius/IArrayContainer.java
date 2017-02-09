@@ -8,11 +8,17 @@ import java.util.List;
  * Created by Dionisius on 07.02.2017.
  */
 public interface IArrayContainer<E> extends Iterable<E> {
-    E get(int index);
-    E set(int index, E element);
-    void add(int index, E element);
-    E remove(int index);
-    int indexOf(Object o);
-    int lastIndexOf(Object o);
+    /**
+     * Verifies if this list is empty.
+     * @return true is this list is empty and false if not.
+     */
+    boolean isEmpty();
+
+    /**
+     * Returns sublist of this list from the start index to the end index without including it.
+     * @param fromIndex the start index.
+     * @param toIndex the end index.
+     * @return the sublist of this list.
+     */
     List<E> subList(int fromIndex, int toIndex);
 }

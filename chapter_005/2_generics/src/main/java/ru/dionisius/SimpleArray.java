@@ -1,5 +1,7 @@
 package ru.dionisius;
 
+import java.util.LinkedList;
+
 /**
  * Created by Dionisius on 04.02.2017.
  * Simple container for generics.
@@ -30,7 +32,6 @@ public class SimpleArray<T> {
     public void add(final T t) {
         this.array[this.index++] = t;
     }
-
     /**
      * Deletes the specified object in the array of objects.
      * @param object specified object that have to be deleted.

@@ -28,6 +28,7 @@ public class RoleStoreTest {
         boolean resultValue = this.testStore.exist(this.testRole);
         assertThat(expectedValue, is(resultValue));
     }
+
     /**
      * Tests if update() method updates the old object in the RoleStore by the new instance.
      */

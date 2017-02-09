@@ -1,5 +1,6 @@
 package ru.dionisius;
 
+
 /**
  * Created by Dionisius on 04.02.2017.
  * Abstract class for all ABase classes.

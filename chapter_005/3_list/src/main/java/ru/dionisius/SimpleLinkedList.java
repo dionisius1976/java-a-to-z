@@ -39,6 +39,14 @@ public class SimpleLinkedList<E> implements ILinkedContainer<E> {
     }
 
     @Override
+    public void add(int index, E element) {
+        if (index == size)
+            this.add(element);
+        else
+            this.linkBefore(element, node(index));
+    }
+
+    @Override
     public E remove(E e) {
         E returnElement = null;
         if (e == null) {
@@ -87,7 +95,7 @@ public class SimpleLinkedList<E> implements ILinkedContainer<E> {
         return new ListIterator<>();
     }
 
-
+    @Override
     public int indexOf (E e) {
         int index = 0;
         int result  = -1;
@@ -197,5 +205,15 @@ public class SimpleLinkedList<E> implements ILinkedContainer<E> {
         x.item = null;
         this.size--;
         return element;
+    }
+    void linkBefore(E e, Node<E> succ) {
+        final Node<E> pred = succ.prev;
+        final Node<E> newNode = new Node<>(pred, e, succ);
+        succ.prev = newNode;
+        if (pred == null)
+            this.first = newNode;
+        else
+            pred.next = newNode;
+        size++;
     }
 }

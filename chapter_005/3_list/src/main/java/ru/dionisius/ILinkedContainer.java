@@ -10,6 +10,12 @@ public interface ILinkedContainer<E> extends Iterable<E> {
      */
     void add(E e);
     /**
+     * Adds specified element to specified position of this list.
+     * @param index specified position of this list.
+     * @param element specified element.
+     */
+    void add(int index, E element);
+    /**
      * Removes specified element from this list.
      * @param e specified element.
      * @return removed element.
@@ -33,4 +39,11 @@ public interface ILinkedContainer<E> extends Iterable<E> {
      * @return the size of this list.
      */
     int size();
+
+    /**
+     * Returns index of specified element in this list.
+     * @param e specified element.
+     * @return index of specified element in this list.
+     */
+    int indexOf(E e);
 }

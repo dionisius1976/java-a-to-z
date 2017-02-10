@@ -21,16 +21,19 @@ public class SimpleStack<E> implements IStack<E> {
 
     @Override
     public E pop() {
-        return null;
+        E result = this.list.get(0);
+        this.list.remove(0);
+        return result;
     }
 
     @Override
     public E push(E item) {
-        return null;
+        this.list.add(0, item);
+        return item;
     }
 
     @Override
-    public int search(Object o) {
-        return 0;
+    public int search(E e) {
+        return this.list.indexOf(e);
     }
 }

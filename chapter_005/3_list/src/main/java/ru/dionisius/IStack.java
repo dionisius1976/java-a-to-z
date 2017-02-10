@@ -36,5 +36,5 @@ public interface IStack<E> {
      * @param o specified object.
      * @return the 1-based position where an specified object is on this stack.
      */
-    int search(Object o);
+    int search(E e);
 }

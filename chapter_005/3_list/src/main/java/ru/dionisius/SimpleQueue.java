@@ -17,6 +17,22 @@ public class SimpleQueue<E> implements IQueue<E> {
         return true;
     }
 
+
+    @Override
+    public E peek() {
+        return (this.list.get(0) == null) ? null : this.list.get(0);
+    }
+
+    @Override
+    public E element() {
+        try {
+            E removed = this.list.get(0);
+            return removed;
+        } catch (NullPointerException e) {
+            throw new NoSuchElementException();
+        }
+    }
+
     @Override
     public E poll() {
         E removed = this.list.get(0);
@@ -25,7 +41,7 @@ public class SimpleQueue<E> implements IQueue<E> {
     }
 
     @Override
-    public E element() {
+    public E remove() {
         try {
             E removed = this.list.get(0);
             this.list.remove(0);
@@ -33,10 +49,5 @@ public class SimpleQueue<E> implements IQueue<E> {
         } catch (NullPointerException e) {
             throw new NoSuchElementException();
         }
-    }
-
-    @Override
-    public E peek() {
-        return (this.list.get(0) == null) ? null : this.list.get(0);
     }
 }

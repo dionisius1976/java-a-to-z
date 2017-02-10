@@ -1,7 +1,6 @@
 package ru.dionisius;
 
 import java.util.Iterator;
-import java.util.LinkedList;
 
 /**
  * Created by Dionisius on 10.02.2017.
@@ -76,6 +75,11 @@ public class SimpleLinkedList<E> implements ILinkedContainer<E> {
             x = x.next;
         }
         return returnElement;
+    }
+
+    @Override
+    public int size() {
+        return this.size;
     }
 
     @Override

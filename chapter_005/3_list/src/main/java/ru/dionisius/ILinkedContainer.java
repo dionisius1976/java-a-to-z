@@ -28,4 +28,9 @@ public interface ILinkedContainer<E> extends Iterable<E> {
      * @return an element from specified index of this array.
      */
     E get(int index);
+
+    /** Returns the size of this list.
+     * @return the size of this list.
+     */
+    int size();
 }

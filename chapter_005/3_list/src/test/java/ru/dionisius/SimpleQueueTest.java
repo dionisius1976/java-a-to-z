@@ -36,17 +36,20 @@ public class SimpleQueueTest {
      */
     @Test
     public void whenSpecifiedElementIsAddedThenThisElementIsReturned() {
-        String expectedValue = "Test";
+        for (int i = 0; i < 10; i++) {
+            this.queue.offer(String.valueOf(i));
+        }
+        String expectedValue = "0";
         this.queue.offer(expectedValue);
         String resultValue = String.valueOf(this.queue.element());
         assertThat(resultValue, is(expectedValue));
     }
 
     /**
-     * Checks if NoSuchElementException will be thrown if list is empty.
+     * Checks if NoSuchElementException will be thrown by element() method if this list is empty.
      */
     @Test (expected = NoSuchElementException.class)
-    public void whenListIsEmptyThenNoSuchElementExceptionIsThrown() {
+    public void whenListIsEmptyThenNoSuchElementExceptionIsThrownByElement() {
         this.queue.element();
     }
 
@@ -59,5 +62,25 @@ public class SimpleQueueTest {
         this.queue.offer(expectedValue);
         String resultValue = String.valueOf(this.queue.peek());
         assertThat(resultValue, is(expectedValue));
+    }
+
+    /**
+     * Checks remove() method.
+     */
+    @Test
+    public void whenTenElementsAreAddedThenTheseTenElementsAreRemoved() {
+        for (int i = 0; i < 10; i++) {
+            this.queue.offer(String.valueOf(i));
+        }
+        for (int i = 0; i < 10; i++) {
+            assertThat(this.queue.remove(), is(String.valueOf(i)));
+        }
+    }
+    /**
+     * Checks if NoSuchElementException will be thrown by remove() method if this list is empty.
+     */
+    @Test (expected = NoSuchElementException.class)
+    public void whenListIsEmptyThenNoSuchElementExceptionIsThrownByRemove() {
+        this.queue.element();
     }
 }

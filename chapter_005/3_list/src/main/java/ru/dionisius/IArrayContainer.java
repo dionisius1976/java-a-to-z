@@ -16,13 +16,6 @@ public interface IArrayContainer<E> extends Iterable<E> {
     void add(int index, E element);
 
     /**
-     * Removes an element from specified index of this list.
-     * @param index specified index of this list.
-     * @return removed element.
-     */
-    E remove(int index);
-
-    /**
      * Returns the first index of specified element at this list.
      * @param e specified element at this list.
      * @return the index of specified element at this list.

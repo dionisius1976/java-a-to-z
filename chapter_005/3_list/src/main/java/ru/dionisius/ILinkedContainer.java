@@ -16,6 +16,13 @@ public interface ILinkedContainer<E> extends Iterable<E> {
      */
     E remove (E e);
     /**
+     * Removes an element from specified index of this list.
+     * @param index specified index of this list.
+     * @return removed element.
+     */
+    E remove(int index);
+
+    /**
      * Returns an element from specified index of this array.
      * @param index specified index of this array.
      * @return an element from specified index of this array.

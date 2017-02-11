@@ -206,6 +206,12 @@ public class SimpleLinkedList<E> implements ILinkedContainer<E> {
         this.size--;
         return element;
     }
+
+    /**
+     * links (insert) specified element to this list before specified node.
+     * @param e specified element.
+     * @param succ specified node.
+     */
     void linkBefore(E e, Node<E> succ) {
         final Node<E> pred = succ.prev;
         final Node<E> newNode = new Node<>(pred, e, succ);

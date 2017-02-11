@@ -8,19 +8,19 @@ import static org.junit.Assert.*;
 
 /**
  * Created by Dionisius on 11.02.2017.
- * Testing class for SimpleArraySet class.
  */
-public class SimpleArraySetTest {
+public class SimpleLinkedSetTest {
     /**
      * Testing instance for SimpleArraySet.
+     * Testing class for SimpleLinkedSet class.
      */
-    private final SimpleArraySet<String> set = new SimpleArraySet<>();
+    private final SimpleLinkedSet<String> set = new SimpleLinkedSet<>();
 
     /**
      * Tests if all added elements are in this set.
      */
     @Test
-    public void WhenFifteenElementsAreAdeedThenTheyAreInSet() {
+    public void add() throws Exception {
         String[] expectedArray = new String[15];
         String[] resultArray = new String[15];
         int index = 0;
@@ -34,7 +34,6 @@ public class SimpleArraySetTest {
         }
         assertArrayEquals(expectedArray, resultArray);
     }
-
     /**
      * Tests if all added elements are in this set.
      */
@@ -70,4 +69,5 @@ public class SimpleArraySetTest {
         }
         assertArrayEquals(expectedArray, resultArray);
     }
+
 }

@@ -217,9 +217,7 @@ public class SimpleArrayList<E> implements IArrayContainer<E>, ILinkedContainer<
 
         @Override
         public E next() {
-            E e = (E) elements[this.index];
-            index++;
-            return e;
+            return  (E) elements[this.index++];
         }
     }
 }

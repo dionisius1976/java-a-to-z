@@ -98,9 +98,7 @@ public class SimpleArraySet<E> implements ISet<E> {
 
         @Override
         public E next() {
-            E e = (E) elements[this.index];
-            this.index++;
-            return e;
+            return  (E) elements[this.index++];
         }
     }
 }

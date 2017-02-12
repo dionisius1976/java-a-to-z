@@ -35,11 +35,13 @@ public class SimpleArraySet<E> implements ISet<E> {
 
     @Override
     public void add(E e) {
-        if (!this.isSpaceEnough()) {
-            this.grow();
-        }
-        if (this.isUnique(e)) {
-            this.elements[this.size++] = e;
+        if (e != null) {
+            if (!this.isSpaceEnough()) {
+                this.grow();
+            }
+            if (this.isUnique(e)) {
+                this.elements[this.size++] = e;
+            }
         }
     }
 

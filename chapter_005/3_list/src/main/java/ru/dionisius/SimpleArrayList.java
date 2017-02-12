@@ -59,7 +59,7 @@ public class SimpleArrayList<E> implements IArrayContainer<E>, ILinkedContainer<
     }
     @Override
     public void add(int index, E element) {
-        if (index < 0) {
+        if (index < 0 || index > this.size) {
             throw new IllegalArgumentException("Illegal index value!");
         }
         if (!this.isSpaceEnough()) {
@@ -192,19 +192,8 @@ public class SimpleArrayList<E> implements IArrayContainer<E>, ILinkedContainer<
      * Enlarges the capacity of this list.
      */
     private void grow() {
-        int newCapacity = this.elements.length * 3 / 2;
-        this.elements = Arrays.copyOf(this.elements, newCapacity);
-        this.capacity++;
-    }
-
-    /**
-     * Enlarges the capacity of this list.
-     * @param additionalCapacity enlargement value.
-     */
-    private void grow(int additionalCapacity) {
-        int newCapacity = this.elements.length + additionalCapacity;
-        this.elements = Arrays.copyOf(this.elements, newCapacity);
-        this.capacity = newCapacity;
+        this.capacity += this.capacity >> 2;
+        this.elements = Arrays.copyOf(this.elements, this.capacity);
     }
 
     private class thisIterator<E> implements Iterator<E> {

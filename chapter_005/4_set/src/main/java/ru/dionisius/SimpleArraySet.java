@@ -61,9 +61,8 @@ public class SimpleArraySet<E> implements ISet<E> {
      * Enlarges the capacity of this list.
      */
     private void grow() {
-        int newCapacity = this.elements.length * 3 / 2;
-        this.elements = Arrays.copyOf(this.elements, newCapacity);
-        this.capacity = newCapacity;
+        this.capacity += this.capacity >> 2;
+        this.elements = Arrays.copyOf(this.elements, this.capacity);
     }
 
     /**

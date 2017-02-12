@@ -36,10 +36,10 @@ public class SimpleArraySetTest {
     }
 
     /**
-     * Tests if all added elements are in this set.
+     * Tests if only one of many unique elements is added in this set.
      */
     @Test
-    public void whenTenTheSameElementsAreAddeThenOnlyOneIsInTheSet() {
+    public void whenTenTheSameElementsAreAddedThenOnlyOneIsInTheSet() {
         String[] expectedArray = {"0"};
         String[] resultArray = new String[1];
         int index = 0;

@@ -25,14 +25,17 @@ public class SimpleArrayListTest {
      */
     private final String teststring = "TestString";
     /**
-     * String example for tests.
+     * Testing expected string.
      */
     private String expectedValue;
     /**
-     * String example for tests.
+     * Testing result string.
      */
     private String resultValue;
 
+    /**
+     * Initiates the list and fill it.
+     */
     @Before
     public void init(){
         this.simpleArrayList = new SimpleArrayList();

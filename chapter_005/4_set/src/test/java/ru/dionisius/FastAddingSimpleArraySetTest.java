@@ -7,20 +7,19 @@ import java.util.Iterator;
 import static org.junit.Assert.*;
 
 /**
- * Created by Dionisius on 11.02.2017.
- * Testing class for SimpleArraySet class.
+ * Created by Dionisius on 13.02.2017.
  */
-public class SimpleArraySetTest {
+public class FastAddingSimpleArraySetTest {
     /**
      * Testing instance for SimpleArraySet.
      */
-    private final ISet<String> set = new SimpleArraySet<>();
+    private final ISet<String> set = new FastSimpleArraySet<>();
 
     /**
      * Tests if all added elements are in this set.
      */
     @Test
-    public void WhenFifteenElementsAreAdeedThenTheyAreInSet() {
+    public void WhenFifteenElementsAreAddedThenTheyAreInSet() {
         String[] expectedArray = new String[15];
         String[] resultArray = new String[15];
         int index = 0;
@@ -34,7 +33,6 @@ public class SimpleArraySetTest {
         }
         assertArrayEquals(expectedArray, resultArray);
     }
-
     /**
      * Tests if only one of many unique elements is added in this set.
      */
@@ -52,6 +50,7 @@ public class SimpleArraySetTest {
         }
         assertArrayEquals(expectedArray, resultArray);
     }
+
     /**
      * Tests if iterator of this set works properly.
      */
@@ -70,4 +69,5 @@ public class SimpleArraySetTest {
         }
         assertArrayEquals(expectedArray, resultArray);
     }
+
 }

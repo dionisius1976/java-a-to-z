@@ -1,15 +1,17 @@
 <project>
-
-	<version>1.0</version>
+	
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>ru.dionisius</groupId>
 	<artifactId>chapter_001</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	
 	<packaging>pom</packaging>
 
 	<parent>
-		<version>1.0</version>
 		<groupId>ru.dionisius</groupId>
 		<artifactId>java-a-to-z</artifactId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 
 	<modules>
@@ -20,7 +22,6 @@
 		<module>5_arrays</module>
 		<module>6_test_task</module>
 		<module>7_additional_test_task</module>
-		
 	</modules>
 	
 </project>

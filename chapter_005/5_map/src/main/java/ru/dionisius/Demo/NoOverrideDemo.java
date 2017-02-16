@@ -30,8 +30,9 @@ public class NoOverrideDemo {
         map.put(user2, "second");
 
         System.out.println(map);
-
-
-
+        System.out.println(map.get(user1));
+        System.out.println(map.get(user2));
+        System.out.println(map.containsKey(user1));
+        System.out.println(map.containsKey(user2));
     }
 }

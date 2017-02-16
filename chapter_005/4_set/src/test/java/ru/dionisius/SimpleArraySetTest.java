@@ -2,6 +2,8 @@ package ru.dionisius;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import static org.junit.Assert.*;
@@ -57,6 +59,7 @@ public class SimpleArraySetTest {
      */
     @Test
     public void whenIteratorThenItWorksProperly() {
+        ArrayList
         String[] expectedArray = new String[15];
         String[] resultArray = new String[15];
         int index = 0;

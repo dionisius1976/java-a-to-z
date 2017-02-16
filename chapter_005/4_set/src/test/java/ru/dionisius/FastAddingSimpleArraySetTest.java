@@ -69,5 +69,4 @@ public class FastAddingSimpleArraySetTest {
         }
         assertArrayEquals(expectedArray, resultArray);
     }
-
 }

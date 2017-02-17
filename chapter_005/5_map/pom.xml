@@ -1,0 +1,17 @@
+<project>
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>ru.dionisius</groupId>
+	<artifactId>5_map</artifactId>
+	<version>1.0</version>
+	
+	<packaging>jar</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>chapter_005</artifactId>
+	</parent>
+
+</project>

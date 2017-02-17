@@ -1,0 +1,25 @@
+<project>
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>ru.dionisius</groupId>
+	<artifactId>chapter_005</artifactId>
+	<version>1.0</version>
+	
+	<packaging>pom</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>java-a-to-z</artifactId>
+	</parent>
+
+	<modules>
+		<module>1_iterator</module>
+		<module>2_generics</module>
+		<module>3_list</module>
+		<module>4_set</module>
+		<module>5_map</module>
+	</modules>
+	
+</project>

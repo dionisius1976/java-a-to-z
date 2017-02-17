@@ -1,7 +1,7 @@
-package ru.dionisius.Demo;
+package ru.dionisius.demo;
 
-import ru.dionisius.Users.AUser;
-import ru.dionisius.Users.UserNoOverride;
+import ru.dionisius.users.AUser;
+import ru.dionisius.users.UserEqualsOverride;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -10,21 +10,18 @@ import java.util.Map;
 /**
  * Created by Dionisius on 16.02.2017.
  * Expose the result of insert two equal objects as keys to Hashmap.
- * Without override methods hash() and equals() these equal objects
+ * Without override equals() method these equal objects
  * are in this map.
  */
-public class NoOverrideDemo {
-    /**
-     * Starts the program.
-     * @param args console arguments.
-     */
+public class UserEqualsOverrideDemo {
     public static void main(String[] args) {
+
         Map<AUser, String> map = new HashMap<>();
         Calendar birthday = Calendar.getInstance();
         birthday.set(1970, 1, 20);
 
-        AUser user1 = new UserNoOverride("Ivan", 2, birthday);
-        AUser user2 = new UserNoOverride("Ivan", 2, birthday);
+        AUser user1 = new UserEqualsOverride("Ivan", 2, birthday);
+        AUser user2 = new UserEqualsOverride("Ivan", 2, birthday);
 
         map.put(user1, "first");
         map.put(user2, "second");

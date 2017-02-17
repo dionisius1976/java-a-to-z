@@ -1,4 +1,4 @@
-package ru.dionisius.Users;
+package ru.dionisius.users;
 
 import java.util.Calendar;
 

@@ -1,7 +1,7 @@
-package ru.dionisius.Demo;
+package ru.dionisius.demo;
 
-import ru.dionisius.Users.AUser;
-import ru.dionisius.Users.UserHashAndEqualsOverride;
+import ru.dionisius.users.AUser;
+import ru.dionisius.users.UserHashAndEqualsOverride;
 
 import java.util.Calendar;
 import java.util.HashMap;

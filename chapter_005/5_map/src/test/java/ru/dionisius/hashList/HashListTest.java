@@ -75,7 +75,7 @@ public class HashListTest {
         assertThat(resultValue, is(expectedValue));
     }
     /**
-     * Checks the proper work of iterator.
+     * Checks the proper work of thisHashSet iterator.
      */
     @Test
     public void whenIteratorThenItWorksProperly() {

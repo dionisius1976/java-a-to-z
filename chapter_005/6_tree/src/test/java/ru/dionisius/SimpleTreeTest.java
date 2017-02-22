@@ -15,7 +15,7 @@ public class SimpleTreeTest {
     /**
      * SimpleTree instance for tests.
      */
-    private SimpleTree<String> tree = new SimpleTree<>();
+    private ISimpleTree<String> tree = new SimpleTree<>();
 
     /**
      *  Checks if all added childrens are in the tree.

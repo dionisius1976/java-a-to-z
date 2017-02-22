@@ -97,10 +97,7 @@ public class HashList<T, V> implements IHashList<T, V> {
         for (Node n = this.nodes[position]; n != null; n.next()) {
             Object k;
             if (n.hash == hash && ((k = n.key) == key || key.equals(k))) {
-
                 this.nodes[position] = n.next();
-//                System.out.println(n.next() == null);
-//                System.out.println("this.nodes[position] = " + this.nodes[position] == null);
                 returnValue = true;
                 break;
             }

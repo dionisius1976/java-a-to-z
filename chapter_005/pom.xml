@@ -20,6 +20,7 @@
 		<module>3_list</module>
 		<module>4_set</module>
 		<module>5_map</module>
+		<module>6_tree</module>
 	</modules>
 	
 </project>

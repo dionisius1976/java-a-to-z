@@ -14,7 +14,7 @@ public class SimpleTreeSearchingTest {
     /**
      * SimpleTreeSearching instance for tests.
      */
-    ISimpleTreeSearch<String> tree = new SimpleTreeSearching<>();
+    private SimpleTreeSearching<String> tree = new SimpleTreeSearching<>();
 
     /**
      * Initial filling of this tree.

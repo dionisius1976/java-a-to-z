@@ -6,7 +6,9 @@ import java.util.List;
 /**
  * Created by Dionisius on 22.02.2017.
  */
-public class SimpleTreeSearching <E extends Comparable> implements ISimpleTree<E>, ISimpleTreeSearch<E> {
+public class BalancedTreeForTests<E extends Comparable> implements ISimpleTree<E>,
+        ISimpleTreeSearch<E>,
+        ISimpleBalanced<E> {
     /**
      * Root element of this tree.
      */
@@ -40,6 +42,28 @@ public class SimpleTreeSearching <E extends Comparable> implements ISimpleTree<E
         return this.isElementConsists(this.root, element);
     }
 
+    @Override
+    public boolean isBalanced() {
+        return this.isTreeBalanced(this.root);
+    }
+
+    private boolean isTreeBalanced(Leaf<E> rootLeaf) {
+        if (rootLeaf == null || rootLeaf.getChildrenNumber() > 2) {
+            return false;
+        }
+        List<Leaf<E>> allChilds = rootLeaf.getChildren();
+        for (Leaf<E> leaf : allChilds) {
+            this.isTreeBalanced(leaf);
+        }
+        return true;
+    }
+
+    /**
+     * Checks if specified element consists in the tree with specified root.
+     * @param rootLeaf specified root.
+     * @param element specified element that is checking.
+     * @return true if specified element consists in in the tree with specified root.
+     */
     private boolean isElementConsists(Leaf<E> rootLeaf, E element) {
         List<Leaf<E>> allChilds = rootLeaf.getChildren();
         for (Leaf<E> leaf : allChilds) {
@@ -119,7 +143,10 @@ public class SimpleTreeSearching <E extends Comparable> implements ISimpleTree<E
         }
 
         public boolean canAdd() {
-            return this.index < 5;
+            return this.index < 2;
+        }
+        public int getChildrenNumber() {
+            return this.index;
         }
     }
 }

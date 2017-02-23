@@ -60,7 +60,7 @@ public class SimpleBinaryTree<E extends Comparable> implements ISimpleTree<E>, I
     }
 
     private boolean consists(Node<E> root, E value) {
-        if(root == null || root.getValue() == null) {
+        if(root == null) {
             return false;
         }
         if (root.getValue().compareTo(value) == 0) {

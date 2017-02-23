@@ -23,13 +23,13 @@ public class SimpleBinaryTreeTest {
         boolean resultValue = true;
         boolean expectedValue;
         String randomValue = null;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 30; i++) {
             randomValue = String.valueOf(this.random.nextInt(100));
             this.tree.addChild(randomValue);
             this.testList.add(randomValue);
         }
-        for (int i = 0; i < 100; i++) {
-            randomValue = String.valueOf(this.testList.poll());
+        for (int i = 0; i < 30; i++) {
+            randomValue = String.valueOf(this.testList.peek());
             expectedValue = this.tree.consists(randomValue);
             assertThat(resultValue, is(expectedValue));
         }

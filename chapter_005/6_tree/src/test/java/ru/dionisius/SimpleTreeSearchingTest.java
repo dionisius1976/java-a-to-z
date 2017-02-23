@@ -3,6 +3,9 @@ package ru.dionisius;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.LinkedList;
+import java.util.Random;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -15,14 +18,21 @@ public class SimpleTreeSearchingTest {
      * SimpleTreeSearching instance for tests.
      */
     private SimpleTreeSearching<String> tree = new SimpleTreeSearching<>();
+    private final Random random = new Random();
+    private LinkedList<String> testList = new LinkedList<>();
+    boolean resultValue = true;
+    boolean expectedValue;
+    String value;
 
     /**
      * Initial filling of this tree.
      */
     @Before
     public void init() {
-        for (int i = 0; i < 100; i++) {
-            this.tree.addChild(String.valueOf(i));
+        for (int i = 0; i < 30; i++) {
+            value = String.valueOf(i);
+            this.tree.addChild(value);
+            this.testList.add(value);
         }
     }
 
@@ -31,9 +41,10 @@ public class SimpleTreeSearchingTest {
      */
     @Test
     public void whenValueIsConsistInTheTreeThenReturnsTrue() {
-        boolean resultValue = true;
-        boolean expectedValue = this.tree.consists("67");
-        assertThat(resultValue, is(expectedValue));
+        for (int i = 0; i < 30; i++) {
+            expectedValue = this.testList.contains(String.valueOf(i));
+            assertThat(this.resultValue, is(expectedValue));
+        }
     }
 
     /**
@@ -42,7 +53,7 @@ public class SimpleTreeSearchingTest {
     @Test
     public void whenValueIsNotConsistInTheTreeThenReturnsFalse() {
         boolean resultValue = false;
-        boolean expectedValue = this.tree.consists("167");
+        boolean expectedValue = this.tree.consists("47");
         assertThat(resultValue, is(expectedValue));
     }
 }

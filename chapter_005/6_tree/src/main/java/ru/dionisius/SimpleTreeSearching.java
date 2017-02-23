@@ -16,6 +16,11 @@ public class SimpleTreeSearching <E extends Comparable> implements ISimpleTree<E
      */
     private List<E> allChilds = new LinkedList<E>();
 
+    /**
+     * The flag for consists method.
+     */
+    private boolean consist = false;
+
     @Override
     public void addChild(E value) {
         if (value != null){
@@ -37,22 +42,23 @@ public class SimpleTreeSearching <E extends Comparable> implements ISimpleTree<E
 
     @Override
     public boolean consists(E element) {
-        return this.isElementConsists(this.root, element);
+        this.consist = false;
+        this.isElementConsists(this.root, element);
+        return consist;
     }
 
-    private boolean isElementConsists(Leaf<E> rootLeaf, E element) {
-        List<Leaf<E>> allChilds = rootLeaf.getChildren();
-        for (Leaf<E> leaf : allChilds) {
-            if (element.equals(leaf.getValue())) {
-                return true;
-            }
-            if (!leaf.getChildren().isEmpty()) {
-                for (Leaf<E> current : leaf.getChildren()) {
-                    this.isElementConsists(current, element);
-                }
-            }
+    /**
+     * Checks if specified element consists in tree with specified root.
+     * @param rootLeaf specified root.
+     * @param element specified element that is searching.
+     */
+    private void isElementConsists(Leaf<E> rootLeaf, E element) {
+        if (element.compareTo(rootLeaf.getValue()) == 0) {
+            this.consist = true;
         }
-        return false;
+        for (Leaf<E> leaf : rootLeaf.getChildren()) {
+            this.isElementConsists(leaf, element);
+        }
     }
 
     /**

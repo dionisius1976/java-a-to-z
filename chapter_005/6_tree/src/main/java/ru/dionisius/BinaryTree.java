@@ -4,10 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by Dionisius on 21.02.2017.
- * Simple Tree.
+ * Created by Dionisius on 23.02.2017.
  */
-public class SimpleTree<E extends Comparable> implements ISimpleTree<E> {
+public class BinaryTree<E extends Comparable> implements ISimpleTree<E> {
     /**
      * Root element of this tree.
      */
@@ -40,17 +39,21 @@ public class SimpleTree<E extends Comparable> implements ISimpleTree<E> {
      * Adds the new leaf to tree with specified root.
      * @param nodeLeaf specified root.
      * @param leaf the new leaf that adding to tree.
+     * @return true if leaf is added.
      */
-    private void addLeaf(Leaf nodeLeaf, Leaf leaf) {
+    private boolean addLeaf(Leaf nodeLeaf, Leaf leaf) {
         if (nodeLeaf.canAdd()) {
             nodeLeaf.addChild(leaf);
+            return true;
         } else {
             List<Leaf<E>> nodeChildren = nodeLeaf.getChildren();
             for (Leaf<E> current : nodeChildren) {
                 if (current.canAdd()) {
                     this.addLeaf(current, leaf);
+                    return true;
                 }
             }
+            return false;
         }
     }
 
@@ -71,7 +74,7 @@ public class SimpleTree<E extends Comparable> implements ISimpleTree<E> {
 
     private class Leaf<E> {
         private E value;
-        private List<Leaf<E>> children = new LinkedList<Leaf<E>>();
+        private List <Leaf<E>> children = new LinkedList<Leaf<E>>();
         private int index = 0;
 
         public Leaf(E value) {
@@ -97,9 +100,6 @@ public class SimpleTree<E extends Comparable> implements ISimpleTree<E> {
 
         public boolean canAdd() {
             return this.index < 5;
-        }
-        public int getChildrenNumber() {
-            return this.index;
         }
     }
 }

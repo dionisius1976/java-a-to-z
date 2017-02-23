@@ -27,9 +27,9 @@ public class SimpleTreeTest {
         for (int i = 0; i < 100; i++) {
             this.tree.addChild(String.valueOf(i));
         }
-        List childsList = this.tree.getChildren();
-        for (Object o : childsList) {
-            expectedValue = childsList.contains(o);
+        List<String> childsList = this.tree.getChildren();
+        for (String string : childsList) {
+            expectedValue = childsList.contains(string);
             assertThat(resultValue, is(expectedValue));
         }
     }

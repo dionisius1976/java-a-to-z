@@ -59,7 +59,6 @@ public class SimpleArraySetTest {
      */
     @Test
     public void whenIteratorThenItWorksProperly() {
-        ArrayList
         String[] expectedArray = new String[15];
         String[] resultArray = new String[15];
         int index = 0;

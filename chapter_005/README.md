@@ -76,3 +76,17 @@ Full quantity match à Remove existing order
 Also
 
 Describe do’s and don’ts of your solution, what could be done to speed it up further, improve, simplify?
+
+
+
+
+
+
+
+
+
+8_Additional_Islands
+
+* This program counts the sum of all cells with value 1 (earth) that bordering
+ * each other at horizontal or at vertical in specified matrix (ocean). Cells with value 0
+ * are "water".

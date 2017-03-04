@@ -29,13 +29,13 @@ public class User {
     }
 
     /**
-     * Invokes finalaze() method.
+     * Invokes finalize() method.
      * @param args console arguments.
      * @throws InterruptedException if exception occurs.
      */
     public static void main(String[] args) throws InterruptedException {
-        for (int index = 0; index < 50000; index++) {
-            new User(String.format("name %s", index));
+        for (int index = 0; index < 500; index++) {
+            new User(String.format("%s", index));
         }
         info();
     }
@@ -47,11 +47,13 @@ public class User {
         int mb = 1024 * 1024;
         Runtime runtime = Runtime.getRuntime();
         System.out.println("##### Heap utilization statistics [MB] #####");
-        System.out.println("Used Memory:"
-                + (runtime.totalMemory() - runtime.freeMemory()) / mb);
-        System.out.println("Free Memory:"
-                + runtime.freeMemory() / mb);
-        System.out.println("Total Memory:" + runtime.totalMemory() / mb);
-        System.out.println("Max Memory:" + runtime.maxMemory() / mb);
+        long temp = runtime.maxMemory();
+        System.out.println("Max Memory:" + temp + " bytes");
+        temp = runtime.totalMemory();
+        System.out.println("Total Memory:" + temp + " bytes");
+        temp = (runtime.totalMemory() - runtime.freeMemory());
+        System.out.println("Used Memory:" + temp + " bytes");
+        temp = runtime.freeMemory();
+        System.out.println("Free Memory:" + temp + " bytes");
     }
 }

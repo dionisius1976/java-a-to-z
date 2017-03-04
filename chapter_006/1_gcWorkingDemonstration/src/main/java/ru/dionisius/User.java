@@ -5,12 +5,10 @@ package ru.dionisius;
  * Class for testing memory usage.
  */
 public class User {
-
     /**
      * The name of this user.
      */
     private final String name;
-
     /**
      * Constructor.
      * @param name the name of this user.
@@ -47,7 +45,6 @@ public class User {
      */
     public static void info() {
         int mb = 1024 * 1024;
-
         Runtime runtime = Runtime.getRuntime();
         System.out.println("##### Heap utilization statistics [MB] #####");
         System.out.println("Used Memory:"

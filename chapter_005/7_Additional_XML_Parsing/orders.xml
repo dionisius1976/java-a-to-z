@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Orders>
+<AddOrder book="book-1" operation="SELL" price="100.50" volume="81" orderId="1" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="86" orderId="2" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="16" orderId="3" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="80" orderId="4" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="79" orderId="5" />
+<AddOrder book="book-2" operation="BUY" price=" 99.40" volume="78" orderId="6" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="82" orderId="7" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="42" orderId="8" />
+<AddOrder book="book-3" operation="SELL" price="100.40" volume="75" orderId="9" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="64" orderId="10" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="46" orderId="11" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="48" orderId="12" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="99" orderId="13" />
+<AddOrder book="book-3" operation="SELL" price="100.40" volume="23" orderId="14" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="55" orderId="15" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="29" orderId="16" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="24" orderId="17" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="24" orderId="18" />
+<AddOrder book="book-3" operation="BUY" price="100.30" volume="18" orderId="19" />
+<AddOrder book="book-2" operation="BUY" price=" 99.60" volume="84" orderId="20" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="42" orderId="21" />
+<AddOrder book="book-3" operation="BUY" price=" 99.30" volume="49" orderId="22" />
+<AddOrder book="book-1" operation="SELL" price="100.50" volume="41" orderId="23" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="39" orderId="24" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="12" orderId="25" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="71" orderId="26" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="22" orderId="27" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="54" orderId="28" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="14" orderId="29" />
+<AddOrder book="book-2" operation="BUY" price=" 99.30" volume="34" orderId="30" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="62" orderId="31" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="9" orderId="32" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="42" orderId="33" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="87" orderId="34" />
+<AddOrder book="book-1" operation="BUY" price="100.00" volume="77" orderId="35" />
+<AddOrder book="book-1" operation="BUY" price="100.00" volume="61" orderId="36" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="57" orderId="37" />
+<AddOrder book="book-1" operation="SELL" price=" 99.50" volume="95" orderId="38" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="69" orderId="39" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="92" orderId="40" />
+<AddOrder book="book-1" operation="BUY" price=" 99.20" volume="55" orderId="41" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="52" orderId="42" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="50" orderId="43" />
+<AddOrder book="book-1" operation="SELL" price=" 99.50" volume="1" orderId="44" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="97" orderId="45" />
+<AddOrder book="book-1" operation="SELL" price=" 99.80" volume="41" orderId="46" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="52" orderId="47" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="65" orderId="48" />
+<AddOrder book="book-2" operation="BUY" price=" 99.80" volume="77" orderId="49" />
+<AddOrder book="book-3" operation="BUY" price=" 99.40" volume="15" orderId="50" />
+<AddOrder book="book-3" operation="SELL" price=" 99.80" volume="96" orderId="51" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="74" orderId="52" />
+<AddOrder book="book-3" operation="BUY" price=" 98.90" volume="44" orderId="53" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="44" orderId="54" />
+<AddOrder book="book-3" operation="SELL" price="100.40" volume="71" orderId="55" />
+<AddOrder book="book-3" operation="SELL" price="100.70" volume="1" orderId="56" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="1" orderId="57" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="45" orderId="58" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="55" orderId="59" />
+<AddOrder book="book-3" operation="BUY" price="100.20" volume="91" orderId="60" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="36" orderId="61" />
+<AddOrder book="book-3" operation="BUY" price=" 99.40" volume="41" orderId="62" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="64" orderId="63" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="82" orderId="64" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="3" orderId="65" />
+<AddOrder book="book-2" operation="SELL" price=" 99.00" volume="20" orderId="66" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="15" orderId="67" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="75" orderId="68" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="57" orderId="69" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="77" orderId="70" />
+<AddOrder book="book-2" operation="SELL" price=" 99.80" volume="56" orderId="71" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="25" orderId="72" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="5" orderId="73" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="91" orderId="74" />
+<AddOrder book="book-2" operation="BUY" price="100.30" volume="84" orderId="75" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="54" orderId="76" />
+<AddOrder book="book-1" operation="BUY" price="100.70" volume="83" orderId="77" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="91" orderId="78" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="47" orderId="79" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="79" orderId="80" />
+<AddOrder book="book-1" operation="SELL" price="101.70" volume="25" orderId="81" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="84" orderId="82" />
+<AddOrder book="book-3" operation="SELL" price="100.60" volume="76" orderId="83" />
+<AddOrder book="book-3" operation="BUY" price="100.30" volume="77" orderId="84" />
+<AddOrder book="book-2" operation="BUY" price=" 99.50" volume="85" orderId="85" />
+<AddOrder book="book-1" operation="BUY" price=" 99.50" volume="66" orderId="86" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="23" orderId="87" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="26" orderId="88" />
+<AddOrder book="book-3" operation="BUY" price="100.10" volume="88" orderId="89" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="78" orderId="90" />
+<AddOrder book="book-1" operation="BUY" price="100.00" volume="87" orderId="91" />
+<AddOrder book="book-2" operation="BUY" price="101.00" volume="96" orderId="92" />
+<AddOrder book="book-2" operation="BUY" price="100.80" volume="81" orderId="93" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="92" orderId="94" />
+<AddOrder book="book-2" operation="BUY" price=" 99.50" volume="67" orderId="95" />
+<AddOrder book="book-1" operation="SELL" price=" 99.90" volume="77" orderId="96" />
+<AddOrder book="book-1" operation="BUY" price="100.80" volume="7" orderId="97" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="54" orderId="98" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="78" orderId="99" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="30" orderId="100" />
+<AddOrder book="book-3" operation="BUY" price="100.10" volume="2" orderId="101" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="65" orderId="102" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="6" orderId="103" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="47" orderId="104" />
+<AddOrder book="book-1" operation="BUY" price="100.00" volume="65" orderId="105" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="48" orderId="106" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="71" orderId="107" />
+<AddOrder book="book-2" operation="SELL" price="100.40" volume="51" orderId="108" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="15" orderId="109" />
+<AddOrder book="book-1" operation="BUY" price=" 99.40" volume="39" orderId="110" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="53" orderId="111" />
+<AddOrder book="book-3" operation="SELL" price=" 99.50" volume="35" orderId="112" />
+<AddOrder book="book-3" operation="SELL" price=" 99.10" volume="5" orderId="113" />
+<AddOrder book="book-2" operation="BUY" price="100.10" volume="82" orderId="114" />
+<AddOrder book="book-2" operation="BUY" price="100.40" volume="48" orderId="115" />
+<AddOrder book="book-1" operation="SELL" price="100.50" volume="82" orderId="116" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="93" orderId="117" />
+<AddOrder book="book-1" operation="SELL" price=" 99.50" volume="31" orderId="118" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="27" orderId="119" />
+<AddOrder book="book-2" operation="SELL" price=" 99.80" volume="8" orderId="120" />
+<AddOrder book="book-2" operation="BUY" price="100.90" volume="45" orderId="121" />
+<AddOrder book="book-2" operation="SELL" price=" 99.90" volume="83" orderId="122" />
+<AddOrder book="book-1" operation="SELL" price="100.90" volume="88" orderId="123" />
+<AddOrder book="book-3" operation="BUY" price="100.40" volume="89" orderId="124" />
+<AddOrder book="book-2" operation="BUY" price=" 99.80" volume="71" orderId="125" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="82" orderId="126" />
+<AddOrder book="book-3" operation="SELL" price=" 99.70" volume="10" orderId="127" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="12" orderId="128" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="60" orderId="129" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="24" orderId="130" />
+<AddOrder book="book-1" operation="SELL" price="100.90" volume="1" orderId="131" />
+<AddOrder book="book-1" operation="BUY" price=" 99.20" volume="12" orderId="132" />
+<AddOrder book="book-3" operation="BUY" price=" 99.00" volume="78" orderId="133" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="96" orderId="134" />
+<AddOrder book="book-1" operation="BUY" price=" 99.10" volume="27" orderId="135" />
+<AddOrder book="book-3" operation="SELL" price="100.40" volume="21" orderId="136" />
+<AddOrder book="book-1" operation="BUY" price="100.30" volume="16" orderId="137" />
+<AddOrder book="book-1" operation="BUY" price=" 99.40" volume="74" orderId="138" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="73" orderId="139" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="95" orderId="140" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="5" orderId="141" />
+<AddOrder book="book-3" operation="BUY" price="101.20" volume="40" orderId="142" />
+<AddOrder book="book-2" operation="SELL" price=" 99.50" volume="12" orderId="143" />
+<AddOrder book="book-2" operation="BUY" price=" 99.60" volume="10" orderId="144" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="47" orderId="145" />
+<AddOrder book="book-3" operation="BUY" price="100.10" volume="78" orderId="146" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="17" orderId="147" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="96" orderId="148" />
+<AddOrder book="book-3" operation="SELL" price="100.80" volume="24" orderId="149" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="57" orderId="150" />
+<AddOrder book="book-3" operation="BUY" price="100.20" volume="42" orderId="151" />
+<DeleteOrder book="book-2" orderId="104" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="80" orderId="152" />
+<AddOrder book="book-1" operation="SELL" price=" 99.90" volume="92" orderId="153" />
+<AddOrder book="book-1" operation="BUY" price=" 99.60" volume="83" orderId="154" />
+<AddOrder book="book-3" operation="SELL" price="100.40" volume="74" orderId="155" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="95" orderId="156" />
+<AddOrder book="book-2" operation="SELL" price="100.40" volume="68" orderId="157" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="53" orderId="158" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="24" orderId="159" />
+<AddOrder book="book-2" operation="BUY" price=" 99.40" volume="35" orderId="160" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="63" orderId="161" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="64" orderId="162" />
+<AddOrder book="book-3" operation="SELL" price="100.50" volume="14" orderId="163" />
+<AddOrder book="book-3" operation="SELL" price="100.50" volume="17" orderId="164" />
+<AddOrder book="book-1" operation="SELL" price="100.50" volume="73" orderId="165" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="42" orderId="166" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="17" orderId="167" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="57" orderId="168" />
+<AddOrder book="book-2" operation="SELL" price="100.60" volume="93" orderId="169" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="11" orderId="170" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="52" orderId="171" />
+<DeleteOrder book="book-2" orderId="30" />
+<AddOrder book="book-1" operation="SELL" price="100.60" volume="55" orderId="172" />
+<AddOrder book="book-1" operation="BUY" price=" 99.40" volume="45" orderId="173" />
+<AddOrder book="book-2" operation="BUY" price=" 99.80" volume="1" orderId="174" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="31" orderId="175" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="99" orderId="176" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="56" orderId="177" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="71" orderId="178" />
+<AddOrder book="book-3" operation="SELL" price="100.20" volume="13" orderId="179" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="52" orderId="180" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="84" orderId="181" />
+<AddOrder book="book-3" operation="BUY" price=" 99.20" volume="78" orderId="182" />
+<DeleteOrder book="book-2" orderId="125" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="31" orderId="183" />
+<DeleteOrder book="book-3" orderId="136" />
+<DeleteOrder book="book-1" orderId="116" />
+<AddOrder book="book-2" operation="BUY" price="100.20" volume="20" orderId="184" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="78" orderId="185" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="55" orderId="186" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="8" orderId="187" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="36" orderId="188" />
+<AddOrder book="book-2" operation="BUY" price=" 98.80" volume="46" orderId="189" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="72" orderId="190" />
+<DeleteOrder book="book-1" orderId="123" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="24" orderId="191" />
+<DeleteOrder book="book-1" orderId="131" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="67" orderId="192" />
+<AddOrder book="book-1" operation="BUY" price=" 99.40" volume="86" orderId="193" />
+<AddOrder book="book-1" operation="BUY" price="100.90" volume="68" orderId="194" />
+<AddOrder book="book-3" operation="BUY" price="100.50" volume="88" orderId="195" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="20" orderId="196" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="91" orderId="197" />
+<AddOrder book="book-1" operation="SELL" price=" 99.70" volume="15" orderId="198" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="17" orderId="199" />
+<DeleteOrder book="book-1" orderId="81" />
+<DeleteOrder book="book-2" orderId="49" />
+<AddOrder book="book-2" operation="SELL" price="100.60" volume="23" orderId="200" />
+<AddOrder book="book-1" operation="BUY" price="100.30" volume="92" orderId="201" />
+<AddOrder book="book-3" operation="SELL" price="100.60" volume="43" orderId="202" />
+<AddOrder book="book-3" operation="SELL" price="101.00" volume="41" orderId="203" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="14" orderId="204" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="2" orderId="205" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="36" orderId="206" />
+<AddOrder book="book-2" operation="SELL" price="100.70" volume="45" orderId="207" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="25" orderId="208" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="90" orderId="209" />
+<DeleteOrder book="book-1" orderId="3" />
+<AddOrder book="book-3" operation="BUY" price="100.40" volume="51" orderId="210" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="36" orderId="211" />
+<DeleteOrder book="book-2" orderId="174" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="63" orderId="212" />
+<AddOrder book="book-1" operation="SELL" price="100.70" volume="39" orderId="213" />
+<AddOrder book="book-2" operation="SELL" price=" 99.60" volume="2" orderId="214" />
+<AddOrder book="book-1" operation="BUY" price=" 99.50" volume="17" orderId="215" />
+<AddOrder book="book-3" operation="SELL" price="100.80" volume="14" orderId="216" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="56" orderId="217" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="43" orderId="218" />
+<DeleteOrder book="book-1" orderId="205" />
+<DeleteOrder book="book-3" orderId="182" />
+<DeleteOrder book="book-2" orderId="6" />
+<AddOrder book="book-1" operation="BUY" price=" 99.50" volume="2" orderId="219" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="12" orderId="220" />
+<DeleteOrder book="book-2" orderId="57" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="55" orderId="221" />
+<DeleteOrder book="book-2" orderId="54" />
+<AddOrder book="book-2" operation="BUY" price="100.40" volume="11" orderId="222" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="1" orderId="223" />
+<AddOrder book="book-2" operation="SELL" price=" 99.30" volume="15" orderId="224" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="41" orderId="225" />
+<DeleteOrder book="book-2" orderId="189" />
+<DeleteOrder book="book-1" orderId="173" />
+<DeleteOrder book="book-3" orderId="218" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="85" orderId="226" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="96" orderId="227" />
+<DeleteOrder book="book-1" orderId="197" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="16" orderId="228" />
+<AddOrder book="book-3" operation="SELL" price=" 99.70" volume="90" orderId="229" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="1" orderId="230" />
+<AddOrder book="book-3" operation="BUY" price="100.20" volume="95" orderId="231" />
+<DeleteOrder book="book-1" orderId="42" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="94" orderId="232" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="36" orderId="233" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="75" orderId="234" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="44" orderId="235" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="59" orderId="236" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="20" orderId="237" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="9" orderId="238" />
+<DeleteOrder book="book-2" orderId="171" />
+<AddOrder book="book-3" operation="SELL" price="100.20" volume="83" orderId="239" />
+<DeleteOrder book="book-1" orderId="236" />
+<DeleteOrder book="book-3" orderId="163" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="22" orderId="240" />
+<AddOrder book="book-1" operation="SELL" price=" 99.80" volume="81" orderId="241" />
+<AddOrder book="book-1" operation="SELL" price=" 99.20" volume="3" orderId="242" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="8" orderId="243" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="89" orderId="244" />
+<AddOrder book="book-1" operation="SELL" price="100.70" volume="46" orderId="245" />
+<DeleteOrder book="book-1" orderId="1" />
+<AddOrder book="book-1" operation="SELL" price="100.70" volume="59" orderId="246" />
+<DeleteOrder book="book-1" orderId="245" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="76" orderId="247" />
+<AddOrder book="book-1" operation="SELL" price=" 99.70" volume="65" orderId="248" />
+<AddOrder book="book-2" operation="BUY" price="100.60" volume="75" orderId="249" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="65" orderId="250" />
+<DeleteOrder book="book-2" orderId="87" />
+<DeleteOrder book="book-3" orderId="223" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="38" orderId="251" />
+<AddOrder book="book-1" operation="BUY" price="100.30" volume="92" orderId="252" />
+<AddOrder book="book-2" operation="SELL" price=" 98.70" volume="44" orderId="253" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="84" orderId="254" />
+<DeleteOrder book="book-3" orderId="109" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="14" orderId="255" />
+<AddOrder book="book-3" operation="SELL" price=" 99.90" volume="14" orderId="256" />
+<AddOrder book="book-3" operation="BUY" price="100.30" volume="2" orderId="257" />
+<DeleteOrder book="book-1" orderId="191" />
+<AddOrder book="book-1" operation="SELL" price="100.60" volume="71" orderId="258" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="78" orderId="259" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="30" orderId="260" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="29" orderId="261" />
+<DeleteOrder book="book-1" orderId="204" />
+<DeleteOrder book="book-3" orderId="2" />
+<AddOrder book="book-1" operation="BUY" price="100.50" volume="84" orderId="262" />
+<AddOrder book="book-3" operation="SELL" price=" 99.00" volume="17" orderId="263" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="10" orderId="264" />
+<DeleteOrder book="book-3" orderId="149" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="23" orderId="265" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="17" orderId="266" />
+<DeleteOrder book="book-2" orderId="261" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="19" orderId="267" />
+<DeleteOrder book="book-3" orderId="9" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="83" orderId="268" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="71" orderId="269" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="4" orderId="270" />
+<AddOrder book="book-1" operation="SELL" price=" 99.70" volume="19" orderId="271" />
+<DeleteOrder book="book-3" orderId="140" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="48" orderId="272" />
+<AddOrder book="book-1" operation="SELL" price="100.70" volume="16" orderId="273" />
+<AddOrder book="book-2" operation="BUY" price=" 99.80" volume="67" orderId="274" />
+<DeleteOrder book="book-1" orderId="254" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="36" orderId="275" />
+<DeleteOrder book="book-2" orderId="209" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="85" orderId="276" />
+<AddOrder book="book-1" operation="BUY" price=" 99.60" volume="49" orderId="277" />
+<DeleteOrder book="book-3" orderId="180" />
+<AddOrder book="book-3" operation="SELL" price="100.60" volume="86" orderId="278" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="56" orderId="279" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="32" orderId="280" />
+<DeleteOrder book="book-2" orderId="276" />
+<AddOrder book="book-2" operation="SELL" price="100.40" volume="86" orderId="281" />
+<DeleteOrder book="book-3" orderId="202" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="91" orderId="282" />
+<DeleteOrder book="book-3" orderId="270" />
+<AddOrder book="book-3" operation="BUY" price=" 99.20" volume="4" orderId="283" />
+<DeleteOrder book="book-2" orderId="200" />
+<DeleteOrder book="book-3" orderId="67" />
+<DeleteOrder book="book-1" orderId="100" />
+<AddOrder book="book-1" operation="BUY" price=" 99.60" volume="69" orderId="284" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="66" orderId="285" />
+<DeleteOrder book="book-1" orderId="129" />
+<AddOrder book="book-1" operation="BUY" price="100.80" volume="15" orderId="286" />
+<AddOrder book="book-1" operation="BUY" price="100.40" volume="8" orderId="287" />
+<AddOrder book="book-3" operation="SELL" price="101.00" volume="93" orderId="288" />
+<DeleteOrder book="book-2" orderId="169" />
+<DeleteOrder book="book-3" orderId="239" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="53" orderId="289" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="67" orderId="290" />
+<DeleteOrder book="book-1" orderId="175" />
+<AddOrder book="book-2" operation="SELL" price="100.60" volume="28" orderId="291" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="62" orderId="292" />
+<DeleteOrder book="book-2" orderId="11" />
+<DeleteOrder book="book-3" orderId="166" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="12" orderId="293" />
+<AddOrder book="book-2" operation="BUY" price="100.10" volume="62" orderId="294" />
+<DeleteOrder book="book-1" orderId="268" />
+<AddOrder book="book-3" operation="SELL" price=" 99.60" volume="64" orderId="295" />
+<AddOrder book="book-3" operation="SELL" price=" 99.70" volume="25" orderId="296" />
+<AddOrder book="book-1" operation="SELL" price=" 99.00" volume="1" orderId="297" />
+<AddOrder book="book-3" operation="SELL" price=" 99.00" volume="53" orderId="298" />
+<AddOrder book="book-3" operation="SELL" price="100.90" volume="63" orderId="299" />
+<DeleteOrder book="book-3" orderId="56" />
+<AddOrder book="book-3" operation="BUY" price="100.20" volume="66" orderId="300" />
+<AddOrder book="book-1" operation="SELL" price=" 99.80" volume="92" orderId="301" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="54" orderId="302" />
+<AddOrder book="book-2" operation="BUY" price=" 99.80" volume="58" orderId="303" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="50" orderId="304" />
+<DeleteOrder book="book-2" orderId="217" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="80" orderId="305" />
+<AddOrder book="book-2" operation="SELL" price="100.60" volume="92" orderId="306" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="28" orderId="307" />
+<AddOrder book="book-3" operation="BUY" price="100.70" volume="75" orderId="308" />
+<DeleteOrder book="book-1" orderId="290" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="9" orderId="309" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="80" orderId="310" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="86" orderId="311" />
+<DeleteOrder book="book-1" orderId="219" />
+<AddOrder book="book-3" operation="SELL" price="100.40" volume="64" orderId="312" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="38" orderId="313" />
+<DeleteOrder book="book-1" orderId="34" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="57" orderId="314" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="25" orderId="315" />
+<DeleteOrder book="book-3" orderId="50" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="90" orderId="316" />
+<AddOrder book="book-3" operation="SELL" price=" 99.60" volume="22" orderId="317" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="94" orderId="318" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="79" orderId="319" />
+<DeleteOrder book="book-1" orderId="23" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="33" orderId="320" />
+<DeleteOrder book="book-2" orderId="186" />
+<DeleteOrder book="book-3" orderId="187" />
+<AddOrder book="book-2" operation="BUY" price=" 99.40" volume="9" orderId="321" />
+<AddOrder book="book-1" operation="BUY" price=" 99.50" volume="55" orderId="322" />
+<DeleteOrder book="book-2" orderId="95" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="61" orderId="323" />
+<DeleteOrder book="book-1" orderId="311" />
+<AddOrder book="book-1" operation="BUY" price=" 99.50" volume="72" orderId="324" />
+<DeleteOrder book="book-1" orderId="86" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="28" orderId="325" />
+<AddOrder book="book-1" operation="BUY" price=" 99.40" volume="22" orderId="326" />
+<DeleteOrder book="book-2" orderId="291" />
+<DeleteOrder book="book-1" orderId="41" />
+<DeleteOrder book="book-3" orderId="320" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="7" orderId="327" />
+<AddOrder book="book-3" operation="BUY" price="100.10" volume="51" orderId="328" />
+<AddOrder book="book-3" operation="SELL" price="100.20" volume="32" orderId="329" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="83" orderId="330" />
+<DeleteOrder book="book-3" orderId="244" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="47" orderId="331" />
+<DeleteOrder book="book-3" orderId="227" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="98" orderId="332" />
+<AddOrder book="book-1" operation="BUY" price=" 99.00" volume="40" orderId="333" />
+<AddOrder book="book-3" operation="SELL" price="100.60" volume="63" orderId="334" />
+<DeleteOrder book="book-3" orderId="312" />
+<AddOrder book="book-3" operation="SELL" price="100.20" volume="81" orderId="335" />
+<DeleteOrder book="book-3" orderId="55" />
+<DeleteOrder book="book-2" orderId="108" />
+<AddOrder book="book-3" operation="SELL" price=" 99.30" volume="7" orderId="336" />
+<AddOrder book="book-3" operation="BUY" price=" 99.20" volume="81" orderId="337" />
+<DeleteOrder book="book-3" orderId="314" />
+<DeleteOrder book="book-1" orderId="322" />
+<AddOrder book="book-2" operation="SELL" price=" 99.90" volume="89" orderId="338" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="63" orderId="339" />
+<DeleteOrder book="book-1" orderId="158" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="37" orderId="340" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="96" orderId="341" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="34" orderId="342" />
+<DeleteOrder book="book-1" orderId="138" />
+<DeleteOrder book="book-3" orderId="259" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="56" orderId="343" />
+<DeleteOrder book="book-3" orderId="103" />
+<AddOrder book="book-3" operation="SELL" price="100.20" volume="21" orderId="344" />
+<AddOrder book="book-1" operation="BUY" price=" 99.30" volume="86" orderId="345" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="78" orderId="346" />
+<DeleteOrder book="book-1" orderId="333" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="22" orderId="347" />
+<DeleteOrder book="book-3" orderId="196" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="77" orderId="348" />
+<DeleteOrder book="book-1" orderId="161" />
+<DeleteOrder book="book-3" orderId="342" />
+<AddOrder book="book-1" operation="SELL" price=" 99.40" volume="40" orderId="349" />
+<AddOrder book="book-3" operation="SELL" price="100.20" volume="13" orderId="350" />
+<AddOrder book="book-1" operation="BUY" price=" 99.60" volume="24" orderId="351" />
+<DeleteOrder book="book-2" orderId="207" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="24" orderId="352" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="45" orderId="353" />
+<DeleteOrder book="book-3" orderId="264" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="87" orderId="354" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="85" orderId="355" />
+<DeleteOrder book="book-1" orderId="167" />
+<AddOrder book="book-2" operation="SELL" price="100.40" volume="76" orderId="356" />
+<DeleteOrder book="book-3" orderId="133" />
+<DeleteOrder book="book-2" orderId="269" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="90" orderId="357" />
+<AddOrder book="book-2" operation="BUY" price=" 99.80" volume="58" orderId="358" />
+<AddOrder book="book-2" operation="BUY" price="100.60" volume="7" orderId="359" />
+<DeleteOrder book="book-1" orderId="193" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="47" orderId="360" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="90" orderId="361" />
+<AddOrder book="book-3" operation="SELL" price=" 99.30" volume="32" orderId="362" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="91" orderId="363" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="48" orderId="364" />
+<DeleteOrder book="book-3" orderId="134" />
+<DeleteOrder book="book-2" orderId="354" />
+<DeleteOrder book="book-1" orderId="178" />
+<AddOrder book="book-1" operation="BUY" price="100.40" volume="38" orderId="365" />
+<AddOrder book="book-2" operation="SELL" price="101.40" volume="73" orderId="366" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="6" orderId="367" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="5" orderId="368" />
+<DeleteOrder book="book-1" orderId="246" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="22" orderId="369" />
+<AddOrder book="book-1" operation="BUY" price="100.80" volume="19" orderId="370" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="36" orderId="371" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="95" orderId="372" />
+<AddOrder book="book-1" operation="BUY" price="100.10" volume="15" orderId="373" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="99" orderId="374" />
+<DeleteOrder book="book-3" orderId="369" />
+<DeleteOrder book="book-2" orderId="212" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="97" orderId="375" />
+<DeleteOrder book="book-1" orderId="313" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="99" orderId="376" />
+<AddOrder book="book-3" operation="BUY" price=" 99.40" volume="93" orderId="377" />
+<DeleteOrder book="book-2" orderId="20" />
+<DeleteOrder book="book-3" orderId="377" />
+<AddOrder book="book-1" operation="BUY" price=" 99.50" volume="89" orderId="378" />
+<AddOrder book="book-3" operation="SELL" price="100.90" volume="43" orderId="379" />
+<AddOrder book="book-2" operation="SELL" price=" 99.50" volume="24" orderId="380" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="75" orderId="381" />
+<DeleteOrder book="book-1" orderId="345" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="21" orderId="382" />
+<DeleteOrder book="book-2" orderId="356" />
+<DeleteOrder book="book-3" orderId="331" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="12" orderId="383" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="31" orderId="384" />
+<DeleteOrder book="book-3" orderId="243" />
+<AddOrder book="book-3" operation="SELL" price="100.90" volume="43" orderId="385" />
+<DeleteOrder book="book-1" orderId="352" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="45" orderId="386" />
+<DeleteOrder book="book-1" orderId="172" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="14" orderId="387" />
+<AddOrder book="book-1" operation="SELL" price="100.60" volume="33" orderId="388" />
+<AddOrder book="book-2" operation="SELL" price=" 99.30" volume="26" orderId="389" />
+<DeleteOrder book="book-3" orderId="364" />
+<DeleteOrder book="book-1" orderId="213" />
+<AddOrder book="book-3" operation="SELL" price=" 99.90" volume="85" orderId="390" />
+<AddOrder book="book-2" operation="SELL" price="100.40" volume="80" orderId="391" />
+<AddOrder book="book-3" operation="SELL" price="100.60" volume="30" orderId="392" />
+<DeleteOrder book="book-2" orderId="325" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="2" orderId="393" />
+<DeleteOrder book="book-2" orderId="260" />
+<DeleteOrder book="book-3" orderId="379" />
+<AddOrder book="book-1" operation="BUY" price=" 99.50" volume="36" orderId="394" />
+<AddOrder book="book-3" operation="SELL" price="100.70" volume="71" orderId="395" />
+<DeleteOrder book="book-3" orderId="155" />
+<DeleteOrder book="book-1" orderId="154" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="12" orderId="396" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="11" orderId="397" />
+<DeleteOrder book="book-1" orderId="199" />
+<DeleteOrder book="book-2" orderId="281" />
+<AddOrder book="book-3" operation="SELL" price=" 99.40" volume="38" orderId="398" />
+<AddOrder book="book-3" operation="SELL" price="100.70" volume="86" orderId="399" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="45" orderId="400" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="62" orderId="401" />
+<DeleteOrder book="book-3" orderId="334" />
+<DeleteOrder book="book-2" orderId="247" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="86" orderId="402" />
+<DeleteOrder book="book-1" orderId="284" />
+<AddOrder book="book-1" operation="BUY" price="100.00" volume="85" orderId="403" />
+<AddOrder book="book-1" operation="SELL" price=" 99.70" volume="58" orderId="404" />
+<AddOrder book="book-1" operation="SELL" price="100.50" volume="18" orderId="405" />
+<DeleteOrder book="book-2" orderId="267" />
+<AddOrder book="book-3" operation="SELL" price=" 99.60" volume="23" orderId="406" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="58" orderId="407" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="89" orderId="408" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="12" orderId="409" />
+<AddOrder book="book-3" operation="SELL" price=" 99.80" volume="73" orderId="410" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="4" orderId="411" />
+<DeleteOrder book="book-2" orderId="396" />
+<AddOrder book="book-2" operation="BUY" price=" 99.50" volume="41" orderId="412" />
+<AddOrder book="book-1" operation="BUY" price=" 99.20" volume="69" orderId="413" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="66" orderId="414" />
+<DeleteOrder book="book-2" orderId="346" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="24" orderId="415" />
+<DeleteOrder book="book-2" orderId="306" />
+<AddOrder book="book-1" operation="SELL" price="100.70" volume="24" orderId="416" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="96" orderId="417" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="33" orderId="418" />
+<AddOrder book="book-2" operation="BUY" price=" 99.40" volume="80" orderId="419" />
+<AddOrder book="book-1" operation="SELL" price="100.90" volume="75" orderId="420" />
+<DeleteOrder book="book-2" orderId="302" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="31" orderId="421" />
+<AddOrder book="book-2" operation="SELL" price="100.80" volume="26" orderId="422" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="50" orderId="423" />
+<AddOrder book="book-1" operation="BUY" price=" 99.50" volume="57" orderId="424" />
+<DeleteOrder book="book-2" orderId="422" />
+<DeleteOrder book="book-1" orderId="208" />
+<AddOrder book="book-1" operation="SELL" price="100.90" volume="26" orderId="425" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="64" orderId="426" />
+<DeleteOrder book="book-2" orderId="341" />
+<AddOrder book="book-2" operation="SELL" price="100.70" volume="77" orderId="427" />
+<DeleteOrder book="book-1" orderId="397" />
+<DeleteOrder book="book-2" orderId="157" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="85" orderId="428" />
+<DeleteOrder book="book-1" orderId="215" />
+<DeleteOrder book="book-3" orderId="385" />
+<AddOrder book="book-3" operation="SELL" price="100.90" volume="73" orderId="429" />
+<AddOrder book="book-2" operation="BUY" price="100.10" volume="31" orderId="430" />
+<DeleteOrder book="book-3" orderId="203" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="61" orderId="431" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="80" orderId="432" />
+<DeleteOrder book="book-2" orderId="393" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="46" orderId="433" />
+<DeleteOrder book="book-1" orderId="132" />
+<DeleteOrder book="book-3" orderId="355" />
+<AddOrder book="book-2" operation="BUY" price="100.10" volume="45" orderId="434" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="83" orderId="435" />
+<AddOrder book="book-1" operation="BUY" price="100.10" volume="24" orderId="436" />
+<AddOrder book="book-2" operation="SELL" price="100.90" volume="33" orderId="437" />
+<AddOrder book="book-2" operation="SELL" price=" 99.90" volume="35" orderId="438" />
+<DeleteOrder book="book-3" orderId="22" />
+<AddOrder book="book-1" operation="SELL" price=" 99.20" volume="8" orderId="439" />
+<AddOrder book="book-1" operation="BUY" price=" 99.30" volume="33" orderId="440" />
+<DeleteOrder book="book-1" orderId="378" />
+<AddOrder book="book-1" operation="SELL" price=" 99.70" volume="93" orderId="441" />
+<AddOrder book="book-1" operation="BUY" price=" 99.20" volume="95" orderId="442" />
+<AddOrder book="book-2" operation="BUY" price="100.10" volume="33" orderId="443" />
+<AddOrder book="book-2" operation="BUY" price=" 99.60" volume="89" orderId="444" />
+<AddOrder book="book-1" operation="SELL" price="100.50" volume="98" orderId="445" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="62" orderId="446" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="36" orderId="447" />
+<DeleteOrder book="book-1" orderId="351" />
+<DeleteOrder book="book-2" orderId="446" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="80" orderId="448" />
+<DeleteOrder book="book-3" orderId="421" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="78" orderId="449" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="12" orderId="450" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="3" orderId="451" />
+<DeleteOrder book="book-2" orderId="250" />
+<DeleteOrder book="book-1" orderId="416" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="47" orderId="452" />
+<AddOrder book="book-2" operation="BUY" price=" 99.60" volume="40" orderId="453" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="32" orderId="454" />
+<DeleteOrder book="book-2" orderId="85" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="12" orderId="455" />
+<DeleteOrder book="book-1" orderId="388" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="85" orderId="456" />
+<DeleteOrder book="book-2" orderId="407" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="41" orderId="457" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="19" orderId="458" />
+<DeleteOrder book="book-3" orderId="53" />
+<DeleteOrder book="book-1" orderId="165" />
+<AddOrder book="book-1" operation="BUY" price="100.40" volume="7" orderId="459" />
+<AddOrder book="book-1" operation="SELL" price="101.10" volume="37" orderId="460" />
+<DeleteOrder book="book-1" orderId="258" />
+<AddOrder book="book-3" operation="BUY" price=" 99.40" volume="54" orderId="461" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="5" orderId="462" />
+<DeleteOrder book="book-2" orderId="381" />
+<DeleteOrder book="book-3" orderId="448" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="98" orderId="463" />
+<DeleteOrder book="book-1" orderId="39" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="61" orderId="464" />
+<DeleteOrder book="book-3" orderId="452" />
+<AddOrder book="book-2" operation="BUY" price="100.60" volume="23" orderId="465" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="5" orderId="466" />
+<AddOrder book="book-2" operation="BUY" price=" 99.20" volume="43" orderId="467" />
+<DeleteOrder book="book-2" orderId="321" />
+<DeleteOrder book="book-3" orderId="288" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="23" orderId="468" />
+<DeleteOrder book="book-3" orderId="435" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="62" orderId="469" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="93" orderId="470" />
+<DeleteOrder book="book-1" orderId="177" />
+<DeleteOrder book="book-3" orderId="470" />
+<DeleteOrder book="book-2" orderId="221" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="77" orderId="471" />
+<AddOrder book="book-1" operation="SELL" price=" 99.60" volume="91" orderId="472" />
+<AddOrder book="book-3" operation="BUY" price=" 98.90" volume="41" orderId="473" />
+<DeleteOrder book="book-3" orderId="473" />
+<DeleteOrder book="book-2" orderId="303" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="61" orderId="474" />
+<AddOrder book="book-2" operation="SELL" price=" 99.90" volume="21" orderId="475" />
+<DeleteOrder book="book-3" orderId="305" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="64" orderId="476" />
+<AddOrder book="book-3" operation="SELL" price="100.20" volume="37" orderId="477" />
+<AddOrder book="book-2" operation="SELL" price=" 99.60" volume="18" orderId="478" />
+<DeleteOrder book="book-1" orderId="384" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="91" orderId="479" />
+<AddOrder book="book-2" operation="BUY" price=" 99.40" volume="17" orderId="480" />
+<AddOrder book="book-1" operation="SELL" price=" 99.50" volume="34" orderId="481" />
+<DeleteOrder book="book-3" orderId="392" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="57" orderId="482" />
+<DeleteOrder book="book-3" orderId="411" />
+<AddOrder book="book-1" operation="BUY" price=" 99.60" volume="39" orderId="483" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="90" orderId="484" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="34" orderId="485" />
+<DeleteOrder book="book-2" orderId="412" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="79" orderId="486" />
+<DeleteOrder book="book-3" orderId="367" />
+<AddOrder book="book-3" operation="SELL" price="101.00" volume="54" orderId="487" />
+<DeleteOrder book="book-3" orderId="335" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="30" orderId="488" />
+<DeleteOrder book="book-2" orderId="488" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="36" orderId="489" />
+<AddOrder book="book-1" operation="SELL" price="100.60" volume="51" orderId="490" />
+<DeleteOrder book="book-1" orderId="168" />
+<AddOrder book="book-3" operation="SELL" price="100.60" volume="17" orderId="491" />
+<DeleteOrder book="book-3" orderId="316" />
+<AddOrder book="book-1" operation="BUY" price="100.50" volume="47" orderId="492" />
+<AddOrder book="book-3" operation="SELL" price=" 99.80" volume="77" orderId="493" />
+<AddOrder book="book-2" operation="SELL" price="100.40" volume="59" orderId="494" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="62" orderId="495" />
+<AddOrder book="book-2" operation="SELL" price="100.20" volume="45" orderId="496" />
+<AddOrder book="book-1" operation="SELL" price="100.60" volume="76" orderId="497" />
+<DeleteOrder book="book-1" orderId="454" />
+<AddOrder book="book-3" operation="BUY" price="100.30" volume="78" orderId="498" />
+<AddOrder book="book-3" operation="SELL" price=" 99.50" volume="9" orderId="499" />
+<AddOrder book="book-3" operation="BUY" price=" 99.40" volume="75" orderId="500" />
+<AddOrder book="book-3" operation="BUY" price="100.20" volume="95" orderId="501" />
+<DeleteOrder book="book-2" orderId="437" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="31" orderId="502" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="74" orderId="503" />
+<AddOrder book="book-2" operation="SELL" price="100.70" volume="74" orderId="504" />
+<DeleteOrder book="book-2" orderId="496" />
+<DeleteOrder book="book-3" orderId="289" />
+<AddOrder book="book-3" operation="BUY" price="100.10" volume="34" orderId="505" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="64" orderId="506" />
+<AddOrder book="book-2" operation="SELL" price="100.70" volume="12" orderId="507" />
+<DeleteOrder book="book-2" orderId="494" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="8" orderId="508" />
+<AddOrder book="book-1" operation="SELL" price=" 99.80" volume="45" orderId="509" />
+<AddOrder book="book-2" operation="SELL" price="100.30" volume="77" orderId="510" />
+<DeleteOrder book="book-2" orderId="5" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="78" orderId="511" />
+<AddOrder book="book-3" operation="SELL" price="100.10" volume="32" orderId="512" />
+<AddOrder book="book-1" operation="SELL" price=" 99.70" volume="34" orderId="513" />
+<AddOrder book="book-2" operation="BUY" price=" 99.50" volume="95" orderId="514" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="70" orderId="515" />
+<AddOrder book="book-1" operation="SELL" price="100.40" volume="86" orderId="516" />
+<AddOrder book="book-1" operation="BUY" price=" 99.80" volume="98" orderId="517" />
+<DeleteOrder book="book-3" orderId="456" />
+<DeleteOrder book="book-1" orderId="394" />
+<AddOrder book="book-3" operation="BUY" price=" 98.90" volume="91" orderId="518" />
+<DeleteOrder book="book-2" orderId="238" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="88" orderId="519" />
+<AddOrder book="book-1" operation="BUY" price=" 99.70" volume="61" orderId="520" />
+<DeleteOrder book="book-1" orderId="464" />
+<AddOrder book="book-1" operation="SELL" price="100.00" volume="53" orderId="521" />
+<DeleteOrder book="book-1" orderId="150" />
+<AddOrder book="book-2" operation="BUY" price="100.60" volume="17" orderId="522" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="49" orderId="523" />
+<DeleteOrder book="book-1" orderId="324" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="35" orderId="524" />
+<DeleteOrder book="book-3" orderId="283" />
+<AddOrder book="book-1" operation="BUY" price="100.20" volume="53" orderId="525" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="46" orderId="526" />
+<DeleteOrder book="book-2" orderId="366" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="53" orderId="527" />
+<AddOrder book="book-3" operation="BUY" price=" 99.60" volume="52" orderId="528" />
+<AddOrder book="book-2" operation="SELL" price="100.70" volume="53" orderId="529" />
+<DeleteOrder book="book-1" orderId="460" />
+<AddOrder book="book-1" operation="BUY" price=" 99.90" volume="58" orderId="530" />
+<DeleteOrder book="book-3" orderId="348" />
+<DeleteOrder book="book-1" orderId="523" />
+<DeleteOrder book="book-2" orderId="504" />
+<AddOrder book="book-1" operation="SELL" price="100.60" volume="96" orderId="531" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="99" orderId="532" />
+<DeleteOrder book="book-2" orderId="160" />
+<AddOrder book="book-3" operation="BUY" price="100.60" volume="38" orderId="533" />
+<DeleteOrder book="book-1" orderId="489" />
+<AddOrder book="book-3" operation="BUY" price=" 99.40" volume="2" orderId="534" />
+<AddOrder book="book-1" operation="BUY" price="100.30" volume="46" orderId="535" />
+<AddOrder book="book-1" operation="BUY" price=" 99.60" volume="17" orderId="536" />
+<DeleteOrder book="book-1" orderId="275" />
+<DeleteOrder book="book-3" orderId="518" />
+<AddOrder book="book-2" operation="SELL" price=" 99.20" volume="98" orderId="537" />
+<AddOrder book="book-3" operation="BUY" price="100.90" volume="63" orderId="538" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="41" orderId="539" />
+<AddOrder book="book-3" operation="SELL" price=" 99.90" volume="95" orderId="540" />
+<AddOrder book="book-2" operation="SELL" price="100.40" volume="96" orderId="541" />
+<AddOrder book="book-3" operation="BUY" price="100.30" volume="53" orderId="542" />
+<AddOrder book="book-3" operation="BUY" price="100.20" volume="93" orderId="543" />
+<AddOrder book="book-1" operation="SELL" price=" 99.20" volume="96" orderId="544" />
+<AddOrder book="book-3" operation="BUY" price=" 99.50" volume="32" orderId="545" />
+<DeleteOrder book="book-2" orderId="415" />
+<AddOrder book="book-1" operation="BUY" price=" 99.00" volume="91" orderId="546" />
+<AddOrder book="book-1" operation="SELL" price="100.60" volume="13" orderId="547" />
+<DeleteOrder book="book-1" orderId="292" />
+<AddOrder book="book-1" operation="SELL" price="100.30" volume="13" orderId="548" />
+<DeleteOrder book="book-1" orderId="386" />
+<AddOrder book="book-2" operation="BUY" price="100.00" volume="58" orderId="549" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="50" orderId="550" />
+<AddOrder book="book-3" operation="SELL" price=" 99.90" volume="65" orderId="551" />
+<AddOrder book="book-1" operation="SELL" price="101.00" volume="62" orderId="552" />
+<DeleteOrder book="book-1" orderId="425" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="26" orderId="553" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="2" orderId="554" />
+<AddOrder book="book-3" operation="BUY" price="100.40" volume="80" orderId="555" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="55" orderId="556" />
+<DeleteOrder book="book-2" orderId="507" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="70" orderId="557" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="7" orderId="558" />
+<AddOrder book="book-2" operation="BUY" price=" 99.40" volume="28" orderId="559" />
+<DeleteOrder book="book-1" orderId="266" />
+<DeleteOrder book="book-3" orderId="43" />
+<AddOrder book="book-3" operation="SELL" price="100.80" volume="52" orderId="560" />
+<AddOrder book="book-3" operation="SELL" price="100.30" volume="7" orderId="561" />
+<AddOrder book="book-1" operation="SELL" price="100.60" volume="83" orderId="562" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="47" orderId="563" />
+<DeleteOrder book="book-2" orderId="471" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="51" orderId="564" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="11" orderId="565" />
+<DeleteOrder book="book-2" orderId="467" />
+<DeleteOrder book="book-1" orderId="495" />
+<AddOrder book="book-3" operation="BUY" price="100.00" volume="5" orderId="566" />
+<AddOrder book="book-3" operation="SELL" price="100.20" volume="88" orderId="567" />
+<AddOrder book="book-3" operation="BUY" price=" 99.70" volume="12" orderId="568" />
+<DeleteOrder book="book-3" orderId="515" />
+<AddOrder book="book-1" operation="SELL" price="100.50" volume="1" orderId="569" />
+<DeleteOrder book="book-1" orderId="553" />
+<AddOrder book="book-2" operation="SELL" price="100.00" volume="6" orderId="570" />
+<AddOrder book="book-3" operation="SELL" price="100.00" volume="31" orderId="571" />
+<AddOrder book="book-2" operation="SELL" price=" 99.10" volume="87" orderId="572" />
+<AddOrder book="book-2" operation="BUY" price=" 99.70" volume="56" orderId="573" />
+<AddOrder book="book-3" operation="BUY" price=" 99.90" volume="89" orderId="574" />
+<AddOrder book="book-1" operation="BUY" price=" 99.60" volume="57" orderId="575" />
+<AddOrder book="book-2" operation="SELL" price="100.10" volume="92" orderId="576" />
+<DeleteOrder book="book-1" orderId="424" />
+<DeleteOrder book="book-3" orderId="545" />
+<DeleteOrder book="book-2" orderId="285" />
+<AddOrder book="book-3" operation="BUY" price="101.00" volume="92" orderId="577" />
+<AddOrder book="book-1" operation="SELL" price=" 99.90" volume="25" orderId="578" />
+<AddOrder book="book-2" operation="SELL" price="100.50" volume="95" orderId="579" />
+<AddOrder book="book-1" operation="SELL" price="100.10" volume="9" orderId="580" />
+<DeleteOrder book="book-1" orderId="547" />
+<AddOrder book="book-3" operation="BUY" price=" 99.30" volume="40" orderId="581" />
+<AddOrder book="book-1" operation="BUY" price="100.00" volume="78" orderId="582" />
+<DeleteOrder book="book-1" orderId="440" />
+<DeleteOrder book="book-2" orderId="235" />
+<AddOrder book="book-1" operation="SELL" price="100.20" volume="27" orderId="583" />
+<AddOrder book="book-2" operation="SELL" price=" 99.70" volume="67" orderId="584" />
+<AddOrder book="book-2" operation="BUY" price=" 99.80" volume="10" orderId="585" />
+<AddOrder book="book-2" operation="BUY" price=" 99.50" volume="26" orderId="586" />
+<DeleteOrder book="book-2" orderId="559" />
+<DeleteOrder book="book-3" orderId="581" />
+<AddOrder book="book-3" operation="SELL" price=" 99.60" volume="56" orderId="587" />
+<AddOrder book="book-3" operation="BUY" price=" 99.80" volume="97" orderId="588" />
+<AddOrder book="book-2" operation="BUY" price=" 99.90" volume="22" orderId="589" />
+<DeleteOrder book="book-2" orderId="532" />
+<DeleteOrder book="book-1" orderId="519" />
+</Orders>

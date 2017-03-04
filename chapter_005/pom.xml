@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8?"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <project>
 	
@@ -24,6 +24,8 @@
 		<module>5_map</module>
 		<module>6_tree</module>
 		<module>7_Additional_XML_Parsing</module>
+		<module>8_Additional_Islands</module>
+		
 	</modules>
 	
 </project>

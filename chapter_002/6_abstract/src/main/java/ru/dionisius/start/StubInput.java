@@ -28,6 +28,9 @@ public class StubInput implements Input {
 	 * @return position of emulated user's answer in array of answers.
 	 */
 	public String ask(String question) {
+		if (this.position == 4) {
+			this.position = 0;
+		}
 		return this.answers[position++];
 	}
 
@@ -37,6 +40,10 @@ public class StubInput implements Input {
 	 * @return position of emulated user's answer in array of answers.
 	 */
 	public int ask(String question, int[] range) {
-		return -1;
+//		return -1;
+		if (this.position == 4) {
+			this.position = 0;
+		}
+		return Integer.valueOf(this.answers[this.position++]);
 	}
 }

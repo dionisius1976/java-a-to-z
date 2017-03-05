@@ -37,9 +37,19 @@ public class StartUI {
 	 */
 	public static void main(String[] args) {
 		Tracker tracker = new Tracker();
-		ValidateInput input = new ValidateInput();
+//		ValidateInput input = new ValidateInput();
+		Input input = new StubInput(new String[]{"0", "name", "desc", "y"});
 		MenuTracker menu = new MenuTracker(input, tracker);
 		menu.fillActions();
-		new StartUI(input, tracker).init(menu);
+//		new StartUI(input, tracker).init(menu);
+		for (int i = 0; i < 20000; i++) {
+			new StartUI(input, tracker).init(menu); // test for gc java.lang.OutOfMemoryError: GC overhead limit exceeded
+			System.out.println("i = " + i);
+//			try {
+//				Thread.sleep(2000);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+		}
 	}
 }

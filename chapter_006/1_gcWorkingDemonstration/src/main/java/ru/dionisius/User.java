@@ -34,9 +34,12 @@ public class User {
      * @throws InterruptedException if exception occurs.
      */
     public static void main(String[] args) throws InterruptedException {
-        for (int index = 0; index < 500; index++) {
+        long simpleTime = -System.currentTimeMillis();
+        for (int index = 0; index < 3000; index++) {
             new User(String.format("%s", index));
         }
+        simpleTime += System.currentTimeMillis();
+        System.out.println("Working time: " + simpleTime);
         info();
     }
 

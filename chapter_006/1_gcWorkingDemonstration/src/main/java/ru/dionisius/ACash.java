@@ -13,7 +13,7 @@ public abstract class ACash <K, V> {
     /**
      * Store for keys and according them soft referenced values.
      */
-    private final Map<K, SoftReference<V>> cash = new HashMap<K, SoftReference<V>>();
+    private final Map<K, SoftReference<V>> cash = new HashMap<>();
 
     /**
      * Gets value from this cash according specified key.
@@ -23,15 +23,11 @@ public abstract class ACash <K, V> {
      * @return
      */
     public V getValue (K key) {
-        V data = null;
         SoftReference<V> value = this.cash.get(key);
         if (value == null) {
-            value = new SoftReference<V>(this.getData());
-            this.cash.put(key, value);
-        } else {
-            data = value.get();
+            this.cash.put(key, new SoftReference<>(this.getData()));
         }
-        return data;
+        return value.get();
     }
 
     /**

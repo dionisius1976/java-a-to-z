@@ -125,3 +125,8 @@ Describe do’s and don’ts of your solution, what could be done to speed it up
 * This program counts the sum of all cells with value 1 (earth) that bordering
  * each other at horizontal or at vertical in specified matrix (ocean). Cells with value 0
  * are "water".
+ 
+ FindMaxDistance
+ * This class is designed for calculating and
+ * printing the biggest distance between the first
+ * and the last same numbers in specified array.

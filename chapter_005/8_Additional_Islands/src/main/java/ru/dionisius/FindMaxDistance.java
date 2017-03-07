@@ -28,7 +28,6 @@ public class FindMaxDistance {
     public FindMaxDistance(final int[] array) {
         this.array = array;
     }
-
     /**
      * Starts the program.
      */
@@ -36,7 +35,6 @@ public class FindMaxDistance {
         this.find();
         this.showResult();
     }
-
     /**
      * Calculates the biggest distance between the first
      * and the last same numbers in specified array

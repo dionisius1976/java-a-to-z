@@ -26,7 +26,8 @@ public abstract class ACash <K, V> {
         SoftReference<V> value = this.cash.get(key);
         if (value == null) {
             if (this.getData() != null) {
-                this.cash.put(key, new SoftReference<>(this.getData()));
+                value = new SoftReference<>(this.getData());
+                this.cash.put(key, value);
             } else {
                 this.cash.put(key, new SoftReference<>(null));
             }

@@ -2,6 +2,7 @@ package ru.dionisius;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -20,6 +21,7 @@ public class FindMaxDistance {
      * Key is distance, map value is number.
      */
     private final Map<Integer, NumberValue> numberValues = new HashMap<>();
+    private final TreeSet<NumberValue> orderedValues = new TreeSet<>();
 
     /**
      * Constructor.
@@ -47,10 +49,13 @@ public class FindMaxDistance {
         for (int i = 0; i < this.array.length; i++) {
             number = this.array[i];
             if (!this.numberValues.containsKey(number)) {
-                this.numberValues.put(number, new NumberValue(i, i, number));
+                newNumberValue = new NumberValue(i, i, number);
+                this.numberValues.put(number, newNumberValue);
+                this.orderedValues.add(newNumberValue);
             } else {
                 newNumberValue = new NumberValue(this.numberValues.get(number).getFrom(), i, number);
-                this.numberValues.remove(number);
+                this.orderedValues.remove(this.numberValues.remove(number));
+                this.orderedValues.add(newNumberValue);
                 this.numberValues.put(number, newNumberValue);
             }
         }
@@ -61,7 +66,7 @@ public class FindMaxDistance {
      * and the last same numbers.
      */
     private void showResult() {
-        System.out.println(new TreeSet<>(this.numberValues.values()).first());
+        System.out.println(this.orderedValues.first());
     }
 
     /**

@@ -1,4 +1,4 @@
-package ru.dionisius.whitespacesAndordsCounters;
+package ru.dionisius.whitespacesAndWordsCounters;
 
 /**
  * Created by Dionisius on 09.03.2017.

@@ -21,7 +21,9 @@ public class FindMaxDistance {
      * Key is distance, map value is number.
      */
     private final Map<Integer, NumberValue> numberValues = new HashMap<>();
-    private final TreeSet<NumberValue> orderedValues = new TreeSet<>();
+    //private final TreeSet<NumberValue> orderedValues = new TreeSet<>();
+    private int maxDistance;
+    private int numberWithMaxDistance;
 
     /**
      * Constructor.
@@ -29,6 +31,7 @@ public class FindMaxDistance {
      */
     public FindMaxDistance(final int[] array) {
         this.array = array;
+        this.numberWithMaxDistance = array[0];
     }
     /**
      * Starts the program.
@@ -46,17 +49,24 @@ public class FindMaxDistance {
     private void find() {
         NumberValue newNumberValue = null;
         int number = 0;
+        int distance = 0;
         for (int i = 0; i < this.array.length; i++) {
             number = this.array[i];
             if (!this.numberValues.containsKey(number)) {
                 newNumberValue = new NumberValue(i, i, number);
                 this.numberValues.put(number, newNumberValue);
-                this.orderedValues.add(newNumberValue);
+                //this.orderedValues.add(newNumberValue);
             } else {
+                distance = i - this.numberValues.get(number).getFrom();
                 newNumberValue = new NumberValue(this.numberValues.get(number).getFrom(), i, number);
-                this.orderedValues.remove(this.numberValues.remove(number));
-                this.orderedValues.add(newNumberValue);
+                //this.orderedValues.remove(this.numberValues.remove(number));
+                //this.orderedValues.add(newNumberValue);
+                this.numberValues.remove(number);
                 this.numberValues.put(number, newNumberValue);
+                if (distance > this.maxDistance) {
+                    this.numberWithMaxDistance = number;
+                    this.maxDistance = distance;
+                }
             }
         }
     }
@@ -66,7 +76,8 @@ public class FindMaxDistance {
      * and the last same numbers.
      */
     private void showResult() {
-        System.out.println(this.orderedValues.first());
+        System.out.format("Max distance is %d for number %d%s", this.maxDistance, this.numberWithMaxDistance, System.lineSeparator());
+//        System.out.println(this.orderedValues.first());
     }
 
     /**
@@ -126,7 +137,7 @@ public class FindMaxDistance {
 
         @Override
         public String toString() {
-            return String.format("Maximum distance is %d for number %d", this.getDistance(), this.getNumberValue());
+            return String.format("Maximum distance is %d for number %d%s", this.getDistance(), this.getNumberValue());
         }
 
         @Override

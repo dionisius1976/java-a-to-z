@@ -23,16 +23,19 @@ public abstract class ACash <K, V> {
      * @return
      */
     public V getValue (K key) {
-        SoftReference<V> value = this.cash.get(key);
-        if (value == null) {
-            if (this.getData() != null) {
-                value = new SoftReference<>(this.getData());
-                this.cash.put(key, value);
-            } else {
-                this.cash.put(key, new SoftReference<>(null));
+        V value = null;
+        SoftReference<V> soft = this.cash.get(key);
+        if (soft != null) {
+            value = soft.get();
+            if (value == null) {
+                value = this.getData();
+                this.cash.put(key, new SoftReference<V>(value));
             }
+        } else {
+            value = this.getData();
+            this.cash.put(key, new SoftReference<V>(value));
         }
-        return value.get();
+        return value;
     }
 
     /**

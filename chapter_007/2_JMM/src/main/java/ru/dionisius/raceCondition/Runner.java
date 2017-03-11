@@ -2,13 +2,27 @@ package ru.dionisius.raceCondition;
 
 /**
  * Created by Dionisius on 10.03.2017.
+ * Class display the race condition case.
+ * Each of five threads increment the variable with 0 value
+ * ten thousand times. In race condition case there is no
+ * guarantee that result variable will be fifty thousand.
  */
 public class Runner {
 
+    /**
+     * Class for incrementing specified variable ten thousand times.
+     */
     public static class Changing implements Runnable {
 
+        /**
+         * Specified variable.
+         */
         private VariableStorage vs;
 
+        /**
+         * Constructor.
+         * @param vs specified variable.
+         */
         public Changing(VariableStorage vs) {
             this.vs = vs;
         }
@@ -22,6 +36,10 @@ public class Runner {
         }
     }
 
+    /**
+     * Starts the program.
+     * @param args console arguments.
+     */
     public static void main(String[] args) {
 
         VariableStorage vs = new VariableStorage();

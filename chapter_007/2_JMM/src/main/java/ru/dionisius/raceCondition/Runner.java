@@ -2,7 +2,7 @@ package ru.dionisius.raceCondition;
 
 /**
  * Created by Dionisius on 10.03.2017.
- * Class display the race condition case.
+ * Class displays the race condition case.
  * Each of five threads increment the variable with 0 value
  * ten thousand times. In race condition case there is no
  * guarantee that result variable will be fifty thousand.

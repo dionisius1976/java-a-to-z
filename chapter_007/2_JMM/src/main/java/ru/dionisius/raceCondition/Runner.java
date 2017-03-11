@@ -23,7 +23,7 @@ public class Runner {
          * Constructor.
          * @param vs specified variable.
          */
-        public Changing(VariableStorage vs) {
+        public Changing(final VariableStorage vs) {
             this.vs = vs;
         }
 

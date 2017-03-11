@@ -15,7 +15,7 @@ public class WordsCounter implements Runnable {
      * Constructor.
      * @param sentence specified sentence.
      */
-    public WordsCounter(String sentence) {
+    public WordsCounter(final String sentence) {
         this.sentence = sentence;
     }
 

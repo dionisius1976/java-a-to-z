@@ -13,7 +13,7 @@ public class WhitespacesCounter implements Runnable {
      * Constructor.
      * @param sentence specified sentence.
      */
-    public WhitespacesCounter(String sentence) {
+    public WhitespacesCounter(final String sentence) {
         this.sentence = sentence;
     }
 

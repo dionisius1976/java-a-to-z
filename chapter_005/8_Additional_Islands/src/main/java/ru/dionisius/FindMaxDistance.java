@@ -21,7 +21,6 @@ public class FindMaxDistance {
      * Key is distance, map value is number.
      */
     private final Map<Integer, NumberValue> numberValues = new HashMap<>();
-    //private final TreeSet<NumberValue> orderedValues = new TreeSet<>();
     private int maxDistance;
     private int numberWithMaxDistance;
 
@@ -55,12 +54,9 @@ public class FindMaxDistance {
             if (!this.numberValues.containsKey(number)) {
                 newNumberValue = new NumberValue(i, i, number);
                 this.numberValues.put(number, newNumberValue);
-                //this.orderedValues.add(newNumberValue);
             } else {
                 distance = i - this.numberValues.get(number).getFrom();
                 newNumberValue = new NumberValue(this.numberValues.get(number).getFrom(), i, number);
-                //this.orderedValues.remove(this.numberValues.remove(number));
-                //this.orderedValues.add(newNumberValue);
                 this.numberValues.remove(number);
                 this.numberValues.put(number, newNumberValue);
                 if (distance > this.maxDistance) {
@@ -77,7 +73,6 @@ public class FindMaxDistance {
      */
     private void showResult() {
         System.out.format("Max distance is %d for number %d%s", this.maxDistance, this.numberWithMaxDistance, System.lineSeparator());
-//        System.out.println(this.orderedValues.first());
     }
 
     /**
@@ -165,6 +160,10 @@ public class FindMaxDistance {
         }
     }
 
+    /**
+     * Starts the program.
+     * @param args console arguments.
+     */
     public static void main(String[] args) {
         int[] array = {1,2,3,4,25,26,26,2};
         FindMaxDistance fmd = new FindMaxDistance(array);

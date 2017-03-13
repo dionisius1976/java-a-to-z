@@ -63,19 +63,16 @@ public class UserStorage {
      * @param amount amount of money.
      * @return true if transfer was success and false if not.
      */
-    public boolean transferMoney(final long userDonorId, final long userRecipientId, int amount) {
+    public synchronized boolean transferMoney(final long userDonorId, final long userRecipientId, int amount) {
         boolean result = true;
-        synchronized (this.users.get(userDonorId)) {
-            if (this.users.get(userDonorId).getAmount() < amount) {
-                result = false;
-            }
-            synchronized (this.users.get(userRecipientId)) {
-                if (this.users.get(userDonorId).getAmount() >= amount) {
-                    int newAmount = amount + this.users.get(userRecipientId).getAmount();
-                    this.users.get(userRecipientId).setAmount(newAmount);
-                    newAmount = this.users.get(userDonorId).getAmount() - amount;
-                    this.users.get(userDonorId).setAmount(newAmount);
-                }
+        if (this.users.get(userDonorId).getAmount() < amount) {
+            result = false;
+        } else {
+            if (this.users.get(userDonorId).getAmount() >= amount) {
+                int newRecipientAmount = amount + this.users.get(userRecipientId).getAmount();
+                this.users.get(userRecipientId).setAmount(newRecipientAmount);
+                int newDonorAmount = this.users.get(userDonorId).getAmount() - amount;
+                this.users.get(userDonorId).setAmount(newDonorAmount);
             }
         }
         return result;

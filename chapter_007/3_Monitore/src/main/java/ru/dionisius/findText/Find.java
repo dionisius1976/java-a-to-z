@@ -1,13 +1,17 @@
 package ru.dionisius.findText;
 
-import java.io.*;
-
 /**
  * Created by Dionisius on 30.11.2016.
  */
 public class Find {
-    public static boolean isFinded = false;
-    public static String file = null;
+    /**
+     * Flag that points true if text in some file was found.
+     */
+    public static boolean isFound = false;
+    /**
+     * The file with the searching text.
+     */
+    public static String fileWithText = null;
     /**
      * Arguments from console.
      */
@@ -58,6 +62,11 @@ public class Find {
                 this.setTextToFind();
                 this.setWorkingDirectory();
                 this.startSearch();
+                if (isFound) {
+                    System.out.printf("Text is founded in %s file", fileWithText);
+                } else {
+                    System.out.println("The text is not found");
+                }
             } else {
                 System.out.printf("Задан неверный ключ или параметр!%s " +
                                 "Исользуйте ключ -help для получения подсказки.%s",
@@ -68,23 +77,29 @@ public class Find {
         }
     }
 
+    /**
+     * Starts searching the text in all files and directories of working directory.
+     */
     private void startSearch() {
-            Thread t = new Thread(new TextInDirectorySearcher(this.workingDirectory, this.textToFind));
-            t.start();
-            while (!isFinded && t.isAlive()) {
-                try {
-                    t.join(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        Thread t = new Thread(new TextInDirectorySearcher(this.workingDirectory, this.textToFind));
+        t.start();
+        while (!isFound && t.isAlive()) {
+            try {
+                t.join(100);
+                if (isFound) {
+                    t.interrupt();
+                    t.join();
                 }
-                if (isFinded) {
-
-                }
-
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+
+        }
     }
 
-
+    /**
+     * Specified  from console arguments the text that will be searched.
+     */
     private void setTextToFind() {
         for (int i = 0; i < this.args.length; i++) {
             if ("-t".equals(this.args[i])) {
@@ -135,7 +150,7 @@ public class Find {
         }
         if (workingDiretory == null) {
             workingDiretory = System.getProperty("user.dir");
-            System.out.printf("Директория не задана. По умолчанию используется текущая директория %s%s",
+            System.out.printf("Working directory is not specified. The current directory will be used: %s%s",
                     workingDiretory, this.lsep);
         }
         this.workingDirectory = workingDiretory;

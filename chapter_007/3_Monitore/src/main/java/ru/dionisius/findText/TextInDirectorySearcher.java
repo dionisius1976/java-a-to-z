@@ -10,10 +10,6 @@ import java.io.IOException;
  * Checks if any file of specified directory contains specified text.
  */
 public class TextInDirectorySearcher implements Runnable {
-//    /**
-//     * TextInFileSearcher instance reference variable.
-//     */
-//    private final TextInFileSearcher searcher = new TextInFileSearcher();
     /**
      * Specified working directory.
      */
@@ -42,27 +38,15 @@ public class TextInDirectorySearcher implements Runnable {
             File[] listFiles = new File(this.workingDirectory).listFiles();
             for (File currentFile : listFiles) {
                 if (Find.isFinded || Thread.interrupted()) {
-                    Thread.currentThread().interrupt();
                     break;
                 }
                 if (!currentFile.isDirectory()) {
                     this.consist(currentFile, this.findingText);
                 } else {
-                    Thread t = new Thread(new TextInDirectorySearcher(currentFile.getCanonicalPath(), this.findingText));
-                    t.start();
-                    while (!Thread.interrupted() && t.isAlive() && !Find.isFinded) {
-                        try {
-                            t.join(100);
-                        if (Thread.interrupted() || !Find.isFinded) {
-                            t.interrupt();
-                            t.join();
-                        }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
+                    new Thread(new TextInDirectorySearcher(currentFile.getCanonicalPath(), this.findingText)).start();
+
                 }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,38 +56,32 @@ public class TextInDirectorySearcher implements Runnable {
      * Verifies if specified text is in specified file.
      * @param file specified file.
      * @param text specified text.
-     * @return true if specified text is in specified file.
+     * @throws IOException if IOException occurs.
      */
-    public synchronized void consist (final File file, final String text) {
+    public synchronized void consist (final File file, final String text) throws IOException {
         StringBuilder sb = new StringBuilder();
         String sbString = null;
         try (FileInputStream reader = new FileInputStream(file)) {
             int value = 0;
-            boolean isFounded = false;
-            while ((value = reader.read()) != -1 && !isFounded) {
+            while ((value = reader.read()) != -1) {
                 sb.append((char) value);
                 sbString = sb.toString();
                 if (text.startsWith(sbString)) {
                     if (text.equalsIgnoreCase(sbString)) {
-                        isFounded = true;
                         Find.isFinded = true;
                         if (Find.file == null) {
                             Find.file = file.getCanonicalPath();
                         }
+                        break;
                     }
                 } else {
                     if (sbString.charAt(sbString.indexOf(sbString.length() - 1)) == text.charAt(0)) {
-                        sb.delete(0, sb.length());
-                        sb.append(text.charAt(0));
+                        sb.delete(0, sb.length() - 1);
                     } else {
                         sb.delete(0, sb.length());
                     }
                 }
             }
-        } catch (FileNotFoundException fnf) {
-            fnf.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
         }
     }
 

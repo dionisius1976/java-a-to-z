@@ -28,7 +28,7 @@ public class WhitespacesCounter implements Runnable {
             while (position < sentenceArray.length) {
                 if (Thread.currentThread().isInterrupted()) {
                     System.out.format("Thread %s is interrupted!%s", Thread.currentThread().getName(), System.lineSeparator());
-                    Thread.currentThread().interrupt();
+                    break;
                 }
                 if (this.sentence.charAt(position) == ' ') {
                     counter++;

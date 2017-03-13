@@ -56,7 +56,7 @@ public class Find {
      * Constructor.
      * @param args array of arguments from console
      */
-    public Find(String[] args) {
+    public Find(final String[] args) {
         this.args = args;
     }
 
@@ -187,7 +187,7 @@ public class Find {
      * @param currentDir name of superior start directory to seek files
      * @throws IOException when exception while writing log file
      */
-    private void findFilesAndWriteLog(FileOutputStream out, String currentDir) throws IOException {
+    private void findFilesAndWriteLog(final FileOutputStream out, final String currentDir) throws IOException {
         StringBuilder sb = new StringBuilder();
         File[] listFiles = new File(currentDir).listFiles();
         if (listFiles != null) {
@@ -211,7 +211,7 @@ public class Find {
      * @param filesList list of the files that should be written in log file
      * @throws IOException if error while writing the file
      */
-    private void writeToLog(FileOutputStream out, String filesList) throws IOException {
+    private void writeToLog(final FileOutputStream out, final String filesList) throws IOException {
         InputStream in = new ByteArrayInputStream(filesList.getBytes());
         byte[] buffer = new byte[BUFFER_SIZE];
         int length;

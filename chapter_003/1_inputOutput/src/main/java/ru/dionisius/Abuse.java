@@ -10,11 +10,13 @@ import java.io.IOException;
 
 /**
  * Created by Dionisius on 19.11.2016.
+ * Deletes all abused words from array String[] in InputStream in
+ * and write this InputStream in OutputStream out
  */
 public class Abuse {
 
-    /** dropAbuses(InputStream in, OutputStream out, String[] abuse).
-     * This method delete all abused words from array String[] in InputStream in
+    /**
+     * Deletes all abused words from array String[] in InputStream in
      * and write this InputStream in OutputStream out
      * @param in - input stream
      * @param  out - output stream

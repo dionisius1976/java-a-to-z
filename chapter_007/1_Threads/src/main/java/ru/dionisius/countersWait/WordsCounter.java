@@ -29,7 +29,7 @@ public class WordsCounter implements Runnable {
         while (position < this.sentence.length()) {
             if (Thread.currentThread().isInterrupted()) {
                 System.out.format("Thread %s is interrupted!%s", Thread.currentThread().getName(), System.lineSeparator());
-                Thread.currentThread().interrupt();
+                break;
             }
             if (this.sentence.charAt(position) != ' ') {
                 for (int i = position; i < this.sentence.length(); i++) {

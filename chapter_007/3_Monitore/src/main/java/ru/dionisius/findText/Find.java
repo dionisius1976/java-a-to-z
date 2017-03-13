@@ -2,6 +2,10 @@ package ru.dionisius.findText;
 
 /**
  * Created by Dionisius on 30.11.2016.
+ * This program checks all files in working
+ * directory and all subdirectories im multithreading
+ * mode if some of them contains the specified text.
+ * The new thread created for every directory.
  */
 public class Find {
     /**

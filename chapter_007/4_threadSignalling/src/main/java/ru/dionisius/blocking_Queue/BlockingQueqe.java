@@ -39,9 +39,10 @@ public class BlockingQueqe<E> {
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }
-                while (!this.queue.isEmpty()) {
-                    System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), this.queue.pollFirst(), System.lineSeparator());
-                }
+
+            }
+            while (!this.queue.isEmpty()) {
+                System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), this.queue.pollFirst(), System.lineSeparator());
             }
             this.isLocked = true;
         }
@@ -69,7 +70,8 @@ public class BlockingQueqe<E> {
             }
         };
 
-        customer.start();
         producer.start();
+        customer.start();
+
     }
 }

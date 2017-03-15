@@ -2,7 +2,6 @@ package ru.dionisius.findText;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -37,7 +36,7 @@ public class TextInDirectorySearcher implements Runnable {
         try {
             File[] listFiles = new File(this.workingDirectory).listFiles();
             for (File currentFile : listFiles) {
-                if (Find.isFinded || Thread.interrupted()) {
+                if (Find.isFound || Thread.interrupted()) {
                     break;
                 }
                 if (!currentFile.isDirectory()) {
@@ -68,9 +67,9 @@ public class TextInDirectorySearcher implements Runnable {
                 sbString = sb.toString();
                 if (text.startsWith(sbString)) {
                     if (text.equalsIgnoreCase(sbString)) {
-                        Find.isFinded = true;
-                        if (Find.file == null) {
-                            Find.file = file.getCanonicalPath();
+                        Find.isFound = true;
+                        if (Find.fileWithText == null) {
+                            Find.fileWithText = file.getCanonicalPath();
                         }
                         break;
                     }

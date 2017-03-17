@@ -31,7 +31,8 @@ public class BlockingQueqe<E> {
     /**
      * Returns and deletes tha last element in the queue.
      */
-    public void get() {
+    public E get() {
+        E returningElement = null;
         synchronized (this.queue) {
             while (this.isLocked) {
                 try {
@@ -42,10 +43,12 @@ public class BlockingQueqe<E> {
 
             }
             while (!this.queue.isEmpty()) {
-                System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), this.queue.pollFirst(), System.lineSeparator());
+                returningElement = this.queue.pollFirst();
+                System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), returningElement, System.lineSeparator());
             }
             this.isLocked = true;
         }
+        return returningElement;
     }
 
     /**

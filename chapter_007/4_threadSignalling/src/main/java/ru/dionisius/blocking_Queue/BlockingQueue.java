@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 /**
  * Created by Dionisius on 15.03.2017.
+ * Blocking queue realization.
  */
 public class BlockingQueue<E> {
     /**
@@ -11,7 +12,7 @@ public class BlockingQueue<E> {
      */
     private final LinkedList<E> queue = new LinkedList<>();
     /**
-     * The maximum amount of queqe.
+     * The maximum amount of queue.
      */
     private final int maxElementsCount;
 
@@ -53,7 +54,7 @@ public class BlockingQueue<E> {
             if (this.queue.size() == this.maxElementsCount)  {
                 notifyAll();
             }
-            returningElement = this.queue.pollFirst();
+            returningElement = this.queue.pollLast();
             System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), returningElement, System.lineSeparator());
         return returningElement;
     }
@@ -71,11 +72,6 @@ public class BlockingQueue<E> {
             public void run() {
                 for (int i = 0; i < 20; i++) {
                     queqe.add(String .valueOf(i));
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }
             }
         };

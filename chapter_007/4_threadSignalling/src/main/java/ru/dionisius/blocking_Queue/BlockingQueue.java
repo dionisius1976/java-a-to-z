@@ -5,17 +5,17 @@ import java.util.LinkedList;
 /**
  * Created by Dionisius on 15.03.2017.
  */
-public class BlockingQueqe<E> {
+public class BlockingQueue<E> {
     /**
      * Blocking queue.
      */
     private final LinkedList<E> queue = new LinkedList<>();
     /**
-     * The maximum a.
+     * The maximum amount of queqe.
      */
     private final int maxElementsCount;
 
-    public BlockingQueqe(int maxElementsCount) {
+    public BlockingQueue(int maxElementsCount) {
         this.maxElementsCount = maxElementsCount;
     }
 
@@ -45,7 +45,7 @@ public class BlockingQueqe<E> {
         E returningElement = null;
             while (this.queue.isEmpty()) {
                 try {
-                    this.queue.wait();
+                    wait();
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }
@@ -53,8 +53,8 @@ public class BlockingQueqe<E> {
             if (this.queue.size() == this.maxElementsCount)  {
                 notifyAll();
             }
-            System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), returningElement, System.lineSeparator());
             returningElement = this.queue.pollFirst();
+            System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), returningElement, System.lineSeparator());
         return returningElement;
     }
 
@@ -64,7 +64,7 @@ public class BlockingQueqe<E> {
      */
     public static void main(String[] args) {
 
-        BlockingQueqe<String> queqe = new BlockingQueqe<>(10);
+        BlockingQueue<String> queqe = new BlockingQueue<>(10);
 
         Thread producer =  new Thread() {
             @Override

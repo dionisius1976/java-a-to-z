@@ -11,65 +11,86 @@ public class BlockingQueqe<E> {
      */
     private final LinkedList<E> queue = new LinkedList<>();
     /**
-     * Flag for queue state.
+     * The maximum a.
      */
-    private boolean isLocked = true;
+    private final int maxElementsCount;
+
+    public BlockingQueqe(int maxElementsCount) {
+        this.maxElementsCount = maxElementsCount;
+    }
 
     /**
      * Adds specified element to the queue.
      * @param e specified element.
      */
-    public void add(E e) {
-        synchronized (this.queue) {
+    public synchronized void add(E e) {
+            while (this.queue.size() == this.maxElementsCount) {
+                try {
+                    wait();
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            if (this.queue.size() == 0) {
+                notifyAll();
+            }
             System.out.printf("Thread %s. Adding object %s%s", Thread.currentThread().getName(), e, System.lineSeparator());
             this.queue.addFirst(e);
-        this.isLocked = false;
-            this.queue.notify();
-        }
     }
 
     /**
      * Returns and deletes tha last element in the queue.
      */
-    public E get() {
+    public synchronized E get() {
         E returningElement = null;
-        synchronized (this.queue) {
-            while (this.isLocked) {
+            while (this.queue.isEmpty()) {
                 try {
                     this.queue.wait();
                 } catch (InterruptedException ie) {
                     ie.printStackTrace();
                 }
-
             }
-            while (!this.queue.isEmpty()) {
-                returningElement = this.queue.pollFirst();
-                System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), returningElement, System.lineSeparator());
+            if (this.queue.size() == this.maxElementsCount)  {
+                notifyAll();
             }
-            this.isLocked = true;
-        }
+            System.out.printf("Thread %s. Getting object %s%s", Thread.currentThread().getName(), returningElement, System.lineSeparator());
+            returningElement = this.queue.pollFirst();
         return returningElement;
     }
 
     /**
-     * Stsrts the program.
+     * Starts the program.
      * @param args console arguments.
      */
     public static void main(String[] args) {
 
-        BlockingQueqe<String> queqe = new BlockingQueqe<>();
+        BlockingQueqe<String> queqe = new BlockingQueqe<>(10);
 
         Thread producer =  new Thread() {
             @Override
             public void run() {
-                    queqe.add("Hello!");
+                for (int i = 0; i < 20; i++) {
+                    queqe.add(String .valueOf(i));
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
+            }
         };
 
         Thread customer = new Thread() {
             @Override
             public void run() {
-                queqe.get();
+                for (int i = 0; i < 20; i++) {
+                    queqe.get();
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         };
 

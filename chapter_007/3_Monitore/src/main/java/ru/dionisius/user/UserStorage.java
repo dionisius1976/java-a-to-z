@@ -18,10 +18,8 @@ public class UserStorage {
      * Adds specified new user in storage of users.
      * @param newUser specified new user.
      */
-    public void add(final User newUser) {
-        synchronized (this.users) {
+    public synchronized void add(final User newUser) {
             this.users.put(newUser.getId(), newUser);
-        }
     }
 
     /**
@@ -29,10 +27,8 @@ public class UserStorage {
      * @param userId specified user's id.
      * @return user with specified id.
      */
-    public User getUserById(final long userId) {
-        synchronized (this.users) {
+    public synchronized User getUserById(final long userId) {
            return this.users.get(userId);
-        }
     }
 
     /**
@@ -40,20 +36,16 @@ public class UserStorage {
      * @param userId user's id.
      * @param newAge user's new age.
      */
-    public void setUsersAge(final long userId, int newAge) {
-        synchronized (this.users) {
+    public synchronized void setUsersAge(final long userId, int newAge) {
             this.users.get(userId).setAge(newAge);
-        }
     }
 
     /**
      * Deletes user with specified id.
      * @param id user's id.
      */
-    public void deleteUser(final long id) {
-        synchronized (this.users) {
+    public synchronized void deleteUser(final long id) {
             this.users.remove(id);
-        }
     }
 
     /**

@@ -57,7 +57,7 @@ public class Runner {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Game is over.");
+        System.out.println("The Bomberman have been caught! Game is over.");
     }
 
     /**

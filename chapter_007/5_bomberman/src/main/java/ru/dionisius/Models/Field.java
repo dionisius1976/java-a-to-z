@@ -14,9 +14,9 @@ public class Field {
      */
     private final int sizeY;
     /**
-     * Field as a storage of figures.
+     * Field as a storage of cells with figures.
      */
-    private final IFigure[][] field;
+    private final Cell[][] field;
 
     /**
      * Constructor.
@@ -26,33 +26,42 @@ public class Field {
     public Field(final int sizeX, final int sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
-        this.field = new IFigure [sizeX][sizeY];
+        this.field = new Cell[sizeX][sizeY];
+        for (int i = 0; i < this.field.length; i++) {
+            for (int j = 0; j < this.field[0].length; j++) {
+                this.field[i][j] = new Cell(null);
+            }
+        }
     }
 
     /**
      * Getter.
      * @return this field.
      */
-    public IFigure[][] getField() {
+    public Cell[][] getField() {
         return this.field;
     }
 
     /**
      * Sets specified figure to specified cell.
      * @param figure specified figure.
-     * @param coordinateX specified coordinate x.
-     * @param coordinateY specified coordinate y.
+     * @param coordinateX specified cell's coordinate x.
+     * @param coordinateY specified cell's coordinate y.
      */
     public void setFigure(final IFigure figure, final int coordinateX, final int coordinateY) {
-        this.field[coordinateX][coordinateY] = figure;
+        synchronized (this.field[coordinateX][coordinateY]) {
+            this.field[coordinateX][coordinateY].setFigure(figure);
+        }
     }
 
     /**
      * Removes any figure from specified cell.
-     * @param coordinateX specified coordinate x.
-     * @param coordinateY specified coordinate y.
+     * @param coordinateX specified cell's coordinate x.
+     * @param coordinateY specified cell's coordinate y.
      */
     public void remove(final int coordinateX, final int coordinateY) {
-        this.field[coordinateX][coordinateY] = null;
+        synchronized (this.field[coordinateX][coordinateY]) {
+            this.field[coordinateX][coordinateY].setFigure(null);
+        }
     }
 }

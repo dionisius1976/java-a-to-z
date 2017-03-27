@@ -67,7 +67,7 @@ public class Bomberman implements IFigure, Runnable {
             newX = this.randomChange(this.coordinateX);
             newY = this.randomChange(this.coordinateY);
             if (this.isMoveAvailable(newX, newY)) {
-                destFigure = this.field.getField()[newX][newY];
+                destFigure = this.field.getField()[newX][newY].getFigure();
                 if (destFigure == null) {
                     this.field.remove(this.coordinateX, this.coordinateY);
                     this.coordinateX = newX;

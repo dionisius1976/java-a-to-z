@@ -28,7 +28,7 @@ public class Monster implements IFigure, Runnable {
      * Constructor.
      * @param field specified field.
      * @param coordinateX initial x coordinate.
-     * @param coordinateY initioal y coordinate.
+     * @param coordinateY initial y coordinate.
      */
     public Monster(final Field field, final int coordinateX, final int coordinateY) {
         this.field = field;
@@ -48,7 +48,7 @@ public class Monster implements IFigure, Runnable {
             newX = this.randomChange(this.coordinateX);
             newY = this.randomChange(this.coordinateY);
             if (this.isMoveAvailable(newX, newY)) {
-                destFigure = this.field.getField()[newX][newY];
+                destFigure = this.field.getField()[newX][newY].getFigure();
                 if (destFigure == null) {
                     this.field.remove(this.coordinateX, this.coordinateY);
                     this.coordinateX = newX;
@@ -56,7 +56,7 @@ public class Monster implements IFigure, Runnable {
                     this.field.setFigure(this, newX, newY);
                     move = true;
                 } else if (destFigure.getName().equals("B") ||
-                        this.field.getField()[newX][newY].getName().equals("M")) {
+                        this.field.getField()[newX][newY].getFigure().getName().equals("M")) {
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {

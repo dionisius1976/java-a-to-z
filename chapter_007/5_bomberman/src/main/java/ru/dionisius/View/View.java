@@ -1,6 +1,7 @@
 package ru.dionisius.View;
 
 import ru.dionisius.Controllers.Controller;
+import ru.dionisius.Models.Cell;
 import ru.dionisius.Models.Field;
 import ru.dionisius.Models.IFigure;
 
@@ -17,22 +18,22 @@ public class View implements Runnable {
 
     private void show() {
 
-        IFigure[][] figures = this.field.getField();
+        Cell[][] figures = this.field.getField();
         for (int i = 0; i < figures.length; i++) {
             for (int j = 0; j < figures[0].length; j++) {
-                if (figures[i][j] == null) {
+                if (figures[i][j].getFigure() == null) {
                     System.out.print("[ ]");
                     continue;
                 }
-                if (figures[i][j].getName().equals("B")) {
+                if (figures[i][j].getFigure().getName().equals("B")) {
                     System.out.print("[X]");
                     continue;
                 }
-                if (figures[i][j].getName().equals("BOMB")) {
+                if (figures[i][j].getFigure().getName().equals("BOMB")) {
                     System.out.print("[B]");
                     continue;
                 }
-                if (figures[i][j].getName().equals("M")) {
+                if (figures[i][j].getFigure().getName().equals("M")) {
                     System.out.print("[M]");
                 }
             }

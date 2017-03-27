@@ -34,6 +34,9 @@ public class Runner {
             e.printStackTrace();
         }
         bomberman.start();
+        monster1.setDaemon(true);
+        monster2.setDaemon(true);
+        monster3.setDaemon(true);
         monster1.start();
         monster2.start();
         monster3.start();
@@ -51,9 +54,6 @@ public class Runner {
         try {
             show.join();
             bomberman.join();
-            monster1.join();
-            monster2.join();
-            monster3.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

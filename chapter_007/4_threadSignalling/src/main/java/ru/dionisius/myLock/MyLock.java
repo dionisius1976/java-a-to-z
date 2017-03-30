@@ -32,7 +32,7 @@ public class MyLock implements ILock {
                 e.printStackTrace();
             }
         }
-        this.isLocked = true;
+        this.isLocked = false;
         notify();
     }
 }

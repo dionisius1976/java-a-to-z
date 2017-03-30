@@ -21,7 +21,7 @@ public class Runner {
         System.out.println("First is started.");
         second.start();
         System.out.println("Second is started.");
-        while (first.isAlive() && second.isAlive() ) {
+        while (first.isAlive() && second.isAlive()) {
             System.out.println("waiting...");
             first.join(100);
             second.join(100);

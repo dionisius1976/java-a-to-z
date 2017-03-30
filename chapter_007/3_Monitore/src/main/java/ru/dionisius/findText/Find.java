@@ -43,7 +43,8 @@ public class Find {
     /**
      * Help information.
      */
-    private final String[] helpInfo = {"Данная программа производит поиск файла, содежащего заданный текст в заданном каталоге и его подкаталогах.",
+    private final String[] helpInfo = {"Данная программа производит поиск файла, содежащего заданный текст " +
+            "в заданном каталоге и его подкаталогах.",
             "Возможные ключи:",
             "-d - директория в которой начинается поиск в формате <диск>:\\<директория1>\\<директория2>...",
             "-t - искомый текст",
@@ -69,7 +70,7 @@ public class Find {
                 if (isFound) {
                     System.out.printf("Text is founded in %s file", fileWithText);
                 } else {
-                    System.out.println("The text is not found");
+                    System.out.println("The text is not found.");
                 }
             } else {
                 System.out.printf("Задан неверный ключ или параметр!%s " +

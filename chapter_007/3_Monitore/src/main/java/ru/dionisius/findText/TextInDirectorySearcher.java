@@ -52,7 +52,7 @@ public class TextInDirectorySearcher implements Runnable {
     }
 
     /**
-     * Verifies if specified text is in specified file.
+     * Verifies if specified text exists in specified file.
      * @param file specified file.
      * @param text specified text.
      * @throws IOException if IOException occurs.

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>ru.dionisius</groupId>
+	<artifactId>chapter_007</artifactId>
+	<version>1.0</version>
+	
+	<packaging>pom</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>java-a-to-z</artifactId>
+	</parent>
+
+	<modules>
+		<module>1_Threads</module>
+		<module>2_JMM</module>
+		<module>3_Monitore</module>
+		<module>4_threadSignalling</module>
+		<module>5_bomberman</module>
+		<module>6_Additional_BankClients</module>
+	</modules>
+	
+</project>

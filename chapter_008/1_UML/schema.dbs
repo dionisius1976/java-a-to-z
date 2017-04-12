@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Tasks" id="Project_688a215" template="Default" database="PostgreSQL" >
+	<comment><![CDATA[Java-a-to-z]]></comment>
+	<schema name="tasks" schemaname="tasks" >
+		<table name="order_categories" >
+			<column name="id" type="integer" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" />
+			<index name="pk_order_categories" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="order_comments" >
+			<column name="id" type="integer" jt="4" mandatory="y" />
+			<column name="name" type="text" length="100" jt="12" />
+			<column name="create_date" type="timestamp" jt="93" />
+			<index name="pk_order_comments" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="order_files" >
+			<column name="id" type="integer" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" />
+			<column name="content" type="bytea" jt="-2" />
+			<column name="order_id" type="integer" jt="4" />
+			<index name="pk_order_files" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_order_files" unique="NORMAL" >
+				<column name="order_id" />
+			</index>
+			<fk name="order_id" to_schema="tasks" to_table="orders" >
+				<fk_column name="order_id" pk="id" />
+			</fk>
+		</table>
+		<table name="order_states" >
+			<column name="id" type="integer" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" />
+			<index name="pk_order_states" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="orders" >
+			<column name="id" type="integer" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" />
+			<column name="create_date" type="timestamp" jt="93" />
+			<column name="user_id" type="integer" jt="4" />
+			<column name="categorie_id" type="integer" jt="4" />
+			<column name="comment_id" type="integer" jt="4" />
+			<column name="state_id" type="integer" jt="4" />
+			<index name="pk_orders" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_orders" unique="NORMAL" >
+				<column name="user_id" />
+			</index>
+			<index name="idx_orders_0" unique="NORMAL" >
+				<column name="categorie_id" />
+			</index>
+			<index name="idx_orders_1" unique="NORMAL" >
+				<column name="comment_id" />
+			</index>
+			<index name="idx_orders_2" unique="NORMAL" >
+				<column name="state_id" />
+			</index>
+			<fk name="user_id" to_schema="tasks" to_table="users" >
+				<fk_column name="user_id" pk="id" />
+			</fk>
+			<fk name="categorie_id" to_schema="tasks" to_table="order_categories" >
+				<fk_column name="categorie_id" pk="id" />
+			</fk>
+			<fk name="comment_id" to_schema="tasks" to_table="order_comments" >
+				<fk_column name="comment_id" pk="id" />
+			</fk>
+			<fk name="state_id" to_schema="tasks" to_table="order_states" >
+				<fk_column name="state_id" pk="id" />
+			</fk>
+		</table>
+		<table name="permissions" >
+			<column name="id" type="integer" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" />
+			<index name="pk_permissions" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="role_permissions" >
+			<column name="role_id" type="integer" jt="4" />
+			<column name="permission_id" type="integer" jt="4" />
+			<index name="idx_role_permissions" unique="NORMAL" >
+				<column name="permission_id" />
+			</index>
+			<index name="idx_role_permissions_0" unique="NORMAL" >
+				<column name="role_id" />
+			</index>
+			<fk name="permission_id" to_schema="tasks" to_table="permissions" >
+				<fk_column name="permission_id" pk="id" />
+			</fk>
+			<fk name="role_id" to_schema="tasks" to_table="user_roles" >
+				<fk_column name="role_id" pk="id" />
+			</fk>
+		</table>
+		<table name="user_roles" >
+			<column name="id" type="integer" jt="4" />
+			<column name="name" type="varchar" length="50" jt="12" />
+			<index name="pk_user_roles" unique="UNIQUE" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="users" >
+			<column name="id" type="integer" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="50" jt="12" />
+			<column name="user_role_id" type="integer" jt="4" />
+			<index name="pk_users" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_users" unique="NORMAL" >
+				<column name="user_role_id" />
+			</index>
+			<fk name="user_role_id" to_schema="tasks" to_table="user_roles" >
+				<fk_column name="user_role_id" pk="id" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout_b94ff5c" show_relation="columns" >
+		<entity schema="tasks" name="order_states" color="c1d8ee" x="60" y="330" />
+		<entity schema="tasks" name="order_files" color="c1d8ee" x="60" y="465" />
+		<entity schema="tasks" name="orders" color="c1d8ee" x="285" y="240" />
+		<entity schema="tasks" name="user_roles" color="c1d8ee" x="660" y="135" />
+		<entity schema="tasks" name="users" color="c1d8ee" x="495" y="255" />
+		<entity schema="tasks" name="permissions" color="c1d8ee" x="885" y="135" />
+		<entity schema="tasks" name="role_permissions" color="c1d8ee" x="765" y="315" />
+		<entity schema="tasks" name="order_comments" color="c1d8ee" x="45" y="210" />
+		<entity schema="tasks" name="order_categories" color="c1d8ee" x="45" y="45" />
+	</layout>
+</project>

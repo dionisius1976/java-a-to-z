@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<version>1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
+    <modelVersion>4.0.0</modelVersion>
+	<groupId>ru.dionisius</groupId>
+	<artifactId>5_bomberman</artifactId>
+	<packaging>jar</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>chapter_007</artifactId>
+	</parent>
+
+</project>

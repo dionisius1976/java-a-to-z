@@ -50,10 +50,12 @@ public class Monster implements IFigure, Runnable {
             if (this.isMoveAvailable(newX, newY)) {
                 destFigure = this.field.getField()[newX][newY].getFigure();
                 if (destFigure == null) {
-                    this.field.remove(this.coordinateX, this.coordinateY);
+//                    this.field.remove(this.coordinateX, this.coordinateY);
+                    this.field.moveFigure(this, this.coordinateX, this.coordinateY, newX, newY);
                     this.coordinateX = newX;
                     this.coordinateY = newY;
-                    this.field.setFigure(this, newX, newY);
+
+//                    this.field.setFigure(this, newX, newY);
                     move = true;
                 } else if (destFigure.getName().equals("B") ||
                         this.field.getField()[newX][newY].getFigure().getName().equals("M")) {

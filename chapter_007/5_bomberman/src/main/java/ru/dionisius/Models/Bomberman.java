@@ -26,6 +26,7 @@ public class Bomberman implements IFigure, Runnable {
      */
     private volatile Field field;
 
+
     /**
      * Constructor.
      * @param field specified field.
@@ -47,17 +48,6 @@ public class Bomberman implements IFigure, Runnable {
     /**
      * Moves this figure.
      */
-    //    public void move(final int newX, final int newY) {
-//        if (field.getField()[newX][newY] == null) {
-//            this.field.remove(this.coordinateX, this.coordinateY);
-//            this.field.setFigure(this, newX, newY);
-//            this.coordinateX = newX;
-//            this.coordinateY = newY;
-//        }
-//        if (field.getField()[newX][newY].getName().equals("MONSTER")) {
-//            Controller.youAreLoose = true;
-//        }
-//    }
     public void move() {
         IFigure destFigure = null;
         int newX = 0;
@@ -69,10 +59,11 @@ public class Bomberman implements IFigure, Runnable {
             if (this.isMoveAvailable(newX, newY)) {
                 destFigure = this.field.getField()[newX][newY].getFigure();
                 if (destFigure == null) {
-                    this.field.remove(this.coordinateX, this.coordinateY);
+//                    this.field.remove(this.coordinateX, this.coordinateY);
+                    this.field.moveFigure(this, this.coordinateX, this.coordinateY, newX, newY);
                     this.coordinateX = newX;
                     this.coordinateY = newY;
-                    this.field.setFigure(this, newX, newY);
+//                    this.field.setFigure(this, newX, newY);
                     move = true;
                     continue;
                 }

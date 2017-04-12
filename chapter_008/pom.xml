@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>ru.dionisius</groupId>
+	<artifactId>chapter_008</artifactId>
+	<version>1.0</version>
+	
+	<packaging>pom</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>java-a-to-z</artifactId>
+	</parent>
+
+	<modules>
+		<module>1_UML</module>
+	</modules>
+	
+</project>

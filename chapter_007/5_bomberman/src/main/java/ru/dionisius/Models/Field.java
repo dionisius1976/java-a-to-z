@@ -53,15 +53,33 @@ public class Field {
             this.field[coordinateX][coordinateY].setFigure(figure);
         }
     }
+//
+//    /**
+//     * Removes any figure from specified cell.
+//     * @param coordinateX specified cell's coordinate x.
+//     * @param coordinateY specified cell's coordinate y.
+//     */
+//    public void remove(final int coordinateX, final int coordinateY) {
+//        synchronized (this.field[coordinateX][coordinateY]) {
+//            this.field[coordinateX][coordinateY].setFigure(null);
+//        }
+//    }
 
     /**
-     * Removes any figure from specified cell.
-     * @param coordinateX specified cell's coordinate x.
-     * @param coordinateY specified cell's coordinate y.
+     * Moves specified figure from the start position to the finish position.
+     * @param figure specified figure.
+     * @param startCoordinateX start position coordinate X.
+     * @param startCoordinateY start position coordinate Y.
+     * @param finishCoordinateX finish position coordinate X.
+     * @param finishCoordinateY finish position coordinate Y.
      */
-    public void remove(final int coordinateX, final int coordinateY) {
-        synchronized (this.field[coordinateX][coordinateY]) {
-            this.field[coordinateX][coordinateY].setFigure(null);
+    public void moveFigure(final IFigure figure, final int startCoordinateX, final int startCoordinateY,
+                           final int finishCoordinateX, final int finishCoordinateY) {
+        synchronized (this.field[startCoordinateX][startCoordinateY]) {
+            synchronized (this.field[finishCoordinateX][finishCoordinateY]) {
+                this.field[startCoordinateX][startCoordinateY].setFigure(null);
+                this.field[finishCoordinateX][finishCoordinateY].setFigure(figure);
+            }
         }
     }
 }

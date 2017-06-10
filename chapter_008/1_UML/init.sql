@@ -27,14 +27,14 @@ INSERT INTO order_states (name) VALUES ('Closed');
 INSERT INTO order_categories (name) VALUES ('Bug');
 INSERT INTO order_categories (name) VALUES ('Task');
 
-INSERT INTO orders (name, create_date, user_id, categorie_id,
-	state_id) VALUES ('Task from admin', current_timestamp, 1, 2, 1);
-INSERT INTO orders (name, create_date, user_id, categorie_id,
-	state_id) VALUES ('Bug from admin', current_timestamp, 1, 1, 2);
-INSERT INTO orders (name, create_date, user_id, categorie_id,
-	state_id) VALUES ('Task from seller', current_timestamp, 2, 2, 3);
-INSERT INTO orders (name, create_date, user_id, categorie_id,
-	state_id) VALUES ('Bug from buyer', current_timestamp, 3, 1, 4);
+INSERT INTO orders (order_id, name, description, create_date, user_id, categorie_id,
+	state_id) VALUES ('111', 'Task from admin', 'Desc1', current_timestamp, 1, 2, 1);
+INSERT INTO orders (order_id, name, description, create_date, user_id, categorie_id,
+	state_id) VALUES ('222', 'Bug from admin', 'Desc2', current_timestamp, 1, 1, 2);
+INSERT INTO orders (order_id, name, description, create_date, user_id, categorie_id,
+	state_id) VALUES ('333', 'Task from seller', 'Desc3', current_timestamp, 2, 2, 3);
+INSERT INTO orders (order_id, name, description, create_date, user_id, categorie_id,
+	state_id) VALUES ('444', 'Bug from buyer', 'Desc4', current_timestamp, 3, 1, 4);
 	
 INSERT INTO order_files (name, content, order_id) VALUES ('Task', NULL, 1);
 INSERT INTO order_files (name, content, order_id) VALUES ('Data', NULL, 1);

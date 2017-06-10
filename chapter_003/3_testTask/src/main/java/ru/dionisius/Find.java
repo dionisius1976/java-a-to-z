@@ -61,7 +61,7 @@ public class Find {
     }
 
     /** init().
-     * Initial method to start searching
+     * Initial method to controllers searching
      */
     public void init() {
         if (!this.hasKeyHelp()) {
@@ -149,7 +149,7 @@ public class Find {
         this.logFile = logFile;
     }
     /** setWorkingDirectory ().
-     * Sets specified working superior start directory to seek
+     * Sets specified working superior controllers directory to seek
      */
     private void setWorkingDirectory() {
         String workingDiretory = null;
@@ -184,7 +184,7 @@ public class Find {
      * Seek for all files that match the specified
      * file name in specified directory and all subdirectiries
      * @param out outputstream to write seek results
-     * @param currentDir name of superior start directory to seek files
+     * @param currentDir name of superior controllers directory to seek files
      * @throws IOException when exception while writing log file
      */
     private void findFilesAndWriteLog(final FileOutputStream out, final String currentDir) throws IOException {

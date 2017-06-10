@@ -7,7 +7,7 @@ package ru.dionisius;
  */
 public class SquareShow {
     /**
-     * Specified range start value.
+     * Specified range controllers value.
      */
     private final float start;
     /**
@@ -24,7 +24,7 @@ public class SquareShow {
     private final Square square;
     /**
      * Default constructor.
-     * @param start specified range start value.
+     * @param start specified range controllers value.
      * @param finish specified range end value.
      * @param step specified range step value.
      * @param square specified quadratic equation.
@@ -39,7 +39,7 @@ public class SquareShow {
      * Method show().
      * Prints all values of this quadratic equation
      * in specified range with specified step.
-     * @param start range start value.
+     * @param start range controllers value.
      * @param finish range end value.
      * @param step range step value.
      */

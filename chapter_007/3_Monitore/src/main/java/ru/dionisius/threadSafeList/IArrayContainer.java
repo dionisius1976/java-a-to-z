@@ -67,8 +67,8 @@ public interface IArrayContainer<E> extends Iterable<E> {
     boolean isEmpty();
 
     /**
-     * Returns sublist of this list from the start index to the end index without including it.
-     * @param fromIndex the start index.
+     * Returns sublist of this list from the controllers index to the end index without including it.
+     * @param fromIndex the controllers index.
      * @param toIndex the end index.
      * @return the sublist of this list.
      */

@@ -46,7 +46,7 @@ public class ChatTest {
 //    public void whenEnterContinueThenProgrammAnswers() throws IOException {
 //        String cont = "стоп\r\nпродолжить\r\nbye!";
 //        System.setIn(new ByteArrayInputStream(cont.getBytes()));
-//        new Chat().start();
+//        new Chat().controllers();
 //        assertEquals(this.out.toString().isEmpty(), false);
 //    }
 
@@ -58,7 +58,7 @@ public class ChatTest {
 //    public void whenEnterWordsThenProgrammAnswersRandomPhrasesFromTextFile() throws IOException {
 //        String str = "hi!\r\nbye!\r\nnevermind!";
 //        System.setIn(new ByteArrayInputStream(str.getBytes()));
-//        new Chat().start();
+//        new Chat().controllers();
 //        assertEquals(this.out.toString().isEmpty(), false);
 //    }
 

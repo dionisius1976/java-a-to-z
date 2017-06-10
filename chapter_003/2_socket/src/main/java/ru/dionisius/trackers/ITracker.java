@@ -11,7 +11,7 @@ import java.io.File;
 public interface ITracker {
 
     /**
-     * Initial method to start.
+     * Initial method to controllers.
      */
     void init();
 

@@ -59,7 +59,7 @@ public class Find {
     }
 
     /** init().
-     * Initial method to start searching
+     * Initial method to controllers searching
      */
     public void init() {
         if (!this.hasKeyHelp()) {
@@ -144,7 +144,7 @@ public class Find {
         return  areValidate;
     }
     /** setWorkingDirectory ().
-     * Sets specified working superior start directory to seek
+     * Sets specified working superior controllers directory to seek
      */
     private void setWorkingDirectory() {
         String workingDiretory = null;

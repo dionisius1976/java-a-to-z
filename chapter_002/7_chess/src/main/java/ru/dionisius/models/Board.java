@@ -7,7 +7,7 @@ import ru.dionisius.interfaces.Figure;
 /**
  * Chess board class.
  * It models game field with figures, provides initial setting
- * of all figures on their start positions, sets and remove figures.
+ * of all figures on their controllers positions, sets and remove figures.
  * X coordinate vertical, Y coordinate horizontal.
  * Coordinates range is 0..7.
  */
@@ -101,7 +101,7 @@ public class Board {
 		this.field[x][y] = figure;
 	}
 	/**
-	 * Initial setting of all figures on their start positions.
+	 * Initial setting of all figures on their controllers positions.
 	 */
 	public void initialFill() {
 		this.field[WHITES_START_X_COORDINATE][FIRST_ROOK_X_COORDINATE] = new Rook(true);

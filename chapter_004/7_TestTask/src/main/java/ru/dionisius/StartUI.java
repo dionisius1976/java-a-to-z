@@ -36,7 +36,7 @@ public class StartUI {
         this.moveController = moveController;
     }
     /**
-	 * Initiates start of the program.
+	 * Initiates controllers of the program.
 	 */
     public void init () {
         boolean invalid;

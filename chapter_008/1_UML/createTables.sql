@@ -29,23 +29,25 @@ CREATE TABLE order_categories (
 	name VARCHAR(50)
 );
 
-CREATE TABLE order_files (
-	id SERIAL PRIMARY KEY,
-	name VARCHAR(50),
-	content BYTEA
-);
-
 CREATE TABLE orders (
 	id SERIAL PRIMARY KEY,
+	order_id VARCHAR(100),
 	name VARCHAR(50),
+	description VARCHAR(100),
 	create_date TIMESTAMP,
 	user_id INTEGER REFERENCES users(id),
 	categorie_id INTEGER REFERENCES order_categories(id),
-	state_id INTEGER REFERENCES order_states(id),
-	order_file_id INTEGER REFERENCES order_files(id)
+	state_id INTEGER REFERENCES order_states(id)
 );
 
-CREATE TABLE oredr_comments (
+CREATE TABLE order_files (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50),
+	content BYTEA,
+	order_id INTEGER REFERENCES orders(id)
+);
+
+CREATE TABLE order_comments (
 	id SERIAL PRIMARY KEY,
 	name TEXT,
 	create_date timestamp,

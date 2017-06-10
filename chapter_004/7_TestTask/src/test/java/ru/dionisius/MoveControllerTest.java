@@ -100,7 +100,7 @@ public class MoveControllerTest {
         assertThat(result, is(expectedValue));
     }
     /**
-     * Tests if isComputerFirstMove() returns false when computer does not start the game.
+     * Tests if isComputerFirstMove() returns false when computer does not controllers the game.
      */
     @Test
     public void whenComputerIsNotFirstMoveThenIsComputerFirstMoveIsFalse() throws Exception {
@@ -120,7 +120,7 @@ public class MoveControllerTest {
         assertThat(this.resultValue, is(this.expectedValue));
     }
     /**
-     * Tests if computer marks first empty cell when it does not start the game.
+     * Tests if computer marks first empty cell when it does not controllers the game.
      */
     @Test
     public void whenComputerMoveIsNotFirstThenItMarksFirstEmptyCell() throws Exception {

@@ -53,7 +53,7 @@ public abstract class ATracker implements ITracker {
     }
 
     /**
-     * Initial method to start.
+     * Initial method to controllers.
      */
     public abstract void init();
 

@@ -23,7 +23,7 @@ public class StartUI {
 		this.input = input;
 	}
 	/**
-	 * Initiate start of the program.
+	 * Initiate controllers of the program.
 	 * @param menu Type of tracker.
 	 */
 	public void init(MenuTracker menu) {

@@ -66,10 +66,10 @@ public class Field {
 //    }
 
     /**
-     * Moves specified figure from the start position to the finish position.
+     * Moves specified figure from the controllers position to the finish position.
      * @param figure specified figure.
-     * @param startCoordinateX start position coordinate X.
-     * @param startCoordinateY start position coordinate Y.
+     * @param startCoordinateX controllers position coordinate X.
+     * @param startCoordinateY controllers position coordinate Y.
      * @param finishCoordinateX finish position coordinate X.
      * @param finishCoordinateY finish position coordinate Y.
      */

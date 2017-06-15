@@ -190,9 +190,9 @@ public class MenuTracker {
 		public void execute(Input input, Tracker tracker) {
 			String name = input.ask("Введите имя заявки: ");
 			String desc = input.ask("Введите описание заявки: ");
-			if (!name.equals("") && !desc.equals("")) {
+			if (tracker.findByName(name) != null && tracker.findByDesc(desc) != null) {
 				Item item = new Item(name, desc, new Date());
-				tracker.add(item);
+				tracker.addNewItem(item);
 				System.out.printf("Заявка добавлена.");
 				System.out.println(item);
 			} else {
@@ -232,13 +232,13 @@ public class MenuTracker {
 			long id = Long.valueOf(input.ask("Введите id заявки: "));
 			String name = input.ask("Введите новое имя заявки: ");
 			String desc = input.ask("Введите новое описание заявки: ");
-			if (!name.equals("") && !desc.equals("") && tracker.findById(id) != null) {
-				tracker.update(id, name, desc);
+			if (tracker.findById(id) != null) {
+				tracker.editItem(id, name, desc);
 				Item item = tracker.findById(id);
 				System.out.print("Заявка отредактирована. ");
 				System.out.println(item);
 			} else {
-				System.out.println("Неверное новое имя заявки, новое описание либо номер id! Заявка не отредактирована.");
+				System.out.println(String.format("Заявки с номером id %d не существует!", id));
 			}
 			System.out.println();
 		}
@@ -273,11 +273,11 @@ public class MenuTracker {
 		public void execute(Input input, Tracker tracker) {
 			long id = Long.valueOf(input.ask("Введите id заявки: "));
 			if (tracker.findById(id) != null) {
-				tracker.delete(tracker.findById(id));
+				tracker.deleteItem(tracker.findById(id));
 				System.out.println("Заявка удалена.");
 			} else {
-				System.out.println("Такой номер id не существует! Заявка не удалена.");
-			}
+                System.out.println(String.format("Заявки с номером id %d не существует!", id));
+            }
 			System.out.println();
 		}
 	}
@@ -312,10 +312,10 @@ public class MenuTracker {
 			long id = Long.valueOf(input.ask("Введите id заявки: "));
 			String comment = input.ask("Введите комментарий: ");
 			if (tracker.findById(id) != null) {
-				tracker.findById(id).addComment(new Comment(comment));
+				tracker.addNewComment(id, comment);
 				System.out.println("Комментарий добавлен.");
 			} else {
-				System.out.println("Такой номер id не существует! Комментарий не добавлен.");
+				System.out.println(String.format("Заявки с номером id %d не существует! Комментарий не добавлен.", id));
 			}
 			System.out.println();
 		}
@@ -349,14 +349,13 @@ public class MenuTracker {
 		 */
 		public void execute(Input input, Tracker tracker) {
 			long id = Long.valueOf(input.ask("Введите id заявки: "));
-			if (tracker.findById(id) != null) {
-				Comment[] comments = tracker.findById(id).getComments();
-				for (Comment comment: comments) {
-					System.out.printf(comment.getText());
-				}
-			} else {
-				System.out.println("Такой номер id не существует!");
-			}
+            if (tracker.findById(id) != null) {
+                for (Comment comment : tracker.getAllComments(id)) {
+                    System.out.println(comment);
+                }
+            } else {
+                System.out.println(String.format("Заявки с номером id %d не существует!", id));
+            }
 			System.out.println();
 		}
 	}
@@ -388,7 +387,7 @@ public class MenuTracker {
 		 * @param tracker type of tracker.
 		 */
 		public void execute(Input input, Tracker tracker) {
-			Item[] items = tracker.getAll();
+			Item[] items = tracker.getAllItems();
 			for (Item item: items) {
 				System.out.println(item);
 			}
@@ -426,17 +425,17 @@ public class MenuTracker {
 			long id = Long.valueOf(input.ask("Введите id заявки: "));
 			if (tracker.findById(id) != null) {
 				Item item = tracker.findById(id);
-				System.out.print("Заявка найдена. ");
+				System.out.print("Заявка найдена: ");
 				System.out.println(item);
 				System.out.println();
 			} else {
-				System.out.println("Такой номер id не существует!");
-			}
+                System.out.println(String.format("Заявки с номером id %d не существует!", id));
+            }
 			System.out.println();
 		}
 	}
 	/**
-	 * item by item's name.
+	 * Finds item by item's name.
 	 */
 	private class FindByName extends ABaseAction implements UserAction {
 		/**
@@ -466,29 +465,18 @@ public class MenuTracker {
 		 */
 		public void execute(Input input, Tracker tracker) {
 			String name = input.ask("Введите имя заявки: ");
-
-			if (!name.equals("")) {
-//				boolean itemExist = false;
-//				Item[] items = tracker.getAll();
-//				for (int index = 0; index < items.length; index++) {
-//					if (items[index] == null) {
-//						continue;
-//					}
-//					if (subStringCheck(items[index].getName(), name)) {
-//						System.out.println(items[index]);
-//						itemExist = true;
-//					}
-//				} if (!itemExist) {
-//					System.out.println("Заявка с таким именем не найдена.");
-//				}
+			if (tracker.findByName(name).length != 0) {
+				for (Item current : tracker.findByName(name)) {
+					System.out.println(current);
+				}
 			} else {
-				System.out.println("Неверное имя заявки!");
-			}
+                System.out.println(String.format("Заявки с именем %s не существует!", name));
+            }
 			System.out.println();
 		}
 	}
 	/**
-	 * item by item's description.
+	 * Finds item by item's description.
 	 */
 	private class FindByDesc extends ABaseAction implements UserAction {
 		/**
@@ -516,25 +504,14 @@ public class MenuTracker {
 		 */
 		public void execute(Input input, Tracker tracker) {
 			String desc = input.ask("Введите описание заявки: ");
-			if (!desc.equals("")) {
-				boolean itemExist = false;
-				Item[] items = tracker.getAll();
-				for (int index = 0; index < items.length; index++) {
-					if (items[index] == null) {
-						continue;
-					}
-					if (subStringCheck(items[index].getDesc(), desc)) {
-						System.out.println(items[index]);
-						itemExist = true;
-					}
-				}
-				if (!itemExist) {
-					System.out.println("Заявка с таким описанием не найдена.");
-				}
-			} else {
-				System.out.println("Неверное имя описания!");
-			}
-			System.out.println();
-		}
+            if (tracker.findByDesc(desc).length != 0) {
+                for (Item current : tracker.findByDesc(desc)) {
+                    System.out.println(current);
+                }
+            } else {
+                System.out.println(String.format("Заявки с описанием %s не существует!", desc));
+            }
+            System.out.println();
+        }
 	}
 }

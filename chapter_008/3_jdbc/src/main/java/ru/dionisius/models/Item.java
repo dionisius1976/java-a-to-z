@@ -186,6 +186,6 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return  String.format("Id: %d, имя: %s, описание: %s", this.getId(), this.getName(), this.getDesc());
+		return  String.format("Id: %d, имя: %s, дата создания: %s, описание: %s", this.getId(), this.getName(), this.getCreate(), this.getDesc());
 	}
 }

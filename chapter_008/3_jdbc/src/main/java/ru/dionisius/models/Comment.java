@@ -32,6 +32,7 @@ public class Comment {
 	public String getText() {
 		return this.text;
 	}
+
 	@Override
 	public int hashCode() {
 		int hash = new Random().nextInt(RANDOM_NUMBER_255);
@@ -51,5 +52,10 @@ public class Comment {
 		}
 		Comment other = (Comment) obj;
 		return (this.getText().equals(other.getText()));
+	}
+
+	@Override
+	public String toString() {
+		return  String.format(this.getText());
 	}
 }

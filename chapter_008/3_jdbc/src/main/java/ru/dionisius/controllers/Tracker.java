@@ -41,19 +41,16 @@ public class Tracker implements ITracker {
 	 * Properties for db connection.
 	 */
 	private final Properties prs = new Properties();
+	/**
+	 * The name of properties file.
+	 */
 	private final String propertiesFile = "config.properties";
 
-    private void loadProperties() {
-		try (InputStream in = getClass().getClassLoader().getResourceAsStream(propertiesFile)) {
-			this.prs.load(in);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-    }
-
-    public void connectToDb() {
+	/**
+	 * Connects to database.
+	 */
+	public void connectToDb() {
     	this.loadProperties();
-		System.out.println(prs.getProperty("url"));
 		try {
 			this.conn = DriverManager.getConnection(prs.getProperty("url"),
 					prs.getProperty("user"), prs.getProperty("password"));
@@ -63,9 +60,11 @@ public class Tracker implements ITracker {
 		if (!this.isDbEmpty()) {
 			this.createNewDb();
 		}
-
 	}
 
+	/**
+	 * Disconnects from database.
+	 */
 	public void disconnectDb() {
 		try {
 			conn.close();
@@ -79,36 +78,6 @@ public class Tracker implements ITracker {
 					LOG.error(e.getMessage(), e);
 				}
 			}
-		}
-	}
-
-	private boolean isDbEmpty() {
-		boolean dbIsEmpty = false;
-		if (this.getAllItems().length == 0) {
-			dbIsEmpty = true;
-		}
-		return dbIsEmpty;
-	}
-
-	private void createNewDb() {
-		try (Statement st = conn.createStatement()) {
-			st.execute("CREATE TABLE user_roles (id SERIAL PRIMARY KEY, name VARCHAR(50))");
-			st.execute("CREATE TABLE user_permissions (id SERIAL PRIMARY KEY, name VARCHAR(50))");
-			st.execute("CREATE TABLE role_permissions (role_id INTEGER REFERENCES user_roles(id), " +
-					"user_permission_id INTEGER REFERENCES user_permissions(id))");
-			st.execute("CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(50), " +
-					"user_role_id INTEGER REFERENCES user_roles(id))");
-			st.execute("CREATE TABLE order_states (id SERIAL PRIMARY KEY, name VARCHAR(50))");
-			st.execute("CREATE TABLE order_categories (id SERIAL PRIMARY KEY, name VARCHAR(50))");
-			st.execute("CREATE TABLE orders (id SERIAL PRIMARY KEY,order_id VARCHAR(100), name VARCHAR(50), " +
-					"description VARCHAR(100), create_date TIMESTAMP, user_id INTEGER REFERENCES users(id), " +
-					"categorie_id INTEGER REFERENCES order_categories(id), state_id INTEGER REFERENCES order_states(id))");
-			st.execute("CREATE TABLE order_files (id SERIAL PRIMARY KEY, name VARCHAR(50), content BYTEA, " +
-					"order_id INTEGER REFERENCES orders(id))");
-			st.execute("CREATE TABLE order_comments (id SERIAL PRIMARY KEY,\tname TEXT, create_date TIMESTAMP, " +
-					"order_id INTEGER REFERENCES orders(id))");
-		} catch (SQLException e) {
-			LOG.error(e.getMessage(), e);
 		}
 	}
 
@@ -287,6 +256,53 @@ public class Tracker implements ITracker {
 		return allItems.toArray(new Comment[0]);
 	}
 
+	/**
+	 * Loads prorerties.
+	 */
+	private void loadProperties() {
+		try (InputStream in = getClass().getClassLoader().getResourceAsStream(propertiesFile)) {
+			this.prs.load(in);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Checks if specified in properties database is empty.
+	 * @return true if database is empty, false if not.
+	 */
+	private boolean isDbEmpty() {
+		boolean dbIsEmpty = false;
+		if (this.getAllItems().length == 0) {
+			dbIsEmpty = true;
+		}
+		return dbIsEmpty;
+	}
+
+	/**
+	 * Creates new database.
+	 */
+	private void createNewDb() {
+		try (Statement st = conn.createStatement()) {
+			st.execute("CREATE TABLE user_roles (id SERIAL PRIMARY KEY, name VARCHAR(50))");
+			st.execute("CREATE TABLE user_permissions (id SERIAL PRIMARY KEY, name VARCHAR(50))");
+			st.execute("CREATE TABLE role_permissions (role_id INTEGER REFERENCES user_roles(id), " +
+					"user_permission_id INTEGER REFERENCES user_permissions(id))");
+			st.execute("CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(50), " +
+					"user_role_id INTEGER REFERENCES user_roles(id))");
+			st.execute("CREATE TABLE order_states (id SERIAL PRIMARY KEY, name VARCHAR(50))");
+			st.execute("CREATE TABLE order_categories (id SERIAL PRIMARY KEY, name VARCHAR(50))");
+			st.execute("CREATE TABLE orders (id SERIAL PRIMARY KEY,order_id VARCHAR(100), name VARCHAR(50), " +
+					"description VARCHAR(100), create_date TIMESTAMP, user_id INTEGER REFERENCES users(id), " +
+					"categorie_id INTEGER REFERENCES order_categories(id), state_id INTEGER REFERENCES order_states(id))");
+			st.execute("CREATE TABLE order_files (id SERIAL PRIMARY KEY, name VARCHAR(50), content BYTEA, " +
+					"order_id INTEGER REFERENCES orders(id))");
+			st.execute("CREATE TABLE order_comments (id SERIAL PRIMARY KEY,\tname TEXT, create_date TIMESTAMP, " +
+					"order_id INTEGER REFERENCES orders(id))");
+		} catch (SQLException e) {
+			LOG.error(e.getMessage(), e);
+		}
+	}
 	/**
 	 * Generates random item's id.
 	 * @return generated item's id.

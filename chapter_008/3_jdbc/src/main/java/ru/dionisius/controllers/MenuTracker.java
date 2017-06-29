@@ -25,42 +25,6 @@ public class MenuTracker {
 	 */
 	static final int NUMBER_OF_ACTIONS = 9;
 	/**
-	 * Menu option 0.
-	 */
-	static final int MENU_OPTION_0 = 0;
-	/**
-	 * Menu option 1.
-	 */
-	static final int MENU_OPTION_1 = 1;
-	/**
-	 * Menu option 2.
-	 */
-	static final int MENU_OPTION_2 = 2;
-	/**
-	 * Menu option 3.
-	 */
-	static final int MENU_OPTION_3 = 3;
-	/**
-	 * Menu option 4.
-	 */
-	static final int MENU_OPTION_4 = 4;
-	/**
-	 * Menu option 5.
-	 */
-	static final int MENU_OPTION_5 = 5;
-	/**
-	 * Menu option 6.
-	 */
-	static final int MENU_OPTION_6 = 6;
-	/**
-	 * Menu option 7.
-	 */
-	static final int MENU_OPTION_7 = 7;
-	/**
-	 * Menu option 8.
-	 */
-	static final int MENU_OPTION_8 = 8;
-	/**
 	 * Array of available actions.
 	 */
 	private final UserAction[] actions = new UserAction[NUMBER_OF_ACTIONS];
@@ -77,15 +41,15 @@ public class MenuTracker {
 	 * Fills action array by available actions.
 	 */
 	public void fillActions() {
-		this.actions[MENU_OPTION_0] = this.new AddItem("Добавить заявку.");
-		this.actions[MENU_OPTION_1] = this.new EditItem("Редактировать заявку.");
-		this.actions[MENU_OPTION_2] = this.new DeleteItem("Удалить заявку.");
-		this.actions[MENU_OPTION_3] = this.new AddComment("Добавить комментарий к заявке.");
-		this.actions[MENU_OPTION_4] = this.new PrintComments("Вывести все комментарии заявки.");
-		this.actions[MENU_OPTION_5] = this.new PrintItems("Вывести все заявки.");
-		this.actions[MENU_OPTION_6] = this.new FindById("Найти заявку по id.");
-		this.actions[MENU_OPTION_7] = this.new FindByName("Найти заявку по имени.");
-		this.actions[MENU_OPTION_8] = this.new FindByDesc("Найти заявку по описанию.");
+		this.actions[0] = this.new AddItem("Добавить заявку.");
+		this.actions[1] = this.new EditItem("Редактировать заявку.");
+		this.actions[2] = this.new DeleteItem("Удалить заявку.");
+		this.actions[3] = this.new AddComment("Добавить комментарий к заявке.");
+		this.actions[4] = this.new PrintComments("Вывести все комментарии заявки.");
+		this.actions[5] = this.new PrintItems("Вывести все заявки.");
+		this.actions[6] = this.new FindById("Найти заявку по id.");
+		this.actions[7] = this.new FindByName("Найти заявку по имени.");
+		this.actions[8] = this.new FindByDesc("Найти заявку по описанию.");
 	}
 
 	/**
@@ -118,48 +82,6 @@ public class MenuTracker {
 		}
 	}
 
-	/**
-	 * Verifies if specified substring is true substring of specified string.
-	 * @param originString specified string.
-	 * @param subString specified substring.
-	 * @return true if substring is true substring and false if not.
-	 */
-	private boolean subStringCheck(String originString, String subString) {
-		char[] originArray = originString.toCharArray();
-		char[] subArray = subString.toCharArray();
-		int originLastIndex = originArray.length - subArray.length + 1;
-		boolean isSubstring = false;
-		for (int j = 0; j <= originLastIndex; j++) {
-			if (subArray[0] == originArray[j] && isArraysEqual(subArray, 1,
-					originArray, j + 1)) {
-				isSubstring = true;
-				break;
-			}
-		}
-		return isSubstring;
-	}
-
-	/**
-	 * Verifies equality.
-	 * Verifies if part of first array starting from specified index is
-	 * equal part of second array starting from its specified index.
-	 * @param arr1 first array.
-	 * @param arr1StartIndex specified index of first array.
-	 * @param arr2 second array.
-	 * @param arr2StartIndex specified index of second array.
-	 * @return true if these parts are equal and false if not.
-	 */
-	private boolean isArraysEqual(char[] arr1, int arr1StartIndex, char[] arr2, int arr2StartIndex) {
-		boolean isArraysEqual = true;
-		for (int i = arr1StartIndex; i < arr1.length; i++) {
-			if (arr1[i] != arr2[arr2StartIndex]) {
-				isArraysEqual = false;
-				break;
-			}
-			arr2StartIndex++;
-		}
-		return isArraysEqual;
-	}
 	/**
 	 * Adds the new item in tracker.
 	 */

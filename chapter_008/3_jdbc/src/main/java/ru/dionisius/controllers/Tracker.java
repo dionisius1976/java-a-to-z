@@ -50,14 +50,14 @@ public class Tracker implements ITracker {
 	 * Connects to database.
 	 */
 	public void connectToDb() {
-    	this.loadProperties();
+		this.loadProperties();
 		try {
 			this.conn = DriverManager.getConnection(prs.getProperty("url"),
 					prs.getProperty("user"), prs.getProperty("password"));
 		} catch (SQLException e) {
 			LOG.error(e.getMessage(), e);
 		}
-		if (!this.isDbEmpty()) {
+		if (this.isDbEmpty()) {
 			this.createNewDb();
 		}
 	}
@@ -67,11 +67,27 @@ public class Tracker implements ITracker {
 	 */
 	public void disconnectDb() {
 		try {
-			conn.close();
+			this.conn.close();
+			this.st.close();
+			this.rs.close();
 		} catch (SQLException e) {
 			LOG.error(e.getMessage(), e);
 		} finally {
-			if (conn != null) {
+			if (this.conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					LOG.error(e.getMessage(), e);
+				}
+			}
+			if (this.st != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					LOG.error(e.getMessage(), e);
+				}
+			}
+			if (this.rs != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
@@ -110,7 +126,7 @@ public class Tracker implements ITracker {
             this.st.setString(3, String.valueOf(id));
             this.st.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+			LOG.error(e.getMessage(), e);
         }
     }
 
@@ -134,7 +150,7 @@ public class Tracker implements ITracker {
             this.st.setInt(1, innerOrderId);
             st.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+			LOG.error(e.getMessage(), e);
         }
     }
 
@@ -155,7 +171,7 @@ public class Tracker implements ITracker {
             this.st.setInt(3, orderId);
 			st.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
 	}
 
@@ -173,7 +189,7 @@ public class Tracker implements ITracker {
                 allItems.add(item);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+			LOG.error(e.getMessage(), e);
         }
         return allItems.toArray(new Item[0]);
     }
@@ -192,7 +208,7 @@ public class Tracker implements ITracker {
                 foundedItem.setId(rs.getLong("order_id"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
 		return foundedItem;
 	}
@@ -212,7 +228,7 @@ public class Tracker implements ITracker {
 				allItems.add(item);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
 		return allItems.toArray(new Item[0]);
 	}
@@ -232,7 +248,7 @@ public class Tracker implements ITracker {
                 allItems.add(item);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+			LOG.error(e.getMessage(), e);
         }
         return allItems.toArray(new Item[0]);
     }
@@ -251,7 +267,7 @@ public class Tracker implements ITracker {
 				allItems.add(comment);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
 		return allItems.toArray(new Comment[0]);
 	}
@@ -263,7 +279,7 @@ public class Tracker implements ITracker {
 		try (InputStream in = getClass().getClassLoader().getResourceAsStream(propertiesFile)) {
 			this.prs.load(in);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
 	}
 

@@ -33,12 +33,14 @@ public class StartUI {
 	 */
 	public void init() {
 		MenuTracker menu = new MenuTracker(input, tracker);
+		this.tracker.connectToDb();
 		menu.fillActions();
 		do {
 			menu.show();
 			int key = Integer.valueOf(input.ask("Выберете действие: ",  menu.getRange()));
 			menu.select(key);
 		} while (!"y".equals(this.input.ask("Выход? (y/n)")));
+		this.tracker.disconnectDb();
 	}
 
 	/**
@@ -48,8 +50,6 @@ public class StartUI {
 	public static void main(String[] args) {
 		Input input = new ValidateInput();
 		Tracker sqlTracker = new Tracker();
-		sqlTracker.connectToDb();
 		new StartUI(input, sqlTracker).init();
-		sqlTracker.disconnectDb();
 	}
 }

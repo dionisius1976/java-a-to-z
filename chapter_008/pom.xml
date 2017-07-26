@@ -17,6 +17,7 @@
 
 	<modules>
 		<module>3_jdbc</module>
+		<module>4_jsoup</module>
 	</modules>
 
 </project>

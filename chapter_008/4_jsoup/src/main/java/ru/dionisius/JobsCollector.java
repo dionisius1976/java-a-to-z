@@ -22,7 +22,7 @@ import java.util.Locale;
  */
 public class JobsCollector implements IDataCollector {
     /**
-     *
+     * Site with job vacancies URL.
      */
     private final String jobSiteUrl = "http://www.sql.ru/forum/job-offers";
 
@@ -38,6 +38,8 @@ public class JobsCollector implements IDataCollector {
      * SimpleDateFormat for converting dates from forum.
      */
     private final SimpleDateFormat format = new SimpleDateFormat("d MMM yy, HH:mm", new Locale("ru", "RU"));
+
+    private String currentPageUrl = this.jobSiteUrl;
 
     /**
      * Constructor.
@@ -56,25 +58,34 @@ public class JobsCollector implements IDataCollector {
             lastVacancyDate = this.setDateToCurrentNewYear();
         }
         try {
+            int pageNumber = 1;
+            boolean isPrsingCoplete = false;
             String title = null;
             String description = null;
             Timestamp create_date = null;
-            Document doc = Jsoup.connect(this.jobSiteUrl).get();
-            Elements topics = doc.select("tr:has(.postslisttopic)");
-            for (Element topic : topics) {
-                if (topic.text().toLowerCase().contains("java") && !topic.text().toLowerCase().contains("script") &&
-                        !topic.text().toLowerCase().contains("закрыт")) {
-                    Elements link = topic.select("td.postslisttopic > a[href]");
-                    Elements data = topic.select("td");
-                    title = link.attr("href");
-                    description = link.get(0).text();
-                    create_date = parseDate(data.get(5).text());
-                    if(create_date.before(lastVacancyDate)) {
-                        break;
-                    }
-                    jobsList.add(new Job(title, description, create_date));
+            do {
+                if (pageNumber != 1) {
+                    this.currentPageUrl = this.jobSiteUrl + "/" + pageNumber;
                 }
-            }
+                Document doc = Jsoup.connect(this.currentPageUrl).get();
+                Elements topics = doc.select("tr:has(.postslisttopic)");
+                for (Element topic : topics) {
+                    if (topic.text().toLowerCase().contains("java") && !topic.text().toLowerCase().contains("script") &&
+                            !topic.text().toLowerCase().contains("закрыт")) {
+                        Elements link = topic.select("td.postslisttopic > a[href]");
+                        Elements data = topic.select("td");
+                        title = link.attr("href");
+                        description = link.get(0).text();
+                        create_date = parseDate(data.get(5).text());
+                        if (create_date.before(lastVacancyDate)) {
+                            isPrsingCoplete = true;
+                            break;
+                        }
+                        jobsList.add(new Job(title, description, create_date));
+                    }
+                }
+                pageNumber++;
+            } while (!isPrsingCoplete);
             this.dbJobManager.add(jobsList);
         } catch (IOException e) {
             LOG.error(e.getMessage(), e);

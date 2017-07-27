@@ -98,8 +98,8 @@ public class DbJobManager {
     private void connectToDb() {
         this.loadProperties();
         try {
-            this.conn = DriverManager.getConnection(prs.getProperty("url"),
-                    prs.getProperty("user"), prs.getProperty("password"));
+            this.conn = DriverManager.getConnection(this.prs.getProperty("url"),
+                    this.prs.getProperty("user"), this.prs.getProperty("password"));
         } catch (SQLException e) {
             LOG.error(e.getMessage(), e);
         }
@@ -129,7 +129,7 @@ public class DbJobManager {
             this.rs = st.executeQuery();
             if (this.rs != null) {
                 while (this.rs.next()) {
-                    lastVacancyDate = rs.getTimestamp("create_date");
+                    lastVacancyDate = rs.getTimestamp("max");
                 }
             }
         } catch (SQLException e) {

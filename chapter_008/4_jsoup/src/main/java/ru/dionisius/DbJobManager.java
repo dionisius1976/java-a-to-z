@@ -62,7 +62,7 @@ public class DbJobManager {
     }
 
     /**
-     * Adds Job class collection to database.
+     * Adds unique vacancies collection to database.
      * @param jobs Job class collection.
      */
     public void add(final Collection<Job> jobs) {

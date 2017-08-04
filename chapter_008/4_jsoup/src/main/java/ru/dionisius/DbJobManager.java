@@ -119,8 +119,8 @@ public class DbJobManager {
     }
 
     /**
-     * Returns the date of the last vacancy in specified database.
-     * @return the date of the last vacancy in specified database.
+     * Returns the date of the last vacancy in working database.
+     * @return the date of the last vacancy in working database.
      */
     public Timestamp getLastVacancyDate() {
         Timestamp lastVacancyDate = null;
@@ -139,7 +139,7 @@ public class DbJobManager {
     }
 
     /**
-     * Disconnects from specified database.
+     * Disconnects from working database.
      */
     public void disconnectDb() {
         try {

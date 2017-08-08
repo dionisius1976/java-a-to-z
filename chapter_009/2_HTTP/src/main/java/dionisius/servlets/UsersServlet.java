@@ -1,7 +1,7 @@
 package dionisius.servlets;
 
-import dionisius.Control.DbManager;
-import dionisius.Control.IDbManager;
+import dionisius.control.DbManager;
+import dionisius.control.IDbManager;
 import dionisius.models.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

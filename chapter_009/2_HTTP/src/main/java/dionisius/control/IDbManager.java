@@ -1,4 +1,4 @@
-package dionisius.Control;
+package dionisius.control;
 
 import dionisius.models.User;
 

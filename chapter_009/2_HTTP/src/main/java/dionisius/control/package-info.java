@@ -5,4 +5,4 @@
  * @version $Id$
  * @since 0.1
  */
-package dionisius.Control;
+package dionisius.control;

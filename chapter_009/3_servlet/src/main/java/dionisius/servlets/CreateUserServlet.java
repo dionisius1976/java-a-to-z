@@ -48,7 +48,8 @@ public class CreateUserServlet extends HttpServlet {
         } else {
             writer.append(String.format("<p>User with name %s and login %s is not created.</p>",  userName, userLogin));
         }
-        writer.append("</body>" +
+        writer.append("<p><a href=" + req.getContextPath() + "/index method='get'>Go to main page.</a></p>" +
+                "</body>" +
                 "</html>");
         writer.flush();
     }

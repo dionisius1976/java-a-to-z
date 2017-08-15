@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+	<html lang=\"en\">
+	<head>
+		<meta charset=\"UTF-8\">
+		<title>Title</title>
+	</head>
+	<body>
+		<p>Create new user</p>
+		<form action=www.localhost:8080/create method=post id='createform'>
+			<p>User name : <input type=text name='name'></p>
+			<p>User login : <input type=text name='login'></p>
+			<p>User email : <input type=text name='email'></p>
+			<button type='submit' form='createform' value='submit'>Create</button>
+		</form>
+	<br>
+	</body>
+</html>

@@ -1,9 +1,8 @@
 <project>
-
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>1_webapp</artifactId>
+	<artifactId>2_http</artifactId>
 	<packaging>war</packaging>
 
 	<parent>

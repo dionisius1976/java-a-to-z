@@ -1,4 +1,4 @@
-package ru.dionisius;
+package test.java.ru.dionisius;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,7 +23,7 @@ public class TemplateTest {
         /**
          *SimpleGenerator test instance.
          */
-        private final Template template = new SimpleGeneratorRegex();
+        private final ru.dionisius.Template template = new ru.dionisius.SimpleGeneratorRegex();
 //        private final Template template = new SimpleGenerator();
         /**
          *Source test text.

@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>2_HTTP</artifactId>
+	<artifactId>3_servlet</artifactId>
 	<packaging>war</packaging>
 
 	<parent>

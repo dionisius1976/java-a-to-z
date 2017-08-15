@@ -36,11 +36,20 @@ public class CreateUserServlet extends HttpServlet {
         this.dbManager.createUser(userName, userLogin, userEmail);
         User user = this.dbManager.getUser(userName, userLogin);
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
+        writer.append("<!DOCTYPE html>" +
+                "<html lang=\"en\">" +
+                "<head>" +
+                "    <meta charset=\"UTF-8\">" +
+                "    <title>Title</title>" +
+                "</head>" +
+                "<body>");
         if (user != null) {
-            writer.append(String.format("User %s is created.", user.toString()));
+            writer.append(String.format("<p>User %s is created.</p>", user.toString()));
         } else {
-            writer.append(String.format("User with name %s and login %s is not created.",  userName, userLogin));
+            writer.append(String.format("<p>User with name %s and login %s is not created.</p>",  userName, userLogin));
         }
+        writer.append("</body>" +
+                "</html>");
         writer.flush();
     }
 

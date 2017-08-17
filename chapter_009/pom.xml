@@ -3,7 +3,6 @@
 <project>
 	
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.dionisius</groupId>
 	<artifactId>chapter_009</artifactId>
 	<version>1.0</version>
 	
@@ -33,6 +32,7 @@
 		<module>1_webapp</module>
 		<module>2_http</module>
 		<module>3_servlet</module>
+		<module>4_JSP</module>
 	</modules>
 
 </project>

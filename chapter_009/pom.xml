@@ -33,6 +33,7 @@
 		<module>2_http</module>
 		<module>3_servlet</module>
 		<module>4_JSP</module>
+		<module>5_MVC_JSTL</module>
 	</modules>
 
 </project>

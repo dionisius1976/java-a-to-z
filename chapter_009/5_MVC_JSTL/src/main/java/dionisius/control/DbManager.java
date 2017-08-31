@@ -1,17 +1,14 @@
 package dionisius.control;
 
 import dionisius.models.User;
+import org.apache.tomcat.jdbc.pool.DataSource;
+import org.apache.tomcat.jdbc.pool.PoolProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
@@ -39,6 +36,11 @@ public class DbManager implements IDbManager {
      * Properties for specified database connection.
      */
     private final String propertiesFile = "config.properties";
+
+    /**
+     * A fully qualified Java class name of a Driver implementation.
+     */
+    private static final String SQL_DRIVER = "org.postgresql.Driver";
 
     /**
      * Connection for specified database.
@@ -83,14 +85,16 @@ public class DbManager implements IDbManager {
      */
     private void connectToDb() {
         this.loadProperties();
+        PoolProperties p = new PoolProperties();
+        p.setUrl(this.prs.getProperty("url"));
+        p.setDriverClassName(SQL_DRIVER);
+        p.setUsername(this.prs.getProperty("user"));
+        p.setPassword(this.prs.getProperty("password"));
+        DataSource datasource = new DataSource();
+        datasource.setPoolProperties(p);
         try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            this.conn = DriverManager.getConnection(this.prs.getProperty("url"),
-                    this.prs.getProperty("user"), this.prs.getProperty("password"));
+            this.conn = datasource.getConnection();
+            System.out.println(this.conn);
         } catch (SQLException e) {
             LOG.error(e.getMessage(), e);
         }

@@ -152,7 +152,7 @@ public class DbManager implements IDbManager {
 
     @Override
     public void createUser(final String userName, final String userLogin, final String userEmail) {
-        if (userLogin != "" && userName != "") {
+        if (!userLogin.equals("") && !userName.equals("")) {
             try {
                 this.st = conn.prepareStatement("INSERT INTO users (name, login, email, create_date) "
                         + "SELECT ?, ?, ?, ? WHERE NOT EXISTS (SELECT name, login FROM users "
@@ -236,6 +236,16 @@ public class DbManager implements IDbManager {
             LOG.error(e.getMessage(), e);
         }
         return allUsers;
+    }
+
+    @Override
+    public void deleteAll() {
+        try {
+            this.st = conn.prepareStatement("DELETE FROM users;");
+            st.executeUpdate();
+        } catch (SQLException e) {
+            LOG.error(e.getMessage(), e);
+        }
     }
 
     @Override

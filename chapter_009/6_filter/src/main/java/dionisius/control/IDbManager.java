@@ -51,6 +51,11 @@ public interface IDbManager {
     List<User> getAllUsers();
 
     /**
+     * Deletes all users from database.
+     */
+    void deleteAll();
+
+    /**
      * Disconnects from database.
      */
     void disconnectDb();

@@ -23,11 +23,6 @@ import java.util.Properties;
 public class DbManager implements IDbManager {
 
     /**
-     * File with specified database properties.
-     */
-    private final String propertiesFile;
-
-    /**
      * Logger for database errors.
      */
     private static final Logger LOG = LoggerFactory.getLogger(DbManager.class);
@@ -36,6 +31,11 @@ public class DbManager implements IDbManager {
      * Properties for specified database connection.
      */
     private final Properties prs = new Properties();
+
+    /**
+     * Properties for specified database connection.
+     */
+    private final String propertiesFile = "config.properties";
 
     /**
      * A fully qualified Java class name of a Driver implementation.
@@ -56,13 +56,18 @@ public class DbManager implements IDbManager {
      */
     private ResultSet rs = null;
 
+    private static final DbManager INSTANCE = new DbManager();
+
     /**
      * Constructor.
-     * @param propertiesFile file with database properties.
      */
-    public DbManager(final String propertiesFile) {
-        this.propertiesFile = propertiesFile;
+    private DbManager() {
         this.connectToDb();
+        this.createUser("root", "root", "root@root");
+    }
+
+    public static DbManager getInstance() {
+        return INSTANCE;
     }
 
     /**
@@ -81,16 +86,16 @@ public class DbManager implements IDbManager {
      */
     private void connectToDb() {
         this.loadProperties();
-
         PoolProperties p = new PoolProperties();
-        DataSource datasource = new DataSource();
         p.setUrl(this.prs.getProperty("url"));
         p.setDriverClassName(SQL_DRIVER);
         p.setUsername(this.prs.getProperty("user"));
         p.setPassword(this.prs.getProperty("password"));
+        DataSource datasource = new DataSource();
         datasource.setPoolProperties(p);
         try {
             this.conn = datasource.getConnection();
+            System.out.println(this.conn);
         } catch (SQLException e) {
             LOG.error(e.getMessage(), e);
         }
@@ -147,19 +152,21 @@ public class DbManager implements IDbManager {
 
     @Override
     public void createUser(final String userName, final String userLogin, final String userEmail) {
-        try {
-            this.st = conn.prepareStatement("INSERT INTO users (name, login, email, create_date) "
-                   + "SELECT ?, ?, ?, ? WHERE NOT EXISTS (SELECT name, login FROM users "
-                   + "WHERE name = ? AND login = ?);");
-            st.setString(1, userName);
-            st.setString(2, userLogin);
-            st.setString(3, userEmail);
-            st.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
-            st.setString(5, userName);
-            st.setString(6, userLogin);
-            st.executeUpdate();
-        } catch (SQLException e) {
-            LOG.error(e.getMessage(), e);
+        if (userLogin != "" && userName != "") {
+            try {
+                this.st = conn.prepareStatement("INSERT INTO users (name, login, email, create_date) "
+                        + "SELECT ?, ?, ?, ? WHERE NOT EXISTS (SELECT name, login FROM users "
+                        + "WHERE name = ? AND login = ?);");
+                st.setString(1, userName);
+                st.setString(2, userLogin);
+                st.setString(3, userEmail);
+                st.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
+                st.setString(5, userName);
+                st.setString(6, userLogin);
+                st.executeUpdate();
+            } catch (SQLException e) {
+                LOG.error(e.getMessage(), e);
+            }
         }
     }
 
@@ -229,5 +236,11 @@ public class DbManager implements IDbManager {
             LOG.error(e.getMessage(), e);
         }
         return allUsers;
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        this.disconnectDb();
+        super.finalize();
     }
 }

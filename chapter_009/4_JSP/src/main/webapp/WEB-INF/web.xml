@@ -1,15 +1,6 @@
 <web-app>
 
     <servlet>
-        <servlet-name>index</servlet-name>
-        <servlet-class>dionisius.servlets.IndexServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>edit</servlet-name>
         <servlet-class>dionisius.servlets.EditUserServlet</servlet-class>
     </servlet>
@@ -29,7 +20,7 @@
 
     <servlet>
         <servlet-name>create</servlet-name>
-        <servlet-class>dionisius.servlets.UsersController</servlet-class>
+        <servlet-class>dionisius.servlets.CreateUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>

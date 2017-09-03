@@ -41,6 +41,7 @@
 		<module>3_servlet</module>
 		<module>4_JSP</module>
 		<module>5_MVC_JSTL</module>
+		<module>6_filter</module>
 	</modules>
 
 </project>

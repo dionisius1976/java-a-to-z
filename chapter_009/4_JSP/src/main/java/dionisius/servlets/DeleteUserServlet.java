@@ -24,6 +24,6 @@ public class DeleteUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         DbManager.getInstance().deleteUser(req.getParameter("name"), req.getParameter("login"));
-        resp.sendRedirect( req.getContextPath());
+        resp.sendRedirect(String.format("%s/",req.getContextPath()));
     }
 }

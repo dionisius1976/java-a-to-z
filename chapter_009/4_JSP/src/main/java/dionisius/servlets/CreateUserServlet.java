@@ -25,7 +25,6 @@ public class CreateUserServlet extends HttpServlet {
         resp.setContentType("text/html");
         DbManager.getInstance().createUser(req.getParameter("name"),
                 req.getParameter("login"), req.getParameter("email"));
-        resp.sendRedirect(req.getContextPath());
+        resp.sendRedirect(String.format("%s/", req.getContextPath()));
     }
-
 }

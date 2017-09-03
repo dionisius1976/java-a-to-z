@@ -8,6 +8,7 @@
             <title>JSTL</title>
         </head>
         <body>
+
             <table border="1">
                 <td>Name</td><td>Login</td><td>Email</td><td>Creation_Date</td>
                 <c:forEach items="${requestScope.users}" var="user">
@@ -19,12 +20,15 @@
                 </tr>
                 </c:forEach>
             </table>
-                <p>Create new user:</p>
-                <form action='${pageContext.servletContext.contextPath}/' method='post'>
-                    User name : <input type='text' name='name'>
-                    User login : <input type='text' name='login'>
-                    User email : <input type='text' name='email'>
-                    <input type='submit'>
-                </form>
+
+            <p>Create a new user:</p>
+
+            <form action='${pageContext.servletContext.contextPath}/' method='post'>
+                User name : <input type='text' name='name'>
+                User login : <input type='text' name='login'>
+                User email : <input type='text' name='email'>
+                <input type='submit'>
+            </form>
+
         </body>
     </html>

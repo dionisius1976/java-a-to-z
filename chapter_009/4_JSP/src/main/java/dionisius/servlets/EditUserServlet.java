@@ -25,6 +25,6 @@ public class EditUserServlet extends HttpServlet {
         resp.setContentType("text/html");
         DbManager.getInstance().editUser(req.getParameter("name"), req.getParameter("login"),
                 req.getParameter("newName"), req.getParameter("newLogin"));
-        resp.sendRedirect(req.getContextPath());
+        resp.sendRedirect(String.format("%s/", req.getContextPath()));
     }
 }

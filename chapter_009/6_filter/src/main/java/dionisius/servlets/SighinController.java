@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -23,10 +22,7 @@ public class SighinController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (DbManager.getInstance().getUser(login, password) != null) {
-            HttpSession session = req.getSession();
-            synchronized (session) {
-                session.setAttribute("login", login);
-            }
+            req.getSession();
             resp.sendRedirect(String.format("%s/", req.getContextPath()));
         } else {
             req.setAttribute("error", "Invalid user!");

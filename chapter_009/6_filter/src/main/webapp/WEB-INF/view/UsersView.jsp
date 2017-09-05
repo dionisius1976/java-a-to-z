@@ -5,7 +5,7 @@
     <html lang="en">
         <head>
             <meta charset=\"UTF-8\">
-            <title>JSTL</title>
+            <title>Users page</title>
         </head>
         <body>
 

@@ -10,7 +10,7 @@
 
 <html>
     <head>
-        <title>Title</title>
+        <title>Login page</title>
     </head>
     <body>
         <c:if test="${error != ''}">

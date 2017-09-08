@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS_JQuery</title>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+            align-items: center;
+        }
+        table {
+            border-collapse: collapse;
+            border: 2px solid #000000;
+            margin: auto;
+        }
+        th, td
+        {
+            border: 1px solid #000000;
+        }
+        td {
+            text-align: center; /* Выравниваем текст по центру ячейки */
+        }
+        th{
+            height: 50%;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            showUsers();
+
+            $("#ajaxform").submit(function(){
+                var form = $(this);
+                var error = false;
+                form.find('input').each( function(){
+                    if ($(this).val() == '') {
+                        alert('Зaпoлнитe пoлe "'+$(this).attr('name')+'"!');
+                        error = true;
+                    }
+                });
+                if (!error) {
+                    var data = form.serialize();
+                    $.ajax({
+                        type: 'post',
+                        url: 'http://localhost:8082/add_user',
+                        dataType: 'json',
+                        data: data,
+                        complete: function(data) {
+                            form.find('input[type="submit"]').prop('disabled', false);
+                        }
+                    });
+                }
+                showUsers();
+            });
+        });
+
+        function showUsers() {
+            $.ajax({
+                method: "get",
+                url: 'http://localhost:8082/add_user',
+                complete: function(data) {
+                    var users = JSON.parse(data.responseText);
+                    var result = "<tr>" +
+                                "<td>Name</td>" +
+                                "<td>Login</td>" +
+                                "<td>Email</td>" +
+                                "<td>Country</td>" +
+                                "<td>City</td>" +
+                                "</tr>";
+                    for(var i = 0; i!=users.length; i++) {
+                        result += "<tr>"+
+                            "<td>"+users[i].name+"</td>"+
+                            "<td>"+users[i].login+"</td>"+
+                            "<td>"+users[i].email+"</td>"+
+                            "<td>"+users[i].country+"</td>"+
+                            "<td>"+users[i].city+"</td>"+
+                            "</tr>";
+                    }
+                    $("table").html(result);
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+<div>
+    <h3> Input user's data: </h3>
+</div>
+<form method="post"  action="" id="ajaxform">
+        <p>Name : <input id="name" type='text' name='name'></p>
+        <p>Login : <input id = "login" type='text' name='login' ></p>
+        <p>Email : <input id = "email" type='text' name='email'></p>
+        <p>Country : <input id = "country" type='text' name='country'></p>
+        <p>City : <input id = "city" type='text' name='city'></p>
+    <p id="add"><input type='submit' value="Add user" /></p>
+</form>
+</div>
+<div>
+    <h3> All users' data table</h3>
+    <table>
+
+    </table>
+</div>
+</body>
+</html>

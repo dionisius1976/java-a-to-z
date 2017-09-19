@@ -50,6 +50,7 @@
 		<module>5_MVC_JSTL</module>
 		<module>6_filter</module>
 		<module>7_JS</module>
+		<module>8_web_tracker_application</module>
 	</modules>
 
 </project>

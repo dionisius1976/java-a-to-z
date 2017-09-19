@@ -24,10 +24,12 @@ public class AuthFilter implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
+                         FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         if (!request.getRequestURI().contains("/sighnin") && request.getSession().isNew()) {
-            ((HttpServletResponse) servletResponse).sendRedirect(String.format("%s/sighin", request.getContextPath()));
+            ((HttpServletResponse) servletResponse).sendRedirect(String.format("%s/sighin",
+                    request.getContextPath()));
             return;
         }
         filterChain.doFilter(servletRequest, servletResponse);

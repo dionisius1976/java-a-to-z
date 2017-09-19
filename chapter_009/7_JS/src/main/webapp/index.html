@@ -19,7 +19,7 @@
             border: 1px solid #000000;
         }
         td {
-            text-align: center; /* Выравниваем текст по центру ячейки */
+            text-align: center;
         }
         th{
             height: 50%;
@@ -37,7 +37,7 @@
                 var error = false;
                 form.find('input').each( function(){
                     if ($(this).val() == '') {
-                        alert('Зaпoлнитe пoлe "'+$(this).attr('name')+'"!');
+                        alert('Fill field "'+$(this).attr('name')+'", please!');
                         error = true;
                     }
                 });
@@ -45,12 +45,9 @@
                     var data = form.serialize();
                     $.ajax({
                         type: 'post',
-                        url: 'http://localhost:8082/add_user',
+                        url: './add_user',
                         dataType: 'json',
-                        data: data,
-                        complete: function(data) {
-                            form.find('input[type="submit"]').prop('disabled', false);
-                        }
+                        data: data
                     });
                 }
                 showUsers();
@@ -60,7 +57,7 @@
         function showUsers() {
             $.ajax({
                 method: "get",
-                url: 'http://localhost:8082/add_user',
+                url: './add_user',
                 complete: function(data) {
                     var users = JSON.parse(data.responseText);
                     var result = "<tr>" +

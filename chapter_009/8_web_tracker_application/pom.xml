@@ -1,0 +1,22 @@
+<project>
+	<version>1.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>8_web_tracker_application</artifactId>
+	<packaging>war</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>chapter_009</artifactId>
+	</parent>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+</project>

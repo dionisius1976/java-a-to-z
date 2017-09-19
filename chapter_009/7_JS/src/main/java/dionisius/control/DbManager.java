@@ -55,16 +55,24 @@ public class DbManager {
      * ResultSet instance of specified query.
      */
     private ResultSet rs = null;
-
+    /**
+     * Database manager instance reference.
+     */
     private static final DbManager INSTANCE = new DbManager();
 
     /**
      * Constructor.
      */
     private DbManager() {
+        this.loadProperties();
         this.connectToDb();
+        this.createTable();
     }
 
+    /**
+     * Returns database manager instance.
+     * @return database manager instance.
+     */
     public static DbManager getInstance() {
         return INSTANCE;
     }
@@ -78,27 +86,6 @@ public class DbManager {
         } catch (IOException e) {
             LOG.error(e.getMessage(), e);
         }
-    }
-
-    /**
-     * Connects to specified database.
-     */
-    private void connectToDb() {
-        this.loadProperties();
-        PoolProperties p = new PoolProperties();
-        p.setUrl(this.prs.getProperty("url"));
-        p.setDriverClassName(SQL_DRIVER);
-        p.setUsername(this.prs.getProperty("user"));
-        p.setPassword(this.prs.getProperty("password"));
-        DataSource datasource = new DataSource();
-        datasource.setPoolProperties(p);
-        try {
-            this.conn = datasource.getConnection();
-            System.out.println(this.conn);
-        } catch (SQLException e) {
-            LOG.error(e.getMessage(), e);
-        }
-        this.createTable();
     }
 
     /**
@@ -116,40 +103,13 @@ public class DbManager {
     }
 
     /**
-     * Disconnects from working database.
+     * Creates new user.
+     * @param userName user name.
+     * @param userLogin user login.
+     * @param userEmail user email.
+     * @param userCountry user country.
+     * @param userCity user city.
      */
-    public void disconnectDb() {
-        try {
-            this.conn.close();
-            this.st.close();
-            this.rs.close();
-        } catch (SQLException e) {
-            LOG.error(e.getMessage(), e);
-        } finally {
-            if (this.conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    LOG.error(e.getMessage(), e);
-                }
-            }
-            if (this.st != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    LOG.error(e.getMessage(), e);
-                }
-            }
-            if (this.rs != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    LOG.error(e.getMessage(), e);
-                }
-            }
-        }
-    }
-
     public void createUser(final String userName, final String userLogin, final String userEmail,
                             final String userCountry, final String userCity) {
         if (!userLogin.equals("") && !userName.equals("")) {
@@ -193,6 +153,11 @@ public class DbManager {
         }
     }
 
+    /**
+     * Deletes specified user.
+     * @param userName user's name.
+     * @param userLogin user's login.
+     */
     public void deleteUser(final String userName, final String userLogin) {
         try {
             this.st = conn.prepareStatement("DELETE FROM users2 WHERE name = ? AND login = ?;");
@@ -225,6 +190,10 @@ public class DbManager {
         return user;
     }
 
+    /**
+     * Returns all users from database.
+     * @return all users from database.
+     */
     public List<User> getAllUsers() {
         List<User> allUsers = new LinkedList<>();
         try {
@@ -242,6 +211,59 @@ public class DbManager {
             LOG.error(e.getMessage(), e);
         }
         return allUsers;
+    }
+
+    /**
+     * Connects to specified database.
+     */
+    private void connectToDb() {
+        PoolProperties p = new PoolProperties();
+        p.setUrl(this.prs.getProperty("url"));
+        p.setDriverClassName(SQL_DRIVER);
+        p.setUsername(this.prs.getProperty("user"));
+        p.setPassword(this.prs.getProperty("password"));
+        DataSource datasource = new DataSource();
+        datasource.setPoolProperties(p);
+        try {
+            this.conn = datasource.getConnection();
+        } catch (SQLException e) {
+            LOG.error(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Disconnects from working database.
+     */
+    public void disconnectDb() {
+        try {
+            this.conn.close();
+            this.st.close();
+            this.rs.close();
+        } catch (SQLException e) {
+            LOG.error(e.getMessage(), e);
+        } finally {
+            if (this.conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    LOG.error(e.getMessage(), e);
+                }
+            }
+            if (this.st != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    LOG.error(e.getMessage(), e);
+                }
+            }
+            if (this.rs != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    LOG.error(e.getMessage(), e);
+                }
+            }
+        }
     }
 
     @Override

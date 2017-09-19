@@ -58,7 +58,9 @@ public class DbJobManager {
      */
     public DbJobManager(final String propertiesFile) {
         this.propertiesFile = propertiesFile;
+        this.loadProperties();
         this.connectToDb();
+        this.createTable();
     }
 
     /**
@@ -96,14 +98,12 @@ public class DbJobManager {
      * Connects to specified database.
      */
     private void connectToDb() {
-        this.loadProperties();
         try {
             this.conn = DriverManager.getConnection(this.prs.getProperty("url"),
                     this.prs.getProperty("user"), this.prs.getProperty("password"));
         } catch (SQLException e) {
             LOG.error(e.getMessage(), e);
         }
-        this.createTable();
     }
 
     /**

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS_JQuery</title>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+            align-items: center;
+        }
+        table {
+            border-collapse: collapse;
+            border: 2px solid #000000;
+            margin: auto;
+        }
+        form {
+            border: 2px solid #000000;
+            font-weight: bold;
+            margin: 5px;
+            padding: 5px;
+        }
+        th, td
+        {
+            border: 1px solid #000000;
+            padding: 5px;
+            margin: 5px;
+        }
+        td {
+            text-align: center;
+        }
+        th{
+            height: 50%;
+        }
+        #table_headers {
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            showUsers();
+
+            $("#button_quit").click(function(){
+                window.location.href = "/quit";
+            });
+
+            $("#create_user_form").submit(function(){
+                var form = $(this);
+                var error = false;
+                form.find('input').each( function(){
+                    if ($(this).val() == '') {
+                        alert('Fill field "'+$(this).attr('name')+'", please!');
+                        error = true;
+                    }
+                });
+                if (!error) {
+                    var data = form.serialize();
+                    $.ajax({
+                        type: 'post', url:"./create", dataType: 'json', data: data
+                    });
+                }
+                showUsers();
+            });
+
+            $("#delete_user_form").submit(function(){
+                var form = $(this);
+                var error = false;
+                form.find('input').each( function(){
+                    if ($(this).val() == '') {
+                        alert('Fill field "'+$(this).attr('name')+'", please!');
+                        error = true;
+                    }
+                });
+                if (!error) {
+                    var data = form.serialize();
+                    $.ajax({
+                        type: 'post', url:"./delete", dataType: 'json', data: data
+                    });
+                }
+                showUsers();
+            });
+
+            $("#update_user_form").submit(function(){
+                var form = $(this);
+                var error = false;
+                form.find('input').each( function(){
+                    if ($(this).val() == '') {
+                        alert('Fill field "'+$(this).attr('name')+'", please!');
+                        error = true;
+                    }
+                });
+                if (!error) {
+                    var data = form.serialize();
+                    $.ajax({
+                        type: 'post', url:"./update", dataType: 'json', data: data
+                    });
+                }
+                showUsers();
+            });
+        });
+
+        function showUsers() {
+            $.ajax({
+                method: "get",
+                url: "./create",
+                complete: function(data) {
+                    var users = JSON.parse(data.responseText);
+                    var result = "<tr id='table_headers'>" +
+                        "<td>Id</td>" +
+                        "<td>Name</td>" +
+                        "<td>Surname</td>" +
+                        "<td>Login</td>" +
+                        "<td>Password</td>" +
+                        "<td>Zip_code</td>" +
+                        "<td>Country</td>" +
+                        "<td>City</td>" +
+                        "<td>Street</td>" +
+                        "<td>House</td>" +
+                        "<td>Flat</td>" +
+                        "<td>Role</td>" +
+                        "<td>MusicTypeList</td>" +
+                        "<td>CreateDate</td></tr>";
+                    for(var i = 0; i!=users.length; i++) {
+                        result += "<tr>"+
+                            "<td>"+users[i].id+"</td>"+
+                            "<td>"+users[i].name+"</td>"+
+                            "<td>"+users[i].surname+"</td>"+
+                            "<td>"+users[i].login+"</td>"+
+                            "<td>"+users[i].password+"</td>"+
+                            "<td>"+users[i].address.zip_code+"</td>"+
+                            "<td>"+users[i].address.country+"</td>"+
+                            "<td>"+users[i].address.city+"</td>"+
+                            "<td>"+users[i].address.street+"</td>"+
+                            "<td>"+users[i].address.house+"</td>"+
+                            "<td>"+users[i].address.flat+"</td>"+
+                            "<td>"+users[i].role+"</td>"+
+                            "<td>"+users[i].musicTypes+"</td>"+
+                            "<td>"+users[i].createDate+"</td></tr>";
+                    }
+                    $("table").html(result);
+                }
+            });
+        }
+    </script>
+</head>
+
+<input type="button" id="button_quit" value="Quit" />
+</br>
+<div>
+        <form method="post" id="create_user_form">
+            <h3>Create user:</h3>
+            <p>Name : <input id = "newName" type='text' name='name' >
+            Surname : <input id = "newSurname" type='text' name='surname' >
+            Login : <input id = "newLogin" type='text' name='login' >
+            Password : <input id = "newPassword" type='text' name='password' ></p>
+            <p>Zip_code : <input id = "newZipCode" type='text' name='zip_code' >
+            Country : <input id = "newCountry" type='text' name='country' >
+            City : <input id = "newCity" type='text' name='city' ></p>
+            <p>Street : <input id = "newStreet" type='text' name='street' >
+            House : <input id = "newHouse" type='text' name='house' >
+            Flat : <input id = "newFlat" type='text' name='flat' >
+            <p>Role : <input type="radio" name="role" value="ADMIN" > admin
+                    <input type="radio" name="role" value="MANDATOR"> mandator
+                    <input type="radio" name="role" value="USER"> user</p>
+            <p>Music type <input type="checkbox" name="rock" value="rock"> rock
+                <input type="checkbox" name="jazz" value="jazz"> jazz
+                <input type="checkbox" name="rap" value="rap"> rap
+                <input type="checkbox" name="soul" value="soul"> soul
+                <input type="checkbox" name="disco" value="disco"> disco
+                <input type="checkbox" name="punk" value="punk"> punk</p>
+            <p><input id='create_submit' type='submit' value="Create" /></p>
+        </form>
+</div>
+<div>
+    <form method="post" id="update_user_form">
+        <h3>Update user:</h3>
+        <p>Updated user Id : <input id = "oldUserId" type='text' name='id' ></p>
+        <p>Name : <input id = "newUserName" type='text' name='name' >
+            Surname : <input id = "newUserSurname" type='text' name='surname' >
+            Login : <input id = "newUserLogin" type='text' name='login' >
+            Password : <input id = "newUserPassword" type='text' name='password' ></p>
+        <p>Zip_code : <input id = "newUserZipCode" type='text' name='zip_code' >
+            Country : <input id = "newUserCountry" type='text' name='country' >
+            City : <input id = "newUserCity" type='text' name='city' ></p>
+        <p>Street : <input id = "newUserStreet" type='text' name='street' >
+            House : <input id = "newUserHouse" type='text' name='house' >
+            Flat : <input id = "newUserFlat" type='text' name='flat' >
+        <p>Role : <input type="radio" name="role" value="ADMIN" > admin
+            <input type="radio" name="role" value="MANDATOR"> mandator
+            <input type="radio" name="role" value="USER"> user</p>
+        <p>Music type <input type="checkbox" name="rock" value="rock"> rock
+            <input type="checkbox" name="jazz" value="jazz"> jazz
+            <input type="checkbox" name="rap" value="rap"> rap
+            <input type="checkbox" name="soul" value="soul"> soul
+            <input type="checkbox" name="disco" value="disco"> disco
+            <input type="checkbox" name="punk" value="punk"> punk</p>
+        <p><input id='update_submit' type='submit' value="Update" /></p>
+    </form>
+</div>
+<div>
+    <form method="post" id="delete_user_form">
+        <h3>Delete user:</h3>
+        <p>User ID : <input id = "deletedUserId" type='text' name='id' >
+        <p><input type='submit' value="Delete" /></p>
+    </form>
+</div>
+<div>
+    <h3> All users' data table</h3>
+    <table>
+
+    </table>
+</div>
+</body>
+</html>

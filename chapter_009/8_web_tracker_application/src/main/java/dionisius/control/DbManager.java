@@ -36,7 +36,7 @@ public class DbManager implements IDbManager{
     /**
      * Properties for specified database connection.
      */
-    private final String propertiesFile = "config.properties";
+    private final String propertiesFile = "chapter_009/additional_task/src/main/resources/config.properties";
 
     /**
      * A fully qualified Java class name of a Driver implementation.

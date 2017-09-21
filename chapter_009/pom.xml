@@ -51,6 +51,7 @@
 		<module>6_filter</module>
 		<module>7_JS</module>
 		<module>8_web_tracker_application</module>
+		<module>additional</module>
 	</modules>
 
 </project>

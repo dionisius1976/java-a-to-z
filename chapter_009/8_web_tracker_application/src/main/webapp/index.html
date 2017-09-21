@@ -44,13 +44,13 @@
                         complete: function(data){
                             var result = JSON.parse(data.responseText);
                             if (result == "user") {
-                                window.location.href = "/user.html";
+                                window.location.href = "/chapter_009/additional_task/src/main/webapp/user.html";
                             }
                             if (result == "mandator") {
-                                window.location.href = "/mandator.html";
+                                window.location.href = "/chapter_009/additional_task/src/main/webapp/mandator.html";
                             }
                             if (result == "admin") {
-                                window.location.href = "/admin.html";
+                                window.location.href = "/chapter_009/additional_task/src/main/webapp/admin.html";
                             }
                             if (result != "admin" || result != "mandator" || result != "user") {
                                 alert(result);

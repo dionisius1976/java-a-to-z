@@ -68,4 +68,13 @@ public class MessedStringCheckerTest {
         Assert.assertEquals(expectedValue, resultValue);
     }
 
+    @Test
+    public void whenCheckedStringsIsNotMessedButAnotherThenFalse() throws Exception {
+        String messedString = "laa";
+        String origString = "lla";
+        boolean expectedValue = false;
+        boolean resultValue = this.checker.areStringsMessed(origString, messedString);
+        Assert.assertEquals(expectedValue, resultValue);
+    }
+
 }

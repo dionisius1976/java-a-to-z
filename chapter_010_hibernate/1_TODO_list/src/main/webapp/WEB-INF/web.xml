@@ -1,0 +1,21 @@
+<web-app>
+
+    <servlet>
+        <servlet-name>show</servlet-name>
+        <servlet-class>ru.dionisius.servlets.ShowItemsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>show</servlet-name>
+        <url-pattern>/show</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>create</servlet-name>
+        <servlet-class>ru.dionisius.servlets.CreateItemController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>create</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+
+</web-app>

@@ -4,13 +4,13 @@
 
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.dionisius</groupId>
+	<groupId>ru.ru.dionisius</groupId>
 	<artifactId>6_TDD</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>
 		<version>1.0-SNAPSHOT</version>
-		<groupId>ru.dionisius</groupId>
+		<groupId>ru.ru.dionisius</groupId>
 		<artifactId>chapter_004</artifactId>
 	</parent>
 

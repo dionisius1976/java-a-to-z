@@ -2,7 +2,7 @@
 
     <servlet>
         <servlet-name>edit</servlet-name>
-        <servlet-class>dionisius.servlets.EditUserServlet</servlet-class>
+        <servlet-class>ru.dionisius.servlets.EditUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>edit</servlet-name>
@@ -11,7 +11,7 @@
 
     <servlet>
         <servlet-name>delete</servlet-name>
-        <servlet-class>dionisius.servlets.DeleteUserServlet</servlet-class>
+        <servlet-class>ru.dionisius.servlets.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>delete</servlet-name>
@@ -20,7 +20,7 @@
 
     <servlet>
         <servlet-name>create</servlet-name>
-        <servlet-class>dionisius.servlets.CreateUserServlet</servlet-class>
+        <servlet-class>ru.dionisius.servlets.CreateUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>

@@ -1,9 +1,9 @@
-package dionisius.control;
+package ru.dionisius.control;
 
-import dionisius.models.Address;
-import dionisius.models.MusicType;
-import dionisius.models.Role;
-import dionisius.models.User;
+import ru.dionisius.models.Address;
+import ru.dionisius.models.MusicType;
+import ru.dionisius.models.Role;
+import ru.dionisius.models.User;
 import org.junit.Assert;
 import org.junit.Test;
 

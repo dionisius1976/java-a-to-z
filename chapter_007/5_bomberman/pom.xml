@@ -9,13 +9,13 @@
         </dependency>
     </dependencies>
     <modelVersion>4.0.0</modelVersion>
-	<groupId>ru.dionisius</groupId>
+	<groupId>ru.ru.dionisius</groupId>
 	<artifactId>5_bomberman</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>
 		<version>1.0</version>
-		<groupId>ru.dionisius</groupId>
+		<groupId>ru.ru.dionisius</groupId>
 		<artifactId>chapter_007</artifactId>
 	</parent>
 

@@ -32,7 +32,7 @@ public class ClientTracker extends ATracker {
      *The current client directory path.
      */
     private final String path = String.format("%s%s%s", System.getProperty("user.dir"),
-            File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\client");
+            File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\ru.dionisius\\client");
     /**
      * Buffered reader for console input.
      */

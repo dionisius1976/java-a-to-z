@@ -4,7 +4,7 @@
 	
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>ru.dionisius</groupId>
+	<groupId>ru.ru.dionisius</groupId>
 	<artifactId>6_tree</artifactId>
 	<version>1.0</version>
     <dependencies>
@@ -19,7 +19,7 @@
 
 	<parent>
 		<version>1.0</version>
-		<groupId>ru.dionisius</groupId>
+		<groupId>ru.ru.dionisius</groupId>
 		<artifactId>chapter_005</artifactId>
 	</parent>
 

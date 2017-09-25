@@ -1,5 +1,5 @@
-<%@ page import="dionisius.models.User" %>
-<%@ page import="dionisius.control.DbManager" %>
+<%@ page import="ru.dionisius.models.User" %>
+<%@ page import="ru.dionisius.control.DbManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>

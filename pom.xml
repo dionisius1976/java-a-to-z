@@ -22,7 +22,7 @@
 		<module>chapter_007</module>
 		<module>chapter_008</module>
         <module>chapter_009</module>
-		<module>chapter_10_hibernate</module>
+		<module>chapter_010_hibernate</module>
     </modules>
 
     <properties>
@@ -117,7 +117,7 @@
                     <archive>
                         <index>true</index>
                         <manifest>
-                            <mainClass>ru.dionisius.StartUI</mainClass>
+                            <mainClass>ru.ru.dionisius.StartUI</mainClass>
                             <addClasspath>true</addClasspath>
                         </manifest>
                         <manifestEntries>

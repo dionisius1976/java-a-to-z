@@ -1,6 +1,14 @@
 <project>
 	<version>1.0</version>
-	<modelVersion>4.0.0</modelVersion>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
 	<artifactId>6_test_task</artifactId>
 	<packaging>jar</packaging>

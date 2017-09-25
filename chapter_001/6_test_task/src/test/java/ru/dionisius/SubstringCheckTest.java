@@ -1,6 +1,7 @@
-package ru.dionisius;
+package java.ru.dionisius;
 
 import org.junit.Test;
+import ru.dionisius.SubstringCheck;
 
 import static org.junit.Assert.assertEquals;
 

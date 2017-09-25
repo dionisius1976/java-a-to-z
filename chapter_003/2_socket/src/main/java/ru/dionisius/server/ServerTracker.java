@@ -27,12 +27,12 @@ public class ServerTracker extends ATracker {
      *The current client directory path.
      */
     private final String path = String.format("%s%s%s", System.getProperty("user.dir"),
-            File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius\\client");
+            File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\ru.dionisius\\client");
     /**
      * Root directory.
      */
     private final File rootDir = new File(String.format("%s%s%s", System.getProperty("user.dir"),
-            File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\dionisius"));
+            File.separator, "chapter_003\\socket_2\\src\\main\\java\\ru\\ru.dionisius"));
     /**
      * Current directory.
      */

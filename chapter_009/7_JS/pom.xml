@@ -6,7 +6,7 @@
 
 	<parent>
 		<version>1.0</version>
-		<groupId>ru.dionisius</groupId>
+		<groupId>ru.ru.dionisius</groupId>
 		<artifactId>chapter_009</artifactId>
 	</parent>
 	<dependencies>

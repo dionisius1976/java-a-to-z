@@ -5,4 +5,4 @@
  * @version $Id$
  * @since 0.1
  */
-package ru.dionisius.models;
+package ru.dionisius.model;

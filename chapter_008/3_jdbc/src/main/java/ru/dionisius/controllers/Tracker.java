@@ -2,8 +2,8 @@ package ru.dionisius.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.dionisius.models.Comment;
-import ru.dionisius.models.Item;
+import ru.dionisius.model.Comment;
+import ru.dionisius.model.Item;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,9 +12,9 @@ import java.util.Date;
 import java.util.*;
 
 /**
- * Data base for models.
+ * Data base for model.
  * It has methods for adding, deleting,
- * finding by id, updates and get all models.
+ * finding by id, updates and get all model.
  */
 public class Tracker implements ITracker {
 	/**

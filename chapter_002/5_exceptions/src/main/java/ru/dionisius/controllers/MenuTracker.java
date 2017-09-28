@@ -1,7 +1,7 @@
 package ru.dionisius.controllers;
 
-import ru.dionisius.models.Comment;
-import ru.dionisius.models.Item;
+import ru.dionisius.model.Comment;
+import ru.dionisius.model.Item;
 
 /**
  * Selects specified action depending of chosen by user key and starts this action.
@@ -319,7 +319,7 @@ public class MenuTracker {
 		}
 
 	/**
-	 * Prints all models of specified tracker in console.
+	 * Prints all model of specified tracker in console.
 	 */
 		private class PrintItems implements UserAction {
 			/**
@@ -334,7 +334,7 @@ public class MenuTracker {
 				return KEY;
 			}
 			/**
-			 * Executes method printing all models in console.
+			 * Executes method printing all model in console.
 			 * @param input type of input.
 			 * @param tracker type of tracker.
 			 */

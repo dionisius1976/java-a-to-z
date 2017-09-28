@@ -2,8 +2,8 @@ package ru.dionisius.controllers;
 
 import ru.dionisius.interfaces.Figure;
 import org.junit.Test;
-import ru.dionisius.models.Board;
-import ru.dionisius.models.Pawn;
+import ru.dionisius.model.Board;
+import ru.dionisius.model.Pawn;
 
 import static junit.framework.TestCase.assertEquals;
 /**

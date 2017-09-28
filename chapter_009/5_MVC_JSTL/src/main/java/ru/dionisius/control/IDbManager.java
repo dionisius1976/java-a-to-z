@@ -1,6 +1,6 @@
 package ru.dionisius.control;
 
-import ru.dionisius.models.User;
+import ru.dionisius.model.User;
 
 import java.util.List;
 

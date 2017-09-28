@@ -1,10 +1,10 @@
 package ru.dionisius.controllers;
 
 import org.junit.Test;
-import ru.dionisius.models.Bishop;
-import ru.dionisius.models.Board;
-import ru.dionisius.models.Knight;
-import ru.dionisius.models.Queen;
+import ru.dionisius.model.Bishop;
+import ru.dionisius.model.Board;
+import ru.dionisius.model.Knight;
+import ru.dionisius.model.Queen;
 
 import static junit.framework.TestCase.assertEquals;
 /**

@@ -3,10 +3,10 @@ package ru.dionisius;
 import org.junit.Before;
 import org.junit.Test;
 import ru.dionisius.controls.ControlQuality;
-import ru.dionisius.models.IStore;
-import ru.dionisius.models.Shop;
-import ru.dionisius.models.Trash;
-import ru.dionisius.models.Warehouse;
+import ru.dionisius.model.IStore;
+import ru.dionisius.model.Shop;
+import ru.dionisius.model.Trash;
+import ru.dionisius.model.Warehouse;
 import ru.dionisius.wares.Fish;
 import ru.dionisius.wares.IFood;
 import ru.dionisius.wares.Meat;
@@ -22,11 +22,11 @@ import static org.junit.Assert.assertThat;
  */
 public class ControlQualityTest {
     /**
-     * Store of models.
+     * Store of model.
      */
     protected final IStore[] stores = new IStore[10];
     /**
-     * Store of food models.
+     * Store of food model.
      */
     protected final IFood[] foods = new IFood[10];
     /**

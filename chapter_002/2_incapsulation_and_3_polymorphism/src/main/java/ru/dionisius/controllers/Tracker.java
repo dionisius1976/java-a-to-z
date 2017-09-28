@@ -1,18 +1,18 @@
 package ru.dionisius.controllers;
 
-import ru.dionisius.models.Comment;
-import ru.dionisius.models.Item;
+import ru.dionisius.model.Comment;
+import ru.dionisius.model.Item;
 
 import java.util.Date;
 import java.util.Random;
 /**
- * Data base fot models.
+ * Data base fot model.
  * It has methods for adding, deleting,
- * finding by id, updates and get all models.
+ * finding by id, updates and get all model.
  */
 public class Tracker {
 	/**
-	 * Array of models.
+	 * Array of model.
 	 */
 	private Item[] items = new Item[10];
 	/**
@@ -45,8 +45,8 @@ public class Tracker {
 		}
 	}
 	/**
-	 * Returns array of all models of this tracker.
-	 * @return array of all models of this tracker.
+	 * Returns array of all model of this tracker.
+	 * @return array of all model of this tracker.
 	 */
 	public Item[] getAll() {
 		int getAllIndex = 0;
@@ -114,7 +114,7 @@ public class Tracker {
 		newItem.setId(id);
 	}
 	/**
-	 * Verifies if the array of models is empty.
+	 * Verifies if the array of model is empty.
 	 * @return true if it is empty and false if not.
 	 */
 	private boolean isItemsFree() {

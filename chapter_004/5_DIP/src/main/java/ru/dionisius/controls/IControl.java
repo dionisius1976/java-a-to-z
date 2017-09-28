@@ -1,6 +1,6 @@
 package ru.dionisius.controls;
 
-import ru.dionisius.models.IStore;
+import ru.dionisius.model.IStore;
 import ru.dionisius.wares.IFood;
 
 /**
@@ -10,10 +10,10 @@ import ru.dionisius.wares.IFood;
 public interface IControl {
 
     /**
-     * Separates food models to specified models depending on
+     * Separates food model to specified model depending on
      * this food instance life time.
-     * @param stores specified array of models.
-     * @param foods specified array of food models.
+     * @param stores specified array of model.
+     * @param foods specified array of food model.
      */
     void sort(IStore[] stores, IFood[] foods);
 }

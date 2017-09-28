@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class MessedStringChecker {
     /**
-     * Counts unique characers from original string in original string and in messed string.
+     * Counts unique characters from original string in original string and in messed string.
      * If all counts are equal and messed string is not equal original string
      * and no of strings are empty them messed string is indeed messed original string.
      * @param originalString

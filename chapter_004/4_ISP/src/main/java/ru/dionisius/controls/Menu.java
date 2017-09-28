@@ -1,7 +1,7 @@
 package ru.dionisius.controls;
 
 
-import ru.dionisius.models.Item;
+import ru.dionisius.model.Item;
 
 /**
  * Created by Dionisius on 12.01.2017.

@@ -1,7 +1,7 @@
 package ru.dionisius.abstracts;
 
 import ru.dionisius.interfaces.Figure;
-import ru.dionisius.models.Board;
+import ru.dionisius.model.Board;
 
 /**
  * Abstract class for all chess figures.

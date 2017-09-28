@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 /**
  * Created by Dionisius on 21.12.2016.
- * Abstract class for all food models.
+ * Abstract class for all food model.
  */
 public abstract class AFood implements IFood {
     /**

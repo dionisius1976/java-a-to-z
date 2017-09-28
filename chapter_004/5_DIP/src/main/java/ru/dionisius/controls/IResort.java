@@ -1,6 +1,6 @@
 package ru.dionisius.controls;
 
-import ru.dionisius.models.IStore;
+import ru.dionisius.model.IStore;
 
 /**
  * Created by Dionisius on 12.01.2017.
@@ -8,8 +8,8 @@ import ru.dionisius.models.IStore;
  */
 public interface IResort {
     /**
-     * Removes wrong food models from spesified models array to right models of this array.
-     * @param stores spesified models array to resort.
+     * Removes wrong food model from spesified model array to right model of this array.
+     * @param stores spesified model array to resort.
      */
     void resort(IStore[] stores);
 }

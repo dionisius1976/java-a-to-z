@@ -5,9 +5,9 @@ import org.junit.Test;
 import ru.dionisius.controls.IMoveController;
 import ru.dionisius.controls.MoveController;
 import ru.dionisius.controls.OcuppiedCellException;
-import ru.dionisius.models.Board;
-import ru.dionisius.models.IBoard;
-import ru.dionisius.models.Value;
+import ru.dionisius.model.Board;
+import ru.dionisius.model.IBoard;
+import ru.dionisius.model.Value;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

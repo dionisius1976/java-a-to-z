@@ -1,7 +1,7 @@
 package ru.dionisius.controls;
 
-import ru.dionisius.models.IBoard;
-import ru.dionisius.models.Value;
+import ru.dionisius.model.IBoard;
+import ru.dionisius.model.Value;
 
 /**
  * Created by Dionisius on 20.01.2017.

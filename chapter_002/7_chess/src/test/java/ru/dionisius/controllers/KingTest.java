@@ -1,9 +1,9 @@
 package ru.dionisius.controllers;
 
 import org.junit.Test;
-import ru.dionisius.models.Board;
-import ru.dionisius.models.King;
-import ru.dionisius.models.Queen;
+import ru.dionisius.model.Board;
+import ru.dionisius.model.King;
+import ru.dionisius.model.Queen;
 
 import static junit.framework.TestCase.assertEquals;
 

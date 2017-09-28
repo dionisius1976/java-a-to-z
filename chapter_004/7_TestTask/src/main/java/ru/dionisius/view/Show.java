@@ -1,7 +1,7 @@
 package ru.dionisius.view;
 
 import ru.dionisius.controls.IMoveController;
-import ru.dionisius.models.Value;
+import ru.dionisius.model.Value;
 
 /**
  * Created by Dionisius on 21.01.2017.

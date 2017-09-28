@@ -1,8 +1,8 @@
 package ru.dionisius.controllers;
 
 import org.junit.Test;
-import ru.dionisius.models.Comment;
-import ru.dionisius.models.Item;
+import ru.dionisius.model.Comment;
+import ru.dionisius.model.Item;
 
 import java.util.Date;
 
@@ -47,11 +47,11 @@ public class TrackerTest {
 	 */
 	private Tracker tracker = new Tracker();
 	/**
-	 * Array of specified models.
+	 * Array of specified model.
 	 */
 	private Item[] items = {item1, item2, item3, item4, item5};
 	/**
-	 * Expected array of models.
+	 * Expected array of model.
 	 */
 	private final Item[] expectedArray = {item1, item2, item3, item4, item5};
 	/**
@@ -59,7 +59,7 @@ public class TrackerTest {
 	 */
 	private Item[] resultArray;
 	/**
-	 * Adds models in tracker.
+	 * Adds model in tracker.
 	 */
 	private void init() {
 		for (Item item: items) {

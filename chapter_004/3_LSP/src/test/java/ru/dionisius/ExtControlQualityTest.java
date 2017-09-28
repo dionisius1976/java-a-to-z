@@ -3,8 +3,8 @@ package ru.dionisius;
 import org.junit.Before;
 import org.junit.Test;
 import ru.dionisius.controls.ExtControlQuality;
-import ru.dionisius.models.Reproduction;
-import ru.dionisius.models.Refrigerator;
+import ru.dionisius.model.Reproduction;
+import ru.dionisius.model.Refrigerator;
 import ru.dionisius.wares.Bones;
 import ru.dionisius.wares.Bread;
 import ru.dionisius.wares.Potato;
@@ -32,11 +32,11 @@ public class ExtControlQualityTest extends ControlQualityTest {
      */
     private final Reproduction[] reproductions = new Reproduction[10];
     /**
-     * Store of vegetables models.
+     * Store of vegetables model.
      */
     private final AVegetable[] vegetables = new AVegetable[10];
     /**
-     * Store of reproducing food models.
+     * Store of reproducing food model.
      */
     private final AReproductFood[] reproductFoods = new AReproductFood[10];
     /**
@@ -119,7 +119,7 @@ public class ExtControlQualityTest extends ControlQualityTest {
         this.extCq.sort(this.reproductions, this.reproductFoods);
     }
     /**
-     * Tests if percent of Life time is less than 25% then food instance models in Warehouse.
+     * Tests if percent of Life time is less than 25% then food instance model in Warehouse.
      */
     @Test
     public void whenPercentOfLifeTimeIsLessThenTwentyFiveThenFoodIsInWarehouseAndShopAndTrashAreEmpty() {
@@ -134,7 +134,7 @@ public class ExtControlQualityTest extends ControlQualityTest {
     }
 
     /**
-     * Tests if percent of Life time is in range 25..75% then food instance models in shop.
+     * Tests if percent of Life time is in range 25..75% then food instance model in shop.
      */
     @Test
     public void whenPersentOfLifeTimeIsInRangeTwentyFiveSeventyFiveThenFoodIsInShopAndWarehouseAndTrashAreEmpty() {
@@ -150,7 +150,7 @@ public class ExtControlQualityTest extends ControlQualityTest {
     }
 
     /**
-     * Tests if percent of Life time is in range 75..100%  then food instance models in shop.
+     * Tests if percent of Life time is in range 75..100%  then food instance model in shop.
      */
     @Test
     public void whenPercentOfLifeTimeIsMoreThenSeventyFiveThenFoodIsInShopAndWarehouseAndTrashAreEmpty() {
@@ -165,7 +165,7 @@ public class ExtControlQualityTest extends ControlQualityTest {
         super.whenPercentOfLifeTimeIsMoreThenSeventyFiveThenPriceIsDiscounted();
     }
     /**
-     * Tests if percent of Life time is more than 100% then food instance models in trash.
+     * Tests if percent of Life time is more than 100% then food instance model in trash.
      */
     @Test
     public void whenPercentOfLifeTimeIsMoreThenOneHundredThenFoodIsInTrashAndWarehouseAndShopAreEmpty() {

@@ -2,8 +2,8 @@ package ru.dionisius.controllers;
 
 import org.junit.Before;
 import org.junit.Test;
-import ru.dionisius.models.Comment;
-import ru.dionisius.models.Item;
+import ru.dionisius.model.Comment;
+import ru.dionisius.model.Item;
 
 import java.util.Date;
 
@@ -53,7 +53,7 @@ public class TrackerTest {
 		tracker = new Tracker();
 	}
 	/**
-	 * Tests if models was added.
+	 * Tests if model was added.
 	 */
 	@Test
 	public void whenAddThenExpectedArray() {

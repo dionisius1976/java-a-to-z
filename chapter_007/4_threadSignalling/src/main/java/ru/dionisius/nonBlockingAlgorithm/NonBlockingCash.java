@@ -5,11 +5,11 @@ import java.util.function.BiFunction;
 
 /**
  * Created by Dionisius on 23.03.2017.
- * Thread safe storage class for models.
+ * Thread safe storage class for model.
  */
 public class NonBlockingCash {
     /**
-     * Thread safe storage for models.
+     * Thread safe storage for model.
      */
     private final ConcurrentHashMap<Long, Model> map = new ConcurrentHashMap<>();
 

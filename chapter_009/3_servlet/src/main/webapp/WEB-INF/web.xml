@@ -2,7 +2,7 @@
 
     <servlet>
         <servlet-name>index</servlet-name>
-        <servlet-class>ru.dionisius.servlets.IndexServlet</servlet-class>
+        <servlet-class>ru.dionisius.controller.IndexServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
@@ -11,7 +11,7 @@
 
     <servlet>
         <servlet-name>edit</servlet-name>
-        <servlet-class>ru.dionisius.servlets.EditUserServlet</servlet-class>
+        <servlet-class>ru.dionisius.controller.EditUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>edit</servlet-name>
@@ -20,7 +20,7 @@
 
     <servlet>
         <servlet-name>delete</servlet-name>
-        <servlet-class>ru.dionisius.servlets.DeleteUserServlet</servlet-class>
+        <servlet-class>ru.dionisius.controller.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>delete</servlet-name>
@@ -29,7 +29,7 @@
 
     <servlet>
         <servlet-name>create</servlet-name>
-        <servlet-class>ru.dionisius.servlets.AllUsersController</servlet-class>
+        <servlet-class>ru.dionisius.controller.AllUsersController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>

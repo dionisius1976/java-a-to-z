@@ -1,6 +1,6 @@
 package ru.dionisius.interfaces;
 
-import ru.dionisius.models.Board;
+import ru.dionisius.model.Board;
 
 /**
  * Interface for all chess figures.

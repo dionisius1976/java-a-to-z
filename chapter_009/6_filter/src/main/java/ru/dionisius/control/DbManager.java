@@ -1,6 +1,6 @@
 package ru.dionisius.control;
 
-import ru.dionisius.models.User;
+import ru.dionisius.model.User;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 import org.slf4j.Logger;

@@ -5,8 +5,8 @@ import ru.dionisius.controls.IMoveController;
 import ru.dionisius.controls.OcuppiedCellException;
 import ru.dionisius.controls.ValidateInput;
 import ru.dionisius.controls.MoveController;
-import ru.dionisius.models.Board;
-import ru.dionisius.models.IBoard;
+import ru.dionisius.model.Board;
+import ru.dionisius.model.IBoard;
 import ru.dionisius.view.IShow;
 import ru.dionisius.view.Show;
 

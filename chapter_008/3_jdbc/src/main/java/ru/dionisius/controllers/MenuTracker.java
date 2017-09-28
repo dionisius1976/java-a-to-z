@@ -3,8 +3,8 @@ package ru.dionisius.controllers;
 import ru.dionisius.controllers.action.ABaseAction;
 import ru.dionisius.controllers.action.UserAction;
 import ru.dionisius.controllers.input.Input;
-import ru.dionisius.models.Comment;
-import ru.dionisius.models.Item;
+import ru.dionisius.model.Comment;
+import ru.dionisius.model.Item;
 
 import java.util.Date;
 
@@ -282,7 +282,7 @@ public class MenuTracker {
 		}
 	}
 	/**
-	 * Prints all models of specified tracker in console.
+	 * Prints all model of specified tracker in console.
 	 */
 	private class PrintItems extends ABaseAction implements UserAction {
 		/**
@@ -304,7 +304,7 @@ public class MenuTracker {
 			return KEY;
 		}
 		/**
-		 * Executes method printing all models in console.
+		 * Executes method printing all model in console.
 		 * @param input type of input.
 		 * @param tracker type of tracker.
 		 */

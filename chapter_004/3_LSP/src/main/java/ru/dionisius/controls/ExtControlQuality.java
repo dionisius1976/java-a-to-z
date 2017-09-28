@@ -1,7 +1,7 @@
 package ru.dionisius.controls;
 
-import ru.dionisius.models.Refrigerator;
-import ru.dionisius.models.Reproduction;
+import ru.dionisius.model.Refrigerator;
+import ru.dionisius.model.Reproduction;
 import ru.dionisius.wares.AReproductFood;
 import ru.dionisius.wares.AVegetable;
 
@@ -10,10 +10,10 @@ import ru.dionisius.wares.AVegetable;
  */
 public class ExtControlQuality extends ControlQuality implements IControl {
     /**
-     * Separates food models to specified models.
+     * Separates food model to specified model.
      * Depending on this food reproducing ability and life time.
-     * @param stores specified array of models.
-     * @param foods specified array of food models.
+     * @param stores specified array of model.
+     * @param foods specified array of food model.
      */
     public void sort(Reproduction[] stores, AReproductFood[] foods) {
         for (AReproductFood food: foods) {
@@ -29,10 +29,10 @@ public class ExtControlQuality extends ControlQuality implements IControl {
         }
     }
     /**
-     * Separates food models to specified models.
+     * Separates food model to specified model.
      * Depending on this food type and life time.
-     * @param stores specified array of models.
-     * @param foods specified array of food models.
+     * @param stores specified array of model.
+     * @param foods specified array of food model.
      */
     public void sort(Refrigerator[] stores, AVegetable[] foods) {
         super.sort(stores, foods);

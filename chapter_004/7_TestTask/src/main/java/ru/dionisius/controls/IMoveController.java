@@ -1,6 +1,6 @@
 package ru.dionisius.controls;
 
-import ru.dionisius.models.IBoard;
+import ru.dionisius.model.IBoard;
 
 /**
  * Created by Dionisius on 20.01.2017.

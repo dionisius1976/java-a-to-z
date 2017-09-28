@@ -1,9 +1,9 @@
 package ru.dionisius.control;
 
-import ru.dionisius.models.Address;
-import ru.dionisius.models.MusicType;
-import ru.dionisius.models.Role;
-import ru.dionisius.models.User;
+import ru.dionisius.model.Address;
+import ru.dionisius.model.MusicType;
+import ru.dionisius.model.Role;
+import ru.dionisius.model.User;
 
 import java.util.List;
 

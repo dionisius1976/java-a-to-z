@@ -1,6 +1,6 @@
 package ru.dionisius.control;
 
-import ru.dionisius.models.User;
+import ru.dionisius.model.User;
 
 /**
  * Created by Dionisius on 05.08.2017.

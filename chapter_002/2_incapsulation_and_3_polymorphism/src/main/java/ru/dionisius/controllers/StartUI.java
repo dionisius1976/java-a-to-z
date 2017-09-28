@@ -1,7 +1,7 @@
 package ru.dionisius.controllers;
 
-import ru.dionisius.models.Comment;
-import ru.dionisius.models.Item;
+import ru.dionisius.model.Comment;
+import ru.dionisius.model.Item;
 /**
  * Class starts the program.
  */

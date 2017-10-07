@@ -2,7 +2,7 @@
 
     <servlet>
         <servlet-name>show</servlet-name>
-        <servlet-class>ru.dionisius.view.ShowItemsController</servlet-class>
+        <servlet-class>ru.dionisius.service.ShowItemsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>show</servlet-name>
@@ -11,7 +11,7 @@
 
     <servlet>
         <servlet-name>create</servlet-name>
-        <servlet-class>ru.dionisius.controller.CreateItemController</servlet-class>
+        <servlet-class>ru.dionisius.service.CreateAdController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>

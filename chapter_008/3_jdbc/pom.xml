@@ -1,13 +1,13 @@
 <project>
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.ru.dionisius</groupId>
+	<groupId>ru.dionisius</groupId>
 	<artifactId>3_jdbc</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>
 		<version>1.0</version>
-		<groupId>ru.ru.dionisius</groupId>
+		<groupId>ru.dionisius</groupId>
 		<artifactId>chapter_008</artifactId>
 	</parent>
 

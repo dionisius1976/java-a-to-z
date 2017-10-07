@@ -1,13 +1,13 @@
 <project>
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.ru.dionisius</groupId>
+	<groupId>ru.dionisius</groupId>
 	<artifactId>2_http</artifactId>
 	<packaging>war</packaging>
 
 	<parent>
 		<version>1.0</version>
-		<groupId>ru.ru.dionisius</groupId>
+		<groupId>ru.dionisius</groupId>
 		<artifactId>chapter_009</artifactId>
 	</parent>
 

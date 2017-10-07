@@ -2,7 +2,7 @@
 
     <servlet>
         <servlet-name>all_users</servlet-name>
-        <servlet-class>ru.dionisius.controller.AllUsersController</servlet-class>
+        <servlet-class>ru.dionisius.service.AllUsersController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>all_users</servlet-name>

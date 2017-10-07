@@ -4,7 +4,7 @@
 	
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>ru.ru.dionisius</groupId>
+	<groupId>ru.dionisius</groupId>
 	<artifactId>8_Additional_Islands</artifactId>
 	<version>1.0</version>
 	
@@ -12,7 +12,7 @@
 
 	<parent>
 		<version>1.0</version>
-		<groupId>ru.ru.dionisius</groupId>
+		<groupId>ru.dionisius</groupId>
 		<artifactId>chapter_005</artifactId>
 	</parent>
 

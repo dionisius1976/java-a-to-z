@@ -2,14 +2,14 @@
 	
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>ru.ru.dionisius</groupId>
+	<groupId>ru.dionisius</groupId>
 	<artifactId>chapter_001</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	
 	<packaging>pom</packaging>
 
 	<parent>
-		<groupId>ru.ru.dionisius</groupId>
+		<groupId>ru.dionisius</groupId>
 		<artifactId>java-a-to-z</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>

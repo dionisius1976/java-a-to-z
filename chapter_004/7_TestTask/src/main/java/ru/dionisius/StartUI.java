@@ -7,8 +7,8 @@ import ru.dionisius.controls.ValidateInput;
 import ru.dionisius.controls.MoveController;
 import ru.dionisius.model.Board;
 import ru.dionisius.model.IBoard;
-import ru.dionisius.view.IShow;
-import ru.dionisius.view.Show;
+import ru.dionisius.data.IShow;
+import ru.dionisius.data.Show;
 
 /**
  * Class starts the program.
@@ -19,7 +19,7 @@ public class StartUI {
      */
     private IInput input;
     /**
-     * Type of move controller.
+     * Type of move service.
      */
     private IMoveController moveController;
     /**
@@ -29,7 +29,7 @@ public class StartUI {
     /**
      * Default constructor.
      * @param input Type of input.
-     * @param moveController Type of move controller.
+     * @param moveController Type of move service.
      */
     public StartUI(IInput input, IMoveController moveController) {
         this.input = input;

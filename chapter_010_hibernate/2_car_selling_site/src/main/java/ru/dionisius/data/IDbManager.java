@@ -30,5 +30,6 @@ public interface IDbManager {
 
     User getUserByLoginAndPassword(final String login, final String password);
 
+
     void closeConnection();
 }

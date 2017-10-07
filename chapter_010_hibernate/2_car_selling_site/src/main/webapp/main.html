@@ -48,6 +48,7 @@
     <script type="text/javascript">
 
         $(document).ready(function() {
+
             greeting();
             showAllAds();
 
@@ -81,43 +82,7 @@
                         alert(xhr.getAllResponseHeaders());
                     },
                     complete: function (data) {
-                        var items = JSON.parse(data.responseText);
-                        var result = "<tr id='table_headers'>" +
-                            "<td>Id</td>" +
-                            "<td>Description</td>" +
-                            "<td>Sold</td>" +
-                            "<td>CreateDate</td>" +
-                            "<td>Author name</td>" +
-                            "<td>Tel.</td>" +
-                            "<td>Brand</td>" +
-                            "<td>Model</td>" +
-                            "<td>Transmission</td>" +
-                            "<td>Engine</td>" +
-                            "<td>Year</td>" +
-                            "</tr>";
-                        var i = 0;
-                        var isSold;
-                        for (var x in items) {
-                            if (items[i].sold == false) {
-                                isSold = "No";
-                            } else {
-                                isSold = "Yes";
-                            }
-                            result+="<tr>"+
-                            "<td>"+items[i].id+"</td>"+
-                            "<td>"+items[i].desc+"</td>"+
-                            "<td>"+isSold+"</td>"+
-                            "<td>"+items[i].createDate+"</td>" +
-                            "<td>"+items[i].user.name+" "+items[i].user.surname+"</td>" +
-                            "<td>"+items[i].user.telNumber+"</td>" +
-                            "<td>"+items[i].car.brand+"</td>" +
-                            "<td>"+items[i].car.model+"</td>" +
-                            "<td>"+items[i].car.transmission+"</td>" +
-                            "<td>"+items[i].car.engineCapacity+"</td>" +
-                            "<td>"+items[i].car.year+"</td>" +
-                                "</tr>";
-                            i++;
-                        }
+                        var result = getResultTab(data);
                         $("table").html(result);
                     }
                 });
@@ -125,9 +90,8 @@
 
             function greeting() {
                 $.ajax({
-                    type: 'get',
-//                    dataType: "json",
-                    url: "./login",
+                    type: 'post',
+                    url: "./auth",
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert("Error: Server response: " +xhr.status);
                         alert("Error: Thrown error: "+thrownError);
@@ -135,12 +99,12 @@
                     },
                     complete: function (data) {
                         var result = data.responseText;
-                        $("#greeting").html("<p>" + result + "</p>");
-                        if(result == "Hi, guest.") {
+                        $("#greeting").html("<p> Hi, " + result + ".</p>");
+                        if(result == "guest") {
                             $("#add_button").hide();
                         }
                     }
-                })
+                });
             }
 
             function showActualAds() {
@@ -157,46 +121,55 @@
                         alert(xhr.getAllResponseHeaders());
                     },
                     complete: function (data) {
-                        var items = JSON.parse(data.responseText);
-                        var result = "<tr id='table_headers'>" +
-                            "<td>Id</td>" +
-                            "<td>Description</td>" +
-                            "<td>Sold</td>" +
-                            "<td>CreateDate</td>" +
-                            "<td>Author name</td>" +
-                            "<td>Tel.</td>" +
-                            "<td>Brand</td>" +
-                            "<td>Model</td>" +
-                            "<td>Transmission</td>" +
-                            "<td>Engine</td>" +
-                            "<td>Year</td>" +
-                            "</tr>";
-                        var i = 0;
-                        var isSold;
-                        for (var x in items) {
-                            if (items[i].sold == false) {
-                                isSold = "No";
-                            } else {
-                                isSold = "Yes";
-                            }
-                            result+="<tr>"+
-                                "<td>"+items[i].id+"</td>"+
-                                "<td>"+items[i].desc+"</td>"+
-                                "<td>"+isSold+"</td>"+
-                                "<td>"+items[i].createDate+"</td>" +
-                                "<td>"+items[i].user.name+" "+items[i].user.surname+"</td>" +
-                                "<td>"+items[i].user.telNumber+"</td>" +
-                                "<td>"+items[i].car.brand+"</td>" +
-                                "<td>"+items[i].car.model+"</td>" +
-                                "<td>"+items[i].car.transmission+"</td>" +
-                                "<td>"+items[i].car.engineCapacity+"</td>" +
-                                "<td>"+items[i].car.year+"</td>" +
-                                "</tr>";
-                            i++;
-                        }
+                        var result = getResultTab(data);
                         $("table").html(result);
                     }
                 })
+            }
+
+            function getResultTab(data) {
+                var items = JSON.parse(data.responseText);
+                var result = "<tr id='table_headers'>" +
+                    "<td>Id</td>" +
+                    "<td>Description</td>" +
+                    "<td>Sold</td>" +
+                    "<td>CreateDate</td>" +
+                    "<td>Author login</td>" +
+                    "<td>Author password</td>" +
+                    "<td>Author name</td>" +
+                    "<td>Tel.</td>" +
+                    "<td>Brand</td>" +
+                    "<td>Model</td>" +
+                    "<td>Transmission</td>" +
+                    "<td>Engine</td>" +
+                    "<td>Year</td>" +
+                    "</tr>";
+                var i = 0;
+                var isSold;
+                for (var x in items) {
+                    if (items[i].sold == false) {
+                        isSold = "No";
+                    } else {
+                        isSold = "Yes";
+                    }
+                    result += "<tr>" +
+                        "<td>" + items[i].id + "</td>" +
+                        "<td>" + items[i].desc + "</td>" +
+                        "<td>" + isSold + "</td>" +
+                        "<td>" + items[i].createDate + "</td>" +
+                        "<td>" + items[i].user.login + "</td>" +
+                        "<td>" + items[i].user.password + "</td>" +
+                        "<td>" + items[i].user.name + " " + items[i].user.surname + "</td>" +
+                        "<td>" + items[i].user.telNumber + "</td>" +
+                        "<td>" + items[i].car.brand + "</td>" +
+                        "<td>" + items[i].car.model + "</td>" +
+                        "<td>" + items[i].car.transmission + "</td>" +
+                        "<td>" + items[i].car.engineCapacity + "</td>" +
+                        "<td>" + items[i].car.year + "</td>" +
+                        "</tr>";
+                    i++;
+                }
+                return result;
             }
         });
     </script>

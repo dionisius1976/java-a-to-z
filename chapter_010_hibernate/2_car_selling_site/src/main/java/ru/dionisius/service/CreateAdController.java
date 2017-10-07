@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Dionisius on 14.09.2017.
@@ -37,8 +36,5 @@ public class CreateAdController extends HttpServlet {
         Ad ad = new Ad(req.getParameter("desc"), user, car);
         IDbManager manager = (DbManager)req.getServletContext().getAttribute("dBManager");
         manager.createAdvertisement(ad);
-        List<Ad> ads = manager.getAll();
-//        resp.sendRedirect(String.format("%s/main.html", req.getContextPath()));
-//        req.getRequestDispatcher(String.format("%s/main.html", req.getContextPath())).forward(req,resp);
     }
 }

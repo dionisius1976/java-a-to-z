@@ -50,6 +50,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>auth</servlet-name>
+        <servlet-class>ru.dionisius.service.AuthController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>auth</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>quit</servlet-name>
         <servlet-class>ru.dionisius.service.QuitController</servlet-class>
     </servlet>

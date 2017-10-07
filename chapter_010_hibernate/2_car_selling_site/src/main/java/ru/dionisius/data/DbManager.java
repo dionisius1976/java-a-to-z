@@ -48,7 +48,10 @@ public class DbManager implements IDbManager {
             car = newAd.getCar();
             tx = session.beginTransaction();
             carId = (long) session.save(car);
-            userId = (long) session.save(user);
+            userId = this.getUserByLoginAndPassword(user.getLogin(), user.getPassword()).getId();
+            if (userId == 0) {
+                userId = (long) session.save(user);
+            }
             Ad ad = new Ad(newAd.getDesc(), new User(userId), new Car(carId));
             adId = (long) session.save(ad);
             tx.commit();

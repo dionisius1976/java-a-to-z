@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -21,9 +22,13 @@ public class QuitController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getSession().removeAttribute("user");
+      HttpSession session = req.getSession();
         req.getSession().removeAttribute("logged");
+        req.getSession().removeAttribute("user");
+//      session.invalidate();
+// req.getSession().removeAttribute("user");
+//        req.getSession().removeAttribute("logged");
 //        resp.sendRedirect(String.format("%s/index.html", req.getContextPath()));
-        req.getRequestDispatcher(String.format("%s/index.html", req.getContextPath())).forward(req,resp);
+        req.getRequestDispatcher(String.format("%s/", req.getContextPath())).forward(req,resp);
     }
 }

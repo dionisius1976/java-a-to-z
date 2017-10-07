@@ -14,16 +14,16 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-                $("#create_user_form").submit(function () {
+                $("#create_car_form").submit(function () {
                     var form = $(this);
-//                    var error = false;
-//                    form.find('input').each(function () {
-//                        if ($(this).val() == '') {
-//                            alert('Fill field "' + $(this).attr('name') + '", please!');
-//                            error = true;
-//                        }
-//                    });
-//                    if (!error) {
+                    var error = false;
+                    form.find('input').each(function () {
+                        if ($(this).val() == '') {
+                            alert('Fill field "' + $(this).attr('name') + '", please!');
+                            error = true;
+                        }
+                    });
+                    if (!error) {
                         var data = form.serialize();
                         $.ajax({
                             type: 'post', url: "./create", dataType: 'json', data: data,
@@ -32,15 +32,11 @@
                                 alert("Error: Thrown error: "+thrownError);
                                 alert(xhr.getAllResponseHeaders());
                             },
-                            success: function (data) {
-                                var items = JSON.parse(data.responseText);
-                                alert(items);
-                            },
                             complete: function (data) {
                                 window.location.href = "/main.html";
                             }
                         });
-//                    }
+                    }
                     return false;
                 });
             });
@@ -49,7 +45,7 @@
 <body>
 
 <div>
-<form method="post"  action="" id="create_user_form">
+<form method="post"  action="" id="create_car_form">
     <h3>Create advertisement:</h3>
     <p>Ad text : <input id = "login" type='text' name='desc' ></p>
     <p>Car brand : <input type='text' name='brand'></p>

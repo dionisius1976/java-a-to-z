@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * Created by Dionisius on 16.09.2017.
- * Updates specified user.
+ * Returns all specified advertisements from database.
  */
 public class ShowItemsController extends HttpServlet {
     /**

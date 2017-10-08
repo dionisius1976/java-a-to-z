@@ -26,13 +26,29 @@ public interface IDbManager {
      */
     List<Ad> getActual();
 
+    /**
+     * Marks all advertisements in specified list as "sold".
+     * @param ads specified list of advertisements.
+     */
     void setSold(final Set<Ad> ads);
 
-    User getUserById (final long id);
+    /**
+     * Finds user in database by specified login and password.
+     * @param login users's login.
+     * @param password user's password.
+     * @return founded user.
+     */
     User getUserByLoginAndPassword(final String login, final String password);
 
+    /**
+     * Inserts specified user to database.
+     * @param user specified user.
+     * @return inserted user's id.
+     */
     long createUser(final User user);
 
-
+    /**
+     * Closes current using Hibernate SessionFactory.
+     */
     void closeConnection();
 }

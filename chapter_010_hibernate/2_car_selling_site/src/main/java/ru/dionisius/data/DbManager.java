@@ -121,27 +121,6 @@ public class DbManager implements IDbManager {
         }
     }
 
-    @Override
-    public User getUserById(long id) {
-        User user = null;
-//        Query query = null;
-        Session session = this.factory.openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-//            query = session.createQuery("from User where id =:long");
-//            query.setParameter("long", id);
-//            user = (User)query.list().get(0);
-            user = session.get(User.class, id);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx!=null) tx.rollback();
-            LOG.error(e.getMessage(), e);
-        } finally {
-            session.close();
-        }
-        return user;
-    }
 
     @Override
     public User getUserByLoginAndPassword(String login, String password) {

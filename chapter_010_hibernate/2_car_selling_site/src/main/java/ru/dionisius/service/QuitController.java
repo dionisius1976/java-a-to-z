@@ -14,7 +14,7 @@ import java.io.IOException;
 public class QuitController extends HttpServlet {
 
     /**
-     * Provides quit for authenticated user.
+     * Provides quit for client.
      * @param req user's request.
      * @param resp response for user.
      * @throws ServletException if occurs.

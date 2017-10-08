@@ -13,33 +13,49 @@ import java.sql.Timestamp;
  */
 public class Ad {
     /**
-     * Ad's id.
+     * Advertisement's id.
      */
     private long id;
     /**
-     * Ad's login.
+     * Advertisement's login.
      */
     private String desc;
     /**
-     * Ad's state.
+     * Advertisement's state.
      */
     private boolean sold;
     /**
-     * The date of Ad creation.
+     * The date of advertisement creation.
      */
     private Timestamp createDate;
-
+    /**
+     * Master of this advertisement.
+     */
     private User user;
-
+    /**
+     * Car that sells in this advertisement.
+     */
     private Car car;
 
-    public Ad() {
-    }
+    /**
+     * Default constructor.
+     */
+    public Ad() {}
 
+    /**
+     * Constructor with parameter.
+     * @param id advertisement's id.
+     */
     public Ad(long id) {
         this.id = id;
     }
 
+    /**
+     * Constructor with parameters.
+     * @param desc advertisement's description.
+     * @param user master of this advertisement.
+     * @param car car that sells in this advertisement.
+     */
     public Ad(String desc, User user, Car car) {
         this.desc = desc;
         this.sold = false;
@@ -112,6 +128,10 @@ public class Ad {
         return createDate;
     }
 
+    /**
+     * Getter for user.
+     * @return user.
+     */
     public User getUser() {
         if (user instanceof HibernateProxy) {
             Hibernate.initialize(user);
@@ -122,10 +142,18 @@ public class Ad {
         return user;
     }
 
+    /**
+     * Setter for user.
+     * @param user user that sets.
+     */
     public void setUser(User user) {
         this.user = user;
     }
 
+    /**
+     * Getter for car.
+     * @return car.
+     */
     public Car getCar() {
         if (car instanceof HibernateProxy) {
             Hibernate.initialize(car);
@@ -136,10 +164,13 @@ public class Ad {
         return car;
     }
 
+    /**
+     * Setter for car.
+     * @param car car.
+     */
     public void setCar(Car car) {
         this.car = car;
     }
-
 
     @Override
     public String toString() {

@@ -44,9 +44,15 @@ public class User {
      */
     private List<Ad> adList;
 
-    public User() {
-    }
+    /**
+     * Default constructer.
+     */
+    public User() {}
 
+    /**
+     * Constructor with parameter.
+     * @param id user's id.
+     */
     public User(long id) {
         this.id = id;
     }
@@ -149,7 +155,6 @@ public class User {
                 ", surname='" + surname + '\'' +
                 ", telNumber='" + telNumber + '\'' +
                 ", createDate=" + createDate +
-//                ", adList=" + adList +
                 '}';
     }
 }

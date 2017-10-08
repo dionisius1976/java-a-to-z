@@ -11,11 +11,12 @@ import java.io.IOException;
 
 /**
  * Created by Dionisius on 14.09.2017.
+ * Inserts specified in request advertisement in database.
  */
 public class CreateAdController extends HttpServlet {
 
     /**
-     * Creates specified in request advertisement.
+     * Inserts specified in request advertisement in database.
      * @param req user's request.
      * @param resp response for user.
      * @throws ServletException if occurs.

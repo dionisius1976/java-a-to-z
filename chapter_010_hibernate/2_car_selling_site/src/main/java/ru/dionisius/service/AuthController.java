@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 
 /**
  * Created by Dionisius on 07.10.2017.
+ * Defines client's role.
  */
 public class AuthController extends HttpServlet {
     @Override

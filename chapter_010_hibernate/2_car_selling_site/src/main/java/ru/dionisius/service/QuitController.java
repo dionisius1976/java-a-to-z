@@ -22,13 +22,9 @@ public class QuitController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      HttpSession session = req.getSession();
-        req.getSession().removeAttribute("logged");
-        req.getSession().removeAttribute("user");
-//      session.invalidate();
-// req.getSession().removeAttribute("user");
-//        req.getSession().removeAttribute("logged");
-//        resp.sendRedirect(String.format("%s/index.html", req.getContextPath()));
+        HttpSession session = req.getSession();
+        session.removeAttribute("client");
+        session.removeAttribute("user");
         req.getRequestDispatcher(String.format("%s/", req.getContextPath())).forward(req,resp);
     }
 }

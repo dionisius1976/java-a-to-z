@@ -16,7 +16,7 @@ import java.util.Set;
  */
 public class SetSoldController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         IDbManager manager = (DbManager)req.getServletContext().getAttribute("dBManager");
         Set<Ad> ads = (Set<Ad>)req.getAttribute("ads");
         manager.setSold(ads);

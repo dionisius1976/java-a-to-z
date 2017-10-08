@@ -13,20 +13,22 @@ import java.io.IOException;
 
 /**
  * Created by Dionisius on 06.10.2017.
+ * Servlet.
+ * Defines client's role and logs client in.
  */
 public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        if(session.getAttribute("logged") == null) {
-            session.setAttribute("logged", true);
-        }
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         IDbManager manager = (DbManager)req.getServletContext().getAttribute("dBManager");
-        User user = manager.getUserByLoginAndPassword(req.getParameter("login"),
-                req.getParameter("password"));
+        User user = manager.getUserByLoginAndPassword(login, password);
         if (user != null) {
             session.setAttribute("user", user);
-
+            session.setAttribute("client", "user");
+        } else {
+            session.setAttribute("client", "unregistered");
         }
     }
 }

@@ -28,7 +28,10 @@ public interface IDbManager {
 
     void setSold(final Set<Ad> ads);
 
+    User getUserById (final long id);
     User getUserByLoginAndPassword(final String login, final String password);
+
+    long createUser(final User user);
 
 
     void closeConnection();

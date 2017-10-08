@@ -48,10 +48,7 @@ public class DbManager implements IDbManager {
             car = newAd.getCar();
             tx = session.beginTransaction();
             carId = (long) session.save(car);
-            userId = this.getUserByLoginAndPassword(user.getLogin(), user.getPassword()).getId();
-            if (userId == 0) {
-                userId = (long) session.save(user);
-            }
+            userId = this.createUser(newAd.getUser());
             Ad ad = new Ad(newAd.getDesc(), new User(userId), new Car(carId));
             adId = (long) session.save(ad);
             tx.commit();
@@ -125,6 +122,28 @@ public class DbManager implements IDbManager {
     }
 
     @Override
+    public User getUserById(long id) {
+        User user = null;
+//        Query query = null;
+        Session session = this.factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+//            query = session.createQuery("from User where id =:long");
+//            query.setParameter("long", id);
+//            user = (User)query.list().get(0);
+            user = session.get(User.class, id);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            LOG.error(e.getMessage(), e);
+        } finally {
+            session.close();
+        }
+        return user;
+    }
+
+    @Override
     public User getUserByLoginAndPassword(String login, String password) {
         User user = null;
         List<Ad> users = null;
@@ -137,6 +156,7 @@ public class DbManager implements IDbManager {
             query.setParameter("log", login);
             query.setParameter("pass", password);
             user = (User)query.list().get(0);
+            tx.commit();
         } catch (Exception e) {
             if (tx!=null) tx.rollback();
             LOG.error(e.getMessage(), e);
@@ -144,6 +164,24 @@ public class DbManager implements IDbManager {
             session.close();
         }
         return user;
+    }
+
+    @Override
+    public long createUser(User user) {
+        long userId = 0;
+        Session session = this.factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            userId = (long) session.save(user);
+            tx.commit();
+        } catch(Exception e){
+            if (tx != null) tx.rollback();
+            LOG.error(e.getMessage(), e);
+        } finally{
+            session.close();
+        }
+        return userId;
     }
 
     @Override

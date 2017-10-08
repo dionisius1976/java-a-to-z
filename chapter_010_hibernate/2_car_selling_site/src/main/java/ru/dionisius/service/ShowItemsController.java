@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class ShowItemsController extends HttpServlet {
     /**
-     * Returns all items.
+     * Returns all advertisements in json type.
      * @param req user's request.
      * @param resp response for user.
      * @throws ServletException if occurs.
@@ -38,7 +38,7 @@ public class ShowItemsController extends HttpServlet {
     }
 
     /**
-     * Returns all actual advertisements.
+     * Returns all actual advertisements in json type.
      * @param req user's request.
      * @param resp response for user.
      * @throws ServletException if occurs.

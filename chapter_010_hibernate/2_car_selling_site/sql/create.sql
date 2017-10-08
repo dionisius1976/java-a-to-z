@@ -15,7 +15,7 @@ CREATE TABLE users(
 	create_date TIMESTAMP
 );
 
-CREATE TABLE advertisments(
+CREATE TABLE ads(
 	id SERIAL PRIMARY KEY,
 	description VARCHAR(500),
 	done BOOLEAN,

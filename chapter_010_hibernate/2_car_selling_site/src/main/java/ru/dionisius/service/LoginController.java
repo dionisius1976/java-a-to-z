@@ -28,7 +28,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute("user", user);
             session.setAttribute("client", "user");
         } else {
-            session.setAttribute("client", "unregistered");
+            session.setAttribute("client", "guest");
         }
     }
 }

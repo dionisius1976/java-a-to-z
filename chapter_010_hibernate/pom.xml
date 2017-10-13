@@ -63,6 +63,7 @@
 	<modules>
 		<module>1_TODO_list</module>
 		<module>2_car_selling_site</module>
+		<module>3_annotations</module>
 	</modules>
 
 </project>

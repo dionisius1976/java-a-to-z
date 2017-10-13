@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create ad</title>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+                $("#create_car_form").submit(function () {
+                    var form = $(this);
+                    var error = false;
+                    form.find('input').each(function () {
+                        if ($(this).val() == '') {
+                            alert('Fill field "' + $(this).attr('name') + '", please!');
+                            error = true;
+                        }
+                    });
+                    if (!error) {
+                        var data = form.serialize();
+                        $.ajax({
+                            type: 'post', url: "./create", dataType: 'json', data: data,
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert("Error: Server response: " +xhr.status);
+                                alert("Error: Thrown error: "+thrownError);
+                                alert(xhr.getAllResponseHeaders());
+                            },
+                            complete: function (data) {
+                                window.location.href = "/main.html";
+                            }
+                        });
+                    }
+                    return false;
+                });
+            });
+    </script>
+</head>
+<body>
+
+<div>
+<form method="post"  action="" id="create_car_form">
+    <h3>Create my advertisement:</h3>
+    <p>Ad text : <input type='text' name='desc' ></p>
+    <p>Car brand : <input type='text' name='brand'></p>
+    <p>Car model : <input type='text' name='model'></p>
+    <p>Engine capacity : <input  type='text' name='capacity' ></p>
+    <p>Issue year : <input type='text' name='year' ></p>
+    <p>Transmission type : <input type="radio" name="transmission" value="auto" > auto
+        <input type="radio" name="transmission" value="robot"> robot
+        <input type="radio" name="transmission" value="manual"> manual</p>
+    <p><input type='submit' value="Create" /></p>
+</form>
+</div>
+</body>
+</html>

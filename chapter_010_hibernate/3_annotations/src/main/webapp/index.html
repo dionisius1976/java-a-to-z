@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $("#login_form").submit(function(){
+                var form = $(this);
+                    var data = form.serialize();
+                    $.ajax({
+                        type: 'post',
+                        url: './login',
+                        dataType: 'json',
+                        data: data,
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert("Error: Server response: " +xhr.status);
+                            alert("Error: Thrown error: "+thrownError);
+                            alert(xhr.getAllResponseHeaders());
+                        },
+                        complete: function(data){
+                            window.location.href = "/main.html";
+                        }
+                    });
+                return false;
+            });
+
+            $("#sign_up_button").click(function () {
+                window.location.href = "sign_up.html";
+            });
+        });
+    </script>
+</head>
+
+<br>
+<div>
+    <form method="post" action="" id="login_form">
+<h3>Hi! Enter your login and password, please:</h3>
+    </br>
+    <p>Login : <input id = "login" type='text' name='login' ></p>
+    <p>Password : <input id="password" type='password' name='password'></p>
+    <p><input type='submit' value="Log in" /></p>
+</form>
+</div>
+<p>Simply hit "Log in" if you want to log in as a guest. In this case you could only see all advertisements.</p>
+</div>
+</br>
+</div>
+<p><b>Want to sign up?<b></b></p>
+</div>
+<div>
+    <input id="sign_up_button" type="button" value="Sign up" />
+</div>
+</body>
+</html>

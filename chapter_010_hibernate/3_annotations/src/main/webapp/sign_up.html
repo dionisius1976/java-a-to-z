@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $("#sign_up_form").submit(function(){
+                var form = $(this);
+                var data = form.serialize();
+                $.ajax({
+                    type: 'post',
+                    url: './sign_up',
+                    dataType: 'json',
+                    data: data,
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Error: Server response: " +xhr.status);
+                        alert("Error: Thrown error: "+thrownError);
+                        alert(xhr.getAllResponseHeaders());
+                    },
+                    complete: function(data){
+                        var result = JSON.parse(data.responseText);
+                        if (result == "ok") {
+                            window.location.href = "/main.html";
+                        } else {
+                            alert("These login and password are occupied. Try again.");
+                            window.location.reload();
+                        }
+                    }
+                });
+                return false;
+            });
+
+            $("#quit_button").click(function(){
+                window.location.href = "/quit";
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+<div>
+    <form method="post" action="" id="sign_up_form">
+        <h3>Hi, guest! Enter your personal data, please:</h3>
+        </br>
+        <p>Login : <input id = "login" type='text' name='login' ></p>
+        <p>Password : <input id="password" type='password' name='password'></p>
+        <p>Name : <input id = "name" type='text' name='name' ></p>
+        <p>Surname : <input id = "surname" type='text' name='surname' ></p>
+        <p>Tel.number : <input id = "tel_number" type='text' name='tel_number' ></p>
+        <p><input type='submit' value="Sign up" /></p>
+    </form>
+</div>
+    <input id="quit_button" type="button" value="Quit" />
+</body>
+</html>

@@ -7,7 +7,6 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.dionisius.service.HibernateUtil;
 
 import java.util.List;
 import java.util.Set;
@@ -20,20 +19,20 @@ public class DbManager implements IDbManager {
     /**
      * Hibernate session factory instance.
      */
-    private SessionFactory factory = HibernateUtil.getSessionFactory();
+    private SessionFactory factory;
     /**
      * Logger for database errors.
      */
     private static final Logger LOG = LoggerFactory.getLogger(DbManager.class);
 
-//    {
-//        try{
-//            factory = new Configuration().configure().buildSessionFactory();
-//        } catch (Exception e) {
-//            LOG.error(e.getMessage(), e);
-//            throw new ExceptionInInitializerError(e);
-//        }
-//    }
+    {
+        try{
+            factory = new Configuration().configure().buildSessionFactory();
+        } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
+            throw new ExceptionInInitializerError(e);
+        }
+    }
 
     @Override
     public long createAdvertisement(final Ad newAd) {

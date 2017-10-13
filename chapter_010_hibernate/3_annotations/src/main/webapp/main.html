@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advertisements</title>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+            align-items: center;
+        }
+        table {
+            border-collapse: collapse;
+            border: 2px solid #000000;
+            margin: auto;
+        }
+        th, td
+        {
+            border: 1px solid #000000;
+            padding: 5px;
+            margin: 5px;
+        }
+        td {
+            text-align: center;
+        }
+        th{
+            height: 50%;
+        }
+        #table_headers {
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            greeting();
+            showAllAds();
+
+            $("#show").toggle(
+                function() {
+                showActualAds();},
+                function () {
+                showAllAds();
+            });
+
+            $("#quit_button").click(function(){
+                window.location.href = "/quit";
+            });
+
+            $("#add_button").click(function(){
+                window.location.href = "/create.html";
+            });
+
+
+            function showAllAds() {
+                $("#table_name").html("<h3>All advertisements</h3>");
+                $("#show").html("<p><input id=\"show_items\" type=\"checkbox\" " +
+                    "name=\"show_items\" value=\"show_items\" checked> Show actual advertisements </p>");
+                $.ajax({
+                    type: "get",
+                    url: "./show",
+                    error: function (xhr, ajaxOptions, thrownError) {
+
+                        alert("Error: Server response: " +xhr.status);
+                        alert("Error: Thrown error: "+thrownError);
+                        alert(xhr.getAllResponseHeaders());
+                    },
+                    complete: function (data) {
+                        var result = getResultTab(data);
+                        $("table").html(result);
+                    }
+                });
+            }
+
+            function greeting() {
+                $.ajax({
+                    type: 'post',
+                    url: "./auth",
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Error: Server response: " +xhr.status);
+                        alert("Error: Thrown error: "+thrownError);
+                        alert(xhr.getAllResponseHeaders());
+                    },
+                    complete: function (data) {
+                        var result = data.responseText;
+                        $("#greeting").html("<p> Hi, " + result + ".</p>");
+                        if(result == "guest") {
+                            $("#add_button").hide();
+                        }
+                    }
+                });
+            }
+
+            function showActualAds() {
+                $("#table_name").html("<h3>All actual advertisements</h3>");
+                $("#show").html("<p><input id=\"show_items\" type=\"checkbox\" " +
+                    "name=\"show_items\" value=\"show_items\"> Show all advertisements </p>");
+                $.ajax({
+                    type: 'post',
+                    dataType: "json",
+                    url: "./show",
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("Error: Server response: " +xhr.status);
+                        alert("Error: Thrown error: "+thrownError);
+                        alert(xhr.getAllResponseHeaders());
+                    },
+                    complete: function (data) {
+                        var result = getResultTab(data);
+                        $("table").html(result);
+                    }
+                })
+            }
+
+            function getResultTab(data) {
+                var items = JSON.parse(data.responseText);
+                var result = "<tr id='table_headers'>" +
+                    "<td>Id</td>" +
+                    "<td>Description</td>" +
+                    "<td>Sold</td>" +
+                    "<td>CreateDate</td>" +
+                    "<td>Author login</td>" +
+                    "<td>Author password</td>" +
+                    "<td>Author name</td>" +
+                    "<td>Tel.</td>" +
+                    "<td>Brand</td>" +
+                    "<td>Model</td>" +
+                    "<td>Transmission</td>" +
+                    "<td>Engine</td>" +
+                    "<td>Year</td>" +
+                    "</tr>";
+                var i = 0;
+                var isSold;
+                for (var x in items) {
+                    if (items[i].sold == false) {
+                        isSold = "No";
+                    } else {
+                        isSold = "Yes";
+                    }
+                    result += "<tr>" +
+                        "<td>" + items[i].id + "</td>" +
+                        "<td>" + items[i].desc + "</td>" +
+                        "<td>" + isSold + "</td>" +
+                        "<td>" + items[i].createDate + "</td>" +
+                        "<td>" + items[i].user.login + "</td>" +
+                        "<td>" + items[i].user.password + "</td>" +
+                        "<td>" + items[i].user.name + " " + items[i].user.surname + "</td>" +
+                        "<td>" + items[i].user.telNumber + "</td>" +
+                        "<td>" + items[i].car.brand + "</td>" +
+                        "<td>" + items[i].car.model + "</td>" +
+                        "<td>" + items[i].car.transmission + "</td>" +
+                        "<td>" + items[i].car.engineCapacity + "</td>" +
+                        "<td>" + items[i].car.year + "</td>" +
+                        "</tr>";
+                    i++;
+                }
+                return result;
+            }
+        });
+    </script>
+</head>
+
+<br>
+<div id="greeting">
+</div>
+<br/>
+<div id="show">
+</div>
+<div id="table_name">
+</div>
+<div>
+    <table>
+    </table>
+</div>
+</br>
+<div>
+<input id="add_button" type="button" value="Add new ad" />
+</div>
+</br>
+<div>
+    <input id="quit_button" type="button" value="Quit" />
+</div>
+</body>
+</html>

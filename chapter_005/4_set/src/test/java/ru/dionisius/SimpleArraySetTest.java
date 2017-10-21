@@ -2,8 +2,6 @@ package ru.dionisius;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import static org.junit.Assert.*;

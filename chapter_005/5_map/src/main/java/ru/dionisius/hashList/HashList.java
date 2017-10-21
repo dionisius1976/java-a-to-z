@@ -1,8 +1,6 @@
 package ru.dionisius.hashList;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Objects;
 
 /**
  * Created by Dionisius on 16.02.2017.

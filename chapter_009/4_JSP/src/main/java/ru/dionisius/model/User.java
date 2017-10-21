@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 
 /**
  * Created by Dionisius on 05.08.2017.
- * This class stores user's data
- * and has getters for this data.
+ * This class stores user's ru.dionisius.data
+ * and has getters for this ru.dionisius.data.
  */
 public class User {
     /**

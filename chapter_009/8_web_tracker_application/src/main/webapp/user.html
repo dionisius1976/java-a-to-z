@@ -53,8 +53,8 @@
         $.ajax({
             method: "get",
             url: "./create",
-            complete: function(data) {
-                var users = JSON.parse(data.responseText);
+            complete: function(ru.dionisius.data) {
+                var users = JSON.parse(ru.dionisius.data.responseText);
                 var result = "<tr id='table_headers'>" +
                     "<td>Id</td>" +
                     "<td>Name</td>" +
@@ -97,7 +97,7 @@
 <input type="button" id="button_quit" value="Quit" />
 </br>
 <div>
-    <h3> All users' data table</h3>
+    <h3> All users' ru.dionisius.data table</h3>
     <table>
 
     </table>

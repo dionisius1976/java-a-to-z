@@ -5,8 +5,8 @@ import java.sql.Timestamp;
 /**
  * Created by Dionisius on 05.08.2017.
  * POJO.
- * This class stores task's data
- * and has getters and setters for this data.
+ * This class stores task's ru.dionisius.data
+ * and has getters and setters for this ru.dionisius.data.
  */
 public class Item {
     /**

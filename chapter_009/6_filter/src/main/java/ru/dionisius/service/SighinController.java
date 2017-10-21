@@ -14,7 +14,7 @@ import java.io.IOException;
 public class SighinController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/data/LoginView.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/ru.dionisius.data/LoginView.jsp").forward(req, resp);
     }
 
     @Override

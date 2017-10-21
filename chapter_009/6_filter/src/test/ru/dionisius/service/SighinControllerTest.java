@@ -25,7 +25,7 @@ public class SighinControllerTest {
     private static final String wrongValue = "robot";
     private static final String expectedAttribute = "error";
     private static final String expectedAttributeValue = "Invalid user!";
-    private static final String expectedURI = "/WEB-INF/data/LoginView.jsp";
+    private static final String expectedURI = "/WEB-INF/ru.dionisius.data/LoginView.jsp";
     private static final RequestDispatcher dispatcher = mock(RequestDispatcher.class);
     private static final HttpSession session = mock(HttpSession.class);
     private final SighinController sighinController = new SighinController();
@@ -74,7 +74,7 @@ public class SighinControllerTest {
         }).when(request).setAttribute(SighinControllerTest.expectedAttribute,
                 SighinControllerTest.expectedAttributeValue);
 
-        when(request.getRequestDispatcher("/WEB-INF/data/LoginView.jsp")).thenReturn(dispatcher);
+        when(request.getRequestDispatcher("/WEB-INF/ru.dionisius.data/LoginView.jsp")).thenReturn(dispatcher);
         doNothing().when(dispatcher).forward(request, response);
 
         sighinController.doPost(this.request, this.response);

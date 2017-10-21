@@ -1,12 +1,12 @@
 <web-app>
 
     <listener>
-        <listener-class>ru.dionisius.service.AppContextListener</listener-class>
+        <listener-class>ru.dionisius.service.listeners.AppContextListener</listener-class>
     </listener>
 
     <filter>
         <filter-name>auth</filter-name>
-        <filter-class>ru.dionisius.service.AuthFilter</filter-class>
+        <filter-class>ru.dionisius.service.filters.AuthFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>auth</filter-name>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>show</servlet-name>
-        <servlet-class>ru.dionisius.service.ShowItemsController</servlet-class>
+        <servlet-class>ru.dionisius.service.servlets.ShowItemsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>show</servlet-name>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>create</servlet-name>
-        <servlet-class>ru.dionisius.service.CreateAdController</servlet-class>
+        <servlet-class>ru.dionisius.service.servlets.CreateAdController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>create</servlet-name>
@@ -33,7 +33,7 @@
 
     <servlet>
         <servlet-name>setSold</servlet-name>
-        <servlet-class>ru.dionisius.service.SetSoldController</servlet-class>
+        <servlet-class>ru.dionisius.service.servlets.SetSoldController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>setSold</servlet-name>
@@ -42,7 +42,7 @@
 
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>ru.dionisius.service.LoginController</servlet-class>
+        <servlet-class>ru.dionisius.service.servlets.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -51,7 +51,7 @@
 
     <servlet>
         <servlet-name>auth</servlet-name>
-        <servlet-class>ru.dionisius.service.AuthController</servlet-class>
+        <servlet-class>ru.dionisius.service.servlets.AuthController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>auth</servlet-name>
@@ -60,7 +60,7 @@
 
     <servlet>
         <servlet-name>quit</servlet-name>
-        <servlet-class>ru.dionisius.service.QuitController</servlet-class>
+        <servlet-class>ru.dionisius.service.servlets.QuitController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>quit</servlet-name>
@@ -69,7 +69,7 @@
 
     <servlet>
         <servlet-name>sign_up</servlet-name>
-        <servlet-class>ru.dionisius.service.CreateUserController</servlet-class>
+        <servlet-class>ru.dionisius.service.servlets.CreateUserController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>sign_up</servlet-name>

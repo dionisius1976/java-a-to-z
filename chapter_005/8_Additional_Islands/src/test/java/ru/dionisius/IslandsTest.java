@@ -3,8 +3,6 @@ package ru.dionisius;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Dionisius on 04.03.2017.
  */

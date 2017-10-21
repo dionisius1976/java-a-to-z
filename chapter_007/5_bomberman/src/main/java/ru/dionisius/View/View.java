@@ -3,7 +3,6 @@ package ru.dionisius.View;
 import ru.dionisius.Controllers.Controller;
 import ru.dionisius.Models.Cell;
 import ru.dionisius.Models.Field;
-import ru.dionisius.Models.IFigure;
 
 /**
  * Created by Dionisius on 25.03.2017.

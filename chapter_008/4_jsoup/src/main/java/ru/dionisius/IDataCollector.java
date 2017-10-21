@@ -3,11 +3,11 @@ package ru.dionisius;
 /**
  * Created by Dionisius on 21.07.2017.
  * Interface for all classes that
- * collect specified data.
+ * collect specified ru.dionisius.data.
  */
 public interface IDataCollector {
     /**
-     * Collects specified data.
+     * Collects specified ru.dionisius.data.
      */
     void collectData();
 }

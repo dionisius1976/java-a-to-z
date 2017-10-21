@@ -8,8 +8,9 @@
         <property name="dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
         <property name="show_sql">true</property>
 
-        <mapping class="ru.dionisius.data.Ad"/>
-        <mapping class="ru.dionisius.data.User"/>
-        <mapping class="ru.dionisius.data.Car"/>
+        <mapping class="ru.dionisius.ru.dionisius.data.pojo.Ad"/>
+        <mapping class="ru.dionisius.ru.dionisius.data.pojo.User"/>
+        <mapping class="ru.dionisius.ru.dionisius.data.pojo.Car"/>
+
     </session-factory>
 </hibernate-configuration>

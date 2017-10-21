@@ -2,8 +2,6 @@ package ru.dionisius;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Created by Dionisius on 07.03.2017.
@@ -43,7 +41,7 @@ public class FindMaxDistance {
      * Calculates the biggest distance between the first
      * and the last same numbers in specified array
      * for every number of the array and stores this
-     * calculated data in the map.
+     * calculated ru.dionisius.data in the map.
      */
     private void find() {
         NumberValue newNumberValue = null;

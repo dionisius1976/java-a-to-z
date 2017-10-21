@@ -1,17 +1,17 @@
 <hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
 
-    <class name="ru.dionisius.data.Ad" table="ads" lazy="false">
+    <class name="ru.dionisius.data.pojo.Ad" table="ads" lazy="false">
         <id name="id" column="id">
             <generator class="identity"/>
         </id>
         <property name="desc" column="description"/>
         <property name="sold" column="sold"/>
         <property name="createDate" column="create_date"/>
-        <many-to-one name="user" column="user_id" unique="true" class="ru.dionisius.data.User"/>
-        <many-to-one name="car" column="car_id" unique="true" class="ru.dionisius.data.Car"/>
+        <many-to-one name="user" column="user_id" unique="true" cascade="none" class="ru.dionisius.data.pojo.User"/>
+        <many-to-one name="car" column="car_id" unique="true" cascade="delete" class="ru.dionisius.data.pojo.Car"/>
     </class>
 
-    <class name="ru.dionisius.data.User" table="users" lazy="false">
+    <class name="ru.dionisius.data.pojo.User" table="users" lazy="false">
         <id name="id" column="id">
             <generator class="identity"/>
         </id>
@@ -22,11 +22,11 @@
         <property name="telNumber" column="tel_number"/>
         <bag name="adList" inverse="true">
             <key column="user_id"></key>
-            <one-to-many class="ru.dionisius.data.Ad"/>
+            <one-to-many class="ru.dionisius.data.pojo.Ad"/>
         </bag>
     </class>
 
-    <class name="ru.dionisius.data.Car" table="cars">
+    <class name="ru.dionisius.data.pojo.Car" table="cars">
         <id name="id" column="id">
             <generator class="identity"/>
         </id>

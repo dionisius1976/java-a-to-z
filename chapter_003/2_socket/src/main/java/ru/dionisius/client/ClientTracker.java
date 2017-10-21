@@ -38,11 +38,11 @@ public class ClientTracker extends ATracker {
      */
     private BufferedReader keyboard;
     /**
-     *inputs stream for transfer data.
+     *inputs stream for transfer ru.dionisius.data.
      */
     private DataInputStream dis;
     /**
-     *Output stream for transfer data.
+     *Output stream for transfer ru.dionisius.data.
      */
     private DataOutputStream dos;
     /**
@@ -66,12 +66,12 @@ public class ClientTracker extends ATracker {
      */
     private Socket socket;
     /**
-     * Type for data input.
+     * Type for ru.dionisius.data input.
      */
     private final Input input;
     /**
      * Constructor.
-     * @param input type for data input
+     * @param input type for ru.dionisius.data input
      * @param propertiesFile path to properties file
      */
     public ClientTracker(final String propertiesFile, final Input input) {

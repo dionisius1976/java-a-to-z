@@ -29,20 +29,20 @@
                     }
                 });
                 if (!error) {
-                    var data = form.serialize();
+                    var ru.dionisius.data = form.serialize();
                     $.ajax({
                         type: 'post',
                         url: './login',
                         dataType: 'json',
-                        data: data,
+                        ru.dionisius.data: ru.dionisius.data,
                         error: function (xhr, ajaxOptions, thrownError) {
 
                             alert("Error: Server response: " +xhr.status);
                             alert("Error: Thrown error: "+thrownError);
                             alert(xhr.getAllResponseHeaders());
                         },
-                        complete: function(data){
-                            var result = JSON.parse(data.responseText);
+                        complete: function(ru.dionisius.data){
+                            var result = JSON.parse(ru.dionisius.data.responseText);
                             if (result == "user") {
                                 window.location.href = "/chapter_009/additional_task/src/main/webapp/user.html";
                             }

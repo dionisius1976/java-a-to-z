@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Dionisius on 05.08.2017.
  * Interface for all managers that work
  * with user's database.
- * It can add new user, edit user's personal data,
+ * It can add new user, edit user's personal ru.dionisius.data,
  * delete specified user and find specified user.
  */
 public interface IDbManager {
@@ -21,7 +21,7 @@ public interface IDbManager {
     void createUser(final String userName, final String userLogin, final String userEmail);
 
     /**
-     * Edits user's data.
+     * Edits user's ru.dionisius.data.
      * @param userName user's name.
      * @param userLogin user's login.
      * @param newUserLogin new user's login.

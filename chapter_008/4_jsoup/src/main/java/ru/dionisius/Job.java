@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 /**
  * Created by Dionisius on 26.07.2017.
  * Job vacancy class.
- * Contains data of job's vacancy title,
+ * Contains ru.dionisius.data of job's vacancy title,
  * description and creation date.
  */
 public class Job {

@@ -23,7 +23,7 @@ public class UsersController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("users", DbManager.getInstance().getAllUsers());
-        req.getRequestDispatcher("/WEB-INF/data/UsersView.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/ru.dionisius.data/UsersView.jsp").forward(req, resp);
     }
 
     /**

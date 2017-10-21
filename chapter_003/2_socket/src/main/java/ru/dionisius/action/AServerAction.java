@@ -11,7 +11,7 @@ public abstract class AServerAction implements IAction {
 
     /**
      * @param in in input stream
-     * @param out stream to send data out
+     * @param out stream to send ru.dionisius.data out
      * @throws IOException if IO error occurs
      */
     public abstract void execute(DataInputStream in, DataOutputStream out) throws IOException;

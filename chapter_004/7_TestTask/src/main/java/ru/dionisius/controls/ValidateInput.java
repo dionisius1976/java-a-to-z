@@ -1,9 +1,9 @@
 package ru.dionisius.controls;
 
 /**
- * Validates user's inputted data.
- * If this data is invalid prints error message
- * and ask to input valid data.
+ * Validates user's inputted ru.dionisius.data.
+ * If this ru.dionisius.data is invalid prints error message
+ * and ask to input valid ru.dionisius.data.
  * If inputted by user menu option is out of valid range
  * throws MenuOutException.
  * If inputted by user menu option is not a number
@@ -11,9 +11,9 @@ package ru.dionisius.controls;
  */
 public class ValidateInput extends ConsoleInput {
 	/**
-	 * * Validates user's inputted data.
-	 * If this data is invalid prints error message
-	 * and ask to input valid data.
+	 * * Validates user's inputted ru.dionisius.data.
+	 * If this ru.dionisius.data is invalid prints error message
+	 * and ask to input valid ru.dionisius.data.
 	 * If inputted by user menu option is out of valid range
 	 * throws MenuOutException.
 	 * If inputted by user menu option is not a number

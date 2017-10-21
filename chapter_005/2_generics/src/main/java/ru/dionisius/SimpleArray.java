@@ -1,7 +1,5 @@
 package ru.dionisius;
 
-import java.util.LinkedList;
-
 /**
  * Created by Dionisius on 04.02.2017.
  * Simple container for generics.

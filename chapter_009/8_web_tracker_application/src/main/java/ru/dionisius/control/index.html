@@ -40,12 +40,12 @@
                     }
                 });
                 if (!error) {
-                    var data = form.serialize();
+                    var ru.dionisius.data = form.serialize();
                     $.ajax({
                         type: 'post',
                         url: 'http://localhost:8080/login',
                         dataType: 'json',
-                        data: data,
+                        ru.dionisius.data: ru.dionisius.data,
                         complete: function(msg) {
                             if(msg != '') {
                                 $("#wrongData").html(result);
@@ -57,8 +57,8 @@
                             console.log(message);
                         }
 //                        ,
-//                        success: function(data) {
-//                            console.log(data);
+//                        success: function(ru.dionisius.data) {
+//                            console.log(ru.dionisius.data);
 //                        }
                     });
                 }

@@ -29,7 +29,7 @@ public class ConsoleInput implements IInput {
 	 * Validate user's input.
 	 * Gets string 'question', validate if user's answer
 	 * belong to validate answers range and returns string 'answer'.
-	 * If inputted by user data is not valid throws MenuOutException.
+	 * If inputted by user ru.dionisius.data is not valid throws MenuOutException.
 	 * @param question question.
 	 * @param range validate answers range.
 	 * @return string 'answer'.

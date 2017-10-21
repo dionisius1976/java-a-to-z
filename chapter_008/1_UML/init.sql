@@ -43,7 +43,7 @@ INSERT INTO order_files (name, content, order_id) VALUES ('Seller_task', NULL, 3
 INSERT INTO order_files (name, content, order_id) VALUES ('Bug_description', NULL, 4);
 	
 INSERT INTO order_comments (name, create_date, order_id) VALUES ('Urgent task!', current_timestamp, 1);
-INSERT INTO order_comments (name, create_date, order_id) VALUES ('See additional data in attached files.', current_timestamp, 1);
+INSERT INTO order_comments (name, create_date, order_id) VALUES ('See additional ru.dionisius.data in attached files.', current_timestamp, 1);
 INSERT INTO order_comments (name, create_date, order_id) VALUES ('Common seller task.', current_timestamp, 3);
 INSERT INTO order_comments (name, create_date, order_id) VALUES ('Must be fixed.', current_timestamp, 2);
 INSERT INTO order_comments (name, create_date, order_id) VALUES ('Must be fixed.', current_timestamp, 4);

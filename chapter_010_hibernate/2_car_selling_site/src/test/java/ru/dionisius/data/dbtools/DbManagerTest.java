@@ -56,7 +56,7 @@ public class DbManagerTest {
      */
     private static Ad ad2 = new Ad("Buy my car! Please!", user2, car2);
     /**
-     *
+     * Advertisement instance for tests.
      */
     private static Ad ad3 = new Ad("Hi!", user3, car3);
     /**
@@ -175,7 +175,6 @@ public class DbManagerTest {
         User expectedUser = user1;
         manager.createUser(user1);
         User resultUser = manager.getUserByLoginAndPassword("1", "1");
-        System.out.println(resultUser);
         Assert.assertEquals(expectedUser.getLogin(), resultUser.getLogin());
         Assert.assertEquals(expectedUser.getPassword(), resultUser.getPassword());
         Assert.assertEquals(expectedUser.getName(), resultUser.getName());

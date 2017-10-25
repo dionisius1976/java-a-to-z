@@ -23,6 +23,7 @@
 		<module>chapter_008</module>
         <module>chapter_009</module>
 		<module>chapter_010_hibernate</module>
+		<module>chapter_011_spring</module>
     </modules>
 
     <properties>

@@ -1,14 +1,7 @@
-package ru.dionisius.data.pojo;
-
-import org.hibernate.Hibernate;
-import org.hibernate.proxy.HibernateProxy;
-
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+package ru.dionisius.models;
 
 /**
- * Created by Dionisius on 29.09.2017.
+ * Created by Dionisius on 23.10.2017.
  */
 public class User {
     /**
@@ -35,36 +28,9 @@ public class User {
      * User's telephone number.
      */
     private String telNumber;
-    /**
-     * The date of user's entry creation.
-     */
-    private Timestamp createDate;
-    /**
-     * User's advertisements.
-     */
-    private List<Ad> adList;
 
-    /**
-     * Default constructer.
-     */
-    public User() {}
+    public User(){}
 
-    /**
-     * Constructor with parameter.
-     * @param id user's id.
-     */
-    public User(long id) {
-        this.id = id;
-    }
-
-    /**
-     * Constructor with parameter.
-     * @param login user's login.
-     * @param password user's password.
-     * @param name user's name.
-     * @param surname user's surname.
-     * @param telNumber user's telephone number.
-     */
     public User(String login, String password, String name, String surname,
                 String telNumber) {
         this.login = login;
@@ -72,7 +38,6 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.telNumber = telNumber;
-        this.createDate = new Timestamp(System.currentTimeMillis());
     }
 
     public long getId() {
@@ -123,38 +88,8 @@ public class User {
         this.telNumber = telNumber;
     }
 
-    public Timestamp getCreateDate() {
-        return this.createDate;
-    }
-
-    public void setCreateDate(Timestamp createDate) {
-        this.createDate = createDate;
-    }
-
-    public List<Ad> getAdList() {
-        List<Ad> result = null;
-        if (this.adList != null && this.adList.size() != 0) {
-            result = new ArrayList<>();
-            for (Ad ad : adList) {
-                if (ad instanceof HibernateProxy) {
-                    Hibernate.initialize(ad);
-                    ad = (Ad) ((HibernateProxy) ad)
-                            .getHibernateLazyInitializer()
-                            .getImplementation();
-                    result.add(ad);
-                }
-            }
-        }
-        return result;
-    }
-
-    public void setAdList(List<Ad> adList) {
-        this.adList = adList;
-    }
-
     @Override
     public String toString() {
-
         return "User{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
@@ -162,7 +97,21 @@ public class User {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", telNumber='" + telNumber + '\'' +
-                ", createDate=" + createDate +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (login != null ? !login.equals(user.login) : user.login != null) return false;
+        if (!password.equals(user.password)) return false;
+        if (!name.equals(user.name)) return false;
+        if (!surname.equals(user.surname)) return false;
+        return telNumber.equals(user.telNumber);
+    }
+
 }

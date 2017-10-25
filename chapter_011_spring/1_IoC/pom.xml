@@ -1,0 +1,14 @@
+<project>
+	<version>1.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.dionisius</groupId>
+	<artifactId>1_IoC</artifactId>
+	<packaging>war</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>chapter_011_spring</artifactId>
+	</parent>
+
+</project>

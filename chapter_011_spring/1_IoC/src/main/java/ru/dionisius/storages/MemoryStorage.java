@@ -3,7 +3,11 @@ package ru.dionisius.storages;
 import org.springframework.stereotype.Component;
 import ru.dionisius.models.User;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * Created by Dionisius on 23.10.2017.
@@ -15,7 +19,7 @@ public class MemoryStorage implements IStorage {
     /**
      * Inner storage for users.
      */
-    private Map<Long, User> storage = new TreeMap<>();
+    private Map<Long, User> storage = new HashMap<>();
     /**
      * User's id.
      */

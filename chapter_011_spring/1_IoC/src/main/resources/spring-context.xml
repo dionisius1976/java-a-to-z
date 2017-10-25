@@ -10,6 +10,7 @@
     <context:component-scan base-package="ru.dionisius.storages"/>
 
     <!--<bean id="memoryStorage" class="ru.dionisius.storages.MemoryStorage"/>-->
+
     <!--<bean id="userStorage" class="ru.dionisius.storages.UserStorage">-->
         <!--<constructor-arg name="storage" ref="memoryStorage"></constructor-arg>-->
     <!--</bean>-->

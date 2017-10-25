@@ -22,20 +22,27 @@ public class UserStorageTest {
     /**
      * EmbeddedDatabase instance.
      */
-    private EmbeddedDatabase embeddedDatabase = new EmbeddedDatabaseBuilder()
-            .addDefaultScripts()
-            .setType(EmbeddedDatabaseType.H2)
-            .build();
-
+    private EmbeddedDatabase embeddedDatabase = null;
     /**
      * JdbcTemplate instance.
      */
-    private JdbcTemplate jdbcTemplate = new JdbcTemplate(embeddedDatabase);
+    private JdbcTemplate jdbcTemplate = null;
 
-    @AfterClass
+    @Before
+    public void setUp() {
+        embeddedDatabase = new EmbeddedDatabaseBuilder()
+                .addDefaultScripts()
+                .setType(EmbeddedDatabaseType.H2)
+                .build();
+
+        jdbcTemplate = new JdbcTemplate(embeddedDatabase);
+    }
+
+    @After
     public void tearDown() {
         embeddedDatabase.shutdown();
     }
+
     /**
      * Tests beans loading.
      */
@@ -87,15 +94,11 @@ public class UserStorageTest {
         UserStorage userStorage = new UserStorage(jdbcStorage);
         userStorage.deleteUser(2);
         List<User> allUsers = userStorage.getAllUsers();
-        for (User user: allUsers) {
-            System.out.println(user);
-        }
         Assert.assertEquals(allUsers.size(), 1);
         User oldUser = new User("1", "1", "Ivan", "Karamazov", "+79211112233");
         oldUser.setId(1);
         User newUser = new User("4", "4", "Nikolay", "Smirnoff", "+79112223399");
         newUser.setId(1);
-        System.out.println(newUser);
         userStorage.updateUser(newUser);
         allUsers = userStorage.getAllUsers();
         Assert.assertEquals(allUsers.size(), 1);
@@ -110,7 +113,8 @@ public class UserStorageTest {
     public void whenAddingUsersAndAllUsersMethodInMemoryStorageThenExpectedUsersReturned() {
         User firstExpectedUser = new User("1", "1", "Ivan", "Smirnoff", "+79112223344");
         User secondExpectedUser = new User("2", "2", "Sidor", "Uzlov", "+79213456789");
-        IStorage memoryStorage = new MemoryStorage();
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+        IStorage memoryStorage = context.getBean(MemoryStorage.class);
         UserStorage userStorage = new UserStorage(memoryStorage);
         long firstUserId = userStorage.addUser(firstExpectedUser);
         long secondUserId = userStorage.addUser(secondExpectedUser);
@@ -128,7 +132,8 @@ public class UserStorageTest {
     public void whenTwoEqualUsersAddedToMemoryStorageThenOnlyOneUserIsInMemoryStorageAndSecondWillReturnMinusOneId() {
         User resultUser = null;
         User expectedUser = new User("1", "1", "Ivan", "Smirnoff", "+79112223344");
-        IStorage memoryStorage = new MemoryStorage();
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+        IStorage memoryStorage = context.getBean(MemoryStorage.class);
         UserStorage userStorage = new UserStorage(memoryStorage);
         long firstUserId = userStorage.addUser(expectedUser);
         long secondUserId = userStorage.addUser(expectedUser);
@@ -142,10 +147,10 @@ public class UserStorageTest {
      */
     @Test
     public void whenUserUpdatedInMemoryStorageThenUpdatedUserIsInMemoryStorageAndOldUserIsAbsent() {
-        User resultUser = null;
         User oldUser = new User("1", "1", "Ivan", "Smirnoff", "+79112223344");
         User newUser = new User("2", "2", "Sidor", "Uzlov", "+79213456789");
-        IStorage memoryStorage = new MemoryStorage();
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+        IStorage memoryStorage = context.getBean(MemoryStorage.class);
         UserStorage userStorage = new UserStorage(memoryStorage);
         long firstUserId = userStorage.addUser(oldUser);
         newUser.setId(firstUserId);
@@ -163,7 +168,8 @@ public class UserStorageTest {
     public void whenDeleteUserFromMemoryStorageThenThisUserIsAbsent() {
         User firstUser = new User("1", "1", "Ivan", "Smirnoff", "+79112223344");
         User secondUser = new User("2", "2", "Sidor", "Uzlov", "+79213456789");
-        IStorage memoryStorage = new MemoryStorage();
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
+        IStorage memoryStorage = context.getBean(MemoryStorage.class);
         UserStorage userStorage = new UserStorage(memoryStorage);
         long firstUserId = userStorage.addUser(firstUser);
         long secondUserId = userStorage.addUser(secondUser);

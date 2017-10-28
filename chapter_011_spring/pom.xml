@@ -15,8 +15,18 @@
 	</parent>
 
 	<properties>
+		<spring-core.version>5.0.1.RELEASE</spring-core.version>
+		<spring-context.version>5.0.1.RELEASE</spring-context.version>
+		<spring-beans.version>5.0.1.RELEASE</spring-beans.version>
+		<spring-jdbc.version>5.0.1.RELEASE</spring-jdbc.version>
+		<spring-webmvc.version>5.0.0.RELEASE</spring-webmvc.version>
+		<spring-web.version>5.0.1.RELEASE</spring-web.version>
+		<spring-test.version>5.0.1.RELEASE</spring-test.version>
+		<tomcat-jdbc.version>9.0.0.M26</tomcat-jdbc.version>
+		<h2.version>1.4.191</h2.version>
 		<hsqldb.version>2.4.0</hsqldb.version>
 		<postgresql.version>9.4.1212</postgresql.version>
+		<hibernate-core.version>5.2.10.Final</hibernate-core.version>
 	</properties>
 
 	<dependencies>
@@ -24,32 +34,56 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>5.0.0.RELEASE</version>
+			<version>${spring-core.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.0.0.RELEASE</version>
+			<version>${spring-context.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>5.0.0.RELEASE</version>
+			<version>${spring-beans.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>5.0.0.RELEASE</version>
+			<version>${spring-jdbc.version}</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-webmvc.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring-web.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-test.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jdbc</artifactId>
-			<version>9.0.0.M26</version>
+			<version>${tomcat-jdbc.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
 		<dependency>
@@ -61,7 +95,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.191</version>
+			<version>${h2.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -72,7 +106,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.2.10.Final</version>
+			<version>${hibernate-core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -93,6 +127,7 @@
 
 	<modules>
 		<module>1_IoC</module>
+		<module>2_MVC</module>
 	</modules>
 
 </project>

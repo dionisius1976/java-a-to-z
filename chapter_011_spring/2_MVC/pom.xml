@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -6,13 +7,18 @@
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.dionisius</groupId>
-	<artifactId>1_IoC</artifactId>
-	<packaging>war</packaging>
+	<artifactId>2_MVC</artifactId>
+	<packaging>pom</packaging>
 
 	<parent>
 		<version>1.0</version>
 		<groupId>ru.dionisius</groupId>
 		<artifactId>chapter_011_spring</artifactId>
 	</parent>
+
+	<modules>
+		<module>xml</module>
+		<module>annotations</module>
+	</modules>
 
 </project>

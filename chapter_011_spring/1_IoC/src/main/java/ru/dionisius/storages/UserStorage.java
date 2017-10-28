@@ -31,7 +31,7 @@ public class UserStorage {
      * @param user specified user.
      * @return user id.
      */
-    long addUser(User user) {
+    public long addUser(User user) {
         return this.storage.addUser(user);
     }
 
@@ -39,7 +39,7 @@ public class UserStorage {
      * Returns all users from current storage.
      * @return all users from current storage.
      */
-    List<User> getAllUsers() {
+    public List<User> getAllUsers() {
        return this.storage.getAllUsers();
     }
 
@@ -48,7 +48,7 @@ public class UserStorage {
      * @param userId specified user id.
      * @return user with specified id.
      */
-    User getUser(long userId) {
+    public User getUser(long userId) {
         return  this.storage.getUser(userId);
     }
 
@@ -56,7 +56,7 @@ public class UserStorage {
      * Updates old user by specified user with same as old user id.
      * @param user new user.
      */
-    void updateUser(User user) {
+    public void updateUser(User user) {
         this.storage.updateUser(user);
     }
 
@@ -64,7 +64,7 @@ public class UserStorage {
      * Deletes user with specified id.
      * @param userId specified id.
      */
-    void deleteUser(long userId) {
+    public void deleteUser(long userId) {
         this.storage.deleteUser(userId);
     }
 

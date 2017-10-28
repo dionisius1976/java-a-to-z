@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+	<version>1.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.dionisius</groupId>
+	<artifactId>annotations</artifactId>
+	<packaging>war</packaging>
+
+	<parent>
+		<version>1.0</version>
+		<groupId>ru.dionisius</groupId>
+		<artifactId>2_MVC</artifactId>
+	</parent>
+
+</project>

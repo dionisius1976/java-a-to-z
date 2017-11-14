@@ -19,7 +19,7 @@
 		<spring-context.version>5.0.1.RELEASE</spring-context.version>
 		<spring-beans.version>5.0.1.RELEASE</spring-beans.version>
 		<spring-jdbc.version>5.0.1.RELEASE</spring-jdbc.version>
-		<spring-webmvc.version>5.0.0.RELEASE</spring-webmvc.version>
+		<spring-webmvc.version>5.0.1.RELEASE</spring-webmvc.version>
 		<spring-web.version>5.0.1.RELEASE</spring-web.version>
 		<spring-test.version>5.0.1.RELEASE</spring-test.version>
 		<tomcat-jdbc.version>9.0.0.M26</tomcat-jdbc.version>

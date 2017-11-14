@@ -1,10 +1,9 @@
 package ru.dionisius.data.dbtools;
 
-import org.junit.Assert;
-import org.junit.Test;
-import ru.dionisius.data.pojo.Ad;
-import ru.dionisius.data.pojo.Car;
-import ru.dionisius.data.pojo.User;
+import org.junit.*;
+import ru.dionisius.data.models.Ad;
+import ru.dionisius.data.models.Car;
+import ru.dionisius.data.models.User;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,7 +18,7 @@ public class DbManagerTest {
     /**
      * DbManger instance.
      */
-    private static final IDbManager manager = new DbManager();
+    private static final DbManager manager = new DbManager();
     /**
      * Car instance for tests.
      */
@@ -65,14 +64,31 @@ public class DbManagerTest {
     private static final double DELTA = 1e-15;
 
     /**
+     * Clears ads database before each test method.
+     */
+    @After
+    public void afterMethod() {
+        manager.clearAll();
+    }
+
+    /**
+     * Closes DbManager's sessionFactory.
+     */
+    @AfterClass
+    public static void after() {
+        manager.closeSessionFactory();
+    }
+
+    /**
      * Tests createAdvertisement method.
      * @throws Exception if oocurs.
      */
     @Test
     public void createAdvertisement() throws Exception {
-        List<Ad>initialList = this.manager.getAll();
+        List<Ad>initialList = manager.getAll();
         int initialAdsNumber = 0;
         Assert.assertEquals(initialList.size(), initialAdsNumber);
+
         manager.createAdvertisement(ad1);
         manager.createAdvertisement(ad2);
         List<Ad> expectedList = new ArrayList<>();
@@ -96,7 +112,6 @@ public class DbManagerTest {
             Assert.assertEquals(ad.getUser().getTelNumber(), expectedList.get(counter).getUser().getTelNumber());
             ++counter;
         }
-        manager.closeConnection();
     }
     /**
      * Tests getAllActual method.
@@ -104,7 +119,7 @@ public class DbManagerTest {
      */
     @Test
     public void getAllActual() throws Exception {
-        List<Ad>adList = this.manager.getAll();
+        List<Ad>adList = manager.getAll();
         int adsNumber = 0;
         Assert.assertEquals(adList.size(), adsNumber);
 
@@ -112,7 +127,7 @@ public class DbManagerTest {
         long idAd2 = manager.createAdvertisement(ad2);
         long idAd3 = manager.createAdvertisement(ad3);
 
-        adList = this.manager.getAll();
+        adList = manager.getAll();
         adsNumber = 3;
         Assert.assertEquals(adList.size(), adsNumber);
 
@@ -148,7 +163,6 @@ public class DbManagerTest {
             Assert.assertEquals(ad.getUser().getTelNumber(), expectedList.get(counter).getUser().getTelNumber());
             ++counter;
         }
-        manager.closeConnection();
     }
     /**
      * Tests getAll method.
@@ -189,6 +203,4 @@ public class DbManagerTest {
     public void whenGetUserByLoginAndPasswordThenExpectedUserIsInDatabase() throws Exception {
         this.whenCreateUserThenUserIsCreated();
     }
-
-
 }

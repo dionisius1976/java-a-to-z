@@ -6,7 +6,6 @@ CREATE TABLE cars(
 	engine REAL,
 	year INTEGER
 );
-
 CREATE TABLE users(
 	id SERIAL PRIMARY KEY,
 	login VARCHAR(100) UNIQUE ,
@@ -16,7 +15,6 @@ CREATE TABLE users(
 	tel_number VARCHAR (50) UNIQUE,
 	create_date TIMESTAMP
 );
-
 CREATE TABLE ads(
 	id SERIAL PRIMARY KEY,
 	description VARCHAR(500),

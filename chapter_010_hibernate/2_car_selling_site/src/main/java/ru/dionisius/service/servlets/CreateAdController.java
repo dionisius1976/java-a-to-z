@@ -2,9 +2,9 @@ package ru.dionisius.service.servlets;
 
 import ru.dionisius.data.dbtools.DbManager;
 import ru.dionisius.data.dbtools.IDbManager;
-import ru.dionisius.data.pojo.Ad;
-import ru.dionisius.data.pojo.Car;
-import ru.dionisius.data.pojo.User;
+import ru.dionisius.data.models.Ad;
+import ru.dionisius.data.models.Car;
+import ru.dionisius.data.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

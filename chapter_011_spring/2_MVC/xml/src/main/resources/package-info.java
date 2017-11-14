@@ -5,4 +5,4 @@
  * @version $Id$
  * @since 0.1
  */
-package ru.dionisius.data.pojo;
+package ru.dionisius.data.models;

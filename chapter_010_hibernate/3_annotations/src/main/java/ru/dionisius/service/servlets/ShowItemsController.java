@@ -1,7 +1,7 @@
 package ru.dionisius.service.servlets;
 
 import com.google.gson.Gson;
-import ru.dionisius.data.pojo.Ad;
+import ru.dionisius.data.models.Ad;
 import ru.dionisius.DbManager;
 import ru.dionisius.IDbManager;
 

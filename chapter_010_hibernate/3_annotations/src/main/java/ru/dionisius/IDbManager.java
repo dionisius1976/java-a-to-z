@@ -1,7 +1,7 @@
 package ru.dionisius;
 
-import ru.dionisius.data.pojo.Ad;
-import ru.dionisius.data.pojo.User;
+import ru.dionisius.data.models.Ad;
+import ru.dionisius.data.models.User;
 
 import java.util.List;
 import java.util.Set;

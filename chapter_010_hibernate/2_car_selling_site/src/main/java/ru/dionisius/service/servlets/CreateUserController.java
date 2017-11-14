@@ -3,7 +3,7 @@ package ru.dionisius.service.servlets;
 import com.google.gson.Gson;
 import ru.dionisius.data.dbtools.DbManager;
 import ru.dionisius.data.dbtools.IDbManager;
-import ru.dionisius.data.pojo.User;
+import ru.dionisius.data.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

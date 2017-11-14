@@ -1,7 +1,7 @@
 package ru.dionisius.data.dbtools;
 
-import ru.dionisius.data.pojo.Ad;
-import ru.dionisius.data.pojo.User;
+import ru.dionisius.data.models.Ad;
+import ru.dionisius.data.models.User;
 
 import java.util.List;
 import java.util.Set;
@@ -53,5 +53,5 @@ public interface IDbManager {
     /**
      * Closes current using Hibernate SessionFactory.
      */
-    void closeConnection();
+    void closeSessionFactory();
 }

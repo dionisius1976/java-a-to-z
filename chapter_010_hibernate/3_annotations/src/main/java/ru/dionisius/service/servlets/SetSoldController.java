@@ -1,6 +1,6 @@
 package ru.dionisius.service.servlets;
 
-import ru.dionisius.data.pojo.Ad;
+import ru.dionisius.data.models.Ad;
 import ru.dionisius.DbManager;
 import ru.dionisius.IDbManager;
 

@@ -32,6 +32,6 @@ public class AppContextListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
         ServletContext ctx = servletContextEvent.getServletContext();
         IDbManager dBManager = (DbManager) ctx.getAttribute("dBManager");
-        dBManager.closeConnection();
+        dBManager.closeSessionFactory();
     }
 }

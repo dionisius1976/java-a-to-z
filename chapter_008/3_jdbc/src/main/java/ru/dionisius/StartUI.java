@@ -1,9 +1,9 @@
 package ru.dionisius;
 
-import ru.dionisius.controllers.input.Input;
-import ru.dionisius.controllers.MenuTracker;
-import ru.dionisius.controllers.Tracker;
-import ru.dionisius.controllers.input.ValidateInput;
+import ru.dionisius.service.input.Input;
+import ru.dionisius.service.MenuTracker;
+import ru.dionisius.service.Tracker;
+import ru.dionisius.service.input.ValidateInput;
 
 /**
  * Class starts the program.

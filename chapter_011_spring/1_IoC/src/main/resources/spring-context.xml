@@ -7,11 +7,11 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="ru.dionisius.storages"/>
+    <context:component-scan base-package="ru.dionisius.data.storages"/>
 
-    <!--<bean id="memoryStorage" class="ru.dionisius.storages.MemoryStorage"/>-->
+    <!--<bean id="memoryStorage" class="ru.dionisius.data.storages.MemoryStorage"/>-->
 
-    <!--<bean id="userStorage" class="ru.dionisius.storages.UserStorage">-->
+    <!--<bean id="userStorage" class="ru.dionisius.data.storages.UserStorage">-->
         <!--<constructor-arg name="storage" ref="memoryStorage"></constructor-arg>-->
     <!--</bean>-->
 

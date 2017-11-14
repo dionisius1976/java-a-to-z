@@ -6,10 +6,9 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.dionisius.data.dbtools.HibernateUtil;
-import ru.dionisius.data.pojo.Ad;
-import ru.dionisius.data.pojo.Car;
-import ru.dionisius.data.pojo.User;
+import ru.dionisius.data.models.Ad;
+import ru.dionisius.data.models.Car;
+import ru.dionisius.data.models.User;
 
 import java.util.List;
 import java.util.Set;
@@ -186,8 +185,24 @@ public class DbManager implements ru.dionisius.data.dbtools.IDbManager {
     }
 
     @Override
-    public void closeConnection() {
+    public void closeSessionFactory() {
         this.factory.close();
+    }
+
+    public void clearAll() {
+        Session session = this.factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Query query = session.createQuery("delete Ad");
+            query.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            LOG.error(e.getMessage(), e);
+        } finally {
+            session.close();
+        }
     }
 
 }

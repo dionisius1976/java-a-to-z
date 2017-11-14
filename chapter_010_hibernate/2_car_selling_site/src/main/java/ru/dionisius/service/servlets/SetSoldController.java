@@ -1,8 +1,8 @@
 package ru.dionisius.service.servlets;
 
-import ru.dionisius.data.pojo.Ad;
 import ru.dionisius.data.dbtools.DbManager;
 import ru.dionisius.data.dbtools.IDbManager;
+import ru.dionisius.data.models.Ad;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

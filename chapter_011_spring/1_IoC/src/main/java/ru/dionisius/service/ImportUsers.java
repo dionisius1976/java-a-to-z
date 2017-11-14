@@ -2,8 +2,8 @@ package ru.dionisius.service;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.dionisius.models.User;
-import ru.dionisius.storages.UserStorage;
+import ru.dionisius.data.models.User;
+import ru.dionisius.data.storages.UserStorage;
 
 /**
  * Created by Dionisius on 28.10.2017.

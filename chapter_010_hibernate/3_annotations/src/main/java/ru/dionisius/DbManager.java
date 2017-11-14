@@ -6,9 +6,9 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.dionisius.data.pojo.Ad;
-import ru.dionisius.data.pojo.Car;
-import ru.dionisius.data.pojo.User;
+import ru.dionisius.data.models.Ad;
+import ru.dionisius.data.models.Car;
+import ru.dionisius.data.models.User;
 
 import java.util.List;
 import java.util.Set;

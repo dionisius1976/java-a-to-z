@@ -1,5 +1,6 @@
 package ru.dionisius.data.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.dionisius.data.models.Ad;
 import ru.dionisius.data.models.Car;
@@ -12,7 +13,7 @@ import java.util.List;
  * Created by Dionisius on 14.11.2017.
  */
 @Repository
-public class FakeDAO implements IAdsDao {
+public class FakeDao implements IAdsDao {
     private List<Ad> ads = Arrays.asList(new Ad("Ad1", 300,
             new User("1", "1", "Ivan", "Poddubnyy", "+79217776655"),
             new Car("Mersedes", "S600", "auto", 6.0f, 2006)),
@@ -25,9 +26,7 @@ public class FakeDAO implements IAdsDao {
     }
 
     @Override
-    public void updateAd(Ad ad) {
-
-    }
+    public void updateAd(Ad ad) {}
 
     @Override
     public List<Ad> getAll() {
@@ -40,7 +39,5 @@ public class FakeDAO implements IAdsDao {
     }
 
     @Override
-    public void removeAd(long id) {
-
-    }
+    public void removeAd(long id) {}
 }

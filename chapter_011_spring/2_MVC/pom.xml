@@ -18,7 +18,7 @@
 
 	<modules>
 		<module>xml</module>
-		<module>annotations</module>
+		<module>annotations_mvc</module>
 	</modules>
 
 </project>

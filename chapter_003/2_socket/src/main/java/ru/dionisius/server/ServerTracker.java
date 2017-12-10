@@ -133,7 +133,7 @@ public class ServerTracker extends ATracker {
     }
     /**
      * Returns inputted by user key for specified action.
-     * @param in ru.dionisius.data input stream
+     * @param in ru.dionisius.ru.dionisius.data input stream
      * @return inputted by user key for specified action
      * @throws IOException if IO error occurs
      */

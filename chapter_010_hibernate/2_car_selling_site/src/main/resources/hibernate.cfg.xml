@@ -8,6 +8,6 @@
         <property name="dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
         <property name="show_sql">true</property>
 
-        <mapping resource="ru/dionisius/data/Ad.hbm.xml"/>
+        <mapping resource="ru/dionisius/ru.dionisius.data/Ad.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

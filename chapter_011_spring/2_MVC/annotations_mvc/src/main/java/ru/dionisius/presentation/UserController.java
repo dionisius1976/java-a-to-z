@@ -22,7 +22,7 @@ public class UserController {
 
     @Autowired
 //    @Qualifier(value = "AdService")
-    AdService adService;
+    IAdService adService;
 
     //    @Autowired
 //    @Qualifier(value = "FakeDAO")

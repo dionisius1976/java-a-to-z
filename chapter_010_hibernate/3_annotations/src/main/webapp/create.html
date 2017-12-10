@@ -24,15 +24,15 @@
                         }
                     });
                     if (!error) {
-                        var ru.dionisius.data = form.serialize();
+                        var ru.dionisius.ru.dionisius.data = form.serialize();
                         $.ajax({
-                            type: 'post', url: "./create", dataType: 'json', ru.dionisius.data: ru.dionisius.data,
+                            type: 'post', url: "./create", dataType: 'json', ru.dionisius.ru.dionisius.data: ru.dionisius.ru.dionisius.data,
                             error: function (xhr, ajaxOptions, thrownError) {
                                 alert("Error: Server response: " +xhr.status);
                                 alert("Error: Thrown error: "+thrownError);
                                 alert(xhr.getAllResponseHeaders());
                             },
-                            complete: function (ru.dionisius.data) {
+                            complete: function (ru.dionisius.ru.dionisius.data) {
                                 window.location.href = "/main.html";
                             }
                         });

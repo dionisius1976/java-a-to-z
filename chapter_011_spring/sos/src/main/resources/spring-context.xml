@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <!--<context:annotation-config/>-->
+    <context:component-scan base-package="ru.dionisius.data.dao"/>
+    <context:component-scan base-package="ru.dionisius.service"/>
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
+          <!--destroy-method="close">-->
+        <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
+              <!--destroy-method="close">-->
+            <!--<property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
+            <!--<property name="url" value="jdbc:mysql://localhost:3306/TEST" />-->
+            <!--<property name="username" value="testuser" />-->
+            <!--<property name="password" value="testpasswd" />-->
+        <!--</bean>-->
+
+        <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
+            <!--<property name="dataSource" ref="dataSource"></property>-->
+            <!--<property name="hibernateProperties">-->
+                <!--<props>-->
+                    <!--<prop-->
+                            <!--key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+                    <!--<prop key="hibernate.show_sql">true</prop>-->
+                <!--</props>-->
+            <!--</property>-->
+            <!--<property name="packagesToScan" value="com.byteslounge.spring.tx.model" />-->
+        <!--</bean>-->
+
+        <!--<bean id="transactionManager"-->
+              <!--class="org.springframework.orm.hibernate4.HibernateTransactionManager"-->
+              <!--p:sessionFactory-ref="sessionFactory">-->
+        <!--</bean>-->
+    <!--</bean>-->
+
+    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource"></property>-->
+        <!--<property name="hibernateProperties">-->
+            <!--<props>-->
+                <!--<prop-->
+                        <!--key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+                <!--<prop key="hibernate.show_sql">true</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+        <!--<property name="packagesToScan" value="com.byteslounge.spring.tx.model" />-->
+    <!--</bean>-->
+
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.orm.hibernate4.HibernateTransactionManager"-->
+          <!--p:sessionFactory-ref="sessionFactory">-->
+    <!--</bean>-->
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+        <!--<property name="driverClassName" value="org.postgresql.Driver" />-->
+        <!--<property name="url" value="jdbc:postgresql://localhost:5432/users5" />-->
+        <!--<property name="username" value="postgres" />-->
+        <!--<property name="password" value="absurdus" />-->
+    <!--</bean>-->
+
+    <!--<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!-- enable the configuration of transactional behavior based on annotations -->
+    <!--<tx:annotation-driven transaction-manager="txManager"/>&lt;!&ndash; a PlatformTransactionManager is still required &ndash;&gt;-->
+    <!--<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--&lt;!&ndash; (this dependency is defined somewhere else) &ndash;&gt;-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+    <!--<tx:annotation-driven />-->
+    <!--<bean id="memoryStorage" class="ru.dionisius.ru.dionisius.data.storages.MemoryStorage"/>-->
+
+    <!--<bean id="userStorage" class="ru.dionisius.ru.dionisius.data.storages.UserStorage">-->
+        <!--<constructor-arg name="storage" ref="memoryStorage"></constructor-arg>-->
+    <!--</bean>-->
+
+
+</beans>

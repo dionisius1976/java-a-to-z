@@ -41,7 +41,7 @@ public class FindMaxDistance {
      * Calculates the biggest distance between the first
      * and the last same numbers in specified array
      * for every number of the array and stores this
-     * calculated ru.dionisius.data in the map.
+     * calculated ru.dionisius.ru.dionisius.data in the map.
      */
     private void find() {
         NumberValue newNumberValue = null;

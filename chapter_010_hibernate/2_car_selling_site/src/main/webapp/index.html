@@ -17,18 +17,18 @@
 
             $("#login_form").submit(function(){
                 var form = $(this);
-                    var data = form.serialize();
+                    var ru.dionisius.data = form.serialize();
                     $.ajax({
                         type: 'post',
                         url: './login',
                         dataType: 'json',
-                        data: data,
+                        ru.dionisius.data: ru.dionisius.data,
                         error: function (xhr, ajaxOptions, thrownError) {
                             alert("Error: Server response: " +xhr.status);
                             alert("Error: Thrown error: "+thrownError);
                             alert(xhr.getAllResponseHeaders());
                         },
-                        complete: function(data){
+                        complete: function(ru.dionisius.data){
                             window.location.href = "/main.html";
                         }
                     });

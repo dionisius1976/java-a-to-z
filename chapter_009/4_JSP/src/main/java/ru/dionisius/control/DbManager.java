@@ -19,7 +19,7 @@ import java.util.Properties;
 /**
  * Created by Dionisius on 26.07.2017.
  * Works with specified database.
- * It can add new user, edit user's personal ru.dionisius.data,
+ * It can add new user, edit user's personal ru.dionisius.ru.dionisius.data,
  * delete specified user, return list of all users
  * and find specified user.
  */

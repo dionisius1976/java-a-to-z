@@ -68,9 +68,9 @@
                     }
                 });
                 if (!error) {
-                    var ru.dionisius.data = form.serialize();
+                    var ru.dionisius.ru.dionisius.data = form.serialize();
                     $.ajax({
-                        type: 'post', url:"./create", dataType: 'json', ru.dionisius.data: ru.dionisius.data
+                        type: 'post', url:"./create", dataType: 'json', ru.dionisius.ru.dionisius.data: ru.dionisius.ru.dionisius.data
                     });
                 }
                 showAllItems();
@@ -89,8 +89,8 @@
                         alert("Error: Thrown error: "+thrownError);
                         alert(xhr.getAllResponseHeaders());
                     },
-                    complete: function (ru.dionisius.data) {
-                        var items = JSON.parse(ru.dionisius.data.responseText);
+                    complete: function (ru.dionisius.ru.dionisius.data) {
+                        var items = JSON.parse(ru.dionisius.ru.dionisius.data.responseText);
                         var result = "<tr id='table_headers'>" +
                             "<td>Id</td>" +
                             "<td>Description</td>" +
@@ -124,8 +124,8 @@
                         alert("Error: Thrown error: "+thrownError);
                         alert(xhr.getAllResponseHeaders());
                     },
-                    complete: function (ru.dionisius.data) {
-                        var items = JSON.parse(ru.dionisius.data.responseText);
+                    complete: function (ru.dionisius.ru.dionisius.data) {
+                        var items = JSON.parse(ru.dionisius.ru.dionisius.data.responseText);
                         var result = "<tr id='table_headers'>" +
                             "<td>Id</td>" +
                             "<td>Description</td>" +

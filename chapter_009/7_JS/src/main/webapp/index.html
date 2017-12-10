@@ -42,12 +42,12 @@
                     }
                 });
                 if (!error) {
-                    var ru.dionisius.data = form.serialize();
+                    var ru.dionisius.ru.dionisius.data = form.serialize();
                     $.ajax({
                         type: 'post',
                         url: './add_user',
                         dataType: 'json',
-                        ru.dionisius.data: ru.dionisius.data
+                        ru.dionisius.ru.dionisius.data: ru.dionisius.ru.dionisius.data
                     });
                 }
                 showUsers();
@@ -58,8 +58,8 @@
             $.ajax({
                 method: "get",
                 url: './add_user',
-                complete: function(ru.dionisius.data) {
-                    var users = JSON.parse(ru.dionisius.data.responseText);
+                complete: function(ru.dionisius.ru.dionisius.data) {
+                    var users = JSON.parse(ru.dionisius.ru.dionisius.data.responseText);
                     var result = "<tr>" +
                                 "<td>Name</td>" +
                                 "<td>Login</td>" +
@@ -85,7 +85,7 @@
 </head>
 <body>
 <div>
-    <h3> Input user's ru.dionisius.data: </h3>
+    <h3> Input user's ru.dionisius.ru.dionisius.data: </h3>
 </div>
 <form method="post"  action="" id="ajaxform">
         <p>Name : <input id="name" type='text' name='name'></p>
@@ -97,7 +97,7 @@
 </form>
 </div>
 <div>
-    <h3> All users' ru.dionisius.data table</h3>
+    <h3> All users' ru.dionisius.ru.dionisius.data table</h3>
     <table>
 
     </table>

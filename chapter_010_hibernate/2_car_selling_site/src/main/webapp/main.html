@@ -66,8 +66,8 @@
                         alert("Error: Thrown error: "+thrownError);
                         alert(xhr.getAllResponseHeaders());
                     },
-                    complete: function (data) {
-                        var result = getResultTab(data);
+                    complete: function (ru.dionisius.data) {
+                        var result = getResultTab(ru.dionisius.data);
                         $("table").html(result);
                     }
                 });
@@ -82,8 +82,8 @@
                         alert("Error: Thrown error: "+thrownError);
                         alert(xhr.getAllResponseHeaders());
                     },
-                    complete: function (data) {
-                        var result = data.responseText;
+                    complete: function (ru.dionisius.data) {
+                        var result = ru.dionisius.data.responseText;
                         $("#greeting").html("<p> Hi, " + result + ".</p>");
                         if(result == "guest") {
                             $("#add_button").hide();
@@ -105,15 +105,15 @@
                         alert("Error: Thrown error: "+thrownError);
                         alert(xhr.getAllResponseHeaders());
                     },
-                    complete: function (data) {
-                        var result = getResultTab(data);
+                    complete: function (ru.dionisius.data) {
+                        var result = getResultTab(ru.dionisius.data);
                         $("table").html(result);
                     }
                 })
             }
 
-            function getResultTab(data) {
-                var items = JSON.parse(data.responseText);
+            function getResultTab(ru.dionisius.data) {
+                var items = JSON.parse(ru.dionisius.data.responseText);
                 var result = "<tr id='table_headers'>" +
                     "<td>Id</td>" +
                     "<td>Description</td>" +

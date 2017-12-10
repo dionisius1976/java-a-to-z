@@ -194,7 +194,7 @@ public class DbManager implements ru.dionisius.data.dbtools.IDbManager {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Query query = session.createQuery("delete Ad");
+            Query query = session.createQuery("delete Ad ");
             query.executeUpdate();
             tx.commit();
         } catch (Exception e) {

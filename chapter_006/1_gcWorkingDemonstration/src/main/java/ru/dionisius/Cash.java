@@ -10,13 +10,13 @@ import java.io.IOException;
  */
 public class Cash extends ACash {
     /**
-     * Specified file with ru.dionisius.data.
+     * Specified file with ru.dionisius.ru.dionisius.data.
      */
     private final String fileName;
 
     /**
      * Constructor.
-     * @param fileName specified file with ru.dionisius.data.
+     * @param fileName specified file with ru.dionisius.ru.dionisius.data.
      */
     public Cash(String fileName) {
         this.fileName = fileName;

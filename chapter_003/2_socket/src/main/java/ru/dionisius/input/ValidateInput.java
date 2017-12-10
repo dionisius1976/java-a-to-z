@@ -2,7 +2,7 @@ package ru.dionisius.input;
 
 /**
  * Class checks user's input.
- * Inputed ru.dionisius.data must be a number from specified range of available actions
+ * Inputed ru.dionisius.ru.dionisius.data must be a number from specified range of available actions
  * Created by Dionisius on 09.12.2016.
  */
 public class ValidateInput extends ConsoleInput {

@@ -10,6 +10,6 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <mapping resource="ru/dionisius/data/Ad.hbm.xml"/>
+        <mapping resource="ru/dionisius/ru.dionisius.data/Ad.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

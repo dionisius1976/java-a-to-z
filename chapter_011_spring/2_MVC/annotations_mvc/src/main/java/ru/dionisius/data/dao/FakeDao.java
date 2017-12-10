@@ -1,7 +1,9 @@
 package ru.dionisius.data.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import ru.dionisius.data.models.Ad;
 import ru.dionisius.data.models.Car;
 import ru.dionisius.data.models.User;
@@ -12,7 +14,7 @@ import java.util.List;
 /**
  * Created by Dionisius on 14.11.2017.
  */
-@Repository
+//@Repository
 public class FakeDao implements IAdsDao {
     private List<Ad> ads = Arrays.asList(new Ad("Ad1", 300,
             new User("1", "1", "Ivan", "Poddubnyy", "+79217776655"),

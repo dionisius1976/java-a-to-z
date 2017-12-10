@@ -1,5 +1,6 @@
 package ru.dionisius.data.dao;
 
+import org.springframework.stereotype.Repository;
 import ru.dionisius.data.models.Ad;
 
 import java.util.List;

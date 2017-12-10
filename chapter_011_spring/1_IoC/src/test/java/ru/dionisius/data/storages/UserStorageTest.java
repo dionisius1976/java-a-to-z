@@ -58,7 +58,7 @@ public class UserStorageTest {
 
     /**
      * Tests add(), get(long id) and getAll() methods of JdbcStorage.
-     * Initial users are inserted in data.sql file in resources directory.
+     * Initial users are inserted in ru.dionisius.data.sql file in resources directory.
      */
     @Test
     public void whenAddingUsersAndAllUsersMethodInJdbcStorageThenExpectedUsersReturned() {

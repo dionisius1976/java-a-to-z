@@ -5,8 +5,8 @@ import java.util.List;
 
 /**
  * Created by Dionisius on 05.08.2017.
- * This class stores user's ru.dionisius.data,
- * has getters for this ru.dionisius.data
+ * This class stores user's ru.dionisius.ru.dionisius.data,
+ * has getters for this ru.dionisius.ru.dionisius.data
  * and overrides toString() method.
  */
 public class User {

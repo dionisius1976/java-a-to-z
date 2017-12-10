@@ -17,19 +17,19 @@
 
             $("#sign_up_form").submit(function(){
                 var form = $(this);
-                var ru.dionisius.data = form.serialize();
+                var ru.dionisius.ru.dionisius.data = form.serialize();
                 $.ajax({
                     type: 'post',
                     url: './sign_up',
                     dataType: 'json',
-                    ru.dionisius.data: ru.dionisius.data,
+                    ru.dionisius.ru.dionisius.data: ru.dionisius.ru.dionisius.data,
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert("Error: Server response: " +xhr.status);
                         alert("Error: Thrown error: "+thrownError);
                         alert(xhr.getAllResponseHeaders());
                     },
-                    complete: function(ru.dionisius.data){
-                        var result = JSON.parse(ru.dionisius.data.responseText);
+                    complete: function(ru.dionisius.ru.dionisius.data){
+                        var result = JSON.parse(ru.dionisius.ru.dionisius.data.responseText);
                         if (result == "ok") {
                             window.location.href = "/main.html";
                         } else {
@@ -52,7 +52,7 @@
 <body>
 <div>
     <form method="post" action="" id="sign_up_form">
-        <h3>Hi, guest! Enter your personal ru.dionisius.data, please:</h3>
+        <h3>Hi, guest! Enter your personal ru.dionisius.ru.dionisius.data, please:</h3>
         </br>
         <p>Login : <input id = "login" type='text' name='login' ></p>
         <p>Password : <input id="password" type='password' name='password'></p>

@@ -1,4 +1,4 @@
-<%@ page import="ru.dionisius.ru.dionisius.data.pojo.User" %>
+<%@ page import="ru.dionisius.ru.dionisius.ru.dionisius.data.pojo.User" %>
 <%@ page import="ru.dionisius.control.DbManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 

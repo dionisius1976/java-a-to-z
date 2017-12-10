@@ -9,8 +9,8 @@ import java.sql.Timestamp;
 /**
  * Created by Dionisius on 05.08.2017.
  * POJO.
- * This class stores task's ru.dionisius.data
- * and has getters and setters for this ru.dionisius.data.
+ * This class stores task's ru.dionisius.ru.dionisius.data
+ * and has getters and setters for this ru.dionisius.ru.dionisius.data.
  */
 @javax.persistence.Entity
 @Table(name = "ads")

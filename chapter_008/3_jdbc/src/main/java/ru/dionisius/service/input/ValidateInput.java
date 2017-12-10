@@ -3,9 +3,9 @@ package ru.dionisius.service.input;
 import ru.dionisius.service.exceptions.MenuOutException;
 
 /**
- * Validates user's inputted ru.dionisius.data.
- * If this ru.dionisius.data is invalid prints error message
- * and ask to input valid ru.dionisius.data.
+ * Validates user's inputted ru.dionisius.ru.dionisius.data.
+ * If this ru.dionisius.ru.dionisius.data is invalid prints error message
+ * and ask to input valid ru.dionisius.ru.dionisius.data.
  * If inputted by user menu option is out of valid range
  * throws MenuOutException.
  * If inputted by user menu option is not a number
@@ -13,9 +13,9 @@ import ru.dionisius.service.exceptions.MenuOutException;
  */
 public class ValidateInput extends ConsoleInput {
 	/**
-	 * * Validates user's inputted ru.dionisius.data.
-	 * If this ru.dionisius.data is invalid prints error message
-	 * and ask to input valid ru.dionisius.data.
+	 * * Validates user's inputted ru.dionisius.ru.dionisius.data.
+	 * If this ru.dionisius.ru.dionisius.data is invalid prints error message
+	 * and ask to input valid ru.dionisius.ru.dionisius.data.
 	 * If inputted by user menu option is out of valid range
 	 * throws MenuOutException.
 	 * If inputted by user menu option is not a number

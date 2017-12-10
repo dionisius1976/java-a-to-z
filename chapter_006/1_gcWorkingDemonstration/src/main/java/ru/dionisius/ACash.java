@@ -35,9 +35,9 @@ public abstract class ACash <K, V> {
     }
 
     /**
-     * Gets the ru.dionisius.data from specified source.
-     * @param <T> the type of ru.dionisius.data.
-     * @return ru.dionisius.data.
+     * Gets the ru.dionisius.ru.dionisius.data from specified source.
+     * @param <T> the type of ru.dionisius.ru.dionisius.data.
+     * @return ru.dionisius.ru.dionisius.data.
      */
     protected abstract <T> T getData();
 }

@@ -3,13 +3,15 @@ package ru.dionisius.data.models;
 import org.hibernate.Hibernate;
 import org.hibernate.proxy.HibernateProxy;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.sql.Timestamp;
 
 /**
  * Created by Dionisius on 05.08.2017.
  * POJO.
- * This class stores task's ru.dionisius.data
- * and has getters and setters for this ru.dionisius.data.
+ * This class stores task's ru.dionisius.ru.dionisius.data
+ * and has getters and setters for this ru.dionisius.ru.dionisius.data.
  */
 public class Ad {
     /**

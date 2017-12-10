@@ -57,9 +57,9 @@
                     }
                 });
                 if (!error) {
-                    var ru.dionisius.data = form.serialize();
+                    var ru.dionisius.ru.dionisius.data = form.serialize();
                     $.ajax({
-                        type: 'post', url:"./create", dataType: 'json', ru.dionisius.data: ru.dionisius.data
+                        type: 'post', url:"./create", dataType: 'json', ru.dionisius.ru.dionisius.data: ru.dionisius.ru.dionisius.data
                     });
                 }
                 showUsers();
@@ -75,9 +75,9 @@
                     }
                 });
                 if (!error) {
-                    var ru.dionisius.data = form.serialize();
+                    var ru.dionisius.ru.dionisius.data = form.serialize();
                     $.ajax({
-                        type: 'post', url:"./delete", dataType: 'json', ru.dionisius.data: ru.dionisius.data
+                        type: 'post', url:"./delete", dataType: 'json', ru.dionisius.ru.dionisius.data: ru.dionisius.ru.dionisius.data
                     });
                 }
                 showUsers();
@@ -93,9 +93,9 @@
                     }
                 });
                 if (!error) {
-                    var ru.dionisius.data = form.serialize();
+                    var ru.dionisius.ru.dionisius.data = form.serialize();
                     $.ajax({
-                        type: 'post', url:"./update", dataType: 'json', ru.dionisius.data: ru.dionisius.data
+                        type: 'post', url:"./update", dataType: 'json', ru.dionisius.ru.dionisius.data: ru.dionisius.ru.dionisius.data
                     });
                 }
                 showUsers();
@@ -106,8 +106,8 @@
             $.ajax({
                 method: "get",
                 url: "./create",
-                complete: function(ru.dionisius.data) {
-                    var users = JSON.parse(ru.dionisius.data.responseText);
+                complete: function(ru.dionisius.ru.dionisius.data) {
+                    var users = JSON.parse(ru.dionisius.ru.dionisius.data.responseText);
                     var result = "<tr id='table_headers'>" +
                         "<td>Id</td>" +
                         "<td>Name</td>" +
@@ -208,7 +208,7 @@
     </form>
 </div>
 <div>
-    <h3> All users' ru.dionisius.data table</h3>
+    <h3> All users' ru.dionisius.ru.dionisius.data table</h3>
     <table>
 
     </table>

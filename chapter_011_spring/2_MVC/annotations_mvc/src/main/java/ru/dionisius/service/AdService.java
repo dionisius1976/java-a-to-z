@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.dionisius.data.dao.FakeDao;
+import ru.dionisius.data.dao.AdDao;
 import ru.dionisius.data.dao.IAdsDao;
 import ru.dionisius.data.models.Ad;
 
@@ -16,9 +16,13 @@ import java.util.List;
 @Service
 public class AdService implements IAdService {
     @Autowired
-//    @Qualifier("fakeDao")
+//    @Qualifier("adDao")
     private IAdsDao dao;
-//    private FakeDao dao;
+//    private IAdsDao dao;
+
+    public AdService() {
+        System.out.println("AdService instantiated.");
+    }
 
     @Override
 //    @Transactional
@@ -33,13 +37,13 @@ public class AdService implements IAdService {
     }
 
     @Override
-//    @Transactional
+    @Transactional
     public List<Ad> getAll() {
         return this.dao.getAll();
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public Ad getAdById(long id) {
         return this.dao.getAdById(id);
     }

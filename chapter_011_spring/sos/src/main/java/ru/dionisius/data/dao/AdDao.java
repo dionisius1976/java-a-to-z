@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by Dionisius on 10.11.2017.
  */
-//@Repository
+@Repository
 public class AdDao implements IAdsDao {
     /**
      * Logger for database errors.

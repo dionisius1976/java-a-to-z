@@ -7,8 +7,11 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * Created by Dionisius on 26.10.2017.
  */
 public class WebDesc
-        extends AbstractAnnotationConfigDispatcherServletInitializer
-{
+        extends AbstractAnnotationConfigDispatcherServletInitializer {
+    public WebDesc() {
+        System.out.println("WebDesc instantiated.");
+    }
+
     @Nullable
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -23,6 +26,6 @@ public class WebDesc
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/orders"};
+        return new String[]{"/"};
     }
 }

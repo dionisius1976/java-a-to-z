@@ -1,8 +1,5 @@
 package ru.dionisius.data.models;
 
-import org.hibernate.Hibernate;
-import org.hibernate.proxy.HibernateProxy;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -12,14 +9,14 @@ import java.sql.Timestamp;
  * This class stores task's ru.dionisius.ru.dionisius.data
  * and has getters and setters for this ru.dionisius.ru.dionisius.data.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "ads")
 public class Ad {
     /**
      * Advertisement's id.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     /**
      * Advertisement's login.
@@ -44,14 +41,15 @@ public class Ad {
     /**
      * Master of this advertisement.
      */
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
     /**
      * Car that sells in this advertisement.
      */
-    @ManyToOne
-    @JoinColumn(name = "car_id", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToOne(cascade= CascadeType.ALL)
+    @JoinColumn(name = "car_id")
     private Car car;
 
     /**
@@ -181,12 +179,6 @@ public class Ad {
      * @return user.
      */
     public User getUser() {
-//        if (user instanceof HibernateProxy) {
-//            Hibernate.initialize(user);
-//            user = (User) ((HibernateProxy) user)
-//                    .getHibernateLazyInitializer()
-//                    .getImplementation();
-//        }
         return this.user;
     }
 
@@ -195,12 +187,6 @@ public class Ad {
      * @return car.
      */
     public Car getCar() {
-//        if (car instanceof HibernateProxy) {
-//            Hibernate.initialize(car);
-//            car = (Car) ((HibernateProxy) car)
-//                    .getHibernateLazyInitializer()
-//                    .getImplementation();
-//        }
         return this.car;
     }
 

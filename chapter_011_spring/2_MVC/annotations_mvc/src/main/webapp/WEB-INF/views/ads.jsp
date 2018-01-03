@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,29 +21,31 @@
             <table class="table table-bordered">
                 <thead style="background: blue">
                 <tr style="color: white">
-                    <th>Car brand</th>
-                    <th>Car model</th>
-                    <th>Color</th>
-                    <th>Year</th>
+                    <th>Id</th>
                     <th>Description</th>
-                    <th>Price</th>
-                    <th>Create date</th>
-                    <th>User</th>
                     <th>Sold</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Transmission</th>
+                    <th>Engine</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Create_date</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${ads}" var="el">
+                <c:forEach items="${ads}" var="ad">
                     <tr>
-                        <td><c:out value="${el.car.model.brand.name}"/></td>
-                        <td><c:out value="${el.car.model.name}"/></td>
-                        <td><c:out value="${el.car.color}"/></td>
-                        <td><c:out value="${el.car.year}"/></td>
-                        <td><c:out value="${el.description}"/></td>
-                        <td><c:out value="${el.price}"/></td>
-                        <td><c:out value="${el.date}"/></td>
-                        <td><c:out value="${el.user.login}"/></td>
-                        <td><c:out value="${el.sold}"/></td>
+                        <td><c:out value="${ad.id}"/></td>
+                        <td><c:out value="${ad.desc}"/></td>
+                        <td><c:out value="${ad.sold}"/></td>
+                        <td><c:out value="${ad.car.brand}"/></td>
+                        <td><c:out value="${ad.car.model}"/></td>
+                        <td><c:out value="${ad.car.transmission}"/></td>
+                        <td><c:out value="${ad.car.engineCapacity}"/></td>
+                        <td><c:out value="${ad.car.year}"/></td>
+                        <td><c:out value="${ad.price}"/></td>
+                        <td><c:out value="${ad.createDate}"/></td>
                     </tr>
                 </c:forEach>
                 </tbody>

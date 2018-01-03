@@ -15,31 +15,20 @@ import java.util.List;
  * Created by Dionisius on 26.10.2017.
  */
 @Controller
+@RequestMapping("/")
 public class UserController {
-//    private List<Ad> ads = null;
-//    private handler
-//    @RequestMapping(value = "/users", method = RequestMethod.GET)
 
-    @Autowired
-//    @Qualifier(value = "AdService")
-    IAdService adService;
-
-    //    @Autowired
-//    @Qualifier(value = "FakeDAO")
-//    public void setAdService(IAdService adService) {
-//        this.adService = adService;
-//    }
-
-    @RequestMapping(value = "/ad", method = RequestMethod.GET)
-    public @ResponseBody String showHi(final ModelMap modelMap) {
-//        modelMap.addAttribute("ads", this.adService.getAll());
-        return "ads";
+    public UserController() {
+        System.out.println("UserController instantiated.");
     }
 
-//    @GetMapping
-    @RequestMapping(value = "/ads", method = RequestMethod.GET)
+    @Autowired
+    IAdService adService;
+
+    @GetMapping
     public String showAds(final ModelMap modelMap) {
-        modelMap.addAttribute("ads", this.adService.getAll());
+        List<Ad> ads = (List<Ad>)this.adService.getAll();
+        modelMap.addAttribute("ads", ads);
         return "ads";
     }
 

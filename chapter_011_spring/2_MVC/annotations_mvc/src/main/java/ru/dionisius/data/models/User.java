@@ -1,24 +1,20 @@
 package ru.dionisius.data.models;
 
-import org.hibernate.Hibernate;
-import org.hibernate.proxy.HibernateProxy;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Dionisius on 29.09.2017.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "users")
 public class User {
     /**
      * Car's id.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     /**
      * User's login.
@@ -53,12 +49,13 @@ public class User {
     /**
      * User's advertisements.
      */
-    private List<Ad> adList;
-
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Ad> ads;
     /**
      * Default constructer.
      */
-    public User() {}
+    public User() {
+    }
 
     /**
      * Constructor with parameter.
@@ -142,25 +139,12 @@ public class User {
         this.createDate = createDate;
     }
 
-    public List<Ad> getAdList() {
-        List<Ad> result = null;
-        if (this.adList != null && this.adList.size() != 0) {
-            result = new ArrayList<>();
-            for (Ad ad : adList) {
-                if (ad instanceof HibernateProxy) {
-                    Hibernate.initialize(ad);
-                    ad = (Ad) ((HibernateProxy) ad)
-                            .getHibernateLazyInitializer()
-                            .getImplementation();
-                    result.add(ad);
-                }
-            }
-        }
-        return result;
+    public Set<Ad> getAds() {
+        return ads;
     }
 
-    public void setAdList(List<Ad> adList) {
-        this.adList = adList;
+    public void setAds(Set<Ad> ads) {
+        this.ads = ads;
     }
 
     @Override

@@ -5,14 +5,14 @@ import javax.persistence.*;
 /**
  * Created by Dionisius on 29.09.2017.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "cars")
 public class Car {
     /**
      * Car's id.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     /**
      * Car's brand.
@@ -39,6 +39,11 @@ public class Car {
      */
     @Column(name = "year")
     private int year;
+    /**
+     *
+     */
+    @OneToOne (mappedBy = "car", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Ad ad;
 
     /**
      * Default constructor.
@@ -163,6 +168,14 @@ public class Car {
      */
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public Ad getAd() {
+        return ad;
+    }
+
+    public void setAd(Ad ad) {
+        this.ad = ad;
     }
 
     @Override

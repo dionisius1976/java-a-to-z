@@ -17,7 +17,7 @@ import java.util.List;
 public class AdService implements IAdService {
 
     @Autowired
-    @Qualifier("fakeDao")
+    @Qualifier("adDao")
     private IAdsDao dao;
 
     @Override

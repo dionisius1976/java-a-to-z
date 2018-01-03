@@ -15,9 +15,12 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @EnableWebMvc
 @Configuration
-//@EnableTransactionManagement
-@ComponentScan("ru.dionisius")
+@ComponentScan("ru.dionisius.presentation")
 public class SpringWebConfig implements WebMvcConfigurer {
+    public SpringWebConfig() {
+        System.out.println("SpringWebConfig instantiated.");
+    }
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");

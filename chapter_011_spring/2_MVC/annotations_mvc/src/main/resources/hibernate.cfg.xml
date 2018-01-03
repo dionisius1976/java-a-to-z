@@ -6,11 +6,11 @@
         <property name="connection.username">postgres</property>
         <property name="connection.password">absurdus</property>
 
+        <!-- Using hibernate.c3p0 to turn off rudimentary Hibernate's internal connection pool -->
         <property name="c3p0.min_size">5</property>
         <property name="c3p0.max_size">20</property>
         <property name="c3p0.timeout">1800</property>
         <property name="c3p0.max_statements">50</property>
-        <!--<property name="c3p0.idle_test_period">3000</property>-->
 
         <property name="dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
 
